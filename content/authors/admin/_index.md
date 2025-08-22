@@ -6,8 +6,8 @@ title: Shashini
 name_pronunciation: Shashini
 
 # Full name (for SEO)
-first_name: Shiung Wu
-last_name: Chien
+first_name: Shashini
+last_name: Marasinghe
 
 # Pronouns (optional)
 pronouns: she/her
