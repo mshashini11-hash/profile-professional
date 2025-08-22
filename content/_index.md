@@ -18,24 +18,26 @@ sections:
       button:
         text: Download CV
         url: uploads/resume.pdf
-    design:
-      css_class: dark
-      # Avatar customization
+design:
+  css_class: dark
+  # Avatar customization
+  avatar:
+    size: medium  # Options: small (150px), medium (200px, default), large (320px), xl (400px), xxl (500px)
+    shape: circle # Options: circle (default), square, rounded
+    background:
+      color: black
+      image:
+        # Add your image background to `assets/media/`.
+        filename: stacked-peaks.svg
+        filters:
+          brightness: 1.0
+        size: cover
+        position: center
+        parallax: false
 
-    avatar:
-        size: medium  # Options: small (150px), medium (200px, default), large (320px), xl (400px), xxl (500px)
-        shape: circle # Options: circle (default), square, rounded
-      background:
-        color: black
-        image:
-          # Add your image background to `assets/media/`.
-          filename: stacked-peaks.svg
-          filters:
-            brightness: 1.0
-          size: cover
-          position: center
-          parallax: false
-  - block: markdown
+   
+
+ - block: markdown
     content:
       title: '📚 My Research'
       subtitle: ''
