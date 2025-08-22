@@ -18,8 +18,8 @@ sections:
     design:
       css_class: dark
       avatar:
-        size: medium       # Options: small, medium, large, xl, xxl
-        shape: circle      # Options: circle, square, rounded
+        size: large       # Options: small, medium, large, xl, xxl
+        shape: square      # Options: circle, square, rounded
         background:
           color: black
           image:
