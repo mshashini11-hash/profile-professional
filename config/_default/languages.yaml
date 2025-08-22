@@ -7,10 +7,6 @@ en:
   languageCode: en-us
   # Uncomment for multi-lingual sites, and move English content into `en` sub-folder.
   #contentDir: content/en
-#en:
-  languageName: English
-  weight: 1
-  title: "Shashini Marasinghe | ශශිනි මාරසිංහ"
 
 # Uncomment the lines below to configure your website in a second language.
 #zh:
