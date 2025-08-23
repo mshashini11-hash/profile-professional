@@ -42,8 +42,19 @@ sections:
         
         Please reach out to collaborate 😃
     design:
-      columns: '1'
       css_class: dark
+      avatar:
+        size: medium
+        shape: circle
+      background:
+        color: black
+        image:
+          filename: stacked-peak.svg   # must be in assets/media/
+          filters:
+            brightness: 1.0
+          size: cover
+          position: center
+          parallax: false
 
   - block: collection
     id: papers
