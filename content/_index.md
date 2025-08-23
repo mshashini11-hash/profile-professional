@@ -9,26 +9,27 @@ design:
 
 sections:
   - block: resume-biography-3
-    content:
-      username: admin
-      text: ""
-      button:
-        text: Download CV
-        url: uploads/resume.pdf
-    design:
-      css_class: dark
-      avatar:
-        size: medium       # Options: small, medium, large, xl, xxl
-        shape: circle      # Options: circle, square, rounded
-        background:
-          color: black
-          image:
-            filename: stacked-peaks.svg
-            filters:
-              brightness: 1.0
-            size: cover
-            position: center
-            parallax: false
+  content:
+    username: admin
+    text: ""
+    button:
+      text: Download CV
+      url: uploads/resume.pdf
+  design:
+    css_class: dark
+    avatar:
+      size: medium
+      shape: circle
+    background:
+      color: black
+      image:
+        filename: stacked-peak.svg   # must be in assets/media/
+        filters:
+          brightness: 1.0
+        size: cover
+        position: center
+        parallax: false
+
 
   - block: markdown
     content:
