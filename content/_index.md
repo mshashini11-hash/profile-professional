@@ -42,6 +42,13 @@ sections:
         Please reach out to collaborate 😃
     design:
       columns: '1'
+     design:
+      css_class: dark
+      avatar:
+        size: medium       # Options: small, medium, large, xl, xxl
+        shape: circle      # Options: circle, square, rounded
+        background:
+          color: black
 
   - block: collection
     id: papers
