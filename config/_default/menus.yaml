@@ -16,7 +16,7 @@ main:
   - name: teaching experience
     url: /#news
     weight: 13
-  - name: Experience
+  - name: Experience cc
     url: experience/
     weight: 20
   - name: Projects
