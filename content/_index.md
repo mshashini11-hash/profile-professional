@@ -41,20 +41,7 @@ sections:
         I apply a range of qualitative and quantitative methods to comprehensively investigate the role of science and technology in the economy.
         
         Please reach out to collaborate 😃
-    design:
-      css_class: dark
-      avatar:
-        size: medium
-        shape: circle
-      background:
-        color: black
-        image:
-          filename: stacked-peak.svg   # must be in assets/media/
-          filters:
-            brightness: 1.0
-          size: cover
-          position: center
-          parallax: false
+    
 
   - block: collection
     id: papers
