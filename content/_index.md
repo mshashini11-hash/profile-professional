@@ -20,9 +20,10 @@ sections:
       avatar:
         size: medium       # Options: small, medium, large, xl, xxl
         shape: square      # Options: circle, square, rounded
-        background:
-          color: black
-          image:
+
+      background:
+        color: black
+        image:
             filename: stacked-peaks.svg
             filters:
               brightness: 1.0
