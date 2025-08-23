@@ -20,16 +20,15 @@ sections:
       avatar:
         size: medium       # Options: small, medium, large, xl, xxl
         shape: square      # Options: circle, square, rounded
-
       background:
         color: black
         image:
-            filename: stacked-peaks.svg
-            filters:
-              brightness: 1.0
-            size: cover
-            position: center
-            parallax: false
+          filename: stacked-peaks.svg
+          filters:
+            brightness: 1.0
+          size: cover
+          position: center
+          parallax: false
 
   - block: markdown
     content:
@@ -118,4 +117,5 @@ sections:
       card:
         css_class: "bg-primary-700"
         css_style: ""
+
 ---
