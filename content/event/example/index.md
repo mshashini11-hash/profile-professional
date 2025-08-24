@@ -34,7 +34,6 @@ featured: false
 
 image:
   caption: 
-  filename: feature.jpeg
   focal_point: Right
 
 links:
