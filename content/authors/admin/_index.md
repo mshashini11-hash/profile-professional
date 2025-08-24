@@ -34,8 +34,10 @@ organizations:
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
 profiles:
   - icon: at-symbol
-    url: 'mailto:your-email@example.com'
+    url: 'mailto:marasin1@msu.edu'
     label: E-mail Me
+  - icon: academicons/orcid
+    url: https://orcid.org/0009-0009-4104-3932  
   - icon: brands/x
     url: https://twitter.com/GetResearchDev
   - icon: brands/instagram
@@ -46,8 +48,7 @@ profiles:
     url: https://www.linkedin.com/
   - icon: academicons/google-scholar
     url: https://scholar.google.com/
-  - icon: academicons/orcid
-    url: https://orcid.org/
+  
 
 interests:
   - Quantum low dimentionalbtopology
@@ -60,27 +61,17 @@ education:
     date_start: 2021-01-01
     date_end: 2026-12-31
     summary: |
-      Thesis on _Why LLMs are awesome_. Supervised by [Prof Joe Smith](https://example.com). Presented papers at 5 IEEE conferences with the contributions being published in 2 Springer journals.
+      Thesis on _Qunatum Topology_. Supervised by [Prof Efstratia Kalfagianni](https://users.math.msu.edu/users/kalfagia/). #Presented papers at 5 IEEE conferences #with the contributions being published in 2 Springer journals.
     button:
-      text: 'Read Thesis'
+      text: 'Read Thesis-Pending'
       url: 'https://example.com'
-  - area: MEng Artificial Intelligence
-    institution: Massachusetts Institute of Technology
-    date_start: 2016-01-01
-    date_end: 2020-12-31
-    summary: |
-      GPA: 3.8/4.0
-
-      Courses included:
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
+  
   - area: BSc Artificial Intelligence
     institution: Massachusetts Institute of Technology
     date_start: 2016-01-01
     date_end: 2020-12-31
     summary: |
-      GPA: 3.4/4.0
+      GPA: 3.9/4.0
       
       Courses included:
       - lorem ipsum dolor sit amet, consectetur adipiscing elit
@@ -117,40 +108,24 @@ skills:
     items:
       - name: Python
         description: ''
-        percent: 80
+        percent: 90
         icon: code-bracket
-      - name: Data Science
+      - name: LaTeX
         description: ''
         percent: 100
-        icon: chart-bar
+        icon: file-text
       - name: SQL
         description: ''
         percent: 40
         icon: circle-stack
-  - name: Hobbies
-    color: '#eeac02'
-    color_border: '#f0bf23'
-    items:
-      - name: Hiking
-        description: ''
-        percent: 60
-        icon: person-simple-walk
-      - name: Cats
-        description: ''
-        percent: 100
-        icon: cat
-      - name: Photography
-        description: ''
-        percent: 80
-        icon: camera
+  
 
 languages:
   - name: English
     percent: 100
-  - name: Chinese
+  - name: Sinhala
     percent: 75
-  - name: Portuguese
-    percent: 25
+  
 
 # Awards.
 #   Add/remove as many awards below as you like.
@@ -186,4 +161,4 @@ awards:
 
 ## About Me
 
-Chien Shiung Wu is a professor of artificial intelligence at the Stanford AI Lab. Her research interests include distributed robotics, mobile computing and programmable matter. She leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
+I am a fifth-year Ph.D. candidate in Mathematics at Michigan State University, currently on the academic job market. My research focuses on quantum topology and knot theory, with an interest in integrating computational approaches into mathematical exploration. Alongside my research, I am deeply engaged in teaching and the development of innovative teaching and learning techniques that connect abstract mathematical ideas with technology and coding.
