@@ -34,7 +34,7 @@ featured: false
 
 image:
   caption: 
-  filename: shashinipic.jpg
+  filename: feature.jpeg
   focal_point: Right
 
 links:
