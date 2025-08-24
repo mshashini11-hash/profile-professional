@@ -14,13 +14,10 @@ sections:
       date_format: 'January 2006'
       is_education_first: false
 
-  - block: resume-experience
+  - block: resume-work
     content:
       title: Teaching Experiences
       username: admin
-    design:
-      date_format: 'January 2006'
-      is_education_first: false
 
   - block: resume-skills
     content:
