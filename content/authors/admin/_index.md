@@ -1,9 +1,9 @@
 ---
 # Display name
-title: Shashini
+title: Shashini Marasinghe
 
 # Name pronunciation (optional)
-name_pronunciation: Shashini
+name_pronunciation: 
 
 # Full name (for SEO)
 first_name: Shashini
@@ -23,12 +23,12 @@ superuser: true
 highlight_name: true
 
 # Role/position/tagline
-role: Mathematics
+role: Graduate Teaching Assistant
 
 # Organizations/Affiliations to display in Biography blox
 organizations:
   - name: Michigan State University
-    url: https://openai.com/
+    url: https://directory.natsci.msu.edu/directory/Profiles/Person/101486
 
 # Social network links
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
