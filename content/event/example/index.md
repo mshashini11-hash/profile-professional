@@ -34,7 +34,6 @@ featured: false
 
 image:
   caption:
-  filename: fee.jpg
   focal_point: Right
 
 links:
