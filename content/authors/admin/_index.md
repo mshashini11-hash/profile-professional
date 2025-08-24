@@ -87,7 +87,7 @@ education:
     #summary: |2-
      # Responsibilities include:
      # - lorem ipsum dolor sit amet, consectetur adipiscing eli
-work:
+experience:
   company_name: Michigan State University
   roles:
     - title: Instructor of Record
