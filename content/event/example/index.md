@@ -33,7 +33,8 @@ tags: []
 featured: false
 
 image:
-  caption: 
+  caption:
+  filename: fee.jpg
   focal_point: Right
 
 links:
