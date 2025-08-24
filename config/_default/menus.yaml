@@ -7,22 +7,22 @@ main:
   - name: Bio
     url: /
     weight: 10
-  - name: Experience 
+  - name: Teaching CV
     url: experience/
     weight: 11
-  - name: Projects
+  - name: Research
     url: projects/
     weight: 12
-  - name: Teaching
+  - name: Statement
     url: teaching/
     weight: 13
-  - name: Paper
+  - name: Papers
     url: /#papers
     weight: 20
-  - name: Research
+  - name: awards
     url: /#talks
     weight: 30
-  - name: teaching experience
+  - name: Hobbies
     url: /#news
     weight: 40
   
