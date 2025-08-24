@@ -2,9 +2,9 @@
 title: Example Talk
 
 event: Hugo Blox Builder Conference
-event_url: https://example.org
+event_url: 
 
-location: Hugo Blox Builder HQ
+location: 
 address:
   street: 450 Serra Mall
   city: Stanford
@@ -34,6 +34,7 @@ featured: false
 
 image:
   caption: 'Image credit: [**Unsplash**](https://unsplash.com/photos/bzdhc5b3Bxs)'
+  filename: shashinipic.jpg
   focal_point: Right
 
 links:
