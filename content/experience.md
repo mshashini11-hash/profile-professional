@@ -14,10 +14,7 @@ sections:
       date_format: 'January 2006'
       is_education_first: false
 
-  - block: resume-work
-    content:
-      title: Teaching Experiences
-      username: admin
+  
 
   - block: resume-skills
     content:
