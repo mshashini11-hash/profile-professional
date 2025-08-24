@@ -34,6 +34,7 @@ featured: false
 
 image:
   caption:
+  filename: tra1.jpeg
   focal_point: Right
 
 links:
