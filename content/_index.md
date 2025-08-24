@@ -30,11 +30,11 @@ sections:
           position: center
           parallax: false
 
-  - block: markdown
-    content:
-      title: '📚 My Research'
-      subtitle: ''
-      text: |-
+  #- block: markdown
+   # content:
+      #title: '📚 My Research'
+      #subtitle: ''
+      #text: |-
         
         
         Please reach out to collaborate 😃
