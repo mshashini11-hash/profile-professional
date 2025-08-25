@@ -7,7 +7,7 @@ design:
   spacing: '5rem'
 
 sections:
-  - block: resume-experience
+  - block: resume-experiences
     content:
       title: Teaching experiences
       username: admin
