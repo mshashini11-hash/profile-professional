@@ -1,0 +1,10 @@
+{{ $user := .Site.Data.authors.admin }}
+{{ range $user.experience }}
+<div class="experience-block">
+  <h3>{{ .organization }}</h3>
+  {{ range .roles }}
+    <strong>{{ .title }}</strong>
+    <p>{{ .description }}</p>
+  {{ end }}
+</div>
+{{ end }}
