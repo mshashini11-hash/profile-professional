@@ -111,14 +111,13 @@ experience:
 
 work:
   - company_name: Michigan State University
-    positions:
-      - title: Instructor of Record
+    - positions: Instructor of Record
         date_start: 2023-08-01
         date_end: 2024-05-01
         summary: |
           - Taught MTH 234 – Multivariable Calculus 3
           - Taught MTH 124 – Survey of Calculus 1
-      - title: Teaching Team
+    - position: Teaching Team
         date_start: 2021-08-01
         date_end: 2022-05-01
         summary: |
