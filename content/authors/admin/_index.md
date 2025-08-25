@@ -83,7 +83,7 @@ experience:
         description: This should show
 
 
-experience:
+education:
   - organization: Michigan State University
     roles:
       - title: Instructor of Record
