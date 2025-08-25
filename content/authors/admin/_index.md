@@ -53,7 +53,7 @@ interests:
   - Teaching
   - Quantum computing
 
-education:
+experience:
   - area: PhD Mathematics
     institution: Michigan State University
     date_start: 2021-01-01
