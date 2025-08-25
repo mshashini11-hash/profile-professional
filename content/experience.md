@@ -1,22 +1,20 @@
 ---
 sections:
   - block: resume-experience
-  content:
-    username: admin
-  design:
-    date_format: 'January 2006'
-    is_education_first: false
+    content:
+      title: Experience
+      username: admin
+    design:
+      date_format: 'January 2006'
+      is_education_first: false
 
-
- 
-  #- block: resume-experience
-    #content:
-      #username: admin
-    #design:
-      #date_format: 'January 2006'
-      #is_education_first: false
-
-  
+  - block: resume-experience
+    content:
+      title: Teaching Experiences
+      username: admin
+    design:
+      date_format: 'January 2006'
+      is_education_first: false
 
   - block: resume-skills
     content:
