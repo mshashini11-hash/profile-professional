@@ -53,7 +53,7 @@ interests:
   - Teaching
   - Quantum computing
 
-experience:
+education:
   - area: PhD Mathematics
     institution: Michigan State University
     date_start: 2021-01-01
@@ -77,13 +77,6 @@ experience:
       - lorem ipsum dolor sit amet, consectetur adipiscing elit
 
 experience:
-  - organization: TEST
-    roles:
-      - title: Dummy
-        description: This should show
-
-
-education:
   - organization: Michigan State University
     roles:
       - title: Instructor of Record
