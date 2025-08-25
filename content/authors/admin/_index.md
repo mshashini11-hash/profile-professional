@@ -77,6 +77,13 @@ education:
       - lorem ipsum dolor sit amet, consectetur adipiscing elit
 
 experience:
+  - organization: TEST
+    roles:
+      - title: Dummy
+        description: This should show
+
+
+experience:
   - organization: Michigan State University
     roles:
       - title: Instructor of Record
