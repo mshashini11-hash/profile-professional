@@ -19,8 +19,8 @@ sections:
       title: Teaching experiences
       username: admin
     design:
-      show_skill_percentage: false
-
+      date_format: 'January 2006'
+      is_education_first: false
   - block: resume-skills
     content:
       title: Skills & Hobbies
