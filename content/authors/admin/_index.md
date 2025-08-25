@@ -127,6 +127,7 @@ work:
 
 
 
+
 #work:
  # - position: Director of Cloud Infrastructure
    # company_name: GenCoin
