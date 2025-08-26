@@ -7,30 +7,30 @@ design:
   spacing: "5rem"
 
 sections:
-  - block: experience
+  - block: teaching1
     content:
-      title: Teaching Experiences
-      items:
-        - company: "Michigan State University"
-          roles:
-            - title: Instructor of Record
-              description: |
-                - Taught MTH 234 – Multivariable Calculus 3  
-                - Taught MTH 124 – Survey of Calculus 1  
-                [Syllabus PDF](uploads/mth234_syllabus.pdf)
-            - title: Teaching Team
-              description: |
-                - Assisted in teaching MTH 133 – Calculus 2  
-                - Assisted in MTH 124 – Survey of Calculus 1  
+      title: "Teaching"
+      universities:
+        - name: "Michigan State University"
+          positions:
+            - title: "Instructor of Record"
+              details:
+                - "Taught MTH 234 – Multivariable Calculus 3"
+                - "Taught MTH 124 – Survey of Calculus 1"
+                - "[Syllabus (PDF)](/uploads/mth234_syllabus.pdf)"
+            - title: "Teaching Team"
+              details:
+                - "Assisted in teaching MTH 133 – Calculus 2"
+                - "Assisted in MTH 124 – Survey of Calculus 1"
 
-        - company: "Another University"
-          roles:
-            - title: Graduate Teaching Assistant
-              description: |
-                - Led recitation sessions for Calculus I  
-                - Held weekly office hours and exam reviews
-
+        - name: "Another University"
+          positions:
+            - title: "Graduate Teaching Assistant"
+              details:
+                - "Led recitation sessions for Calculus I"
+                - "Held weekly office hours and exam reviews"
 ---
+
 
 
  
