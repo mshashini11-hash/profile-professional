@@ -1,0 +1,35 @@
+{{ define "main" }}
+<section class="block-teaching1">
+  <div class="container">
+    <h1>{{ .Title }}</h1>
+
+    {{ $universities := slice
+      (dict "name" "Michigan State University" "positions" (slice
+          (dict "title" "Instructor of Record" "details" (slice "Taught MTH 234 – Multivariable Calculus 3" "Taught MTH 124 – Survey of Calculus 1"))
+          (dict "title" "Teaching Team" "details" (slice "Assisted in teaching MTH 133 – Calculus 2" "Assisted in MTH 124 – Survey of Calculus 1"))
+        ))
+      (dict "name" "Another University" "positions" (slice
+          (dict "title" "Graduate Teaching Assistant" "details" (slice "Led recitation sessions for Calculus I" "Held weekly office hours and exam reviews"))
+        ))
+    }}
+
+    {{ range $universities }}
+      <div class="teaching-university">
+        <h2 class="uni-name">{{ .name }}</h2>
+
+        {{ range .positions }}
+          <div class="teaching-position">
+            <strong class="position-title">{{ .title }}</strong>
+            <ul class="position-details">
+              {{ range .details }}
+                <li>{{ . }}</li>
+              {{ end }}
+            </ul>
+          </div>
+        {{ end }}
+
+      </div>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
