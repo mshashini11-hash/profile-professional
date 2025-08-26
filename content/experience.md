@@ -3,9 +3,6 @@ title: "Teaching"
 date: 2023-10-24
 type: landing
 
-design:
-  spacing: "5rem"
-
 sections:
   - block: teaching1
     content:
@@ -17,7 +14,6 @@ sections:
               details:
                 - "Taught MTH 234 – Multivariable Calculus 3"
                 - "Taught MTH 124 – Survey of Calculus 1"
-                - "[Syllabus (PDF)](/uploads/mth234_syllabus.pdf)"
             - title: "Teaching Team"
               details:
                 - "Assisted in teaching MTH 133 – Calculus 2"
