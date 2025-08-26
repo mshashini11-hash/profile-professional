@@ -1,0 +1,37 @@
+/* basic, clean vertical layout and highlight */
+.block-teaching1 .teaching-main-title {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #222;
+}
+
+.block-teaching1 .teaching-university {
+  padding: 1rem 0;
+  border-top: 1px solid #eee;
+  margin-top: 1rem;
+}
+
+.block-teaching1 .uni-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #154360;         /* highlighted color */
+  margin-bottom: 0.6rem;
+  padding-left: .5rem;
+  border-left: 4px solid #4a90e2;
+}
+
+.block-teaching1 .teaching-position {
+  margin-left: 1rem;
+  margin-top: 0.5rem;
+}
+
+.block-teaching1 .position-title {
+  display: block;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.3rem;
+}
+
+.block-teaching1 .position-details {
+  margin: 0.2rem 0 0.8rem 1rem;
+}
