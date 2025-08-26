@@ -1,36 +1,37 @@
 ---
-title: 'Experience'
+title: "Experience"
 date: 2023-10-24
 type: landing
 
 design:
-  spacing: '5rem'
+  spacing: "5rem"
 
 sections:
-  - block: resume-experience
+  - block: features
     content:
-      title: Teaching experiences
-      username: admin
+      title: Teaching Experiences
+      items:
+        - title: "Michigan State University"
+          description: |
+            **Instructor of Record (2023–2024)**
+            - Taught MTH 234 – Multivariable Calculus 3  
+            - Taught MTH 124 – Survey of Calculus 1  
+            [Syllabus PDF](uploads/mth234_syllabus.pdf)
+
+            **Teaching Team (2021–2022)**
+            - Assisted in teaching MTH 133 – Calculus 2  
+            - Assisted in MTH 124 – Survey of Calculus 1  
+            [Teaching Portfolio](uploads/teaching_portfolio.pdf)
+
+        - title: "Another University"
+          description: |
+            **Graduate Teaching Assistant (2019–2020)**
+            - Led recitation sessions for Calculus I  
+            - Held weekly office hours and exam reviews
+            [Sample Lecture Slides](uploads/calc1_slides.pdf)
     design:
-      date_format: 'January 2006'
-      is_education_first: false
+      columns: 1   # forces vertical stacked layout
 
-  - block: resume-skills
-    content:
-      title: Skills & Hobbies
-      username: admin
-    design:
-      show_skill_percentage: false
-
-  - block: resume-awards
-    content:
-      title: Awards
-      username: admin
-
-  - block: resume-languages
-    content:
-      title: Languages
-      username: admin
 ---
 
 
