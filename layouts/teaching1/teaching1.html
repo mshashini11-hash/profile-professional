@@ -1,35 +1,40 @@
 {{ define "main" }}
 <section class="block-teaching1">
   <div class="container">
-    <h1>{{ .Title }}</h1>
 
-    {{ $universities := slice
-      (dict "name" "Michigan State University" "positions" (slice
-          (dict "title" "Instructor of Record" "details" (slice "Taught MTH 234 – Multivariable Calculus 3" "Taught MTH 124 – Survey of Calculus 1"))
-          (dict "title" "Teaching Team" "details" (slice "Assisted in teaching MTH 133 – Calculus 2" "Assisted in MTH 124 – Survey of Calculus 1"))
-        ))
-      (dict "name" "Another University" "positions" (slice
-          (dict "title" "Graduate Teaching Assistant" "details" (slice "Led recitation sessions for Calculus I" "Held weekly office hours and exam reviews"))
-        ))
-    }}
+    <!-- Page Title -->
+    {{ with .Title }}
+      <h1 class="teaching-main-title">{{ . }}</h1>
+    {{ end }}
 
-    {{ range $universities }}
+    <!-- Loop over universities -->
+    {{ range .Params.universities }}
       <div class="teaching-university">
+
+        <!-- University Name -->
         <h2 class="uni-name">{{ .name }}</h2>
 
+        <!-- Loop over positions within the university -->
         {{ range .positions }}
           <div class="teaching-position">
-            <strong class="position-title">{{ .title }}</strong>
+
+            <!-- Position Title -->
+            <span class="position-title">{{ .title }}</span>
+
+            <!-- Details / bullet points -->
             <ul class="position-details">
               {{ range .details }}
-                <li>{{ . }}</li>
+                <li>{{ . | safeHTML }}</li>
               {{ end }}
             </ul>
+
           </div>
         {{ end }}
 
       </div>
     {{ end }}
+
   </div>
 </section>
 {{ end }}
+
