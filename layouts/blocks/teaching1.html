@@ -1,30 +1,22 @@
-{{/* layouts/blocks/teaching1.html */}}
-<section id="teaching" class="block-teaching1">
+<section class="block-teaching1">
   <div class="container">
     {{ with .content.title }}
-      <h2 class="teaching-main-title">{{ . }}</h2>
+      <h2>{{ . }}</h2>
     {{ end }}
 
     {{ range .content.universities }}
-      <div class="teaching-university">
-        <h3 class="uni-name">{{ .name }}</h3>
+      <h3 style="color:#154360; border-left:4px solid #4a90e2; padding-left:5px;">
+        {{ .name }}
+      </h3>
 
-        {{ range .positions }}
-          <div class="teaching-position">
-            <strong class="position-title">{{ .title }}</strong>
-            {{ if .details }}
-              <ul class="position-details">
-                {{ range .details }}
-                  <li>{{ . | markdownify | safeHTML }}</li>
-                {{ end }}
-              </ul>
-            {{ end }}
-          </div>
-        {{ end }}
-
-      </div>
+      {{ range .positions }}
+        <strong>{{ .title }}</strong>
+        <ul>
+          {{ range .details }}
+            <li>{{ . }}</li>
+          {{ end }}
+        </ul>
+      {{ end }}
     {{ end }}
   </div>
 </section>
-
-
