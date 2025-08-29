@@ -12,7 +12,13 @@ universities:
       - title: "Teaching Assistant"
         url: "/teaching1/ta/"
         details:
-          - "Assisted with discussion sections"
-          - "Held office hours for 150+ students"
+          - "Led recitations and graded assignments"
+          - "Held weekly office hours"
+  - name: "University of Colombo"
+    positions:
+      - title: "Guest Lecturer"
+        url: "/teaching1/guest-lecturer/"
+        details:
+          - "Delivered short course in applied math"
+          - "Supervised undergraduate projects"
 ---
-
