@@ -1,47 +1,11 @@
 {{ define "main" }}
-<section class="block-teaching1 py-8">
-  <div class="container mx-auto">
+<h1>{{ .Title }}</h1>
 
-    <!-- Page Title -->
-    {{ with .Title }}
-      <h1 class="text-3xl font-bold mb-6">{{ . }}</h1>
-    {{ end }}
-
-    <!-- Loop over universities -->
-    {{ range .Params.universities }}
-      <div class="teaching-university mb-8">
-
-        <!-- University Name -->
-        <h2 class="text-2xl font-semibold mb-4">{{ .name }}</h2>
-
-        <!-- Loop over positions within the university -->
-        {{ range .positions }}
-          <div class="teaching-position mb-4 pl-4 border-l-2 border-gray-300">
-
-            <!-- Position Title (clickable if url exists) -->
-            {{ if .url }}
-              <a href="{{ .url }}" class="block text-xl font-medium text-blue-600 hover:underline">
-                {{ .title }}
-              </a>
-            {{ else }}
-              <span class="block text-xl font-medium">{{ .title }}</span>
-            {{ end }}
-
-            <!-- Details / bullet points -->
-            {{ with .details }}
-              <ul class="list-disc list-inside mt-2 text-gray-700">
-                {{ range . }}
-                  <li>{{ . | safeHTML }}</li>
-                {{ end }}
-              </ul>
-            {{ end }}
-
-          </div>
-        {{ end }}
-
-      </div>
-    {{ end }}
-
-  </div>
-</section>
+{{ range .Params.universities }}
+  <h2>{{ .name }}</h2>
+  {{ range .positions }}
+    <a href="{{ .url }}">{{ .title }}</a>
+  {{ end }}
 {{ end }}
+{{ end }}
+
