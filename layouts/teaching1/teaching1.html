@@ -12,20 +12,20 @@
       <div class="mb-12 p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
 
         <!-- University Name -->
-        <h2 class="text-2xl md:text-3xl font-bold mb-6 text-indigo-700">{{ .name }}</h2>
+        <h2 class="text-2xl md:text-3xl font-bold mb-6 text--[#18453B]">{{ .name }}</h2>
 
         <!-- Loop over positions -->
         {{ range .positions }}
-          <div class="mb-6 pl-4 border-l-4 border-indigo-300 relative">
+          <div class="mb-6 pl-4 border-l-4 border-[#18453B] relative">
             
             <!-- Position Title -->
-            <a href="{{ .url }}" class="block text-xl md:text-2xl font-semibold text-blue-600 hover:text-blue-800 hover:underline mb-2 transition-colors duration-200">
+            <a href="{{ .url }}" class="block text-xl md:text-2xl font-semibold text-[#18453B] hover:text-[#1C1C1C] hover:underline mb-2 transition-colors duration-200">
               {{ .title }}
             </a>
 
             <!-- Position Details -->
             {{ with .details }}
-              <ul class="list-disc list-inside text-gray-700 ml-2">
+              <ul class="list-disc list-inside text-[#1C1C1C] ml-2">
                 {{ range . }}
                   <li class="mb-1">{{ . | safeHTML }}</li>
                 {{ end }}
