@@ -1,11 +1,43 @@
 {{ define "main" }}
-<h1>{{ .Title }}</h1>
+<section class="py-12 bg-gray-50 min-h-screen">
+  <div class="container mx-auto px-4">
 
-{{ range .Params.universities }}
-  <h2>{{ .name }}</h2>
-  {{ range .positions }}
-    <a href="{{ .url }}">{{ .title }}</a>
-  {{ end }}
-{{ end }}
-{{ end }}
+    <!-- Main Page Title -->
+    {{ with .Title }}
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-12 text-center text-gray-800">{{ . }}</h1>
+    {{ end }}
 
+    <!-- Loop over universities -->
+    {{ range .Params.universities }}
+      <div class="mb-12 p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+
+        <!-- University Name -->
+        <h2 class="text-2xl md:text-3xl font-bold mb-6 text-indigo-700">{{ .name }}</h2>
+
+        <!-- Loop over positions -->
+        {{ range .positions }}
+          <div class="mb-6 pl-4 border-l-4 border-indigo-300 relative">
+            
+            <!-- Position Title -->
+            <a href="{{ .url }}" class="block text-xl md:text-2xl font-semibold text-blue-600 hover:text-blue-800 hover:underline mb-2 transition-colors duration-200">
+              {{ .title }}
+            </a>
+
+            <!-- Position Details -->
+            {{ with .details }}
+              <ul class="list-disc list-inside text-gray-700 ml-2">
+                {{ range . }}
+                  <li class="mb-1">{{ . | safeHTML }}</li>
+                {{ end }}
+              </ul>
+            {{ end }}
+
+          </div>
+        {{ end }}
+
+      </div>
+    {{ end }}
+
+  </div>
+</section>
+{{ end }}
