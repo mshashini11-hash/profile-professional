@@ -60,19 +60,16 @@ sections:
     design:
       view: citation
   
-  - block: markdown
+  - block: collection
+  id: awards
   content:
-    title: "Awards & Honors"
-    text: |-
-      - [FAST Fellowship](https://www.coursera.org/learn/neural-networks-deep-learning) — Coursera, 2023-11-25  
-        I studied the foundational concept of neural networks and deep learning.
-
-      - [TA Award](https://www.edx.org/professional-certificate/uc-berkeleyx-blockchain-fundamentals) — edX, 2023-07-01  
-        Learned:
-        - Synthesize your own blockchain solutions
-        - Apply blockchain fundamentals in real-world scenarios
-  design:
-    columns: 1
+    title: Awards & Honors
+    filters:
+      folders:
+        - event
+    design:
+      view: article-grid
+      columns: 1
 
   - block: collection
     id: news
