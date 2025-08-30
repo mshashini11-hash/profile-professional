@@ -1,3 +1,4 @@
+---
 title: ""
 date: 2022-10-24
 type: landing
@@ -117,6 +118,7 @@ sections:
       card:
         css_class: "bg-primary-700"
         css_style: ""
+---
 
 
 
