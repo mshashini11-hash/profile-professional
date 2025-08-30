@@ -60,22 +60,17 @@ sections:
     design:
       view: citation
 
-  #- Awards as a clean list (no boxes)
-  - block: list
+  - block: collection
+    id: awards
     content:
-      title: Awards & Honors
-      items:
-        - title: FAST Fellowship
-          description: Coursera (2023-11-25) — I studied the foundational concept of neural networks and deep learning.
-          url: https://www.coursera.org/learn/neural-networks-deep-learning
-
-        - title: TA Award
-          description: edX (2023-07-01) — Learned: Synthesize your own blockchain solutions, Apply blockchain fundamentals in real-world scenarios
-          url: https://www.edx.org/professional-certificate/uc-berkeleyx-blockchain-fundamentals
-
-        - title: Object-Oriented Programming in R
-          description: DataCamp (2023-01-21) — Especially useful for industry-specific analyses, working with web APIs, and building GUIs.
-          url: https://www.datacamp.com/courses/object-oriented-programming-with-s3-and-r6-in-r
+      title: "Awards & Honors"
+      filters:
+        folders:
+          - awards
+    design:
+      view: view: date-title-summary
+      spacing:
+        padding: [0, 0, 0, 0]
 
   - block: collection
     id: news
