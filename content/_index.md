@@ -1,4 +1,8 @@
 ---
+title: ""
+date: 2022-10-24
+type: landing
+
 sections:
   - block: resume-biography-3
     content:
@@ -43,14 +47,12 @@ sections:
   #    view: article-grid
   #    columns: 2
 
-  # Research heading
   - block: markdown
     content:
       title: "Research"
     design:
       columns: '1'
 
-  # Topology publications
   - block: markdown
     content:
       title: "Topology"
@@ -61,7 +63,6 @@ sections:
     design:
       columns: '1'
 
-  # Education publications
   - block: markdown
     content:
       title: "Education"
@@ -123,8 +124,8 @@ sections:
       card:
         css_class: "bg-primary-700"
         css_style: ""
-
 ---
+
 
 
 
