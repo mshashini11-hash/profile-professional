@@ -59,25 +59,19 @@ sections:
       exclude_featured: false
     design:
       view: citation
-  
-  - block: cards
+
+  - block: markdown
     id: awards
     content:
       title: "Awards & Honors"
-      cards:
-        - title: FAST Fellowship
-          subtitle: Coursera, 2023-11-25
-          url: https://www.coursera.org/learn/neural-networks-deep-learning
-          text: I studied the foundational concept of neural networks and deep learning.
-        - title: TA Award
-          subtitle: edX, 2023-07-01
-          url: https://www.edx.org/professional-certificate/uc-berkeleyx-blockchain-fundamentals
-          text: |-
-            Learned:
-            - Synthesize your own blockchain solutions
-            - Apply blockchain fundamentals in real-world scenarios
-    design:
-      columns: 1
+      text: |-
+        **FAST Fellowship** — Coursera, 2023-11-25  
+        I studied the foundational concept of neural networks and deep learning.  
+
+        **TA Award** — edX, 2023-07-01  
+        Learned:
+        - Synthesize your own blockchain solutions
+        - Apply blockchain fundamentals in real-world scenarios
     
   - block: collection
     id: news
