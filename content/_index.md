@@ -46,12 +46,6 @@ sections:
   #  design:
   #    view: article-grid
   #    columns: 2
-
-  - block: markdown
-    content:
-      title: "Research"
-    design:
-      columns: '1'
   
   - block: collection
     content:
@@ -64,20 +58,7 @@ sections:
           - Topology
       exclude_featured: false
     design:
-      view: citation
-
-  - block: collection
-    content:
-      title: "Education"
-      text: ""
-      filters:
-        folders:
-          - publication
-        tags:
-          - Education
-      exclude_featured: false
-    design:
-      view: citation
+      view: article-grid
   
   - block: collection
     id: talks
