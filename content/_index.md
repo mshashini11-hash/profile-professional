@@ -1,4 +1,3 @@
----
 title: ""
 date: 2022-10-24
 type: landing
@@ -61,12 +60,12 @@ sections:
       view: citation
   
   - block: collection
-  id: awards
-  content:
-    title: Awards & Honors
-    filters:
-      folders:
-        - event
+    id: awards
+    content:
+      title: Awards & Honors
+      filters:
+        folders:
+          - event
     design:
       view: article-grid
       columns: 1
@@ -113,7 +112,6 @@ sections:
       card:
         css_class: "bg-primary-700"
         css_style: ""
----
 
 
 
