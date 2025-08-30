@@ -1,12 +1,3 @@
----
-# Leave the homepage title empty to use the site title
-title: ""
-date: 2022-10-24
-type: landing
-
-design:
-  spacing: "6rem"  # Default section spacing
-
 sections:
   - block: resume-biography-3
     content:
@@ -18,8 +9,8 @@ sections:
     design:
       css_class: dark
       avatar:
-        size: medium       # Options: small, medium, large, xl, xxl
-        shape: square      # Options: circle, square, rounded
+        size: medium
+        shape: square
       background:
         color: black
         image:
@@ -31,40 +22,38 @@ sections:
           parallax: false
 
   #- block: markdown
-   # content:
-      #title: '📚 My Research'
-      #subtitle: ''
-      #text: |-
-        
-        
-       # Please reach out to collaborate 😃
-    #design:
-      #columns: '1'
+  #  content:
+  #    title: '📚 My Research'
+  #    subtitle: ''
+  #    text: |-
+  #      Please reach out to collaborate 😃
+  #  design:
+  #    columns: '1'
 
- # - block: collection
-    #id: papers
-    #content:
-      #title: Featured Publications
-      #filters:
-        #folders:
-          #- publication
-        #featured_only: true
-    #design:
-      #view: article-grid
-      #columns: 2
+  #- block: collection
+  #  id: papers
+  #  content:
+  #    title: Featured Publications
+  #    filters:
+  #      folders:
+  #        - publication
+  #      featured_only: true
+  #  design:
+  #    view: article-grid
+  #    columns: 2
 
   - block: collection
-  content:
-    title: Topology Publications
-    text: ""
-    filters:
-      folders:
-        - publication
-      tags:
-        - Topology
-    exclude_featured: false
-  design:
-    view: citation
+    content:
+      title: Topology Publications
+      text: ""
+      filters:
+        folders:
+          - publication
+        tags:
+          - Topology
+      exclude_featured: false
+    design:
+      view: citation
 
   - block: collection
     content:
@@ -78,7 +67,6 @@ sections:
       exclude_featured: false
     design:
       view: citation
-
 
   - block: collection
     id: talks
@@ -95,8 +83,8 @@ sections:
     id: news
     content:
       title: Recent News
-      subtitle: ''
-      text: ''
+      subtitle: ""
+      text: ""
       page_type: post
       count: 5
       filters:
@@ -134,4 +122,3 @@ sections:
         css_class: "bg-primary-700"
         css_style: ""
 
----
