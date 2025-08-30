@@ -68,9 +68,8 @@ sections:
         folders:
           - awards
     design:
-      view: view: date-title-summary
-      spacing:
-        padding: [0, 0, 0, 0]
+      view: view: citation
+      columns: 1
 
   - block: collection
     id: news
