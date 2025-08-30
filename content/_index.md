@@ -60,6 +60,14 @@ sections:
     design:
       view: citation
 
+  - block: resume-biography-3
+    id: awards
+    content:
+      username: admin
+      text: ""
+    design:
+      view: citation 
+
   - block: markdown
     id: awards
     content:
