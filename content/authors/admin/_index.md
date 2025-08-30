@@ -165,10 +165,10 @@ languages:
 
 awards:
   - title: FAST Fellowship
-    #url: 
+    url: '' 
     date: '2023-11-25'
     awarder: Michigan State University
-    #icon: 
+    icon: '' 
     summary: |
       I studied the foundational concept of neural networks and deep learning.
 
