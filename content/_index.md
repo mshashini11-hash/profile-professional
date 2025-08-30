@@ -1,4 +1,3 @@
----
 title: ""
 date: 2022-10-24
 type: landing
@@ -33,7 +32,7 @@ sections:
   #    text: |-
   #      Please reach out to collaborate 😃
   #  design:
-  #    columns: '1'
+  #    columns: 1
 
   #- block: collection
   #  id: papers
@@ -118,7 +117,7 @@ sections:
       card:
         css_class: "bg-primary-700"
         css_style: ""
----
+
 
 
 
