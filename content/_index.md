@@ -60,8 +60,7 @@ sections:
     design:
       view: citation
 
-  - block: experience
-    id: awards
+  - block: awards
     content:
       username: admin
       text: ""
