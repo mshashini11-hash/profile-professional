@@ -72,7 +72,10 @@ sections:
         - title: TA Award
           subtitle: edX, 2023-07-01
           url: https://www.edx.org/professional-certificate/uc-berkeleyx-blockchain-fundamentals
-          text: Learned: Synthesize your own blockchain solutions; Apply blockchain fundamentals in real-world scenarios
+          text: |-
+            Learned:
+            - Synthesize your own blockchain solutions
+            - Apply blockchain fundamentals in real-world scenarios
     design:
       columns: 1
     
