@@ -60,9 +60,7 @@ sections:
     design:
       view: citation
 
-  # ---------------------
-  # Awards section
-  # ---------------------
+  #- Awards as a clean list (no boxes)
   - block: list
     content:
       title: Awards & Honors
