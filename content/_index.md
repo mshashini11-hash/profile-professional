@@ -77,13 +77,12 @@ sections:
           url: https://www.coursera.org/learn/neural-networks-deep-learning
 
         - title: TA Award
-          description: edX (2023-07-01) — Learned: Synthesize your own blockchain solutions, Apply blockchain fundamentals in real-world scenarios
+          description: edX (2023-07-01) — Learned: Synthesize your own blockchain solutions, Apply blockchain fundamenta
           url: https://www.edx.org/professional-certificate/uc-berkeleyx-blockchain-fundamentals
 
         - title: Object-Oriented Programming in R
-          description: DataCamp (2023-01-21) — Especially useful for industry-specific analyses, working with web APIs, and building GUIs.
+          description: DataCamp (2023-01-21) — Especially useful for industry-specific analyses, working with web API
           url: https://www.datacamp.com/courses/object-oriented-programming-with-s3-and-r6-in-r
-✅ This way:
     
   - block: collection
     id: news
