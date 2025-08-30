@@ -170,8 +170,9 @@ awards:
     awarder: Coursera
     icon: coursera
     summary: |
-      I studied the foundational concept of.
-  - title: TA award
+      I studied the foundational concept of neural networks and deep learning.
+
+  - title: TA Award
     url: https://www.edx.org/professional-certificate/uc-berkeleyx-blockchain-fundamentals
     date: '2023-07-01'
     awarder: edX
@@ -179,15 +180,16 @@ awards:
     summary: |
       Learned:
       - Synthesize your own blockchain solutions
-      
-  - title: 'Object-Oriented Programming in R'
+      - Apply blockchain fundamentals in real-world scenarios
+
+  - title: Object-Oriented Programming in R
     url: https://www.datacamp.com/courses/object-oriented-programming-with-s3-and-r6-in-r
     certificate_url: https://www.datacamp.com
     date: '2023-01-21'
-    awarder: datacamp
+    awarder: DataCamp
     icon: datacamp
     summary: |
-       especially useful for industry-specific analyses, working with web APIs, and building GUIs.
+      Especially useful for industry-specific analyses, working with web APIs, and building GUIs.
 
 ---
 
