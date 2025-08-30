@@ -1,5 +1,5 @@
 ---
-title: Awards
+title: Awards & Honors
 cms_exclude: true
 view: card
 image:
@@ -14,7 +14,7 @@ awards:
     icon: coursera
     summary: |
       I studied the foundational concept of neural networks and deep learning.
-  
+
   - title: TA Award
     url: https://www.edx.org/professional-certificate/uc-berkeleyx-blockchain-fundamentals
     date: '2023-07-01'
