@@ -69,6 +69,7 @@ sections:
           - awards
     design:
       view: citation
+      columns: 1
 
   - block: collection
     id: news
