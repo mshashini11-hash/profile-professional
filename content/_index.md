@@ -75,7 +75,6 @@ sections:
           text: Learned: Synthesize your own blockchain solutions; Apply blockchain fundamentals in real-world scenarios
     design:
       columns: 1
-
     
   - block: collection
     id: news
