@@ -175,7 +175,6 @@ awards:
     url: https://www.edx.org/professional-certificate/uc-berkeleyx-blockchain-fundamentals
     date: '2023-07-01'
     awarder: edX
-    icon: edx
     summary: |
       Learned:
       - Synthesize your own blockchain solutions
@@ -186,7 +185,6 @@ awards:
     certificate_url: https://www.datacamp.com
     date: '2023-01-21'
     awarder: DataCamp
-    icon: datacamp
     summary: |
       Especially useful for industry-specific analyses, working with web APIs, and building GUIs.
 
