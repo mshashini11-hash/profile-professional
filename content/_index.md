@@ -65,7 +65,8 @@ sections:
       username: admin
       text: ""
     design:
-      view: citation 
+      view: list   # or 'citation' if your theme supports it
+      columns: 1   # ensures they stack vertically, no boxes 
 
   - block: markdown
     id: awards
