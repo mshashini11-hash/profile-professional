@@ -52,25 +52,33 @@ sections:
       title: "Research"
     design:
       columns: '1'
-
-  - block: markdown
+  
+  - block: collection
     content:
       title: "Topology"
-      text: |
-        {{< publication "conference-paper" >}}
-        {{< publication "journal-article" >}}
-        {{< publication "preprint" >}}
+      text: ""
+      filters:
+        folders:
+          - publication
+        tags:
+          - Topology
+      exclude_featured: false
     design:
-      columns: '1'
+      view: citation
 
-  - block: markdown
+  - block: collection
     content:
       title: "Education"
-      text: |
-        {{< publication "education-paper-1" >}}
+      text: ""
+      filters:
+        folders:
+          - publication
+        tags:
+          - Education
+      exclude_featured: false
     design:
-      columns: '1'
-
+      view: citation
+  
   - block: collection
     id: talks
     content:
@@ -125,6 +133,7 @@ sections:
         css_class: "bg-primary-700"
         css_style: ""
 ---
+
 
 
 
