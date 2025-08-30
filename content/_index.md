@@ -58,7 +58,7 @@ sections:
           - Topology
       exclude_featured: false
     design:
-      view: article-grid
+      view: article
   
   - block: collection
     id: talks
