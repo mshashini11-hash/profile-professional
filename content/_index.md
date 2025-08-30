@@ -46,8 +46,6 @@ sections:
   - block: markdown
     content:
       title: "Research"
-      subtitle: ""
-      text: ""
     design:
       columns: '1'
   
@@ -56,8 +54,6 @@ sections:
       title: "Topology"
       text: ""
       filters:
-        folders:
-          - publication
         tags:
           - Topology
       exclude_featured: false
@@ -69,8 +65,6 @@ sections:
       title: "Education"
       text: ""
       filters:
-        folders:
-          - publication
         tags:
           - Education
       exclude_featured: false
