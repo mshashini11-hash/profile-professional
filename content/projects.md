@@ -41,6 +41,8 @@ sections:
     content:
       title: "Talks"
       text: |
-        - **Invited Talk 1:** [Talk Title](assets/papers)
+        - **Invited Talk 1:** [Talk Title](assets/papers/talk1.pdf) – 2025
+        - **Slides:** [Talk Slides PDF](assets/slides/talk1-slides.pdf)
+---
 
 
