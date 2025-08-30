@@ -43,34 +43,33 @@ sections:
   #    view: article-grid
   #    columns: 2
 
+  # Research heading
   - block: markdown
     content:
       title: "Research"
     design:
       columns: '1'
-  
-  - block: collection
+
+  # Topology publications
+  - block: markdown
     content:
       title: "Topology"
-      text: ""
-      filters:
-        tags:
-          - Topology
-      exclude_featured: false
+      text: |
+        {{< publication "conference-paper" >}}
+        {{< publication "journal-article" >}}
+        {{< publication "preprint" >}}
     design:
-      view: citation
+      columns: '1'
 
-  - block: collection
+  # Education publications
+  - block: markdown
     content:
       title: "Education"
-      text: ""
-      filters:
-        tags:
-          - Education
-      exclude_featured: false
+      text: |
+        {{< publication "education-paper-1" >}}
     design:
-      view: citation
-  
+      columns: '1'
+
   - block: collection
     id: talks
     content:
