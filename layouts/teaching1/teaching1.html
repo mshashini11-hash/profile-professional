@@ -1,6 +1,6 @@
 {{ define "main" }}
 <section class="relative py-12 min-h-screen">
-  
+
   <!-- Background SVG -->
   <div class="absolute inset-0">
     <img src="/assets/media/stacked-peaks.svg" class="w-full h-full object-cover opacity-10" />
@@ -24,17 +24,18 @@
         <!-- Loop over positions -->
         {{ range .positions }}
           <div class="mb-6 pl-4 border-l-4 border-[#18453B] relative">
-            
-            <!-- Position Title -->
-            <a href="{{ .url }}" class="block text-xl md:text-2xl font-semibold text-[#18453B] hover:text-[#1C1C1C] hover:underline mb-2 transition-colors duration-200">
-              {{ .title }}
-            </a>
 
-            <!-- Position Details -->
-            {{ with .details }}
+            <!-- Position Title -->
+            <span class="block text-xl md:text-2xl font-semibold text-[#18453B] mb-2">{{ .title }}</span>
+
+            <!-- Courses -->
+            {{ with .courses }}
               <ul class="list-disc list-inside text-[#1C1C1C] ml-2">
                 {{ range . }}
-                  <li class="mb-1">{{ . | safeHTML }}</li>
+                  <li class="mb-1">
+                    <a href="{{ .url }}" class="hover:underline text-[#18453B]">{{ .name }}</a>
+                    <span class="text-gray-700"> — {{ .semester }}</span>
+                  </li>
                 {{ end }}
               </ul>
             {{ end }}
