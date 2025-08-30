@@ -1,15 +1,15 @@
 ---
-title: Pandas
-date: 2023-10-26
+title: Quantum Low Dimensional Topology
+date: 
 links:
   - type: site
     url: https://github.com/pandas-dev/pandas
 tags:
-  - Hugo
-  - Wowchemy
-  - Markdown
+  - q
+  - c
+  - d
 ---
 
-Flexible and powerful data analysis / manipulation library for Python, providing labeled data structures.
+I like exploring blah blah and some informtaions and resources
 
 <!--more-->
