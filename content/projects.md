@@ -1,6 +1,12 @@
 ---
+title: 'Projects'           # Page title
+date: 2024-05-19            # Page date
+type: landing               # Page type (landing = uses sections)
+design:
+  spacing: '5rem'           # Section spacing
+
 sections:
-  - block: collection
+  - block: collection       # First block: project cards
     content:
       title: Selected Projects
       text: I enjoy making things. Here are a selection of projects that I have worked on over the years.
@@ -12,21 +18,21 @@ sections:
       fill_image: false
       columns: 3
 
-  - block: text
+  - block: text             # Second block: Topology papers
     content:
       title: "Topology"
       text: |
         - **Paper 1:** [Topology Paper Title](assets/papers/topology-paper.pdf) – 2023  
         - **Talk Slides:** [Topology Seminar Slides](assets/slides/topology-seminar.pdf)
 
-  - block: text
+  - block: text             # Third block: Education papers
     content:
       title: "Education"
       text: |
         - **Paper 2:** [Education Paper Title](assets/papers/education-paper.pdf) – 2024  
         - **Lecture Slides:** [Intro to Calculus Slides](assets/slides/calculus-intro.pdf)
 
-  - block: text
+  - block: text             # Fourth block: Talks
     content:
       title: "Talks"
       text: |
