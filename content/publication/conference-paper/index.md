@@ -1,92 +1,45 @@
 ---
-title: 'Quantum Low Dimensional Topology'
-
-# Authors
-# If you created a profile for a user (e.g. the default `admin` user), write the username (folder name) here
-# and it will be replaced with their full name and linked to their profile.
+title: "Example Topology Paper"
 authors:
-  - admin
-  - Robert Ford
+- Your Name
+- Coauthor Name
+date: "2019-04-07T00:00:00Z"
+publishDate: "2019-04-08T00:00:00Z"
 
-# Author notes (optional)
-author_notes:
-  - 'Equal contribution'
-  - 'Equal contribution'
+# Publication type
+publication_types: ["article-journal"]
 
-date: '2013-07-01T00:00:00Z'
+# Journal reference (if published)
+publication: "*Journal of Topology, 1*(1)"
+publication_short: "J. Topology"
 
-# Schedule page publish date (NOT publication's date).
-publishDate: '2017-01-01T00:00:00Z'
+# Abstract
+abstract: This paper explores topological invariants and their applications in low-dimensional topology.
 
-# Publication type.
-# Accepts a single type but formatted as a YAML list (for Hugo requirements).
-# Enter a publication type from the CSL standard.
-publication_types: ['paper-conference']
+# Short summary
+summary: Published in Journal of Topology, also available on arXiv.
 
-# Publication name and optional abbreviated publication name.
-publication: In *Hugo Blox Builder Conference*
-publication_short: In *ICW*
-
-abstract: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.
-
-# Summary. An optional shortened abstract.
-summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum.
-
+# Tags for filtering
 tags:
-  - Large Language Models
+- Topology
 
-# Display this page in the Featured widget?
 featured: true
 
-# Standard identifiers for auto-linking
-hugoblox:
-  ids:
-    doi: 10.5555/123456
-
-# Custom links
+# Links – journal and preprint together
 links:
+  - type: journal
+    name: "Journal version"
+    url: https://doi.org/xxxxx
+  - type: preprint
+    provider: arxiv
+    id: 1512.04133v1
   - type: pdf
-    url: ""
+    url: http://arxiv.org/pdf/1512.04133v1
   - type: code
-    url: https://github.com/HugoBlox/hugo-blox-builder
-  - type: dataset
     url: https://github.com/HugoBlox/hugo-blox-builder
   - type: slides
     url: https://www.slideshare.net/
-  - type: source
-    url: https://github.com/HugoBlox/hugo-blox-builder
-  - type: video
-    url: https://youtube.com
 
-# Featured image
-# To use, add an image named `featured.jpg/png` to your page's folder.
-image:
-  caption: 'Image credit: [**Unsplash**](https://unsplash.com/photos/pLCdAaMFLTE)'
-  focal_point: ''
-  preview_only: false
-
-# Associated Projects (optional).
-#   Associate this publication with one or more of your projects.
-#   Simply enter your project's folder or file name without extension.
-#   E.g. `internal-project` references `content/project/internal-project/index.md`.
-#   Otherwise, set `projects: []`.
-projects:
-  - example
-
-# Slides (optional).
-#   Associate this publication with Markdown slides.
-#   Simply enter your slide deck's filename without extension.
-#   E.g. `slides: "example"` references `content/slides/example/index.md`.
-#   Otherwise, set `slides: ""`.
+projects: []
 slides: ""
 ---
-
-{{% callout note %}}
-Click the _Cite_ button above to demo the feature to enable visitors to import publication metadata into their reference management software.
-{{% /callout %}}
-
-{{% callout note %}}
-Create your slides in Markdown - click the _Slides_ button to check out the example.
-{{% /callout %}}
-
-Add the publication's **full text** or **supplementary notes** here. You can use rich formatting such as including [code, math, and images](https://docs.hugoblox.com/content/writing-markdown-latex/).
