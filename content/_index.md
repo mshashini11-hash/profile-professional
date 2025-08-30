@@ -68,7 +68,7 @@ sections:
         folders:
           - awards
     design:
-      view: view: citation
+      view: citation
 
   - block: collection
     id: news
