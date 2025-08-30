@@ -165,10 +165,10 @@ languages:
 
 awards:
   - title: FAST Fellowship
-    url: https://www.coursera.org/learn/neural-networks-deep-learning
+    url: 
     date: '2023-11-25'
-    awarder: Coursera
-    icon: coursera
+    awarder: Michigan State University
+    icon: 
     summary: |
       I studied the foundational concept of neural networks and deep learning.
 
