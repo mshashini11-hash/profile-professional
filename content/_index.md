@@ -1,3 +1,14 @@
+---
+# Front matter starts
+title: ""
+date: 2022-10-24
+type: landing
+
+design:
+  spacing: "6rem"  # Default section spacing
+# Front matter ends
+---
+
 sections:
   - block: resume-biography-3
     content:
@@ -121,4 +132,5 @@ sections:
       card:
         css_class: "bg-primary-700"
         css_style: ""
+
 
