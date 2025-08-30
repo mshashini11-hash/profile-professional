@@ -60,14 +60,9 @@ sections:
     design:
       view: citation
 
-  - block: awards
-    content:
-      username: admin
-      text: ""
-    design:
-      view: list   # or 'citation' if your theme supports it
-      columns: 1   # ensures they stack vertically, no boxes 
-
+  # ---------------------
+  # Awards section
+  # ---------------------
   - block: list
     content:
       title: Awards & Honors
@@ -77,13 +72,13 @@ sections:
           url: https://www.coursera.org/learn/neural-networks-deep-learning
 
         - title: TA Award
-          description: edX (2023-07-01) — Learned: Synthesize your own blockchain solutions, Apply blockchain fundamenta
+          description: edX (2023-07-01) — Learned: Synthesize your own blockchain solutions, Apply blockchain fundamentals in real-world scenarios
           url: https://www.edx.org/professional-certificate/uc-berkeleyx-blockchain-fundamentals
 
         - title: Object-Oriented Programming in R
-          description: DataCamp (2023-01-21) — Especially useful for industry-specific analyses, working with web API
+          description: DataCamp (2023-01-21) — Especially useful for industry-specific analyses, working with web APIs, and building GUIs.
           url: https://www.datacamp.com/courses/object-oriented-programming-with-s3-and-r6-in-r
-    
+
   - block: collection
     id: news
     content:
@@ -126,8 +121,8 @@ sections:
       card:
         css_class: "bg-primary-700"
         css_style: ""
-
 ---
+
 
 
 
