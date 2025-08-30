@@ -68,18 +68,22 @@ sections:
       view: list   # or 'citation' if your theme supports it
       columns: 1   # ensures they stack vertically, no boxes 
 
-  - block: markdown
-    id: awards
+  - block: list
     content:
-      title: "Awards & Honors"
-      text: |-
-        **FAST Fellowship** — Coursera, 2023-11-25  
-        I studied the foundational concept of neural networks and deep learning.  
+      title: Awards & Honors
+      items:
+        - title: FAST Fellowship
+          description: Coursera (2023-11-25) — I studied the foundational concept of neural networks and deep learning.
+          url: https://www.coursera.org/learn/neural-networks-deep-learning
 
-        **TA Award** — edX, 2023-07-01  
-        Learned:
-        - Synthesize your own blockchain solutions
-        - Apply blockchain fundamentals in real-world scenarios
+        - title: TA Award
+          description: edX (2023-07-01) — Learned: Synthesize your own blockchain solutions, Apply blockchain fundamentals in real-world scenarios
+          url: https://www.edx.org/professional-certificate/uc-berkeleyx-blockchain-fundamentals
+
+        - title: Object-Oriented Programming in R
+          description: DataCamp (2023-01-21) — Especially useful for industry-specific analyses, working with web APIs, and building GUIs.
+          url: https://www.datacamp.com/courses/object-oriented-programming-with-s3-and-r6-in-r
+✅ This way:
     
   - block: collection
     id: news
