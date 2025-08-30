@@ -60,7 +60,7 @@ sections:
     design:
       view: citation
 
-  - block: resume-biography-3
+  - block: experience
     id: awards
     content:
       username: admin
