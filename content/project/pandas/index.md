@@ -5,7 +5,7 @@ links:
   - type: site
     url: https://github.com/pandas-dev/pandas
 tags:
-  - q
+  - panda.JPG
   - c
   - d
 ---
