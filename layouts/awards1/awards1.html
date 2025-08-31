@@ -1,0 +1,26 @@
+{{ define "main" }}
+  <section class="awards">
+    <h1>{{ .Title }}</h1>
+
+    {{ range .Params.awards }}
+      <h2>{{ .name }}</h2>
+      <ul>
+        {{ range .items }}
+          <li style="margin-bottom: 1em;">
+            {{ if .image }}
+              <img src="{{ .image }}" alt="{{ .title }}" 
+                   style="max-width:150px; float:left; margin:0 10px 10px 0;">
+            {{ end }}
+            <div>
+              <strong>{{ .title }}</strong> – {{ .date }}
+              {{ if .url }}
+                <a href="{{ .url }}" target="_blank">[link]</a>
+              {{ end }}
+            </div>
+            <div style="clear:both;"></div>
+          </li>
+        {{ end }}
+      </ul>
+    {{ end }}
+  </section>
+{{ end }}
