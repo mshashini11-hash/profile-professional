@@ -1,0 +1,24 @@
+{{ define "main" }}
+<section class="py-12">
+  <div class="container mx-auto px-4">
+    <h1 class="text-4xl font-bold mb-6 text-[#18453B]">{{ .Title }}</h1>
+
+    {{ with .Params.image }}
+      <img src="{{ . }}" alt="{{ $.Title }}" class="w-full md:w-3/4 lg:w-1/2 mx-auto rounded-lg shadow-lg mb-6">
+    {{ end }}
+
+    <div class="prose max-w-none text-gray-700 mb-6">
+      {{ .Content }}
+    </div>
+
+    {{ with .Params.resources }}
+      <h2 class="text-2xl font-semibold mb-4">Resources</h2>
+      <ul class="list-disc list-inside space-y-2">
+        {{ range . }}
+          <li><a href="{{ .url }}" target="_blank" class="text-[#18453B] hover:underline">{{ .name }}</a></li>
+        {{ end }}
+      </ul>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
