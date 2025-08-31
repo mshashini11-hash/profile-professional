@@ -1,46 +1,76 @@
 {{ define "main" }}
-  <section class="awards">
-    <h1>{{ .Title }}</h1>
+<section class="relative py-12 min-h-screen">
 
+  <!-- Background SVG -->
+  <div class="absolute inset-0">
+    <img src="/assets/media/stacked-peaks.svg" class="w-full h-full object-cover opacity-10" />
+  </div>
+
+  <!-- Content -->
+  <div class="container mx-auto px-4 relative z-10">
+
+    <!-- Main Page Title -->
+    {{ with .Title }}
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-12 text-center text-[#18453B]">{{ . }}</h1>
+    {{ end }}
+
+    <!-- Loop over awards -->
     {{ if .Params.awards }}
-      <h2>Awards</h2>
       {{ range .Params.awards }}
-        <h3>{{ .name }}</h3>
-        <ul>
+        <div class="mb-12 p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+
+          <!-- University Name -->
+          <h2 class="text-2xl md:text-3xl font-bold mb-6 text-[#18453B]">{{ .name }}</h2>
+
+          <!-- Loop over items -->
           {{ range .items }}
-            <li style="margin-bottom: 1em;">
+            <div class="mb-6 pl-4 border-l-4 border-[#18453B] relative flex items-center space-x-4">
+
+              <!-- Optional Image -->
               {{ if .image }}
-                <img src="{{ .image }}" alt="{{ .title }}" 
-                     style="max-width:150px; float:left; margin:0 10px 10px 0;">
+                <img src="{{ .image }}" alt="{{ .title }}" class="w-24 h-24 object-cover rounded-lg shadow-md">
               {{ end }}
+
+              <!-- Award Info -->
               <div>
-                <strong>{{ .title }}</strong> – {{ .date }}
+                <span class="block text-xl md:text-2xl font-semibold text-[#18453B] mb-2">{{ .title }}</span>
+                <span class="text-gray-700">{{ .date }}</span>
                 {{ if .url }}
-                  <a href="{{ .url }}" target="_blank">[link]</a>
+                  <a href="{{ .url }}" target="_blank" class="text-[#18453B] hover:underline ml-2">[link]</a>
                 {{ end }}
               </div>
-              <div style="clear:both;"></div>
-            </li>
+
+            </div>
           {{ end }}
-        </ul>
+
+        </div>
       {{ end }}
     {{ end }}
 
+    <!-- Loop over service -->
     {{ if .Params.service }}
-      <h2>Service</h2>
       {{ range .Params.service }}
-        <h3>{{ .name }}</h3>
-        <ul>
+        <div class="mb-12 p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+
+          <!-- University Name -->
+          <h2 class="text-2xl md:text-3xl font-bold mb-6 text-[#18453B]">{{ .name }}</h2>
+
+          <!-- Loop over roles -->
           {{ range .roles }}
-            <li>
-              <strong>{{ .title }}</strong> – {{ .date }}
+            <div class="mb-6 pl-4 border-l-4 border-[#18453B] relative">
+              <span class="block text-xl md:text-2xl font-semibold text-[#18453B] mb-2">{{ .title }}</span>
+              <span class="text-gray-700">{{ .date }}</span>
               {{ if .url }}
-                <a href="{{ .url }}" target="_blank">[link]</a>
+                <a href="{{ .url }}" target="_blank" class="text-[#18453B] hover:underline ml-2">[link]</a>
               {{ end }}
-            </li>
+            </div>
           {{ end }}
-        </ul>
+
+        </div>
       {{ end }}
     {{ end }}
-  </section>
+
+  </div>
+</section>
 {{ end }}
+
