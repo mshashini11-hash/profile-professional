@@ -10,12 +10,15 @@ subtopics:
             date: "2025–2026"
             url: "https://grad.msu.edu/fast/bios"
             image: ""
+            description: "Selected for a fellowship supporting advanced research in mathematics."
           - title: "Excellence-in-Teaching Citation"
             date: "2022"
+            description: "Recognized for outstanding teaching performance and student engagement."
       - name: "University of Colombo"
         items:
           - title: "Best Undergraduate Thesis Award"
             date: "2019"
+            description: "Awarded for excellence in research and thesis presentation."
 
   - title: "Service"
     universities:
@@ -23,12 +26,15 @@ subtopics:
         items:
           - title: "Math Learning Center – TA & Tutor"
             date: "2021–2025"
+            description: "Provided academic support and tutoring to undergraduate students."
           - title: "Graduate Student Representative"
             date: "2022–2023"
+            description: "Represented graduate students in departmental meetings."
       - name: "University of Colombo"
         items:
           - title: "Organizer – Applied Math Workshop"
             date: "2019"
----
+            description: "Coordinated workshop logistics and speaker sessions."
 
+---
 
