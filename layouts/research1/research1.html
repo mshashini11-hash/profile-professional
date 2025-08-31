@@ -1,69 +1,65 @@
 {{ define "main" }}
-<section class="relative py-12">
+<section class="relative py-12 min-h-screen">
 
-  <div class="container mx-auto px-4">
+  <div class="container mx-auto px-4 relative z-10">
 
-    <!-- Projects Grid -->
-    {{ range .Params.sections }}
-      {{ if eq .block "collection" }}
-        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-[#18453B]">{{ .content.title }}</h2>
-        <p class="text-gray-700 mb-6">{{ .content.text }}</p>
-
-        <div class="grid grid-cols-1 md:grid-cols-{{ .design.columns }} gap-6 mb-12">
-
-          {{ range .content.filters.folders | first 3 }}
-            {{ $folder := . }}
-            {{ range (where site.RegularPages "Section" $folder) }}
-              <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow p-4">
-                {{ if .Params.image }}
-                  <img src="{{ .Params.image }}" alt="{{ .Title }}" class="w-full h-48 object-cover rounded-lg mb-4">
-                {{ end }}
-                <h3 class="text-xl md:text-2xl font-semibold text-[#18453B] mb-2">{{ .Title }}</h3>
-                <p class="text-gray-600 mb-2">{{ .Params.description }}</p>
-                <a href="{{ .RelPermalink }}" class="text-[#18453B] hover:underline">Read More</a>
-              </div>
-            {{ end }}
-          {{ end }}
-
-        </div>
-      {{ end }}
+    <!-- Page Title -->
+    {{ with .Title }}
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-12 text-center text-[#18453B]">{{ . }}</h1>
     {{ end }}
 
-    <!-- Papers Sections -->
-    {{ range .Params.sections }}
-      {{ if and (eq .block "collection") (ne .content.title "Projects") }}
-        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-[#18453B]">{{ .content.title }}</h2>
-        <p class="text-gray-700 mb-6">{{ .content.text }}</p>
+    <!-- Loop over subtopics -->
+    {{ range .Params.subtopics }}
+      <h2 class="text-3xl md:text-4xl font-bold mb-6 text-[#18453B]">{{ .title }}</h2>
 
-        <div class="space-y-6 mb-12">
+      {{ $items := where site.RegularPages "Section" .folder }}
 
-          {{ range .content.filters.folders }}
-            {{ range (where site.RegularPages "Section" .) }}
-              <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow p-4 border-l-4 border-[#18453B]">
-                <h3 class="text-xl md:text-2xl font-semibold text-[#18453B]">{{ .Title }}</h3>
-                <span class="text-gray-700">{{ .Date.Format "Jan 2, 2006" }}</span>
-                {{ if .Params.journal }}
-                  <p class="text-gray-600">Journal: {{ .Params.journal }}</p>
-                {{ end }}
-                {{ if .Params.description }}
-                  <p class="text-gray-600 mt-1">{{ .Params.description }}</p>
-                {{ end }}
-                <div class="mt-1 space-x-2">
-                  {{ if .Params.arxiv }}
-                    <a href="{{ .Params.arxiv }}" target="_blank" class="text-[#18453B] hover:underline">arXiv</a>
-                  {{ end }}
-                  {{ if .Params.pdf }}
-                    <a href="{{ .Params.pdf }}" target="_blank" class="text-[#18453B] hover:underline">PDF</a>
+      <!-- Projects Grid -->
+      {{ if eq .folder "project" }}
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+          {{ range $items }}
+            <div class="bg-white rounded-xl shadow-md p-4 hover:shadow-lg transition-shadow">
+              {{ if .Params.image }}
+                <img src="{{ .Params.image }}" alt="{{ .Title }}" class="w-full h-48 object-cover rounded-lg mb-4">
+              {{ end }}
+              <span class="block text-xl font-semibold text-[#18453B]">{{ .Title }}</span>
+              <p class="text-gray-600 mt-2">{{ .Params.description }}</p>
+              {{ if .Params.resources }}
+                <div class="mt-2 space-x-2">
+                  {{ range .Params.resources }}
+                    <a href="{{ .url }}" target="_blank" class="text-[#18453B] hover:underline">{{ .name }}</a>
                   {{ end }}
                 </div>
-              </div>
-            {{ end }}
+              {{ end }}
+            </div>
           {{ end }}
-
+        </div>
+      {{ else }}
+      <!-- Papers list -->
+        <div class="space-y-4 mb-10">
+          {{ range $items }}
+            <div class="bg-white p-4 rounded-xl shadow-md border-l-4 border-[#18453B]">
+              <span class="block text-xl font-semibold text-[#18453B]">{{ .Title }}</span>
+              <span class="text-gray-700">{{ .Params.date }} - {{ .Params.publication_short }}</span>
+              {{ if .Params.links }}
+                <div class="mt-1 space-x-2">
+                  {{ range .Params.links }}
+                    <a href="{{ .url | default (printf "https://arxiv.org/abs/%s" .id) }}" target="_blank" class="text-[#18453B] hover:underline">
+                      {{ .name | default (title .type) }}
+                    </a>
+                  {{ end }}
+                </div>
+              {{ end }}
+              {{ if .Params.summary }}
+                <p class="text-gray-600 mt-2">{{ .Params.summary }}</p>
+              {{ end }}
+            </div>
+          {{ end }}
         </div>
       {{ end }}
-    {{ end }}
 
+    {{ end }}
   </div>
 </section>
 {{ end }}
+
