@@ -1,9 +1,9 @@
 ---
 title: "Project 1 Title"
 date: 2025-08-31
-layout: "research1-project"
+layout: "research1-project"   # custom layout for project detail
 image: "/uploads/project1.png"
-summary: "Short summary of the project."
+summary: "Short description of Project 1."
 resources:
   - name: "Code Repository"
     url: "https://github.com/..."
