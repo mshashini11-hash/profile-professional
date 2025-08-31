@@ -1,15 +1,13 @@
 ---
-title: "Project 1 Title"
-date: 2025-08-31
-layout: "research1-project"   # Must match the layout filename
+title: "Project 1: Example Research"
 image: "/uploads/project1.png"
-summary: "Short description of Project 1."
+summary: "A short summary of Project 1."
 resources:
-  - name: "Code Repository"
-    url: "https://github.com/..."
+  - name: "Code"
+    url: "https://github.com/yourname/project1"
   - name: "Slides"
-    url: "https://slideshare.net/..."
-  - name: "Paper PDF"
-    url: "http://example.com/project1.pdf"
+    url: "https://example.com/project1-slides.pdf"
 ---
-Here you can write a **detailed description of Project 1**, including goals, methods, outcomes, and links to resources. You can use markdown formatting here.
+## Project 1 — Details
+
+Here is a longer description of Project 1. Add objectives, methods, results, links, etc.
