@@ -46,7 +46,8 @@
               <!-- Optional Image on the right -->
               {{ if .image }}
                 <div class="mt-4 md:mt-0 md:ml-6 flex-shrink-0">
-                  <img src="{{ .image }}" alt="{{ .title }}" class="w-38 h-38 md:w-50 md:h-50 object-cover rounded-lg shadow-md">
+                  <img src="{{ .image }}" alt="{{ .title }}"
+                       class="w-44 h-44 md:w-52 md:h-52 lg:w-60 lg:h-60 object-cover rounded-lg shadow-lg">
                 </div>
               {{ end }}
 
@@ -63,6 +64,7 @@
   </div>
 </section>
 {{ end }}
+
 
 
 
