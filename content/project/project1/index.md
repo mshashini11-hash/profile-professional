@@ -1,11 +1,14 @@
 ---
 title: "Project 1 Title"
-date: 2024-05-19
-type: "project"
-summary: "Short description of Project 1."
-image: "/uploads/project1.png"
+date: 2025-08-31
+type: landing
+image: "/uploads/project1.png"   # optional
+summary: "Short summary of the project."
+resources:
+  - name: "Code Repository"
+    url: "https://github.com/..."
+  - name: "Slides"
+    url: "https://slideshare.net/..."
+  - name: "Paper PDF"
+    url: "http://example.com/project1.pdf"
 ---
-
-## Description
-
-Here is a longer description for Project 1. You can add resources, links, or any relevant content.
