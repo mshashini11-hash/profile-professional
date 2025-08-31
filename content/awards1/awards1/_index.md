@@ -35,6 +35,5 @@ subtopics:
           - title: "Organizer – Applied Math Workshop"
             date: "2019"
             description: "Coordinated workshop logistics and speaker sessions."
-  ---
 
-
+---
