@@ -1,13 +1,11 @@
 ---
-title: "Quantum Topology"
-date: 2025-08-31
-layout: "project"
-type: project
-image: ""
-description: "Full detailed description of Project 1 with methodology, results, and future directions."
-resources:
-  - title: "Supplementary PDF"
-    url: "/downloads/project1-supplement.pdf"
-  - title: "Code Repository"
-    url: "https://github.com/username/project1"
+title: "Project 1 Title"
+date: 2024-05-19
+type: "project"
+summary: "Short description of Project 1."
+image: "/uploads/project1.png"
 ---
+
+## Description
+
+Here is a longer description for Project 1. You can add resources, links, or any relevant content.
