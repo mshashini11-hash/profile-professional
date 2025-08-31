@@ -2,25 +2,45 @@
   <section class="awards">
     <h1>{{ .Title }}</h1>
 
-    {{ range .Params.awards }}
-      <h2>{{ .name }}</h2>
-      <ul>
-        {{ range .items }}
-          <li style="margin-bottom: 1em;">
-            {{ if .image }}
-              <img src="{{ .image }}" alt="{{ .title }}" 
-                   style="max-width:150px; float:left; margin:0 10px 10px 0;">
-            {{ end }}
-            <div>
+    {{ if .Params.awards }}
+      <h2>Awards</h2>
+      {{ range .Params.awards }}
+        <h3>{{ .name }}</h3>
+        <ul>
+          {{ range .items }}
+            <li style="margin-bottom: 1em;">
+              {{ if .image }}
+                <img src="{{ .image }}" alt="{{ .title }}" 
+                     style="max-width:150px; float:left; margin:0 10px 10px 0;">
+              {{ end }}
+              <div>
+                <strong>{{ .title }}</strong> – {{ .date }}
+                {{ if .url }}
+                  <a href="{{ .url }}" target="_blank">[link]</a>
+                {{ end }}
+              </div>
+              <div style="clear:both;"></div>
+            </li>
+          {{ end }}
+        </ul>
+      {{ end }}
+    {{ end }}
+
+    {{ if .Params.service }}
+      <h2>Service</h2>
+      {{ range .Params.service }}
+        <h3>{{ .name }}</h3>
+        <ul>
+          {{ range .roles }}
+            <li>
               <strong>{{ .title }}</strong> – {{ .date }}
               {{ if .url }}
                 <a href="{{ .url }}" target="_blank">[link]</a>
               {{ end }}
-            </div>
-            <div style="clear:both;"></div>
-          </li>
-        {{ end }}
-      </ul>
+            </li>
+          {{ end }}
+        </ul>
+      {{ end }}
     {{ end }}
   </section>
 {{ end }}
