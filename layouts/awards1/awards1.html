@@ -25,7 +25,7 @@
           <!-- University Name -->
           <h3 class="text-2xl md:text-3xl font-bold mb-4 text-[#18453B]">{{ .name }}</h3>
 
-          <!-- Grid: left = all text, right = image if exists -->
+          <!-- Flex: left = text, right = image -->
           <div class="flex flex-col md:flex-row md:items-start md:space-x-6">
 
             <!-- Left: Text info for all items -->
@@ -44,15 +44,21 @@
               {{ end }}
             </div>
 
-            <!-- Right: Show **first available image** -->
-            <div class="mt-4 md:mt-0 flex-shrink-0">
-              {{ range .items }}
-                {{ if .image }}
-                  <img src="{{ .image }}" alt="{{ .title }}" class="w-48 h-auto md:w-64 lg:w-72 object-contain rounded-lg shadow-lg">
-                  {{ break }}
-                {{ end }}
+            <!-- Right: First available image -->
+            {{ $firstImage := "" }}
+            {{ range .items }}
+              {{ if .image }}
+                {{ $firstImage = .image }}
+                {{ break }}
               {{ end }}
+            {{ end }}
+
+            {{ if $firstImage }}
+            <div class="mt-4 md:mt-0 flex-shrink-0 md:self-start self-center">
+              <img src="{{ $firstImage }}" alt="University Image"
+                   class="w-48 h-auto md:w-64 lg:w-72 object-contain rounded-lg shadow-lg">
             </div>
+            {{ end }}
 
           </div>
 
@@ -64,6 +70,7 @@
   </div>
 </section>
 {{ end }}
+
 
 
 
