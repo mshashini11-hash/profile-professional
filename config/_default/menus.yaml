@@ -20,7 +20,7 @@ main:
     url: /#papers
     weight: 20
   - name: awards
-    url: /#awards
+    url: /#award1
     weight: 30
   - name: Hobbies
     url: /#news
