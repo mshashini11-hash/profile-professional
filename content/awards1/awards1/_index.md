@@ -7,9 +7,9 @@ subtopics:
       - name: "Michigan State University"
         items:
           - title: "FAST Fellowship"
-            date: "2023–2024"
+            date: "2025–2026"
             url: "https://grad.msu.edu/fast/bios"
-            image: "/uploads/fast-fellowship.jpg"
+            image: ""
           - title: "Excellence-in-Teaching Citation"
             date: "2022"
       - name: "University of Colombo"
