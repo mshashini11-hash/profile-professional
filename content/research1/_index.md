@@ -1,4 +1,4 @@
 ---
-title: "Research Projects"
-date: 2025-08-31
+title: "Research"
+layout: research1/single
 ---
