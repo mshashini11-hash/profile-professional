@@ -13,4 +13,3 @@ resources:
     url: "http://example.com/project1.pdf"
 ---
 Here you can write a **detailed description of Project 1**, including goals, methods, outcomes, and links to resources. You can use markdown formatting here.
-
