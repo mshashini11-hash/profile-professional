@@ -9,13 +9,13 @@
 
   <div class="container mx-auto px-4 relative z-10">
 
-    <!-- Main title for the page -->
+    <!-- Main title -->
     <h1 class="text-4xl md:text-5xl font-extrabold mb-12 text-center text-white drop-shadow-lg relative z-10">
       Research
     </h1>
 
     <!-- Project grid -->
-    <div class="grid gap-8 md:grid-cols-3">
+    <div class="grid gap-8 md:grid-cols-3 mb-12">
       {{ range .Pages }}
         <div class="bg-white rounded-xl shadow-md overflow-hidden">
           {{ with .Params.image }}
@@ -33,12 +33,14 @@
       {{ end }}
     </div>
 
+    <!-- Include the body content (for Topology / Education sections) -->
+    <div class="space-y-12">
+      {{ .Content }}
+    </div>
+
   </div>
 </section>
 {{ end }}
-
-
-
 
 
 
