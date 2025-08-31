@@ -2,7 +2,7 @@
 <section class="relative py-12 min-h-screen">
 
   <!-- Background behind main title -->
-  <div class="absolute inset-x-0 top-0 h-36 md:h-35">
+  <div class="absolute inset-x-0 top-0 h-36 md:h-48">
     <img src="/uploads/stacked-peaks.svg" class="w-full h-full object-cover opacity-60" />
     <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent"></div>
   </div>
@@ -29,10 +29,17 @@
           <div class="space-y-6">
 
             {{ range .items }}
-            <div class="flex flex-col md:flex-row md:items-start justify-between bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow p-4 border-l-4 border-[#18453B]">
+            <div class="relative bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow p-4 border-l-4 border-[#18453B] overflow-hidden">
+
+              <!-- Optional Image floated right -->
+              {{ if .image }}
+                <div class="float-right ml-6 mb-4 w-40 md:w-48 lg:w-56">
+                  <img src="{{ .image }}" alt="{{ .title }}" class="w-full h-auto object-cover rounded-lg shadow-lg">
+                </div>
+              {{ end }}
 
               <!-- Text Info -->
-              <div class="flex-1 text-left md:pr-4">
+              <div class="text-left">
                 <span class="block text-xl md:text-2xl font-semibold text-[#18453B]">{{ .title }}</span>
                 <span class="text-gray-700">{{ .date }}</span>
                 {{ if .description }}
@@ -43,14 +50,7 @@
                 {{ end }}
               </div>
 
-              <!-- Optional Image on the right, taller without stretching -->
-              {{ if .image }}
-                <div class="mt-4 md:mt-0 md:ml-6 flex-shrink-0 max-w-xs md:max-w-sm lg:max-w-md">
-                  <img src="{{ .image }}" alt="{{ .title }}"
-                       class="w-full h-auto object-cover rounded-lg shadow-lg">
-                </div>
-              {{ end }}
-
+              <div class="clear-both"></div>
             </div>
             {{ end }}
 
@@ -64,6 +64,7 @@
   </div>
 </section>
 {{ end }}
+
 
 
 
