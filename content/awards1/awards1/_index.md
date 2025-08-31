@@ -14,6 +14,7 @@ subtopics:
             date: "2023–2024"
             description: "Awarded $500 for outstanding teaching performance, selected as one of only five recipients in the Department of Mathematics."
             image: "/uploads/taaward.png"
+            caption: "Photo taken on the day of the TA Award ceremony."
           - title: "Department of Mathematics Teaching Reduction Fellowship"
             date: "2021–2022"
             description: "Awarded a Teaching-Reduced Fellowship for the first year, providing support while pursuing graduate studies."
