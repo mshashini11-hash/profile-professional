@@ -1,5 +1,5 @@
 ---
-title: "Project 1 Title"
+title: "Quantum Low dimensional Topology"
 date: 2025-08-31
 image: "/uploads/project1.png"
 summary: "Short summary of Project 1."
