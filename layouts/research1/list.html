@@ -16,7 +16,7 @@
 
     <!-- Project grid -->
     <div class="grid gap-8 md:grid-cols-3 mb-12">
-      {{ range .Pages }}
+      {{ range where .Pages "Type" "project" }}
         <div class="bg-white rounded-xl shadow-md overflow-hidden">
           {{ with .Params.image }}
             <img src="{{ . }}" alt="Project image" class="w-full h-40 object-cover">
@@ -25,7 +25,7 @@
             <h2 class="text-xl font-bold text-[#18453B] mb-2">
               <a href="{{ .RelPermalink }}">{{ .Title }}</a>
             </h2>
-            {{ with .Summary }}
+            {{ with .Params.summary }}
               <p class="text-gray-600">{{ . }}</p>
             {{ end }}
           </div>
@@ -33,14 +33,52 @@
       {{ end }}
     </div>
 
-    <!-- Include the body content (for Topology / Education sections) -->
-    <div class="space-y-12">
-      {{ .Content }}
-    </div>
+    <!-- Topology Papers -->
+    {{ with .Params.topology }}
+      <h2 class="text-3xl md:text-4xl font-bold mb-6 text-[#18453B]">Topology</h2>
+      <div class="space-y-6">
+        {{ range . }}
+          <div class="bg-white p-4 rounded-xl shadow-md border-l-4 border-[#18453B]">
+            <span class="block text-xl md:text-2xl font-semibold text-[#18453B]">{{ .title }}</span>
+            <span class="text-gray-700">{{ .date }}</span>
+            {{ if .abstract }}
+              <p class="text-gray-600 mt-2">{{ .abstract }}</p>
+            {{ end }}
+            <div class="flex flex-wrap gap-2 mt-2">
+              {{ range .links }}
+                <a href="{{ .url }}" target="_blank" class="text-[#18453B] hover:underline">{{ .name }}</a>
+              {{ end }}
+            </div>
+          </div>
+        {{ end }}
+      </div>
+    {{ end }}
+
+    <!-- Education Papers -->
+    {{ with .Params.education }}
+      <h2 class="text-3xl md:text-4xl font-bold mt-12 mb-6 text-[#18453B]">Education</h2>
+      <div class="space-y-6">
+        {{ range . }}
+          <div class="bg-white p-4 rounded-xl shadow-md border-l-4 border-[#18453B]">
+            <span class="block text-xl md:text-2xl font-semibold text-[#18453B]">{{ .title }}</span>
+            <span class="text-gray-700">{{ .date }}</span>
+            {{ if .abstract }}
+              <p class="text-gray-600 mt-2">{{ .abstract }}</p>
+            {{ end }}
+            <div class="flex flex-wrap gap-2 mt-2">
+              {{ range .links }}
+                <a href="{{ .url }}" target="_blank" class="text-[#18453B] hover:underline">{{ .name }}</a>
+              {{ end }}
+            </div>
+          </div>
+        {{ end }}
+      </div>
+    {{ end }}
 
   </div>
 </section>
 {{ end }}
+
 
 
 
