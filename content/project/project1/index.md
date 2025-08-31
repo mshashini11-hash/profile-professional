@@ -1,8 +1,8 @@
 ---
 title: "Project 1 Title"
 date: 2025-08-31
-type: landing
-image: "/uploads/project1.png"   # optional
+layout: "research1-project"
+image: "/uploads/project1.png"
 summary: "Short summary of the project."
 resources:
   - name: "Code Repository"
@@ -12,3 +12,5 @@ resources:
   - name: "Paper PDF"
     url: "http://example.com/project1.pdf"
 ---
+Here you can write a **detailed description of Project 1**, including goals, methods, outcomes, and links to resources. You can use markdown formatting here.
+
