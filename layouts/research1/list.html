@@ -1,20 +1,20 @@
 {{ define "main" }}
 <section class="relative py-12 min-h-screen">
 
-  <!-- Background behind main title -->
-  <div class="absolute inset-x-0 top-0 h-36 md:h-48">
+  <!-- Background with stacked peaks -->
+  <div class="absolute inset-x-0 top-0 h-36 md:h-40">
     <img src="/uploads/stacked-peaks.svg" class="w-full h-full object-cover opacity-60" />
     <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent"></div>
   </div>
 
   <div class="container mx-auto px-4 relative z-10">
 
-    <!-- Main title for the page -->
-    <h1 class="text-4xl md:text-5xl font-extrabold mb-12 text-center text-white drop-shadow-lg relative z-10">
+    <!-- Main Research Title -->
+    <h1 class="text-4xl md:text-5xl font-extrabold mb-12 text-center text-white drop-shadow-lg">
       Research
     </h1>
 
-    <!-- Project grid -->
+    <!-- Loop through projects -->
     <div class="grid gap-8 md:grid-cols-3">
       {{ range .Pages }}
         <div class="bg-white rounded-xl shadow-md overflow-hidden">
@@ -36,6 +36,10 @@
   </div>
 </section>
 {{ end }}
+
+
+
+
 
 
 
