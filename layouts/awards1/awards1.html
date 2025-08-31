@@ -29,10 +29,10 @@
           <div class="space-y-6">
 
             {{ range .items }}
-            <div class="flex flex-col md:flex-row md:items-center justify-between bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow p-4 border-l-4 border-[#18453B]">
+            <div class="flex flex-col md:flex-row md:items-start justify-between bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow p-4 border-l-4 border-[#18453B]">
 
               <!-- Text Info -->
-              <div class="flex-1 text-left">
+              <div class="flex-1 text-left md:pr-4">
                 <span class="block text-xl md:text-2xl font-semibold text-[#18453B]">{{ .title }}</span>
                 <span class="text-gray-700">{{ .date }}</span>
                 {{ if .description }}
@@ -43,11 +43,11 @@
                 {{ end }}
               </div>
 
-              <!-- Optional Image on the right -->
+              <!-- Optional Image on the right, taller without stretching -->
               {{ if .image }}
-                <div class="mt-4 md:mt-0 md:ml-6 flex-shrink-0">
+                <div class="mt-4 md:mt-0 md:ml-6 flex-shrink-0 max-w-xs md:max-w-sm lg:max-w-md">
                   <img src="{{ .image }}" alt="{{ .title }}"
-                       class="w-48 md:w-56 lg:w-64 h-48 md:h-60 lg:h-64 object-cover rounded-lg shadow-lg">
+                       class="w-full h-auto object-cover rounded-lg shadow-lg">
                 </div>
               {{ end }}
 
@@ -64,6 +64,7 @@
   </div>
 </section>
 {{ end }}
+
 
 
 
