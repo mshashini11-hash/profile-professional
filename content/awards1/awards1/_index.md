@@ -10,7 +10,7 @@ subtopics:
             date: "2025–2026"
             url: "https://grad.msu.edu/fast/bios"
             image: ""
-            description: "Selected for a fellowship supporting advanced research in mathematics."
+            description: ""Selected as the sole mathematics fellow and one of only 12 fellows across all universities, awarded $5,000 through the MSU FAST Fellowship—a professional development program offering mentored teaching experiences, teaching-as-research projects, and training in instructional and assessment techniques.""
           - title: "Excellence-in-Teaching Citation"
             date: "2022"
             description: "Recognized for outstanding teaching performance and student engagement."
