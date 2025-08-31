@@ -40,6 +40,9 @@
                   {{ if .url }}
                     <a href="{{ .url }}" target="_blank" class="text-[#18453B] hover:underline mt-1 inline-block">[link]</a>
                   {{ end }}
+                  {{ if .caption }}
+                    <p class="text-sm text-gray-500 mt-1">{{ .caption }}</p>
+                  {{ end }}
                 </div>
               {{ end }}
             </div>
@@ -70,6 +73,7 @@
   </div>
 </section>
 {{ end }}
+
 
 
 
