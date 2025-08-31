@@ -40,9 +40,6 @@
                   {{ if .url }}
                     <a href="{{ .url }}" target="_blank" class="text-[#18453B] hover:underline mt-1 inline-block">[link]</a>
                   {{ end }}
-                  {{ if .caption }}
-                    <p class="text-sm text-gray-500 mt-1">{{ .caption }}</p>
-                  {{ end }}
                 </div>
               {{ end }}
             </div>
@@ -60,6 +57,7 @@
             <div class="mt-4 md:mt-0 flex-shrink-0 md:self-start self-center">
               <img src="{{ $firstImage }}" alt="University Image"
                    class="w-48 h-auto md:w-64 lg:w-72 object-contain rounded-lg shadow-lg">
+              <p class="text-center text-gray-600 text-sm mt-2">Photo taken on the day of the TA Award ceremony.</p>
             </div>
             {{ end }}
 
