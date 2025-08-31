@@ -1,17 +1,17 @@
 {{ define "main" }}
 <section class="relative py-12 min-h-screen">
 
-  <!-- Background SVG -->
-  <div class="absolute inset-0">
-    <img src="/assets/media/stacked-peaks.svg" class="w-full h-full object-cover opacity-10" />
+  <!-- Background SVG (shortened height) -->
+  <div class="absolute inset-x-0 top-0 h-48">
+    <img src="/assets/media/stacked-peaks.svg" class="w-full h-full object-cover opacity-20" />
   </div>
 
   <!-- Content -->
   <div class="container mx-auto px-4 relative z-10">
 
-    <!-- Main Page Title -->
+    <!-- Main Page Title (white with drop shadow) -->
     {{ with .Title }}
-      <h1 class="text-4xl md:text-5xl font-extrabold mb-12 text-center text-[#18453B]">{{ . }}</h1>
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-12 text-center text-white drop-shadow-lg">{{ . }}</h1>
     {{ end }}
 
     <!-- Loop over subtopics -->
@@ -19,14 +19,14 @@
       <h2 class="text-3xl md:text-4xl font-bold mb-8 text-[#18453B]">{{ .title }}</h2>
 
       {{ range .universities }}
-        <div class="mb-10 p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+        <div class="mb-10 p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow">
 
           <!-- University Name -->
           <h3 class="text-2xl md:text-3xl font-bold mb-4 text-[#18453B]">{{ .name }}</h3>
 
           <!-- Loop over items -->
           {{ range .items }}
-            <div class="mb-6 pl-4 border-l-4 border-[#18453B] relative flex items-center space-x-4">
+            <div class="mb-4 flex items-center space-x-4 border-l-4 border-[#18453B] pl-4">
 
               <!-- Optional Image -->
               {{ if .image }}
@@ -35,7 +35,7 @@
 
               <!-- Item Info -->
               <div>
-                <span class="block text-xl md:text-2xl font-semibold text-[#18453B] mb-1">{{ .title }}</span>
+                <span class="block text-xl font-semibold text-[#18453B]">{{ .title }}</span>
                 <span class="text-gray-700">{{ .date }}</span>
                 {{ if .url }}
                   <a href="{{ .url }}" target="_blank" class="text-[#18453B] hover:underline ml-2">[link]</a>
@@ -53,5 +53,6 @@
   </div>
 </section>
 {{ end }}
+
 
 
