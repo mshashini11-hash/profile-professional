@@ -1,11 +1,7 @@
 ---
-title: "Project 3: Third Project"
+title: "Latex Resources"
+date: 2025-08-31
 image: "/uploads/project3.png"
-summary: "Short summary of Project 3."
-resources:
-  - name: "Repo"
-    url: "https://github.com/yourname/project3"
+summary: "Short summary of Project 1."
 ---
-## Project 3 — Details
-
-Longer description for Project 3.
+Here is a longer description for Project 1. You can add resources, links, or any relevant content here.
