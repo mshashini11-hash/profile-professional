@@ -123,7 +123,11 @@
             <!-- Optional image -->
             {{ with .Params.image }}
               <div class="mt-2">
-                <img src="{{ . }}" alt="{{ $.Title }}" class="w-full max-w-md rounded-lg shadow-md">
+                {{ if (isset . "filename") }}
+                  <img src="{{ .filename }}" alt="{{ .alt | default $.Title }}" class="w-full max-w-md rounded-lg shadow-md">
+                {{ else }}
+                  <img src="{{ . }}" alt="{{ $.Title }}" class="w-full max-w-md rounded-lg shadow-md">
+                {{ end }}
               </div>
             {{ end }}
 
