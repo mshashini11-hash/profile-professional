@@ -3,9 +3,7 @@ title: "Example Topology Paper"
 authors:
   - "Your Name"
 date: 2019-04-07
-summary: "This paper explores topological invariants and their applications."
-tags:
-  - Topology
+citation: "Your Name. (2019). Example Topology Paper. Journal/Repository. https://doi.org/xxxxx"
 links:
   - name: "Journal"
     url: "https://doi.org/xxxxx"
