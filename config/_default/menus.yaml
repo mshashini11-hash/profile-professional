@@ -20,6 +20,6 @@ main:
     url: awards1/awards1/
     weight: 30
   - name: Hobbies
-    url: /#markdown
+    url: /aboutme/
     weight: 40
   
