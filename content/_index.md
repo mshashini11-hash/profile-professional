@@ -4,7 +4,8 @@ date: 2025-09-01
 type: landing
 
 sections:
-  # Resume / Bio / Skills / Languages pulled from authors/admin/_index.md
+
+  # Resume / Bio / Skills / Languages
   - block: resume-biography-3
     content:
       username: admin
@@ -27,50 +28,44 @@ sections:
           position: center
           parallax: false
 
-  # About Me - Paragraph 1 with right image
-  - block: image-text
+  # About Me paragraphs + images using markdown
+  - block: markdown
     content:
       title: "About Me"
-      text: "I am a fifth-year Ph.D. candidate in Mathematics at Michigan State University, currently on the academic job market. My research focuses on quantum topology and knot theory, with an interest in integrating computational approaches into mathematical exploration."
-      image: "/uploads/portrait1.jpg"
-      image_position: "right"
-    design:
-      columns: 1
-      background:
-        color: white
+      text: |
+        <div style="display:flex; align-items:center; margin-bottom:3rem;">
+          <div style="flex:1; padding-right:2rem;">
+            <p>I am a fifth-year Ph.D. candidate in Mathematics at Michigan State University, currently on the academic job market. My research focuses on quantum topology and knot theory, with an interest in integrating computational approaches into mathematical exploration.</p>
+          </div>
+          <div style="flex:1;">
+            <img src="/uploads/portrait1.jpg" style="width:100%; border-radius:10px;" alt="Portrait 1">
+          </div>
+        </div>
 
-  # About Me - Paragraph 2 with left image
-  - block: image-text
-    content:
-      title: ""
-      text: "Alongside my research, I am deeply engaged in teaching and the development of innovative teaching and learning techniques that connect abstract mathematical ideas with technology and coding."
-      image: "/uploads/portrait2.jpg"
-      image_position: "left"
-    design:
-      columns: 1
-      background:
-        color: white
+        <div style="display:flex; align-items:center; margin-bottom:3rem;">
+          <div style="flex:1;">
+            <img src="/uploads/portrait2.jpg" style="width:100%; border-radius:10px;" alt="Portrait 2">
+          </div>
+          <div style="flex:1; padding-left:2rem;">
+            <p>Alongside my research, I am deeply engaged in teaching and the development of innovative teaching and learning techniques that connect abstract mathematical ideas with technology and coding.</p>
+          </div>
+        </div>
 
-  # Hobbies Gallery
-  - block: row
+  # Hobbies gallery
+  - block: markdown
     content:
       title: "Hobbies"
-      items:
-        - title: "Art"
-          image: "/uploads/artwork1.jpg"
-          url: "/hobbies/art"
-          description: "Exploring colors and abstract forms through painting and digital art."
-        - title: "Photography"
-          image: "/uploads/photography1.jpg"
-          url: "/hobbies/photography"
-          description: "Capturing patterns in nature and architecture through photography."
-    design:
-      columns: 2
-      spacing:
-        padding: [4, 0, 12, 0]
-      background:
-        color: white
+      text: |
+        <div style="display:flex; gap:2rem; flex-wrap:wrap;">
+          <a href="/hobbies/art">
+            <img src="/uploads/artwork1.jpg" alt="Art" style="width:300px; border-radius:10px;">
+          </a>
+          <a href="/hobbies/photography">
+            <img src="/uploads/photography1.jpg" alt="Photography" style="width:300px; border-radius:10px;">
+          </a>
+        </div>
 ---
+
 
 
 
