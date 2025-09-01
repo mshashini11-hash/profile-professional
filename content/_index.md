@@ -1,4 +1,3 @@
----
 - block: resume-biography-3
   content:
     username: admin
@@ -27,7 +26,6 @@
       image:
         filename: stacked-peaks.svg
 
----
 
 
 
