@@ -1,4 +1,4 @@
 ---
 title: "Teaching Philosophy"
-type: teaching-philosophy
+type: teachingphilosophy
 ---
