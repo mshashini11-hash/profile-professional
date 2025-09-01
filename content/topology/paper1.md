@@ -1,21 +1,21 @@
 ---
-title: "Example Topology Paper"
+title: "Seifert fibered 3-manifolds and Turaev-Viro invariants volume conjecture"
 authors:
   - "Shashini Marasinghe"
-year: 2019
-journal: "Journal of Topology Studies"
-volume: "12"
-issue: "3"
-pages: "45-58"
-doi: "https://doi.org/xxxxx"
-arxiv: "https://arxiv.org/abs/1512.04133v1"
-pdf: "http://arxiv.org/pdf/1512.04133v1"
-citation: "Shashini Marasinghe. (2019). Example Topology Paper. Journal of Topology Studies, 12(3), 45-58. https://doi.org/xxxxx"
+year: 2025
+journal: ""
+volume: ""
+issue: ""
+pages: ""
+doi: ""
+arxiv: "https://arxiv.org/abs/2504.10682"
+pdf: "https://arxiv.org/pdf/2504.10682"
+citation: "Shashini Marasinghe. (2025)."
 links:
-  - name: "Journal"
-    url: "https://doi.org/xxxxx"
+  - name: ""
+    url: ""
   - name: "arXiv"
-    url: "https://arxiv.org/abs/1512.04133v1"
+    url: "https://arxiv.org/abs/2504.10682"
   - name: "PDF"
-    url: "http://arxiv.org/pdf/1512.04133v1"
+    url: "https://arxiv.org/pdf/2504.10682"
 ---
