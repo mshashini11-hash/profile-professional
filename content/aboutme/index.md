@@ -1,50 +1,34 @@
 ---
 title: "About Me"
 type: aboutme
-intro: "I am a fifth-year Ph.D. candidate in Mathematics at Michigan State University. My research focuses on quantum topology and knot theory, and I am deeply engaged in teaching and educational development."
+intro: "I am a fifth-year Ph.D. candidate in Mathematics at Michigan State University. My research focuses on quantum topology and knot theory, and I am deeply engaged in teaching and integrating computational approaches into learning."
 
 blocks:
-  # Education and Thesis Block
   - block: markdown
     content:
       title: "Education"
       text: |
-        <p>Ph.D. in Mathematics, Michigan State University (2021–2026)</p>
-        <p>Thesis: <a href="https://example.com" target="_blank">Quantum Topology</a>, supervised by Prof. Efstratia Kalfagianni.</p>
-        <p>BSc in Artificial Intelligence, MIT (2016–2020), GPA 3.9/4.0</p>
+        <p>Ph.D. in Mathematics at Michigan State University (2021-2026). Thesis on <em>Quantum Topology</em>, supervised by <a href="https://users.math.msu.edu/users/kalfagia/">Prof. Efstratia Kalfagianni</a>. Presented papers at 5 IEEE conferences, with contributions published in 2 Springer journals.</p>
+        <p>BSc in Artificial Intelligence at MIT (2016-2020), GPA 3.9/4.0.</p>
     design:
       image:
-        src: "/uploads/grad-school.jpg"
-        position: right
-        size: 50%
-      spacing:
-        padding: [3, 3, 3, 3]
+        src: "/uploads/education.jpg"
+        position: "right"
 
-  # Alternate image on left
   - block: markdown
     content:
-      title: "Research Interests"
+      title: "Teaching & Research"
       text: |
-        <p>My research combines quantum topology, knot theory, and computational methods to explore low-dimensional manifolds. I also integrate coding and technology in my teaching approaches.</p>
+        <p>I am passionate about teaching, mentorship, and making complex mathematical ideas accessible. I incorporate technology, coding, and interactive exercises into my courses to engage students actively.</p>
     design:
       image:
-        src: "/uploads/research.jpg"
-        position: left
-        size: 50%
-      spacing:
-        padding: [3, 3, 3, 3]
+        src: "/uploads/teaching.jpg"
+        position: "left"
 
-  # Hobbies Section (horizontal blocks)
   - block: collection
     content:
-      title: "My Hobbies"
-      text: "Click on each image to explore more."
-      page_type: aboutme_hobby
+      title: "Hobbies"
     design:
-      view: cards
       columns: 2
-      spacing:
-        padding: [3, 3, 3, 3]
-      card:
-        hover_shadow: true
-        border_radius: xl
+---
+
