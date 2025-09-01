@@ -4,7 +4,6 @@
   <!-- Background behind main title -->
   <div class="absolute inset-x-0 top-0 h-33">
     <img src="/uploads/stacked-peaks.svg" class="w-full h-full object-cover opacity-60" />
-    <!-- Optional gradient overlay for contrast -->
     <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent"></div>
   </div>
 
@@ -25,23 +24,45 @@
 
         <!-- Loop over positions -->
         {{ range .positions }}
-          <div class="mb-6 pl-4 border-l-4 border-[#18453B] relative">
+          <div class="mb-4 pl-4 border-l-4 border-[#18453B]" x-data="{ open: false }">
 
-            <!-- Position Title -->
-            <span class="block text-xl md:text-2xl font-semibold text-[#18453B] mb-2">{{ .title }}</span>
+            <!-- Position Title: clickable for IoR -->
+            <button 
+              class="w-full text-left block text-xl md:text-2xl font-semibold mb-2 {{ if .ior }}text-blue-600{{ else }}text-[#18453B]{{ end }}" 
+              @click="open = !open">
+              {{ .title }}
+              {{ if .ior }}<span class="text-sm font-normal">(Instructor of Record)</span>{{ end }}
+            </button>
 
-            <!-- Courses -->
-            {{ with .courses }}
-              <ul class="list-disc list-inside text-[#1C1C1C] ml-2">
-                {{ range . }}
-                  <li class="mb-1">
-                    <a href="{{ .url }}" class="hover:underline text-[#18453B]">{{ .name }}</a>
-                    <span class="text-gray-700"> — {{ .semester }}</span>
-                  </li>
-                {{ end }}
-              </ul>
-            {{ end }}
+            <!-- Collapsible content -->
+            <div x-show="open" x-transition class="pl-4 mt-2">
 
+              <!-- Courses -->
+              {{ with .courses }}
+                <ul class="list-disc list-inside text-[#1C1C1C] ml-2">
+                  {{ range . }}
+                    <li class="mb-1">
+                      <a href="{{ .url }}" class="hover:underline text-[#18453B]">{{ .name }}</a>
+                      <span class="text-gray-700"> — {{ .semester }}</span>
+                    </li>
+                  {{ end }}
+                </ul>
+              {{ end }}
+
+              <!-- Guest Lectures -->
+              {{ with .guest_lectures }}
+                <h4 class="mt-2 font-semibold text-[#18453B]">Guest Lectures:</h4>
+                <ul class="list-disc list-inside text-[#1C1C1C] ml-2">
+                  {{ range . }}
+                    <li class="mb-1">
+                      <a href="{{ .url }}" class="hover:underline text-[#18453B]">{{ .name }}</a>
+                      <span class="text-gray-700"> — {{ .semester }}</span>
+                    </li>
+                  {{ end }}
+                </ul>
+              {{ end }}
+
+            </div>
           </div>
         {{ end }}
 
@@ -50,4 +71,8 @@
 
   </div>
 </section>
+
+<!-- Alpine.js for collapse functionality -->
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 {{ end }}
+
