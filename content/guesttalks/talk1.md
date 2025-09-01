@@ -3,7 +3,7 @@ title: "Advanced Topology Workshop"
 date: "2024-10-15"
 event: "Michigan State University"
 summary: "Discussed Turaev-Viro invariants and Seifert fibered 3-manifolds."
-image: "/uploads/project1.jpg"
+image: "/uploads/project1.png"
 links:
   - name: "Slides"
     url: "/guesttalks/slides/topology_workshop.pdf"
