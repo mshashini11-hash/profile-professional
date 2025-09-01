@@ -70,64 +70,6 @@ education:
     date_end: 2020-12-31
     summary: |
       GPA: 3.9/4.0
-      
-      Courses included:
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-
-experience:
-  - organization: Michigan State University
-    roles:
-      - title: Instructor of Record
-        description: |
-          Taught multiple undergraduate mathematics courses:
-          - MTH 234 – Multivariable Calculus 3 (Fall 2023, Spring 2024)
-          - MTH 124 – Survey of Calculus 1 (Summer 2022)
-          - MTH 101 – Quantitative Literacy 1 (Summer 2023)
-          - MTH 299 – Introduction to Proofs (Summer 2025)
-
-      - title: Teaching Team
-        description: |
-          Assisted in teaching undergraduate courses:
-          - MTH 133 – Calculus 2 (Fall 2021)
-          - MTH 124 – Survey of Calculus 1 (Spring 2022)
-          - MTH 101 – Quantitative Literacy 1 (Fall 2022)
-
-      - title: Curriculum Development
-        description: |
-          Contributed to course design and materials for:
-          - MTH 101 – Quantitative Literacy 1 (Spring 2023, Spring 2025)
-          - MTH 234 – Multivariable Calculus 3 (Fall 2023, Spring 2024)
-          - MTH 124 – Survey of Calculus 1 (Summer 2022)
-          - MTH 299 – Introduction to Proofs (Summer 2025)
-
-      - title: Teaching Mentoring
-        description: |
-          Mentored undergraduate and graduate teaching assistants:
-          - Lead TA for undergraduate learning assistants: Observed and provided detailed feedback.
-          - Lead TA for graduate second-year teaching assistants: One-on-one mentoring and feedback.
-          - Served as resource person for discussion-based instruction for undergraduate learning assistants and first-year TAs.
-
-work:
-  - position: Michigan State University
-    company_name: Instructor of Record
-    date_start: 2023-08-01
-    date_end: 2024-05-01
-    summary: |
-      - Taught MTH 234 – Multivariable Calculus 3
-      - Taught MTH 124 – Survey of Calculus 1
-
-  - position: 
-    company_name:  Teaching Team
-    date_start: 2021-08-01
-    date_end: 2022-05-01
-    summary: |
-      - Assisted in teaching MTH 133 – Calculus 2
-      - Assisted in MTH 124 – Survey of Calculus 1
-
-
-
 
 
 #work:
@@ -162,34 +104,6 @@ languages:
     percent: 100
   - name: Sinhala
     percent: 75
-
-awards:
-  - title: FAST Fellowship
-    url: https://grad.msu.edu/fast/bios 
-    date: '2023-11-25'
-    awarder: Michigan State University
-    icon: ""
-    summary: |
-      I studied the foundational concept of neural networks and deep learning.
-
-  - title: TA Award
-    url: https://www.edx.org/professional-certificate/uc-berkeleyx-blockchain-fundamentals
-    date: '2023-07-01'
-    awarder: edX
-    icon: ""
-    summary: |
-      Learned:
-      - Synthesize your own blockchain solutions
-      - Apply blockchain fundamentals in real-world scenarios
-
-  - title: Object-Oriented Programming in R
-    url: https://www.datacamp.com/courses/object-oriented-programming-with-s3-and-r6-in-r
-    certificate_url: https://www.datacamp.com
-    date: '2023-01-21'
-    awarder: DataCamp
-    icon: ""
-    summary: |
-      Especially useful for industry-specific analyses, working with web APIs, and building GUIs.
 
 ---
 
