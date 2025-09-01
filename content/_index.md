@@ -4,7 +4,7 @@ date: 2025-09-01
 type: landing
 
 sections:
-  # Resume/Bio block (existing)
+  # Resume / Bio / Skills / Languages pulled from authors/admin/_index.md
   - block: resume-biography-3
     content:
       username: admin
@@ -27,44 +27,49 @@ sections:
           position: center
           parallax: false
 
-  # Hobbies section
-  - block: markdown
+  # About Me - Paragraph 1 with right image
+  - block: image-text
     content:
-      title: "Hobbies"
-      text: |
-        <div class="w-full max-w-[90%] mx-auto py-12">
-
-          <!-- Hobby 1: Art -->
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-12">
-            <div class="md:order-2 text-center">
-              <a href="/hobbies/art">
-                <img src="/uploads/artwork1.jpg" alt="Art" class="rounded-lg shadow-lg w-full max-w-md hover:scale-105 transition-transform duration-300">
-              </a>
-            </div>
-            <div class="md:order-1">
-              <p class="text-gray-800 text-lg">
-                I enjoy painting and digital art. Exploring colors and abstract forms allows me to connect creativity with logical problem solving.
-              </p>
-            </div>
-          </div>
-
-          <!-- Hobby 2: Photography -->
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-12">
-            <div class="text-center md:order-2">
-              <a href="/hobbies/photography">
-                <img src="/uploads/photography1.jpg" alt="Photography" class="rounded-lg shadow-lg w-full max-w-md hover:scale-105 transition-transform duration-300">
-              </a>
-            </div>
-            <div class="md:order-1">
-              <p class="text-gray-800 text-lg">
-                Photography lets me capture mathematical patterns in nature and architecture. Each photo is a story of symmetry and structure.
-              </p>
-            </div>
-          </div>
-
-        </div>
+      title: "About Me"
+      text: "I am a fifth-year Ph.D. candidate in Mathematics at Michigan State University, currently on the academic job market. My research focuses on quantum topology and knot theory, with an interest in integrating computational approaches into mathematical exploration."
+      image: "/uploads/portrait1.jpg"
+      image_position: "right"
     design:
       columns: 1
+      background:
+        color: white
+
+  # About Me - Paragraph 2 with left image
+  - block: image-text
+    content:
+      title: ""
+      text: "Alongside my research, I am deeply engaged in teaching and the development of innovative teaching and learning techniques that connect abstract mathematical ideas with technology and coding."
+      image: "/uploads/portrait2.jpg"
+      image_position: "left"
+    design:
+      columns: 1
+      background:
+        color: white
+
+  # Hobbies Gallery
+  - block: row
+    content:
+      title: "Hobbies"
+      items:
+        - title: "Art"
+          image: "/uploads/artwork1.jpg"
+          url: "/hobbies/art"
+          description: "Exploring colors and abstract forms through painting and digital art."
+        - title: "Photography"
+          image: "/uploads/photography1.jpg"
+          url: "/hobbies/photography"
+          description: "Capturing patterns in nature and architecture through photography."
+    design:
+      columns: 2
+      spacing:
+        padding: [4, 0, 12, 0]
+      background:
+        color: white
 ---
 
 
