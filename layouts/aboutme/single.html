@@ -1,7 +1,9 @@
 {{ define "main" }}
 <link rel="stylesheet" href="{{ "css/aboutme.css" | relURL }}">
+
 <main class="max-w-5xl mx-auto px-4 py-8">
   <article>
+
     <header class="mb-6">
       <h1 class="text-4xl font-bold text-[#18453B] mb-2">{{ .Title }}</h1>
       {{ with .Params.intro }}
@@ -9,12 +11,111 @@
       {{ end }}
     </header>
 
-    <section class="aboutme-content">
-      {{ .Content | safeHTML }}
+    <section class="story-content">
+      <p>Born and raised in the lush hills of Kandy, Sri Lanka, I grew up curious about patterns—both in math and in life. The misty hills and vibrant streets sparked my imagination.</p>
+
+      <figure class="story-img">
+        <img src="/uploads/kandy.png" alt="Hills of Kandy">
+        <figcaption>The misty hills of Kandy</figcaption>
+      </figure>
+
+      <p>As a child, I spent hours sketching patterns, watching the way sunlight danced through the trees, and noticing small mathematical patterns everywhere.</p>
+
+      <figure class="story-img right">
+        <img src="/uploads/art1.jpeg" alt="Art sketching">
+        <figcaption>Painting to explore new perspectives</figcaption>
+      </figure>
+
+      <p>My passion for numbers led me to pursue higher education abroad. During my Ph.D., I delved into quantum topology, knot theory, and the elegance of abstract mathematics, presenting my work at conferences and publishing papers along the way.</p>
+
+      <figure class="story-img">
+        <img src="/uploads/hike1.jpeg" alt="Nature trail">
+        <figcaption>Exploring nature trails for inspiration</figcaption>
+      </figure>
+
+      <p>When not immersed in equations, I explore the world through art and nature. Painting, photography, and hiking allow me to slow down, notice details, and stay inspired.</p>
+
+      <div class="clear-both"></div>
+
+      <!-- YouTube Video -->
+      <div class="video-container my-6">
+        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <p class="video-caption text-center text-gray-600 mb-6">A talk on knot theory</p>
+
+      <!-- Gallery: Travel -->
+      <section class="gallery-section mb-6">
+        <h2>Travel Photography</h2>
+        <div class="gallery-grid">
+          <a class="gallery-link" href="/uploads/hike1.jpeg" data-caption="Knuckles Range">
+            <img src="/uploads/hike1.jpeg" alt="Travel 1">
+            <div class="thumb-caption">Knuckles Range</div>
+          </a>
+          <a class="gallery-link" href="/uploads/kandy.png" data-caption="Kandy Hills">
+            <img src="/uploads/kandy.png" alt="Travel 2">
+            <div class="thumb-caption">Kandy Hills</div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Gallery: Paintings -->
+      <section class="gallery-section mb-6">
+        <h2>My Paintings</h2>
+        <div class="gallery-grid">
+          <a class="gallery-link" href="/uploads/art1.jpeg" data-caption="Abstract Colors">
+            <img src="/uploads/art1.jpeg" alt="Painting 1">
+            <div class="thumb-caption">Abstract Colors</div>
+          </a>
+          <a class="gallery-link" href="/uploads/art1.jpeg" data-caption="Geometric Inspiration">
+            <img src="/uploads/art1.jpeg" alt="Painting 2">
+            <div class="thumb-caption">Geometric Inspiration</div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Lightbox -->
+      <div id="lightbox" class="lightbox hidden">
+        <button id="lb-close" class="lb-close" aria-label="Close">×</button>
+        <img id="lb-img" src="" alt="">
+        <p id="lb-caption" class="lb-caption"></p>
+      </div>
+
     </section>
   </article>
 </main>
+
+<script>
+(function(){
+  const links = document.querySelectorAll('.gallery-link');
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lb-img');
+  const lbCaption = document.getElementById('lb-caption');
+  const lbClose = document.getElementById('lb-close');
+
+  function openLB(href, caption){
+    lbImg.src = href;
+    lbCaption.textContent = caption;
+    lb.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLB(){
+    lb.classList.add('hidden');
+    lbImg.src = '';
+    lbCaption.textContent = '';
+    document.body.style.overflow = '';
+  }
+
+  links.forEach(a => a.addEventListener('click', e => {
+    e.preventDefault();
+    openLB(a.href, a.dataset.caption);
+  }));
+  lbClose.addEventListener('click', closeLB);
+  lb.addEventListener('click', e => { if(e.target===lb) closeLB(); });
+  document.addEventListener('keydown', e => { if(e.key==='Escape') closeLB(); });
+})();
+</script>
 {{ end }}
+
 
 
 
