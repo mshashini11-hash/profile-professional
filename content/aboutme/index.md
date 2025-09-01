@@ -8,10 +8,10 @@ blocks:
     image: "/uploads/kandy.png"
 
   - description: "My passion for numbers and patterns led me to pursue higher education abroad. During my Ph.D., I delved deep into quantum topology, knot theory, and the elegance of abstract mathematics, presenting my work at conferences and publishing papers along the way."
-    image: "/uploads/education.jpg"
+    image: "/uploads/art1.jpeg"
 
   - description: "When not immersed in equations, I explore the world through art and nature. Painting, photography, and hiking allow me to slow down, notice details, and stay inspired. These moments of creativity often feed back into my mathematical thinking."
-    image: "/uploads/teaching.jpg"
+    image: "/uploads/hike1.jpeg"
 
   - block: gallery
     title: "My Hobbies"
