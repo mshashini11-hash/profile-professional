@@ -22,5 +22,9 @@ blocks:
       - title: "Photography"
         image: "/uploads/photography.jpg"
         summary: "Capturing landscapes and urban photography."
+      - title: "Hiking"
+        image: "/uploads/hiking.jpg"
+        summary: "Exploring nature trails and mountains."
 ---
+
 
