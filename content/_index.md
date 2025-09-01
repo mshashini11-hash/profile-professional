@@ -4,7 +4,7 @@ date: 2025-09-01
 type: landing
 
 sections:
-  # Resume/Bio block (existing)
+  # Resume/Bio block (pulls skills/languages from authors/admin/_index.md)
   - block: resume-biography-3
     content:
       username: admin
@@ -27,25 +27,12 @@ sections:
           position: center
           parallax: false
 
-  # About Me + Skills + Hobbies in one markdown block
+  # About Me + Hobbies
   - block: markdown
     content:
-      title: "About Me & Skills"
+      title: "About Me & Hobbies"
       text: |
         <p>I am a fifth-year Ph.D. candidate in Mathematics at Michigan State University, currently on the academic job market. My research focuses on quantum topology and knot theory, with an interest in integrating computational approaches into mathematical exploration. Alongside my research, I am deeply engaged in teaching and the development of innovative teaching and learning techniques that connect abstract mathematical ideas with technology and coding.</p>
-
-        <h3>Technical Skills</h3>
-        <ul>
-          <li>Python – 90%</li>
-          <li>LaTeX – 100%</li>
-          <li>SQL – 40%</li>
-        </ul>
-
-        <h3>Languages</h3>
-        <ul>
-          <li>English – 100%</li>
-          <li>Sinhala – 75%</li>
-        </ul>
 
         <h3>Hobbies</h3>
         <p>Click on the images below to explore my hobbies:</p>
@@ -60,6 +47,7 @@ sections:
     design:
       columns: 1
 ---
+
 
 
 
