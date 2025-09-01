@@ -12,11 +12,11 @@
       <p class="text-lg text-gray-800 mb-12 text-center">{{ . }}</p>
     {{ end }}
 
-    {{ $altIndex := 0 }}
+    {{ $storyIndex := 0 }}
 
     {{ range .Params.blocks }}
       {{ if eq .block "gallery" }}
-        <!-- Two-box gallery at the end -->
+        <!-- Gallery at the end -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
           {{ range .items }}
             <a href="#" class="group relative rounded-xl overflow-hidden shadow-md hover:shadow-lg transition cursor-pointer">
@@ -32,7 +32,7 @@
         </div>
       {{ else }}
         <!-- Story block with alternating image -->
-        {{ $isRight := eq (mod $altIndex 2) 0 }}
+        {{ $isRight := modBool $storyIndex 2 }} <!-- true if even index -->
         <div class="mb-12 flex flex-col md:flex-row items-center">
           {{ with .image }}
             <div class="md:w-1/3 {{ if $isRight }}md:order-2{{ else }}md:order-1{{ end }} flex justify-center">
@@ -45,13 +45,14 @@
             {{ end }}
           </div>
         </div>
-        {{ $altIndex = add $altIndex 1 }}
+        {{ $storyIndex = add $storyIndex 1 }}
       {{ end }}
     {{ end }}
 
   </div>
 </section>
 {{ end }}
+
 
 
 
