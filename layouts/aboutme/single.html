@@ -11,28 +11,26 @@
     {{ end }}
   </header>
 
-  <!-- Two-column layout -->
-  <section class="aboutme-columns">
-    <!-- Left: Images -->
+  <!-- Each block as separate two-column section -->
+  {{ range $index, $block := .Params.blocks }}
+  <section class="aboutme-columns {{ if modBool $index 2 }}alt{{ end }}">
+    <!-- Left: Image -->
+    {{ with $block.image }}
     <div class="aboutme-images">
-      {{ range .Params.blocks }}
-        {{ with .image }}
-          <figure>
-            <img src="{{ . }}" alt="">
-          </figure>
-        {{ end }}
-      {{ end }}
+      <figure>
+        <img src="{{ . }}" alt="">
+      </figure>
     </div>
+    {{ end }}
 
-    <!-- Right: Story -->
+    <!-- Right: Description -->
+    {{ with $block.description }}
     <div class="aboutme-story">
-      {{ range .Params.blocks }}
-        {{ with .description }}
-          <p>{{ . }}</p>
-        {{ end }}
-      {{ end }}
+      <p>{{ . }}</p>
     </div>
+    {{ end }}
   </section>
+  {{ end }}
 
   <!-- Two gallery tiles -->
   <section class="gallery-tiles">
@@ -48,6 +46,7 @@
 
 </main>
 {{ end }}
+
 
 
 
