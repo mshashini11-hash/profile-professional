@@ -1,0 +1,8 @@
+<div class="float-{{ .Get "side" }} w-2/3 md:w-1/2 {{ if eq (.Get "side") "right" }}ml-4{{ else }}mr-4{{ end }} mb-4">
+  <div class="relative pb-[56.25%] h-0">
+    <iframe class="absolute inset-0 w-full h-full rounded-lg" src="https://www.youtube.com/embed/{{ .Get "id" }}" frameborder="0" allowfullscreen></iframe>
+  </div>
+  {{ with .Get "caption" }}
+    <p class="text-center text-sm text-gray-600 mt-1">{{ . }}</p>
+  {{ end }}
+</div>
