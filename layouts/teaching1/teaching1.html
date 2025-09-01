@@ -26,12 +26,11 @@
         {{ range .positions }}
           <div class="mb-4 pl-4 border-l-4 border-[#18453B]" x-data="{ open: false }">
 
-            <!-- Position Title: clickable for IoR -->
+            <!-- Position Title: clickable for drop-down -->
             <button 
-              class="w-full text-left block text-xl md:text-2xl font-semibold mb-2 {{ if .ior }}text-blue-600{{ else }}text-[#18453B]{{ end }}" 
+              class="w-full text-left block text-xl md:text-2xl font-semibold mb-2 text-[#18453B]" 
               @click="open = !open">
               {{ .title }}
-              {{ if .ior }}<span class="text-sm font-normal">(Instructor of Record)</span>{{ end }}
             </button>
 
             <!-- Collapsible content -->
@@ -72,7 +71,7 @@
   </div>
 </section>
 
-<!-- Alpine.js for collapse functionality -->
 <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 {{ end }}
+
 
