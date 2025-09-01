@@ -4,49 +4,39 @@ type: aboutme
 intro: "When I’m not unraveling the mysteries of knots and quantum topology, you can usually find me with a paintbrush in hand, exploring the colors of the world, or wandering through nature trails, camera in tow."
 ---
 
-<!-- STORY: use HTML so floats wrap properly -->
+<p>Born and raised in the lush hills of Kandy, Sri Lanka, I grew up curious about patterns—both in math and in life.</p>
 
-<p>
-  <strong>Born and raised in the lush hills of Kandy, Sri Lanka</strong>, I grew up curious about patterns—both in math and in life. My early education there laid the foundation for a lifelong fascination with learning, creativity, and adventure.
-</p>
-
-<figure class="float-right">
+<figure class="float-right small-img">
   <img src="/uploads/kandy.png" alt="Hills of Kandy">
   <figcaption>The misty hills of Kandy</figcaption>
 </figure>
 
-<p>
-  Growing up, I spent hours sketching patterns and noticing mathematical symmetries in everyday things. These early hours with pencil and paper quietly nudged me toward both art and mathematics.
-</p>
+<p>As a child, I spent hours sketching patterns and noticing mathematical symmetries in everyday things. These early hours quietly nudged me toward both art and mathematics.</p>
 
-<figure class="float-left">
-  <img src="/uploads/art1.jpeg" alt="Art and Math">
-  <figcaption>Blending art with mathematical ideas</figcaption>
+<figure class="float-left small-img">
+  <img src="/uploads/art1.jpeg" alt="Art sketching">
+  <figcaption>Painting to explore new perspectives</figcaption>
 </figure>
 
-<p>
-  My passion for numbers led me to pursue higher education abroad. During my Ph.D., I focused on quantum topology and knot theory—presenting at conferences and publishing papers along the way.
-</p>
+<p>My passion for numbers led me to pursue higher education abroad. During my Ph.D., I focused on quantum topology and knot theory—presenting at conferences and publishing papers along the way.</p>
 
-<!-- responsive YouTube embed -->
-<div class="video-container">
-  <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
-</div>
-<p class="video-caption">A talk on knot theory.</p>
-
-<p>
-  When not immersed in equations, I explore the world through painting, photography, and hiking. These creative outlets often feed back into my math.
-</p>
-
-<figure class="float-right">
-  <img src="/uploads/hike1.jpeg" alt="Hiking">
-  <figcaption>Exploring trails for fresh ideas</figcaption>
+<figure class="float-right small-img">
+  <img src="/uploads/hike1.jpeg" alt="Nature trail">
+  <figcaption>Exploring nature trails for inspiration</figcaption>
 </figure>
+
+<p>When not immersed in equations, I explore the world through painting, photography, and hiking. These moments of creativity often feed back into my mathematical thinking.</p>
 
 <div class="clear-both"></div>
 
-<!-- GALLERIES: plain HTML so clickable and independent of shortcodes -->
-<section class="gallery-section">
+<!-- YouTube video at the end -->
+<div class="video-container my-6">
+  <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+</div>
+<p class="video-caption text-center text-gray-600 mb-6">A talk on knot theory</p>
+
+<!-- Travel Photography Gallery -->
+<section class="gallery-section mb-6">
   <h2>Travel Photography</h2>
   <div class="gallery-grid">
     <a class="gallery-link" href="/uploads/hike1.jpeg" data-caption="Knuckles Range">
@@ -60,8 +50,9 @@ intro: "When I’m not unraveling the mysteries of knots and quantum topology, y
   </div>
 </section>
 
-<section class="gallery-section">
-  <h2>Paintings</h2>
+<!-- Paintings Gallery -->
+<section class="gallery-section mb-6">
+  <h2>My Paintings</h2>
   <div class="gallery-grid">
     <a class="gallery-link" href="/uploads/art1.jpeg" data-caption="Abstract Colors">
       <img src="/uploads/art1.jpeg" alt="Painting 1">
@@ -74,48 +65,44 @@ intro: "When I’m not unraveling the mysteries of knots and quantum topology, y
   </div>
 </section>
 
-<!-- LIGHTBOX + minimal JS (works without extra assets) -->
-<div id="lightbox" class="lightbox hidden" aria-hidden="true">
-  <button id="lb-close" class="lb-close" aria-label="close">×</button>
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox hidden">
+  <button id="lb-close" class="lb-close" aria-label="Close">×</button>
   <img id="lb-img" src="" alt="">
   <p id="lb-caption" class="lb-caption"></p>
 </div>
 
 <script>
   (function(){
-    // gallery lightbox
     const links = document.querySelectorAll('.gallery-link');
     const lb = document.getElementById('lightbox');
     const lbImg = document.getElementById('lb-img');
     const lbCaption = document.getElementById('lb-caption');
     const lbClose = document.getElementById('lb-close');
 
-    function openLB(href, caption) {
+    function openLB(href, caption){
       lbImg.src = href;
-      lbCaption.textContent = caption || '';
+      lbCaption.textContent = caption;
       lb.classList.remove('hidden');
       document.body.style.overflow = 'hidden';
     }
-    function closeLB() {
+    function closeLB(){
       lb.classList.add('hidden');
       lbImg.src = '';
       lbCaption.textContent = '';
       document.body.style.overflow = '';
     }
 
-    links.forEach(a => {
-      a.addEventListener('click', function(e){
-        e.preventDefault();
-        openLB(this.href, this.dataset.caption);
-      });
-    });
+    links.forEach(a => a.addEventListener('click', e => {
+      e.preventDefault();
+      openLB(a.href, a.dataset.caption);
+    }));
     lbClose.addEventListener('click', closeLB);
-    lb.addEventListener('click', function(e){
-      if(e.target === lb) closeLB();
-    });
-    document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeLB(); });
+    lb.addEventListener('click', e => { if(e.target===lb) closeLB(); });
+    document.addEventListener('keydown', e => { if(e.key==='Escape') closeLB(); });
   })();
 </script>
+
 
 
 
