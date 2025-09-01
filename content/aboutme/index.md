@@ -9,7 +9,7 @@ galleries:
       - image: "/uploads/travel1.jpg"
         title: "Nepal"
         summary: "Hiking in the Himalayas."
-      - image: "/uploads/travel2.jpg"
+      - image: "/uploads/art.jpeg"
         title: "Italy"
         summary: "Exploring Venice."
   - title: "Paintings"
@@ -17,7 +17,7 @@ galleries:
       - image: "/uploads/painting1.jpg"
         title: "Sunset"
         summary: "Acrylic on canvas."
-      - image: "/uploads/painting2.jpg"
+      - image: "/uploads/hike1.jpeg"
         title: "Forest"
         summary: "Watercolor piece."
 ---
