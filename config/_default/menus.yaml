@@ -13,8 +13,8 @@ main:
   - name: Research
     url: /research1/
     weight: 12
-  - name: Statement
-    url: teaching/
+  - name: "Teaching Philosophy"
+    url: /teaching-philosophy/
     weight: 13
   - name: Papers
     url: /#papers
