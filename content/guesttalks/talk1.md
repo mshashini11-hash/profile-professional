@@ -1,13 +1,11 @@
 ---
-title: "Advanced Topology Workshop"
-date: 2024-10-15
-event: "Michigan State University"
-summary: "Discussed Turaev-Viro invariants and Seifert fibered 3-manifolds."
-image: "/uploads/project1.png"
+title: "My Talk"
+date: "2024-05-12"
+event: "Math Seminar"
+image: "/uploads/my-talk.jpg"
+summary: "This was about topology and education."
 links:
   - name: "Slides"
-    url: "/uploads/topology_workshop.pdf"
-  - name: "Recording"
-    url: "https://example.com/video"
+    url: "https://example.com/slides"
 ---
 
