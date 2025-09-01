@@ -1,49 +1,56 @@
 {{ define "main" }}
 <link rel="stylesheet" href="{{ "css/aboutme.css" | relURL }}">
 
-<main class="max-w-5xl mx-auto px-4 py-8">
-  <article>
+<main class="max-w-6xl mx-auto px-4 py-8">
 
-    <header class="mb-6">
-      <h1 class="text-4xl font-bold text-[#18453B] mb-4">{{ .Title }}</h1>
-      {{ with .Params.intro }}
-        <p class="text-lg text-gray-700 mb-6">{{ . }}</p>
-      {{ end }}
-    </header>
+  <!-- Title and intro -->
+  <header class="mb-8">
+    <h1 class="text-4xl font-bold text-[#18453B] mb-4">{{ .Title }}</h1>
+    {{ with .Params.intro }}
+      <p class="text-lg text-gray-700">{{ . }}</p>
+    {{ end }}
+  </header>
 
-    <section class="story-content">
-      {{ $alt := false }}
+  <!-- Two-column layout -->
+  <section class="aboutme-columns flex flex-col md:flex-row gap-8 mb-12">
+    
+    <!-- Left column: Images -->
+    <div class="aboutme-images md:w-1/2 flex flex-col gap-4">
       {{ range .Params.blocks }}
-        <div class="story-block {{ if $alt }}flex-row-reverse{{ end }}">
-          {{ with .image }}
-            <figure>
-              <img src="{{ . }}" alt="">
-              {{ with $.Params.captions }}
-                <figcaption>{{ index . 0 }}</figcaption>
-              {{ end }}
-            </figure>
-          {{ end }}
-          {{ with .description }}
-            <p>{{ . }}</p>
-          {{ end }}
-        </div>
-        {{ $alt = not $alt }}
+        {{ with .image }}
+          <figure>
+            <img src="{{ . }}" alt="">
+            {{ with $.Params.captions }}
+              <figcaption>{{ index . 0 }}</figcaption>
+            {{ end }}
+          </figure>
+        {{ end }}
       {{ end }}
-    </section>
+    </div>
 
-    <!-- Two gallery tiles -->
-    <section class="gallery-tiles mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-      <a href="/travel" class="gallery-tile">
-        <img src="/uploads/hike1.jpeg" alt="Travel Gallery">
-        <div class="tile-caption">Travel Photos</div>
-      </a>
-      <a href="/paintings" class="gallery-tile">
-        <img src="/uploads/art1.jpeg" alt="Paintings Gallery">
-        <div class="tile-caption">My Paintings</div>
-      </a>
-    </section>
+    <!-- Right column: Story -->
+    <div class="aboutme-story md:w-1/2 flex flex-col gap-4">
+      {{ range .Params.blocks }}
+        {{ with .description }}
+          <p>{{ . }}</p>
+        {{ end }}
+      {{ end }}
+    </div>
 
-  </article>
+  </section>
+
+  <!-- Two gallery tiles -->
+  <section class="gallery-tiles grid grid-cols-1 md:grid-cols-2 gap-6">
+    <a href="/travel" class="gallery-tile">
+      <img src="/uploads/hike1.jpeg" alt="Travel Gallery">
+      <div class="tile-caption">Travel Photos</div>
+    </a>
+    <a href="/paintings" class="gallery-tile">
+      <img src="/uploads/art1.jpeg" alt="Paintings Gallery">
+      <div class="tile-caption">My Paintings</div>
+    </a>
+  </section>
+
 </main>
 {{ end }}
 
