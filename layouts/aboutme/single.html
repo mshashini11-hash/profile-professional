@@ -15,29 +15,24 @@
     {{ end }}
 
     <!-- Loop over markdown blocks -->
-    {{ range .Params.blocks }}
-      {{ if eq .block "markdown" }}
+    {{ range $index, $block := .Params.blocks }}
+      {{ if eq $block.block "markdown" }}
         <div class="mb-12 flex flex-col md:flex-row items-center">
-          {{ with .design.image }}
-            {{ if eq .position "right" }}
-              <div class="md:w-1/2 md:order-2">
-                <img src="{{ .src }}" alt="{{ $.Title }}" class="w-full rounded-xl shadow-md mb-4 md:mb-0">
-              </div>
-            {{ else }}
-              <div class="md:w-1/2 md:order-1">
-                <img src="{{ .src }}" alt="{{ $.Title }}" class="w-full rounded-xl shadow-md mb-4 md:mb-0">
-              </div>
-            {{ end }}
+          {{ with $block.design.image }}
+            {{ $isRight := or (eq .position "right") (and (not .position) (mod $index 2)) }}
+            <div class="md:w-1/2 {{ if $isRight }}md:order-2{{ else }}md:order-1{{ end }}">
+              <img src="{{ .src }}" alt="{{ $.Title }}" class="w-full rounded-xl shadow-md mb-4 md:mb-0">
+            </div>
           {{ end }}
           <div class="md:w-1/2 md:px-6 text-gray-800">
-            {{ with .content.title }}<h2 class="text-2xl md:text-3xl font-bold mb-4 text-[#18453B]">{{ . }}</h2>{{ end }}
-            {{ with .content.text }}{{ . | safeHTML }}{{ end }}
+            {{ with $block.content.title }}<h2 class="text-2xl md:text-3xl font-bold mb-4 text-[#18453B]">{{ . }}</h2>{{ end }}
+            {{ with $block.content.text }}{{ . | safeHTML }}{{ end }}
           </div>
         </div>
       {{ end }}
 
       <!-- Hobbies Collection -->
-      {{ if eq .block "collection" }}
+      {{ if eq $block.block "collection" }}
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
           {{ $pages := where site.RegularPages "Section" "aboutme_hobby" }}
           {{ range $pages }}
@@ -55,8 +50,10 @@
           {{ end }}
         </div>
       {{ end }}
+
     {{ end }}
 
   </div>
 </section>
 {{ end }}
+
