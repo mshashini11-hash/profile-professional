@@ -36,12 +36,22 @@
           {{ if .Params.citation }}
             {{ .Params.citation }}
           {{ else }}
-            <strong>{{ .Title }}</strong>, {{ .Date.Format "2006" }}.
+            <strong>{{ .Title }}</strong>
+            {{ with .Params.authors }}({{ range $i, $a := . }}{{ if $i }}, {{ end }}{{ $a }}{{ end }}){{ end }}.
+            {{ with .Params.year }} ({{ . }}).{{ end }}
+            {{ with .Params.journal }} <em>{{ . }}</em>,{{ end }}
+            {{ with .Params.volume }} Vol. {{ . }},{{ end }}
+            {{ with .Params.issue }} Issue {{ . }},{{ end }}
+            {{ with .Params.pages }} pp. {{ . }}.{{ end }}
+            {{ with .Params.doi }} DOI: <a href="{{ . }}" class="text-blue-600 font-bold hover:underline">{{ . }}</a>{{ end }}
           {{ end }}
+
           {{ with .Params.links }}
             <span class="space-x-2">
               {{ range . }}
-                <a href="{{ .url }}" target="_blank" class="text-blue-600 font-bold hover:underline">{{ .name }}</a>
+                {{ if .name }}
+                  <a href="{{ .url }}" target="_blank" class="text-blue-600 font-bold hover:underline">{{ .name }}</a>
+                {{ end }}
               {{ end }}
             </span>
           {{ end }}
@@ -58,12 +68,22 @@
           {{ if .Params.citation }}
             {{ .Params.citation }}
           {{ else }}
-            <strong>{{ .Title }}</strong>, {{ .Date.Format "2006" }}.
+            <strong>{{ .Title }}</strong>
+            {{ with .Params.authors }}({{ range $i, $a := . }}{{ if $i }}, {{ end }}{{ $a }}{{ end }}){{ end }}.
+            {{ with .Params.year }} ({{ . }}).{{ end }}
+            {{ with .Params.journal }} <em>{{ . }}</em>,{{ end }}
+            {{ with .Params.volume }} Vol. {{ . }},{{ end }}
+            {{ with .Params.issue }} Issue {{ . }},{{ end }}
+            {{ with .Params.pages }} pp. {{ . }}.{{ end }}
+            {{ with .Params.doi }} DOI: <a href="{{ . }}" class="text-blue-600 font-bold hover:underline">{{ . }}</a>{{ end }}
           {{ end }}
+
           {{ with .Params.links }}
             <span class="space-x-2">
               {{ range . }}
-                <a href="{{ .url }}" target="_blank" class="text-blue-600 font-bold hover:underline">{{ .name }}</a>
+                {{ if .name }}
+                  <a href="{{ .url }}" target="_blank" class="text-blue-600 font-bold hover:underline">{{ .name }}</a>
+                {{ end }}
               {{ end }}
             </span>
           {{ end }}
