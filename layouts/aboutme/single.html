@@ -1,10 +1,20 @@
 {{ define "main" }}
-  <main class="prose max-w-4xl mx-auto px-4">
-    {{ .Content }}
-  </main>
+<main class="max-w-5xl mx-auto px-4 py-8">
+  <article>
+    <header class="mb-6">
+      <h1 class="text-4xl font-bold text-[#18453B] mb-2">{{ .Title }}</h1>
+      {{ with .Params.intro }}
+        <p class="text-lg text-gray-700 mb-6">{{ . }}</p>
+      {{ end }}
+    </header>
+
+    <!-- content: your HTML / markdown from content/aboutme/index.md -->
+    <section class="aboutme-content">
+      {{ .Content | safeHTML }}
+    </section>
+  </article>
+</main>
 {{ end }}
-
-
 
 
 
