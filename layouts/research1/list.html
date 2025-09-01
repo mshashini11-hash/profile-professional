@@ -30,13 +30,18 @@
     <!-- Topology papers -->
     <h2 class="text-3xl font-bold mb-6 text-[#18453B]">Topology</h2>
     <ol class="list-decimal list-inside space-y-4 mb-12">
-      {{ range .Params.papers }}
+      {{ $top := where site.RegularPages "Section" "topology" }}
+      {{ range $top }}
         <li class="bg-white p-4 rounded-xl shadow-md border-l-4 border-[#18453B]">
           <span class="text-gray-800">
-            {{ .citation }}
+            {{ if .Params.citation }}
+              {{ .Params.citation }}
+            {{ else }}
+              <strong>{{ .Title }}</strong>, {{ .Date.Format "2006" }}.
+            {{ end }}
           </span>
           <div class="mt-1 space-x-2">
-            {{ range .links }}
+            {{ range .Params.links }}
               <a href="{{ .url }}" target="_blank" class="text-[#18453B] hover:underline">{{ .name }}</a>
             {{ end }}
           </div>
@@ -47,13 +52,18 @@
     <!-- Education papers -->
     <h2 class="text-3xl font-bold mb-6 text-[#18453B]">Education</h2>
     <ol class="list-decimal list-inside space-y-4">
-      {{ range .Params.papers }}
+      {{ $edu := where site.RegularPages "Section" "education" }}
+      {{ range $edu }}
         <li class="bg-white p-4 rounded-xl shadow-md border-l-4 border-[#18453B]">
           <span class="text-gray-800">
-            {{ .citation }}
+            {{ if .Params.citation }}
+              {{ .Params.citation }}
+            {{ else }}
+              <strong>{{ .Title }}</strong>, {{ .Date.Format "2006" }}.
+            {{ end }}
           </span>
           <div class="mt-1 space-x-2">
-            {{ range .links }}
+            {{ range .Params.links }}
               <a href="{{ .url }}" target="_blank" class="text-[#18453B] hover:underline">{{ .name }}</a>
             {{ end }}
           </div>
@@ -64,6 +74,7 @@
   </div>
 </section>
 {{ end }}
+
 
 
 
