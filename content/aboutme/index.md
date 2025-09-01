@@ -6,26 +6,26 @@ intro: "When I’m not unraveling the mysteries of knots and quantum topology, y
 
 <p>Born and raised in the lush hills of Kandy, Sri Lanka, I grew up curious about patterns—both in math and in life.</p>
 
-<figure class="float-right small-img">
+<figure class="story-img">
   <img src="/uploads/kandy.png" alt="Hills of Kandy">
   <figcaption>The misty hills of Kandy</figcaption>
 </figure>
 
-<p>As a child, I spent hours sketching patterns and noticing mathematical symmetries in everyday things. These early hours quietly nudged me toward both art and mathematics.</p>
+<p>As a child, I spent hours sketching patterns and noticing mathematical symmetries in everyday things.</p>
 
-<figure class="float-left small-img">
+<figure class="story-img">
   <img src="/uploads/art1.jpeg" alt="Art sketching">
   <figcaption>Painting to explore new perspectives</figcaption>
 </figure>
 
 <p>My passion for numbers led me to pursue higher education abroad. During my Ph.D., I focused on quantum topology and knot theory—presenting at conferences and publishing papers along the way.</p>
 
-<figure class="float-right small-img">
+<figure class="story-img">
   <img src="/uploads/hike1.jpeg" alt="Nature trail">
   <figcaption>Exploring nature trails for inspiration</figcaption>
 </figure>
 
-<p>When not immersed in equations, I explore the world through painting, photography, and hiking. These moments of creativity often feed back into my mathematical thinking.</p>
+<p>When not immersed in equations, I explore the world through painting, photography, and hiking.</p>
 
 <div class="clear-both"></div>
 
@@ -90,18 +90,8 @@ intro: "When I’m not unraveling the mysteries of knots and quantum topology, y
     lb.classList.add('hidden');
     lbImg.src = '';
     lbCaption.textContent = '';
-    document.body.style.overflow = '';
-  }
+    document.bo
 
-  links.forEach(a => a.addEventListener('click', e => {
-    e.preventDefault();
-    openLB(a.href, a.dataset.caption);
-  }));
-  lbClose.addEventListener('click', closeLB);
-  lb.addEventListener('click', e => { if(e.target===lb) closeLB(); });
-  document.addEventListener('keydown', e => { if(e.key==='Escape') closeLB(); });
-})();
-</script>
 
 
 
