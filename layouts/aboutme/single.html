@@ -14,11 +14,15 @@
   <!-- Each block as separate two-column section -->
   {{ range $index, $block := .Params.blocks }}
   <section class="aboutme-columns {{ if modBool $index 2 }}alt{{ end }}">
-    <!-- Left: Image -->
+    
+    <!-- Left: Image with caption -->
     {{ with $block.image }}
     <div class="aboutme-images">
       <figure>
         <img src="{{ . }}" alt="">
+        {{ with $block.caption }}
+          <figcaption>{{ . }}</figcaption>
+        {{ end }}
       </figure>
     </div>
     {{ end }}
@@ -29,6 +33,7 @@
       <p>{{ . }}</p>
     </div>
     {{ end }}
+
   </section>
   {{ end }}
 
