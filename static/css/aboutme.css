@@ -1,16 +1,24 @@
-/* Story images with float and scaling */
+/* Story blocks with flex to prevent overlap */
+.story-content .story-block {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+.story-content .story-block.flex-row-reverse {
+  flex-direction: row-reverse;
+}
+
 .story-content figure {
-  float: left;
-  margin: 0 2rem 1.5rem 0; /* more space for text */
-  max-width: 350px;        /* slightly bigger */
+  max-width: 350px;
   max-height: 350px;
-  width: auto;
+  width: 100%;
   height: auto;
+  margin: 0 2rem 0 0;
   text-align: center;
 }
-.story-content figure.right {
-  float: right;
-  margin: 0 0 1.5rem 2rem;
+.story-content .story-block.flex-row-reverse figure {
+  margin: 0 0 0 2rem;
 }
 .story-content figure img {
   width: 100%;
@@ -23,11 +31,9 @@
   color: #555;
   margin-top: 0.3rem;
 }
-.clear-both { clear: both; }
-
-/* Paragraph spacing to avoid overlap */
 .story-content p {
-  margin-bottom: 1.5rem;
+  flex: 1;
+  margin-bottom: 0.5rem;
   line-height: 1.6;
 }
 
@@ -60,6 +66,7 @@
   font-weight: 500;
   padding: 0.5rem;
 }
+
 
 
 
