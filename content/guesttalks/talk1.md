@@ -1,11 +1,15 @@
 ---
-title: "My Talk"
-date: "2024-05-12"
-event: "Math Seminar"
-image: "/uploads/my-talk.jpg"
-summary: "This was about topology and education."
+title: "Advanced Topology Workshop"
+date: "2024-10-15"
+event: "Michigan State University"
+summary: "Discussed Turaev-Viro invariants and Seifert fibered 3-manifolds."
+image:
+  filename: "/uploads/project1.png"
+  alt: "Topology Workshop Image"
 links:
   - name: "Slides"
-    url: "https://example.com/slides"
+    url: "/guesttalks/slides/topology_workshop.pdf"
+  - name: "Recording"
+    url: "https://example.com/video"
 ---
 
