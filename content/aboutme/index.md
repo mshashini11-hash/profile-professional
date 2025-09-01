@@ -1,54 +1,122 @@
 ---
 title: "About Me"
 type: aboutme
+intro: "When I’m not unraveling the mysteries of knots and quantum topology, you can usually find me with a paintbrush in hand, exploring the colors of the world, or wandering through nature trails, camera in tow."
 ---
 
-When I’m not unraveling the mysteries of knots and quantum topology, you can usually find me with a paintbrush in hand, exploring the colors of the world, or wandering through nature trails, camera in tow. Born and raised in the lush hills of Kandy, Sri Lanka, I grew up curious about patterns—both in math and in life.  
+<!-- STORY: use HTML so floats wrap properly -->
 
-<figure class="float-right w-1/3">
-  <img src="/uploads/kandy.png" alt="Kandy Hills">
+<p>
+  <strong>Born and raised in the lush hills of Kandy, Sri Lanka</strong>, I grew up curious about patterns—both in math and in life. My early education there laid the foundation for a lifelong fascination with learning, creativity, and adventure.
+</p>
+
+<figure class="float-right">
+  <img src="/uploads/kandy.png" alt="Hills of Kandy">
   <figcaption>The misty hills of Kandy</figcaption>
 </figure>
 
-Growing up in Kandy, the vibrant streets and quiet landscapes sparked my curiosity early on. I spent hours sketching patterns, watching the way sunlight danced through the trees, and noticing mathematical symmetries everywhere.  
+<p>
+  Growing up, I spent hours sketching patterns and noticing mathematical symmetries in everyday things. These early hours with pencil and paper quietly nudged me toward both art and mathematics.
+</p>
 
-<figure class="float-left w-1/3">
-  <img src="/uploads/art1.jpeg" alt="Art sketching">
-  <figcaption>Painting to explore new perspectives</figcaption>
+<figure class="float-left">
+  <img src="/uploads/art1.jpeg" alt="Art and Math">
+  <figcaption>Blending art with mathematical ideas</figcaption>
 </figure>
 
-My passion for numbers and abstract thought eventually led me abroad, where I pursued a Ph.D. in mathematics. My research in quantum topology and knot theory brought me to conferences around the world, where I shared ideas, collaborated, and published my work.  
+<p>
+  My passion for numbers led me to pursue higher education abroad. During my Ph.D., I focused on quantum topology and knot theory—presenting at conferences and publishing papers along the way.
+</p>
 
+<!-- responsive YouTube embed -->
 <div class="video-container">
-  <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
-          frameborder="0"
-          allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+</div>
+<p class="video-caption">A talk on knot theory.</p>
+
+<p>
+  When not immersed in equations, I explore the world through painting, photography, and hiking. These creative outlets often feed back into my math.
+</p>
+
+<figure class="float-right">
+  <img src="/uploads/hike1.jpeg" alt="Hiking">
+  <figcaption>Exploring trails for fresh ideas</figcaption>
+</figure>
+
+<div class="clear-both"></div>
+
+<!-- GALLERIES: plain HTML so clickable and independent of shortcodes -->
+<section class="gallery-section">
+  <h2>Travel Photography</h2>
+  <div class="gallery-grid">
+    <a class="gallery-link" href="/uploads/hike1.jpeg" data-caption="Knuckles Range">
+      <img src="/uploads/hike1.jpeg" alt="Travel 1">
+      <div class="thumb-caption">Knuckles Range</div>
+    </a>
+    <a class="gallery-link" href="/uploads/kandy.png" data-caption="Kandy Hills">
+      <img src="/uploads/kandy.png" alt="Travel 2">
+      <div class="thumb-caption">Kandy Hills</div>
+    </a>
+  </div>
+</section>
+
+<section class="gallery-section">
+  <h2>Paintings</h2>
+  <div class="gallery-grid">
+    <a class="gallery-link" href="/uploads/art1.jpeg" data-caption="Abstract Colors">
+      <img src="/uploads/art1.jpeg" alt="Painting 1">
+      <div class="thumb-caption">Abstract Colors</div>
+    </a>
+    <a class="gallery-link" href="/uploads/art1.jpeg" data-caption="Geometric Inspiration">
+      <img src="/uploads/art1.jpeg" alt="Painting 2">
+      <div class="thumb-caption">Geometric Inspiration</div>
+    </a>
+  </div>
+</section>
+
+<!-- LIGHTBOX + minimal JS (works without extra assets) -->
+<div id="lightbox" class="lightbox hidden" aria-hidden="true">
+  <button id="lb-close" class="lb-close" aria-label="close">×</button>
+  <img id="lb-img" src="" alt="">
+  <p id="lb-caption" class="lb-caption"></p>
 </div>
 
-Beyond equations, I immerse myself in art, photography, and hiking. These creative outlets allow me to slow down, notice details, and find inspiration that often circles back into my mathematical imagination.  
+<script>
+  (function(){
+    // gallery lightbox
+    const links = document.querySelectorAll('.gallery-link');
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lb-img');
+    const lbCaption = document.getElementById('lb-caption');
+    const lbClose = document.getElementById('lb-close');
 
-<figure class="float-right w-1/3">
-  <img src="/uploads/hike1.jpeg" alt="Nature trail">
-  <figcaption>Exploring Michigan trails</figcaption>
-</figure>
+    function openLB(href, caption) {
+      lbImg.src = href;
+      lbCaption.textContent = caption || '';
+      lb.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLB() {
+      lb.classList.add('hidden');
+      lbImg.src = '';
+      lbCaption.textContent = '';
+      document.body.style.overflow = '';
+    }
 
----
+    links.forEach(a => {
+      a.addEventListener('click', function(e){
+        e.preventDefault();
+        openLB(this.href, this.dataset.caption);
+      });
+    });
+    lbClose.addEventListener('click', closeLB);
+    lb.addEventListener('click', function(e){
+      if(e.target === lb) closeLB();
+    });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeLB(); });
+  })();
+</script>
 
-## My Travels
-
-{{< gallery >}}
-  {{< gallery-item src="/uploads/hike1.jpeg" title="Sri Lanka Hike" caption="Knuckles Range" >}}
-  {{< gallery-item src="/uploads/hike2.jpeg" title="Michigan Trails" caption="Autumn Colors" >}}
-{{< /gallery >}}
-
----
-
-## My Paintings
-
-{{< gallery >}}
-  {{< gallery-item src="/uploads/art1.jpeg" title="Abstract Colors" caption="Texture & Form" >}}
-  {{< gallery-item src="/uploads/kandy.png" title="Sunset Over Kandy" caption="Inspired by home" >}}
-{{< /gallery >}}
 
 
 
