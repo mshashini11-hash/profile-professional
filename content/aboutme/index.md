@@ -1,7 +1,7 @@
 ---
 title: "About Me"
 type: aboutme
-intro: "I am a fifth-year Ph.D. candidate in Mathematics at Michigan State University. My research focuses on quantum topology and knot theory, and I am deeply engaged in teaching and integrating computational approaches into learning."
+intro: "When I’m not unraveling the mysteries of knots and quantum topology, you can usually find me with a paintbrush in hand, exploring the colors of the world, or wandering through nature trails, camera in tow. Born and raised in the lush hills of Kandy, Sri Lanka, I grew up curious about patterns—both in math and in life. My early education there laid the foundation for a lifelong fascination with learning, creativity, and adventure."
 
 blocks:
   - title: "Education"
