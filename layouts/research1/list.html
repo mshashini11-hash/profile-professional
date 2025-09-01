@@ -14,7 +14,7 @@
       <h1 class="text-4xl md:text-5xl font-extrabold mb-12 text-center text-white drop-shadow-lg relative z-10">{{ . }}</h1>
     {{ end }}
 
-    <!-- Projects grid -->
+    <!-- Projects grid: keep boxes here -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
       {{ range .Pages }}
         <a href="{{ .RelPermalink }}" class="block bg-white rounded-xl shadow-md hover:shadow-lg transition p-4">
@@ -27,7 +27,7 @@
       {{ end }}
     </div>
 
-    <!-- Topology papers -->
+    <!-- Topology papers: enumerated -->
     <h2 class="text-3xl font-bold mb-6 text-[#18453B]">Topology</h2>
     <ol class="list-decimal list-inside space-y-2 mb-12">
       {{ $top := where site.RegularPages "Section" "topology" }}
@@ -45,7 +45,6 @@
             {{ with .Params.pages }} pp. {{ . }}.{{ end }}
             {{ with .Params.doi }} DOI: <a href="{{ . }}" class="text-blue-600 font-bold hover:underline">{{ . }}</a>{{ end }}
           {{ end }}
-
           {{ with .Params.links }}
             <span class="space-x-2">
               {{ range . }}
@@ -59,7 +58,7 @@
       {{ end }}
     </ol>
 
-    <!-- Education papers -->
+    <!-- Education papers: enumerated -->
     <h2 class="text-3xl font-bold mb-6 text-[#18453B]">Education</h2>
     <ol class="list-decimal list-inside space-y-2 mb-12">
       {{ $edu := where site.RegularPages "Section" "education" }}
@@ -77,7 +76,6 @@
             {{ with .Params.pages }} pp. {{ . }}.{{ end }}
             {{ with .Params.doi }} DOI: <a href="{{ . }}" class="text-blue-600 font-bold hover:underline">{{ . }}</a>{{ end }}
           {{ end }}
-
           {{ with .Params.links }}
             <span class="space-x-2">
               {{ range . }}
@@ -91,32 +89,60 @@
       {{ end }}
     </ol>
 
-    <!-- Guest Talks Section -->
+    <!-- Guest Talks Section: collapsible per talk -->
     <h2 class="text-3xl font-bold mb-6 text-[#18453B]">Guest Talks</h2>
-    <ol class="list-decimal list-inside space-y-2">
+    <div class="space-y-4">
       {{ $talks := where site.RegularPages "Section" "guesttalks" }}
       {{ range $talks }}
-        <li class="text-gray-800">
-          <strong>{{ .Title }}</strong>
-          {{ with .Params.date }} ({{ . }}){{ end }}
-          {{ with .Params.event }} — {{ . }}{{ end }}
+        <div class="border-l-4 border-[#18453B] pl-4 pb-2" x-data="{ open: false }">
+          
+          <!-- Talk title: clickable -->
+          <button class="w-full text-left text-xl md:text-2xl font-semibold text-[#18453B]" @click="open = !open">
+            {{ .Title }}
+            <span x-text="open ? '▼' : '▶'" class="ml-2"></span>
+          </button>
 
-          {{ with .Params.links }}
-            <div class="mt-1 space-x-2">
-              {{ range . }}
-                {{ if .name }}
-                  <a href="{{ .url }}" target="_blank" class="text-blue-600 font-bold hover:underline">{{ .name }}</a>
+          <!-- Collapsible content -->
+          <div x-show="open" x-transition class="mt-2 pl-4">
+            
+            <!-- Date and event -->
+            {{ with .Params.date }}<div class="text-gray-700">Date: {{ . }}</div>{{ end }}
+            {{ with .Params.event }}<div class="text-gray-700">Event: {{ . }}</div>{{ end }}
+
+            <!-- Links -->
+            {{ with .Params.links }}
+              <div class="mt-2 space-x-2">
+                {{ range . }}
+                  {{ if .name }}
+                    <a href="{{ .url }}" target="_blank" class="text-blue-600 font-bold hover:underline">{{ .name }}</a>
+                  {{ end }}
                 {{ end }}
-              {{ end }}
-            </div>
-          {{ end }}
-        </li>
+              </div>
+            {{ end }}
+
+            <!-- Optional image -->
+            {{ with .Params.image }}
+              <div class="mt-2">
+                <img src="{{ . }}" alt="{{ .Title }}" class="w-full max-w-md rounded-lg shadow-md">
+              </div>
+            {{ end }}
+
+            <!-- Optional description -->
+            {{ with .Params.summary }}
+              <p class="mt-2 text-gray-800">{{ . }}</p>
+            {{ end }}
+
+          </div>
+        </div>
       {{ end }}
-    </ol>
+    </div>
 
   </div>
 </section>
+
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 {{ end }}
+
 
 
 
