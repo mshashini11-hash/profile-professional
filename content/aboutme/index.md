@@ -29,13 +29,13 @@ intro: "When I’m not unraveling the mysteries of knots and quantum topology, y
 
 <div class="clear-both"></div>
 
-<!-- YouTube video at the end -->
+<!-- YouTube video -->
 <div class="video-container my-6">
   <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
 </div>
 <p class="video-caption text-center text-gray-600 mb-6">A talk on knot theory</p>
 
-<!-- Travel Photography Gallery -->
+<!-- Gallery: Travel -->
 <section class="gallery-section mb-6">
   <h2>Travel Photography</h2>
   <div class="gallery-grid">
@@ -50,7 +50,7 @@ intro: "When I’m not unraveling the mysteries of knots and quantum topology, y
   </div>
 </section>
 
-<!-- Paintings Gallery -->
+<!-- Gallery: Paintings -->
 <section class="gallery-section mb-6">
   <h2>My Paintings</h2>
   <div class="gallery-grid">
@@ -65,7 +65,7 @@ intro: "When I’m not unraveling the mysteries of knots and quantum topology, y
   </div>
 </section>
 
-<!-- Lightbox -->
+<!-- Lightbox script -->
 <div id="lightbox" class="lightbox hidden">
   <button id="lb-close" class="lb-close" aria-label="Close">×</button>
   <img id="lb-img" src="" alt="">
@@ -73,35 +73,36 @@ intro: "When I’m not unraveling the mysteries of knots and quantum topology, y
 </div>
 
 <script>
-  (function(){
-    const links = document.querySelectorAll('.gallery-link');
-    const lb = document.getElementById('lightbox');
-    const lbImg = document.getElementById('lb-img');
-    const lbCaption = document.getElementById('lb-caption');
-    const lbClose = document.getElementById('lb-close');
+(function(){
+  const links = document.querySelectorAll('.gallery-link');
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lb-img');
+  const lbCaption = document.getElementById('lb-caption');
+  const lbClose = document.getElementById('lb-close');
 
-    function openLB(href, caption){
-      lbImg.src = href;
-      lbCaption.textContent = caption;
-      lb.classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeLB(){
-      lb.classList.add('hidden');
-      lbImg.src = '';
-      lbCaption.textContent = '';
-      document.body.style.overflow = '';
-    }
+  function openLB(href, caption){
+    lbImg.src = href;
+    lbCaption.textContent = caption;
+    lb.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLB(){
+    lb.classList.add('hidden');
+    lbImg.src = '';
+    lbCaption.textContent = '';
+    document.body.style.overflow = '';
+  }
 
-    links.forEach(a => a.addEventListener('click', e => {
-      e.preventDefault();
-      openLB(a.href, a.dataset.caption);
-    }));
-    lbClose.addEventListener('click', closeLB);
-    lb.addEventListener('click', e => { if(e.target===lb) closeLB(); });
-    document.addEventListener('keydown', e => { if(e.key==='Escape') closeLB(); });
-  })();
+  links.forEach(a => a.addEventListener('click', e => {
+    e.preventDefault();
+    openLB(a.href, a.dataset.caption);
+  }));
+  lbClose.addEventListener('click', closeLB);
+  lb.addEventListener('click', e => { if(e.target===lb) closeLB(); });
+  document.addEventListener('keydown', e => { if(e.key==='Escape') closeLB(); });
+})();
 </script>
+
 
 
 
