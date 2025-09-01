@@ -8,8 +8,9 @@
     {{ end }}
 
     <!-- Story Content -->
-    <div class="prose max-w-none mb-12">
+    <div class="mb-12 overflow-hidden">
       {{ .Content | safeHTML }}
+      <div class="clear-both"></div>
     </div>
 
     <!-- Galleries -->
@@ -35,6 +36,7 @@
   </div>
 </section>
 {{ end }}
+
 
 
 
