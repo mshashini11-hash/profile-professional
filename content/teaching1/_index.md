@@ -5,6 +5,7 @@ universities:
   - name: "Michigan State University"
     positions:
       - title: "Instructor of Record"
+        ior: true
         courses:
           - name: "MTH 299 – Transition to Proofs"
             semester: "Summer 2025"
@@ -20,6 +21,7 @@ universities:
             url: "/teaching1/instructor/mth124/"
           
       - title: "Teaching Team"
+        ior: false
         courses:
           - name: "MTH 299 – Transition to Proofs"
             semester: "Fall 2025"
@@ -33,7 +35,9 @@ universities:
           - name: "MTH 133 – Calculus 2"
             semester: "Fall 2021"
             url: "/teaching1/instructor/mth234/"    
+
       - title: "Curriculum Development"
+        ior: false
         courses:
           - name: "MTH 299 – Transition to Proofs"
             semester: "Summer 2025"
@@ -57,12 +61,13 @@ universities:
   - name: "University of Colombo"
     positions:
       - title: "Guest Lecturer"
-        courses:
+        ior: false
+        guest_lectures:
           - name: "Applied Math Short Course"
             semester: "Summer 2024"
             url: ""
           - name: "Undergraduate Project Supervision"
             semester: "Various"
             url: "/"
-
 ---
+
