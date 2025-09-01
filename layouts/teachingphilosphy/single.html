@@ -1,46 +1,78 @@
 {{ define "main" }}
+<section class="relative py-12 min-h-screen">
 
-<!-- Banner Section with Background -->
-<section class="py-12 bg-[#18453B] text-white">
-  <div class="container mx-auto px-4 text-center">
-    <h1 class="text-4xl md:text-5xl font-extrabold">Teaching Philosophy</h1>
+  <!-- Background behind main title -->
+  <div class="absolute inset-x-0 top-0 h-33">
+    <img src="/uploads/stacked-peaks.svg" class="w-full h-full object-cover opacity-60" />
+    <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="container mx-auto px-4 relative z-10">
+
+    <!-- Main Page Title -->
+    {{ with .Title }}
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-12 text-center text-white drop-shadow-lg relative z-10">{{ . }}</h1>
+    {{ end }}
+
+    <!-- Introduction / Overview -->
+    {{ with .Params.intro }}
+      <div class="mb-12 text-gray-800 text-lg md:text-xl">
+        {{ . | markdownify }}
+      </div>
+    {{ end }}
+
+    <!-- Loop over core values -->
+    {{ range .Params.core_values }}
+      <div class="mb-12 p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+
+        <!-- Core Value Title -->
+        <h2 class="text-2xl md:text-3xl font-bold mb-6 text-[#18453B]">{{ .title }}</h2>
+
+        <!-- Description -->
+        {{ with .description }}
+          <p class="mb-4 text-gray-800">{{ . | markdownify }}</p>
+        {{ end }}
+
+        <!-- Collapsible Quotes -->
+        {{ with .quotes }}
+          <div x-data="{ open: false }" class="mb-4">
+            <button class="w-full text-left font-semibold text-[#18453B] mb-2" @click="open = !open">
+              View Quotes <span x-text="open ? '▲' : '▼'" class="ml-2"></span>
+            </button>
+            <div x-show="open" x-transition class="pl-4">
+              <ul class="list-disc list-inside text-gray-700">
+                {{ range . }}
+                  <li class="mb-2">{{ . }}</li>
+                {{ end }}
+              </ul>
+            </div>
+          </div>
+        {{ end }}
+
+        <!-- Collapsible Student Reviews -->
+        {{ with .student_reviews }}
+          <div x-data="{ open: false }" class="mb-4">
+            <button class="w-full text-left font-semibold text-[#18453B] mb-2" @click="open = !open">
+              Student Reviews <span x-text="open ? '▲' : '▼'" class="ml-2"></span>
+            </button>
+            <div x-show="open" x-transition class="pl-4">
+              <ul class="list-disc list-inside text-gray-700">
+                {{ range . }}
+                  <li class="mb-2">{{ . }}</li>
+                {{ end }}
+              </ul>
+            </div>
+          </div>
+        {{ end }}
+
+      </div>
+    {{ end }}
+
   </div>
 </section>
 
-<!-- Content Section -->
-<section class="py-12">
-  <div class="container mx-auto px-4 max-w-3xl">
-
-    <div class="prose prose-lg text-gray-800 leading-relaxed">
-      <p>
-        Teaching is not just a professional responsibility for me; it is a deeply personal
-        and fulfilling part of my academic journey. I strive to foster an inclusive and
-        engaging classroom where every student feels both supported and challenged.
-      </p>
-
-      <p>
-        My teaching emphasizes adaptability: I tailor my approach to student needs, whether
-        through technology, diverse assessment methods, or scaffolding complex material.
-        I encourage collaborative learning and open dialogue, where mistakes are valued as
-        opportunities for growth.
-      </p>
-
-      <p>
-        Reflection is central to my practice. I actively seek feedback from students and
-        peers, and I adapt my methods based on what resonates most. By creating a space
-        where curiosity thrives, I hope to empower students not only to master material,
-        but also to grow as independent thinkers and problem-solvers.
-      </p>
-
-      <p>
-        Ultimately, teaching is about connection. I aim to make mathematics accessible,
-        relevant, and inspiring, while supporting diverse learners on their academic
-        journeys.
-      </p>
-    </div>
-
-  </div>
-</section>
-
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 {{ end }}
+
 
