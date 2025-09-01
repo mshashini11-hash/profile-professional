@@ -16,14 +16,11 @@ blocks:
   - block: gallery
     title: "My Hobbies"
     items:
-      - title: "Piano"
-        image: "/uploads/piano.jpg"
-        summary: "I love playing piano and exploring classical pieces."
       - title: "Photography"
-        image: "/uploads/photography.jpg"
+        image: "/uploads/hike1.jpeg"
         summary: "Capturing landscapes and urban photography."
       - title: "Hiking"
-        image: "/uploads/hiking.jpg"
+        image: "/uploads/art1.jpeg"
         summary: "Exploring nature trails and mountains."
 ---
 
