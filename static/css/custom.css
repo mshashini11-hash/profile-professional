@@ -1,20 +1,33 @@
-/* Float image spacing */
-figure.float-right, figure.float-left {
-  margin: 1rem;
+/* Float image styling */
+figure.float-right {
+  float: right;
+  margin: 0 0 1rem 1rem;
+  max-width: 250px;
 }
-
+figure.float-left {
+  float: left;
+  margin: 0 1rem 1rem 0;
+  max-width: 250px;
+}
 figure img {
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+figure figcaption {
+  font-size: 0.85rem;
+  color: #555;
+  text-align: center;
+  margin-top: 0.3rem;
 }
 
 /* Responsive YouTube video */
 .video-container {
   position: relative;
-  padding-bottom: 56.25%; /* 16:9 ratio */
+  padding-bottom: 56.25%;
   height: 0;
-  overflow: hidden;
-  max-width: 100%;
+  margin: 1.5rem 0;
 }
 .video-container iframe {
   position: absolute;
@@ -22,3 +35,9 @@ figure img {
   width: 100%;
   height: 100%;
 }
+
+/* Ensure text wraps around floats */
+p {
+  text-align: justify;
+}
+
