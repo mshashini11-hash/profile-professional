@@ -1,40 +1,9 @@
 {{ define "main" }}
-<section class="py-12 min-h-screen">
-  <div class="container mx-auto px-4">
-
-    <!-- Page Title -->
-    {{ with .Title }}
-      <h1 class="text-4xl md:text-5xl font-extrabold mb-12 text-center text-[#18453B]">{{ . }}</h1>
-    {{ end }}
-
-    <!-- Story Content -->
-    <div class="mb-12">
-      {{ .Content | safeHTML }}
-    </div>
-
-    <!-- Galleries -->
-    {{ with .Params.galleries }}
-      {{ range . }}
-        <h2 class="text-3xl font-bold mb-6 text-[#18453B]">{{ .title }}</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-          {{ range .items }}
-            <a href="#" class="group relative rounded-xl overflow-hidden shadow-md hover:shadow-lg transition cursor-pointer">
-              <img src="{{ .image }}" alt="{{ .title }}" class="w-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105">
-              <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center p-4">
-                <div class="text-center text-white">
-                  <h3 class="text-xl font-semibold mb-2">{{ .title }}</h3>
-                  <p>{{ .summary }}</p>
-                </div>
-              </div>
-            </a>
-          {{ end }}
-        </div>
-      {{ end }}
-    {{ end }}
-
-  </div>
-</section>
+  <main class="prose max-w-none">
+    {{ .Content }}
+  </main>
 {{ end }}
+
 
 
 
