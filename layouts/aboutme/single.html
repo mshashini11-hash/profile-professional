@@ -1,46 +1,41 @@
 {{ define "main" }}
 <link rel="stylesheet" href="{{ "css/aboutme.css" | relURL }}">
 
-<main class="max-w-6xl mx-auto px-4 py-8">
+<main class="aboutme-container">
 
   <!-- Title and intro -->
-  <header class="mb-8">
-    <h1 class="text-4xl font-bold text-[#18453B] mb-4">{{ .Title }}</h1>
+  <header class="aboutme-header">
+    <h1>{{ .Title }}</h1>
     {{ with .Params.intro }}
-      <p class="text-lg text-gray-700">{{ . }}</p>
+      <p>{{ . }}</p>
     {{ end }}
   </header>
 
   <!-- Two-column layout -->
-  <section class="aboutme-columns flex flex-col md:flex-row gap-8 mb-12">
-    
-    <!-- Left column: Images -->
-    <div class="aboutme-images md:w-1/2 flex flex-col gap-4">
+  <section class="aboutme-columns">
+    <!-- Left: Images -->
+    <div class="aboutme-images">
       {{ range .Params.blocks }}
         {{ with .image }}
           <figure>
             <img src="{{ . }}" alt="">
-            {{ with $.Params.captions }}
-              <figcaption>{{ index . 0 }}</figcaption>
-            {{ end }}
           </figure>
         {{ end }}
       {{ end }}
     </div>
 
-    <!-- Right column: Story -->
-    <div class="aboutme-story md:w-1/2 flex flex-col gap-4">
+    <!-- Right: Story -->
+    <div class="aboutme-story">
       {{ range .Params.blocks }}
         {{ with .description }}
           <p>{{ . }}</p>
         {{ end }}
       {{ end }}
     </div>
-
   </section>
 
   <!-- Two gallery tiles -->
-  <section class="gallery-tiles grid grid-cols-1 md:grid-cols-2 gap-6">
+  <section class="gallery-tiles">
     <a href="/travel" class="gallery-tile">
       <img src="/uploads/hike1.jpeg" alt="Travel Gallery">
       <div class="tile-caption">Travel Photos</div>
@@ -53,6 +48,7 @@
 
 </main>
 {{ end }}
+
 
 
 
