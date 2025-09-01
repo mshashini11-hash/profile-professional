@@ -17,12 +17,20 @@
   margin-bottom: 2rem;
 }
 
-/* Two-column layout */
+/* Two-column layout for each block */
 .aboutme-columns {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
+  margin-bottom: 3rem; /* space between blocks */
 }
+
+/* Alternate layout */
+.aboutme-columns.alt {
+  flex-direction: row-reverse;
+}
+
+/* Image column */
 .aboutme-images {
   flex: 1 1 40%;
   display: flex;
@@ -39,6 +47,8 @@
   border-radius: 8px;
   object-fit: contain;
 }
+
+/* Text column */
 .aboutme-story {
   flex: 1 1 55%;
   display: flex;
@@ -51,7 +61,8 @@
 
 /* Responsive: stack on small screens */
 @media (max-width: 768px) {
-  .aboutme-columns {
+  .aboutme-columns,
+  .aboutme-columns.alt {
     flex-direction: column;
   }
   .aboutme-images, .aboutme-story {
