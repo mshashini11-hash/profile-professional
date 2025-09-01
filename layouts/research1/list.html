@@ -14,7 +14,7 @@
       <h1 class="text-4xl md:text-5xl font-extrabold mb-12 text-center text-white drop-shadow-lg relative z-10">{{ . }}</h1>
     {{ end }}
 
-    <!-- Projects grid: keep boxes here -->
+    <!-- Projects grid -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
       {{ range .Pages }}
         <a href="{{ .RelPermalink }}" class="block bg-white rounded-xl shadow-md hover:shadow-lg transition p-4">
@@ -27,7 +27,7 @@
       {{ end }}
     </div>
 
-    <!-- Topology papers: plain enumerated list -->
+    <!-- Topology papers -->
     <h2 class="text-3xl font-bold mb-6 text-[#18453B]">Topology</h2>
     <ol class="list-decimal list-inside space-y-2 mb-12">
       {{ $top := where site.RegularPages "Section" "topology" }}
@@ -59,9 +59,9 @@
       {{ end }}
     </ol>
 
-    <!-- Education papers: plain enumerated list -->
+    <!-- Education papers -->
     <h2 class="text-3xl font-bold mb-6 text-[#18453B]">Education</h2>
-    <ol class="list-decimal list-inside space-y-2">
+    <ol class="list-decimal list-inside space-y-2 mb-12">
       {{ $edu := where site.RegularPages "Section" "education" }}
       {{ range $edu }}
         <li class="text-gray-800">
@@ -91,11 +91,32 @@
       {{ end }}
     </ol>
 
+    <!-- Guest Talks Section -->
+    <h2 class="text-3xl font-bold mb-6 text-[#18453B]">Guest Talks</h2>
+    <ol class="list-decimal list-inside space-y-2">
+      {{ $talks := where site.RegularPages "Section" "guesttalks" }}
+      {{ range $talks }}
+        <li class="text-gray-800">
+          <strong>{{ .Title }}</strong>
+          {{ with .Params.date }} ({{ . }}){{ end }}
+          {{ with .Params.event }} — {{ . }}{{ end }}
+
+          {{ with .Params.links }}
+            <div class="mt-1 space-x-2">
+              {{ range . }}
+                {{ if .name }}
+                  <a href="{{ .url }}" target="_blank" class="text-blue-600 font-bold hover:underline">{{ .name }}</a>
+                {{ end }}
+              {{ end }}
+            </div>
+          {{ end }}
+        </li>
+      {{ end }}
+    </ol>
+
   </div>
 </section>
 {{ end }}
-
-
 
 
 
