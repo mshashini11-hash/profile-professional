@@ -47,17 +47,6 @@ sections:
   #    view: article-grid
   #    columns: 2
   
-  
-  - block: collection
-    id: awards
-    content:
-      title: "Awards & Honors"
-      filters:
-        folders:
-          - awards
-    design:
-      view: citation
-      columns: 1
 
   - block: collection
     id: news
