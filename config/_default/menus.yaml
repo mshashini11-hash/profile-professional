@@ -14,7 +14,7 @@ main:
     url: /research1/
     weight: 12
   - name: "Teaching Philosophy"
-    url: /teaching-philosophy/
+    url: /teachingphilosophy/
     weight: 13
   - name: Papers
     url: /#papers
