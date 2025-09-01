@@ -1,21 +1,21 @@
 ---
-title: "My Papers Collection"
-papers:
-  - section: "topology"
-    citation: "Your Name. (2019). Example Topology Paper. Journal/Repository. https://doi.org/xxxxx"
-    links:
-      - name: "Journal"
-        url: "https://doi.org/xxxxx"
-      - name: "PDF"
-        url: "http://arxiv.org/pdf/1512.04133v1"
-  - section: "topology"
-    citation: "Your Name. (2020). Second Topology Paper. Journal/Repository. https://doi.org/yyyyy"
-    links:
-      - name: "Journal"
-        url: "https://doi.org/yyyyy"
-  - section: "education"
-    citation: "Your Name. (2018). Education Paper. Journal/Repository. https://doi.org/zzzzz"
-    links:
-      - name: "PDF"
-        url: "http://example.com/education.pdf"
+title: "Example Topology Paper"
+authors:
+  - "Shashini Marasinghe"
+year: 2019
+journal: "Journal of Topology Studies"
+volume: "12"
+issue: "3"
+pages: "45-58"
+doi: "https://doi.org/xxxxx"
+arxiv: "https://arxiv.org/abs/1512.04133v1"
+pdf: "http://arxiv.org/pdf/1512.04133v1"
+citation: "Shashini Marasinghe. (2019). Example Topology Paper. Journal of Topology Studies, 12(3), 45-58. https://doi.org/xxxxx"
+links:
+  - name: "Journal"
+    url: "https://doi.org/xxxxx"
+  - name: "arXiv"
+    url: "https://arxiv.org/abs/1512.04133v1"
+  - name: "PDF"
+    url: "http://arxiv.org/pdf/1512.04133v1"
 ---
