@@ -23,7 +23,7 @@ galleries:
 
 <p>
 <img src="/uploads/kandy.png" alt="Hills of Kandy" class="float-left w-1/4 mr-4 mb-4 rounded-xl shadow-md">
-When I’m not unraveling the mysteries of knots and quantum topology, you can usually find me with a paintbrush in hand, exploring the colors of the world, or wandering through nature trails, camera in tow. Born and raised in the lush hills of Kandy, Sri Lanka, I grew up curious about patterns—both in math and in life. My early education there laid the foundation for a lifelong fascination with learning, creativity, and adventure.
+When I’m not unraveling the mysteries of knots and quantum topology, you can usually find me with a paintbrush in hand, exploring the colors of the world, or wandering through nature trails, camera in tow. Born and raised in the lush hills of Kandy, Sri Lanka, I grew up curious about patterns—both in math and in life. My early education there laid the foundation for a lifelong fascination with learning, creativity, and adventure.When I’m not unraveling the mysteries of knots and quantum topology, you can usually find me with a paintbrush in hand, exploring the colors of the world, or wandering through nature trails, camera in tow. Born and raised in the lush hills of Kandy, Sri Lanka, I grew up curious about patterns—both in math and in life. My early education there laid the foundation for a lifelong fascination with learning, creativity, and adventure.
 </p>
 
 <p>
