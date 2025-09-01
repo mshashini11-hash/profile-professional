@@ -14,20 +14,21 @@
     <section class="story-content">
       {{ $alt := false }}
       {{ range .Params.blocks }}
-        {{ with .image }}
-          <figure class="{{ if $alt }}right{{ end }}">
-            <img src="{{ . }}" alt="">
-            {{ with $.Params.captions }}
-              <figcaption>{{ index . 0 }}</figcaption>
-            {{ end }}
-          </figure>
-          {{ $alt = not $alt }}
-        {{ end }}
-        {{ with .description }}
-          <p>{{ . }}</p>
-        {{ end }}
+        <div class="story-block {{ if $alt }}flex-row-reverse{{ end }}">
+          {{ with .image }}
+            <figure>
+              <img src="{{ . }}" alt="">
+              {{ with $.Params.captions }}
+                <figcaption>{{ index . 0 }}</figcaption>
+              {{ end }}
+            </figure>
+          {{ end }}
+          {{ with .description }}
+            <p>{{ . }}</p>
+          {{ end }}
+        </div>
+        {{ $alt = not $alt }}
       {{ end }}
-      <div class="clear-both"></div>
     </section>
 
     <!-- Two gallery tiles -->
@@ -45,6 +46,7 @@
   </article>
 </main>
 {{ end }}
+
 
 
 
