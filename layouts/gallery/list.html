@@ -1,0 +1,12 @@
+{{ define "main" }}
+<main class="gallery-container">
+  <h1>{{ .Title }}</h1>
+  <div class="gallery-grid">
+    {{ range .Resources.ByType "image" }}
+      <div class="gallery-item">
+        <img src="{{ .RelPermalink }}" alt="{{ .Name }}">
+      </div>
+    {{ end }}
+  </div>
+</main>
+{{ end }}
