@@ -1,0 +1,40 @@
+{{ define "main" }}
+<section class="relative py-12 min-h-screen font-serif">
+  <div class="container mx-auto px-4">
+    <h1 class="text-5xl font-bold mb-6">{{ .Title }}</h1>
+    {{ with .Params.role }}
+      <h2 class="text-2xl mb-6 text-gray-700">{{ . }}</h2>
+    {{ end }}
+
+    {{ with .Params.organizations }}
+      <ul class="mb-6">
+        {{ range . }}
+          <li><a href="{{ .url }}" class="text-blue-700 underline">{{ .name }}</a></li>
+        {{ end }}
+      </ul>
+    {{ end }}
+
+    {{ with .Params.interests }}
+      <h3 class="text-xl font-semibold mt-6">Interests</h3>
+      <ul class="mb-6 list-disc list-inside">
+        {{ range . }}
+          <li>{{ . }}</li>
+        {{ end }}
+      </ul>
+    {{ end }}
+
+    {{ with .Params.tech_skills }}
+      <h3 class="text-xl font-semibold mt-6">Technical Skills</h3>
+      <ul class="mb-6 list-disc list-inside">
+        {{ range . }}
+          <li>{{ . }}</li>
+        {{ end }}
+      </ul>
+    {{ end }}
+
+    <div class="prose">
+      {{ .Content }}
+    </div>
+  </div>
+</section>
+{{ end }}
