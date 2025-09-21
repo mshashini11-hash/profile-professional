@@ -14,6 +14,13 @@
       <h1 class="text-4xl md:text-5xl font-extrabold mb-12 text-center text-white drop-shadow-lg relative z-10">{{ . }}</h1>
     {{ end }}
 
+    <!-- Intro Quote -->
+    {{ with .Params.intro_quote }}
+      <blockquote class="italic text-gray-700 border-l-4 border-[#18453B] pl-4 mb-8 text-center max-w-3xl mx-auto">
+        {{ . }}
+      </blockquote>
+    {{ end }}
+
     <!-- Intro Paragraph -->
     {{ with .Params.intro }}
       <p class="text-lg text-gray-800 mb-12 text-center">{{ . }}</p>
@@ -50,6 +57,7 @@
   </div>
 </section>
 {{ end }}
+
 
 
 
