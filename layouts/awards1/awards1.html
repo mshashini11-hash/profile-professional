@@ -1,12 +1,40 @@
 {{ define "main" }}
 <!-- Load Crimson Pro -->
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+
 <style>
-  /* Apply Crimson Pro to all main elements in this page */
-  section, section h1, section h2, section h3, section p, section span, section a, section li {
+  /* Apply Crimson Pro and set larger font sizes */
+  section, section p, section li, section span, section a, section blockquote, section figcaption {
     font-family: 'Crimson Pro', serif;
+    font-size: 22px;      /* body text */
+    line-height: 2;     /* improves readability */
+  }
+
+  section h1 {
+    font-size: 56px;      /* main page title */
+  }
+
+  section h2 {
+    font-size: 46px;      /* subtopics */
+  }
+
+  section h3 {
+    font-size: 40px;      /* university names */
+  }
+
+  section h4, section h5, section h6 {
+    font-size: 30px;
+  }
+
+  span, a {
+    font-size: 22px;      /* consistent with body text */
+  }
+
+  p {
+    font-size: 24px;      /* slightly larger paragraphs */
   }
 </style>
+
 <section class="relative py-12 min-h-screen">
 
   <!-- Background behind main title -->
