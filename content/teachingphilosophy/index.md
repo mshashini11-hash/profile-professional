@@ -1,7 +1,7 @@
 ---
 title: "Teaching Philosophy"
 type: teachingphilosophy
-intro: "My teaching philosophy focuses on fostering curiosity, engagement, and independent thinking."
+intro: "Teaching is the most rewarding pursuit in my life. It is not merely a career to me but a source of deep, personal fulfilment and healing. My passion for teaching began at the age of ten when I started teaching my younger brother. Ever since, becoming a mathematics teacher has always been my dream."
 core_values:
   - title: "Student-Centered Learning"
     description: "I prioritize students' needs, adapting lessons to their pace and interests."
