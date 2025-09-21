@@ -1,3 +1,7 @@
+/* static/css/custom.css */
 html body, html body * {
   font-family: Georgia, Cambria, "Times New Roman", Times, serif !important;
+  /* optional: increase sizes for readability */
+  font-size: 18px;
+  line-height: 1.6;
 }
