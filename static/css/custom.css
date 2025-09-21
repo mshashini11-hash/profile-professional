@@ -1,4 +1,3 @@
-/* Apply serif font everywhere */
-body, h1, h2, h3, h4, h5, h6, p, li, blockquote {
+html body, html body * {
   font-family: Georgia, Cambria, "Times New Roman", Times, serif !important;
 }
