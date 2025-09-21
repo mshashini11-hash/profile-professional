@@ -60,6 +60,6 @@ features:
     enable: false
 
 params:
-  font_body: "Georgia, Cambria, 'Times New Roman', Times, serif"
-  font_heading: "Georgia, Cambria, 'Times New Roman', Times, serif"
+  custom_css: ["css/custom.css"]
+
 
