@@ -1,5 +1,22 @@
 {{ define "main" }}
+<!-- Optional: Your existing CSS -->
 <link rel="stylesheet" href="{{ "css/aboutme.css" | relURL }}">
+
+<!-- Load Crimson Pro directly for this page -->
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  /* Apply site-wide for this page */
+  main.aboutme-container,
+  main.aboutme-container h1,
+  main.aboutme-container h2,
+  main.aboutme-container h3,
+  main.aboutme-container p,
+  main.aboutme-container li,
+  main.aboutme-container blockquote,
+  main.aboutme-container figcaption {
+    font-family: 'Crimson Pro', serif;
+  }
+</style>
 
 <main class="aboutme-container">
 
@@ -51,7 +68,6 @@
 
 </main>
 {{ end }}
-
 
 
 
