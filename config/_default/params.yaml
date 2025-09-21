@@ -60,8 +60,11 @@ features:
     enable: false
 
 params:
-  custom_css:
-    - "css/custom.css"
+  customCSS: ["css/custom.scss"]
+
+style:
+  css: ["css/custom.scss"]
+
 
 
 
