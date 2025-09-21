@@ -58,3 +58,9 @@ features:
     enable: false
   privacy_pack:
     enable: false
+
+# Global parameters
+params:
+  font_body: "Crimson Pro, serif"
+  font_heading: "Crimson Pro, serif"
+
