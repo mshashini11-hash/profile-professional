@@ -63,3 +63,8 @@ params:
   font_body: "Crimson Pro, serif"
   font_heading: "Crimson Pro, serif"
 
+params:
+  google_fonts:
+    - "Crimson Pro"
+
+
