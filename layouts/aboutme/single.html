@@ -2,21 +2,30 @@
 <!-- Optional: Your existing CSS -->
 <link rel="stylesheet" href="{{ "css/aboutme.css" | relURL }}">
 
-<!-- Load Crimson Pro directly for this page -->
-<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-  /* Apply site-wide for this page */
-  main.aboutme-container,
-  main.aboutme-container h1,
-  main.aboutme-container h2,
-  main.aboutme-container h3,
-  main.aboutme-container p,
-  main.aboutme-container li,
-  main.aboutme-container blockquote,
-  main.aboutme-container figcaption {
+  section, section p, section li, section span, section a, section blockquote, section figcaption {
     font-family: 'Crimson Pro', serif;
+    font-size: 18px; /* body text */
+    line-height: 1.6; /* improves readability */
+  }
+
+  section h1 {
+    font-size: 48px; /* main title */
+  }
+
+  section h2 {
+    font-size: 36px; /* subtopics */
+  }
+
+  section h3 {
+    font-size: 28px; /* smaller headings */
+  }
+
+  section h4, section h5, section h6 {
+    font-size: 22px;
   }
 </style>
+
 
 <main class="aboutme-container">
 
