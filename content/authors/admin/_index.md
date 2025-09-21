@@ -49,7 +49,7 @@ profiles:
     url: https://scholar.google.com/
 
 interests:
-  - Quantum low dimentionalbtopology
+  - Quantum low dimensional topology
   - Teaching
   - Quantum computing
 
@@ -59,7 +59,9 @@ education:
     date_start: 2021-01-01
     date_end: 2026-12-31
     summary: |
-      Thesis on _Qunatum Topology_. Supervised by [Prof Efstratia Kalfagianni](https://users.math.msu.edu/users/kalfagia/). #Presented papers at 5 IEEE conferences #with the contributions being published in 2 Springer journals.
+      <div style="font-family: 'Crimson Pro', serif; font-size:18px; line-height:1.6; color:#1a1a1a;">
+      Thesis on _Quantum Topology_. Supervised by [Prof Efstratia Kalfagianni](https://users.math.msu.edu/users/kalfagia/). Presented papers at 5 IEEE conferences with contributions published in 2 Springer journals.
+      </div>
     button:
       text: 'Read Thesis-Pending'
       url: 'https://example.com'
@@ -69,33 +71,23 @@ education:
     date_start: 2016-01-01
     date_end: 2020-12-31
     summary: |
+      <div style="font-family: 'Crimson Pro', serif; font-size:18px; line-height:1.6; color:#1a1a1a;">
       GPA: 3.9/4.0
-
-
-#work:
- # - position: Director of Cloud Infrastructure
-   # company_name: GenCoin
-    #company_url: ''
-    #company_logo: ''
-    #date_start: 2021-01-01
-    #date_end: ''
-    #summary: |2-
-     # Responsibilities include:
-     # - lorem ipsum dolor sit amet, consectetur adipiscing eli
+      </div>
 
 skills:
   - name: Technical Skills
     items:
       - name: Python
-        description: ''
+        description: "<div style='font-family: \"Crimson Pro\", serif; font-size:18px; line-height:1.6;'>Python (90%)</div>"
         percent: 90
         icon: code-bracket
       - name: LaTeX
-        description: ''
+        description: "<div style='font-family: \"Crimson Pro\", serif; font-size:18px; line-height:1.6;'>LaTeX (100%)</div>"
         percent: 100
         icon: file-text
       - name: SQL
-        description: ''
+        description: "<div style='font-family: \"Crimson Pro\", serif; font-size:18px; line-height:1.6;'>SQL (40%)</div>"
         percent: 40
         icon: circle-stack
 
@@ -107,6 +99,10 @@ languages:
 
 ---
 
+
 ## About Me
 
+<div style="font-family: 'Crimson Pro', serif; font-size:18px; line-height:1.6; color:#1a1a1a;">
 I am a fifth-year Ph.D. candidate in Mathematics at Michigan State University, currently on the academic job market. My research focuses on quantum topology and knot theory, with an interest in integrating computational approaches into mathematical exploration. Alongside my research, I am deeply engaged in teaching and the development of innovative teaching and learning techniques that connect abstract mathematical ideas with technology and coding. My technical skills include Python (90%), LaTeX (100%), and SQL (40%).
+</div>
+
