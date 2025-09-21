@@ -1,31 +1,41 @@
 {{ define "main" }}
 
+<!-- Load Crimson Pro -->
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-  section, section p, section li, section span, section a, section blockquote, section figcaption {
+  /* Apply Crimson Pro and set font sizes for headings and body */
+  section, main, main p, main li, main span, main a, main blockquote, main figcaption {
     font-family: 'Crimson Pro', serif;
     font-size: 18px; /* body text */
-    line-height: 1.6; /* improves readability */
+    line-height: 1.6;
   }
 
-  section h1 {
+  main h1 {
     font-size: 48px; /* main title */
   }
 
-  section h2 {
-    font-size: 36px; /* subtopics */
+  main h2 {
+    font-size: 36px; /* subtopics or section headings */
   }
 
-  section h3 {
-    font-size: 28px; /* smaller headings */
+  main h3 {
+    font-size: 28px;
   }
 
-  section h4, section h5, section h6 {
+  main h4, main h5, main h6 {
     font-size: 22px;
+  }
+
+  blockquote.intro-quote {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #4a4a4a;
   }
 </style>
 
-<!-- Optional: Your existing CSS -->
+<!-- Optional: Existing CSS -->
 <link rel="stylesheet" href="{{ "css/aboutme.css" | relURL }}">
 
 <main class="aboutme-container">
@@ -33,6 +43,12 @@
   <!-- Title and intro -->
   <header class="aboutme-header">
     <h1>{{ .Title }}</h1>
+
+    <!-- Intro Quote (optional) -->
+    {{ with .Params.intro_quote }}
+      <blockquote class="intro-quote">{{ . }}</blockquote>
+    {{ end }}
+
     {{ with .Params.intro }}
       <p>{{ . }}</p>
     {{ end }}
