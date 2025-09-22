@@ -55,7 +55,8 @@ security:
   _merge: deep
 sitemap:
   _merge: deep
-
 params:
-  custom_css: ["css/custom.css"]
+  custom_css:
+    - "css/custom.css"
+
 
