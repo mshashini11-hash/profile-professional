@@ -1,60 +1,61 @@
 {{ define "main" }}
-<section class="relative py-12 min-h-screen font-serif">
-
-  <!-- Background behind main title -->
+<section class="relative py-12 min-h-screen font-serif bg-gray-50">
   <div class="absolute inset-x-0 top-0 h-36 md:h-34">
     <img src="/uploads/stacked-peaks.svg" class="w-full h-full object-cover opacity-60" />
     <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent"></div>
   </div>
 
-  <div class="container mx-auto px-4 relative z-10">
+  <div class="container mx-auto px-4 relative z-10 flex flex-col md:flex-row items-center md:items-start gap-8">
+    <!-- Left: Profile Picture -->
+    <div class="w-full md:w-1/3 flex justify-center md:justify-start">
+      {{ with .Params.photo }}
+        <img src="{{ . }}" alt="{{ $.Title }}" class="rounded-xl shadow-lg w-64 h-64 object-cover" />
+      {{ end }}
+    </div>
 
-    <!-- Page Title -->
-    {{ with .Title }}
-      <h1 class="text-4xl md:text-5xl font-extrabold mb-12 text-center text-white drop-shadow-lg relative z-10">{{ . }}</h1>
-    {{ end }}
+    <!-- Right: Bio Info -->
+    <div class="w-full md:w-2/3 flex flex-col gap-6">
+      <!-- Name -->
+      <h1 class="text-4xl md:text-5xl font-extrabold text-[#18453B]">{{ .Title }}</h1>
 
-    <!-- Intro Quote -->
-    {{ with .Params.intro_quote }}
-      <blockquote class="italic text-gray-700 text-2xl md:text-3xl mb-8 text-center max-w-3xl mx-auto">
-        {{ . }}
-      </blockquote>
-    {{ end }}
+      <!-- Intro Quote -->
+      {{ with .Params.intro_quote }}
+        <blockquote class="italic text-gray-700 text-xl md:text-2xl border-l-4 border-[#18453B] pl-4">
+          {{ . }}
+        </blockquote>
+      {{ end }}
 
-    <!-- Intro Paragraph -->
-    {{ with .Params.intro }}
-      <p class="text-lg text-gray-800 mb-12 text-center">{{ . }}</p>
-    {{ end }}
+      <!-- Intro Paragraph -->
+      {{ with .Params.intro }}
+        <p class="text-gray-800 text-lg md:text-xl">
+          {{ . }}
+        </p>
+      {{ end }}
 
-    <!-- Core Sections -->
-    {{ range .Params.sections }}
-      <div class="mb-12 p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition">
-
-        <!-- Section Title -->
-        <h2 class="text-2xl md:text-3xl font-bold mb-4 text-[#18453B]">{{ .title }}</h2>
-
-        <!-- Section Content -->
-        {{ with .content }}
-          <p class="text-gray-800 mb-4">{{ . }}</p>
-        {{ end }}
-
-        <!-- Optional Quote -->
-        {{ with .quote }}
-          <blockquote class="italic text-gray-600 border-l-4 border-[#18453B] pl-4 mb-4">"{{ . }}"</blockquote>
-        {{ end }}
-
-        <!-- Optional List -->
-        {{ with .list }}
-          <ul class="list-disc list-inside text-gray-800">
-            {{ range . }}
-              <li class="mb-1">{{ . }}</li>
-            {{ end }}
-          </ul>
-        {{ end }}
-
-      </div>
-    {{ end }}
-
+      <!-- Sections (Interests, Education, Skills, etc.) -->
+      {{ with .Params.sections }}
+        <div class="grid md:grid-cols-2 gap-6">
+          {{ range . }}
+            <div class="p-4 bg-white rounded-xl shadow hover:shadow-lg transition">
+              <h2 class="text-2xl font-bold mb-2 text-[#18453B]">{{ .title }}</h2>
+              {{ with .content }}
+                <p class="text-gray-800 mb-2">{{ . }}</p>
+              {{ end }}
+              {{ with .list }}
+                <ul class="list-disc list-inside text-gray-800">
+                  {{ range . }}
+                    <li>{{ . }}</li>
+                  {{ end }}
+                </ul>
+              {{ end }}
+              {{ with .quote }}
+                <blockquote class="italic text-gray-600 border-l-4 border-[#18453B] pl-4 mt-2">"{{ . }}"</blockquote>
+              {{ end }}
+            </div>
+          {{ end }}
+        </div>
+      {{ end }}
+    </div>
   </div>
 </section>
 {{ end }}
