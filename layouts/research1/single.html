@@ -67,6 +67,29 @@
     src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   </script>
 
+  <!-- Papers -->
+  {{ with .Params.papers }}
+  <h2 class="text-2xl font-bold mb-4">Related Papers</h2>
+  <ol class="list-decimal list-inside mb-6">
+    {{ range . }}
+      <li class="mb-2">
+        <strong>{{ .title }}</strong><br>
+        {{ .authors }}<br>
+        <em>{{ .journal }}</em><br>
+        <a href="{{ .link }}" target="_blank" class="text-blue-600 hover:underline">Read Paper →</a>
+      </li>
+    {{ end }}
+  </ol>
+  {{ end }}
+
+  <!-- Videos -->
+  {{ with .Params.videos }}
+  <h2 class="text-2xl font-bold mb-4">Project Videos</h2>
+  {{ range . }}
+  <h3 class="text-xl font-semibold mb-2">{{ .title }}</h3>
+  <iframe width="560" height="315" src="{{ .embed }}" frameborder="0" allowfullscreen class="mb-6"></iframe>
+  {{ end }}
+  {{ end }}
   
 </section>
 
