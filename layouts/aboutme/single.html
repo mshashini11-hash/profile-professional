@@ -1,7 +1,10 @@
 {{ define "main" }}
 
+<!-- Load Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
 <style>
-  /* Apply Inter for main content, serif only for quotes */
+  /* Apply Inter and set standard font sizes for headings and body */
   section, main, main p, main li, main span, main a, main blockquote, main figcaption {
     font-family: 'Inter', sans-serif;
     font-size: 16px; /* body text */
@@ -9,36 +12,34 @@
   }
 
   main h1 {
-    font-size: 36px; /* main title */
+    font-size: 40px; /* main title */
     font-weight: 700;
-    margin-bottom: 1.5rem;
+  }
+
+  main h2 {
+    font-size: 28px; /* subtopics or section headings */
+    font-weight: 600;
+  }
+
+  main h3 {
+    font-size: 24px;
+  }
+
+  main h4, main h5, main h6 {
+    font-size: 20px;
   }
 
   blockquote.intro-quote {
     font-family: Georgia, Cambria, "Times New Roman", Times, serif;
     font-size: 20px;
-    font-style: italic;
     text-align: center;
     margin-bottom: 1.5rem;
     color: #4a4a4a;
   }
-
-  h2 {
-    font-size: 28px;
-    font-weight: 600;
-    margin-bottom: 1rem;
-  }
-
-  h3 {
-    font-size: 24px;
-    font-weight: 600;
-  }
-
-  p {
-    font-size: 16px;
-    margin-bottom: 1rem;
-  }
 </style>
+
+<!-- Optional: Existing CSS -->
+<link rel="stylesheet" href="{{ "css/aboutme.css" | relURL }}">
 
 <main class="aboutme-container">
 
