@@ -3,23 +3,24 @@
   <div class="container mx-auto px-4 relative z-10">
 
     <!-- Title -->
-    <h1 class="text-3xl md:text-4xl font-extrabold mb-8 text-center text-white drop-shadow-lg">
+    <h1 class="text-3xl md:text-4xl font-extrabold mb-8 text-center text-[#18453B]">
       {{ .Title }}
     </h1>
 
-    <!-- Image -->
+    <!-- Image (optional) -->
     {{ with .Params.image }}
-      <img src="{{ . }}" alt="{{ $.Title }}" class="w-full max-w-3xl mx-auto mb-6 rounded-lg shadow-md">
+      <img src="{{ . }}" alt="{{ $.Title }}" class="w-full max-w-3xl mx-auto mb-8 rounded-lg shadow-md">
     {{ end }}
 
     <!-- Content -->
-    <div class="prose max-w-4xl mx-auto text-gray-800">
-      {{ .Content }}
+    <div class="max-w-3xl mx-auto text-gray-800 leading-relaxed space-y-6">
+      {{ .Content | safeHTML }}
     </div>
 
   </div>
 </section>
 {{ end }}
+
 
 
 
