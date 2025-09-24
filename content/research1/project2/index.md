@@ -6,16 +6,16 @@ summary: ""
 weight: 2
 
 papers:
-  - key: "turaev1992state"
-    authors: "Turaev, V. G. and Viro, O. Ya."
-    title: "State sum invariants of 3-manifolds and quantum 6j-symbols"
-    journal: "Topology"
-    year: 1992
-    volume: 31
-    number: 4
-    pages: "865--902"
-    doi: "10.1016/0040-9383(92)90015-A"
-    url: "https://doi.org/10.1016/0040-9383(92)90015-A"
+  - key: ""
+    authors: ""
+    title: ""
+    journal: ""
+    year: 
+    volume: 
+    number: 
+    pages: ""
+    doi: ""
+    url: ""
 
 videos:
   - title: "Project Overview"
@@ -24,24 +24,17 @@ videos:
     embed: "https://www.youtube.com/embed/YYYY"
 ---
 
-> The whole theory has been, to a great extent, inspired by ideas that arose in theoretical physics... - Vladimir G. Turaev
+> The secret of life, though, is to fall seven times and to get up eight times!
+Paulo Coelho
 
-Quantum invariants, founded around 1980 on the ideas of quantum groups and quantum topology, have grown into a rich area of mathematics through the work of mathematicians such as M. Atiyah, L. Kauffman, N. Reshetikhin, V. Turaev, and others.
 
 ---
 
-## Project 1: Seifert fibered 3-manifolds and Turaev-Viro invariants volume conjecture
+## Project 1: 
 
-Here you describe **what you actually did in this project**. Include **math formulas**, **figures**, **links**, and **videos** as needed. For example:
+My first proposed FAST project will focus on how to integrate technological tools such as LATEX, Python, and LEAN to improve learning experiences and Mathematical writing. For example, LaTeX Beamer is more efficient and user-friendly when creating math-focused presentations than Microsoft PowerPoint. Moreover, theoretical subjects like quantum topology, which is not easy to visualize, can be easily visualized using Python. My second proposed project is very much related to the core tenet of my teaching philosophy; creating a motivating learning environment for students of all backgrounds and skill levels. Many students grapple with the fear of giving incorrect answers, which hinders their participation. I aim to develop strategies that reduce mathematics anxiety and encourage students to view failure as a stepping stone to success. I hope these two proposed projects will be excellent additions to the FAST community coming from a fellow mathematics teacher.
 
-- Explored Turaev-Viro invariants of specific 3-manifolds.
-- Computed examples for Seifert fibered spaces.
-- Verified relations with Jones polynomial invariants.
-
-You can include LaTeX math like:  
-$$
-Z_{TV}(M) = \sum_{\text{colorings}} \prod_{\text{tetrahedra}} \{6j\}
-$$
+In theoretical advanced mathematics subjects, technological tools are often underutilized resources. Through FAST, I aim to interact with participants in other STEM disciplines and exchange knowledge to explore innovative approaches to improve mathematical learning. The FAST fellowship offers ample time to learn and implement these projects and provides opportunities for one-on-one feedback and effective peer mentoring in a structured environment. This supportive environment will help me refine my teaching methodologies, improve project outcomes, and strengthen my ability to effectively incorporate technology into mathematics education. 
 
 ---
 
