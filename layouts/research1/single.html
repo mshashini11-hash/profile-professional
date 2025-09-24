@@ -55,11 +55,6 @@
       </h1>
     {{ end }}
 
-    <!-- Project Image -->
-    {{ with .Params.image }}
-      <img src="{{ . }}" alt="{{ $.Title }}" class="w-full max-w-3xl mx-auto mb-8 rounded-xl shadow-md object-cover">
-    {{ end }}
-
     <!-- Project Content -->
     <div class="prose max-w-4xl mx-auto">
       {{ .Content | safeHTML }}
@@ -69,6 +64,7 @@
 </section>
 
 {{ end }}
+
 
 
 
