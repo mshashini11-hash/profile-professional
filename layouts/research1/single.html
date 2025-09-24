@@ -1,34 +1,40 @@
 {{ define "main" }}
 
 <style>
-  /* Apply Crimson Pro and set font sizes for headings and body */
-  section, main, main p, main li, main span, main a, main blockquote, main figcaption {
-    font-family: Georgia, Cambria, "Times New Roman", Times, serif;
-    font-size: 20px; /* body text */
-    line-height: 2;
+  /* Apply Inter for main content; keep blockquotes serif */
+  section, main, main p, main li, main span, main a, main figcaption {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px; /* body text */
+    line-height: 1.8;
   }
 
   main h1 {
-    font-size: 48px; /* main title */
+    font-size: 36px; /* main title */
   }
 
   main h2 {
-    font-size: 36px; /* subtopics or section headings */
+    font-size: 28px; /* section headings */
   }
 
   main h3 {
-    font-size: 28px;
+    font-size: 24px;
   }
 
   main h4, main h5, main h6 {
-    font-size: 22px;
+    font-size: 20px;
   }
 
   blockquote.intro-quote {
-    font-size: 28px;
+    font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+    font-size: 20px;
+    font-style: italic;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     color: #4a4a4a;
+  }
+
+  a {
+    transition: all 0.2s ease-in-out;
   }
 </style>
 
@@ -45,28 +51,29 @@
 
     <!-- Main Page Title -->
     {{ with .Title }}
-      <h1 class="text-4xl md:text-5xl font-extrabold mb-12 text-center text-white drop-shadow-lg relative z-10">
+      <h1 class="text-3xl md:text-4xl font-extrabold mb-8 text-center text-white drop-shadow-lg relative z-10">
         {{ . }}
       </h1>
     {{ end }}
 
     <!-- Research Projects Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
       {{ range .Pages }}
-        <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 hover:shadow-xl transition">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition">
+          
           <!-- Project Image -->
           {{ with .Params.image }}
             <img src="{{ . }}" alt="{{ $.Title }}" class="w-full h-40 object-cover">
           {{ end }}
 
           <!-- Project Info -->
-          <div class="p-6">
-            <h2 class="text-2xl font-bold mb-2 text-[#18453B]">{{ .Title }}</h2>
+          <div class="p-4 md:p-6">
+            <h2 class="text-xl md:text-2xl font-semibold mb-2 text-[#18453B]">{{ .Title }}</h2>
             {{ with .Params.summary }}
-              <p class="text-gray-700 mb-4">{{ . }}</p>
+              <p class="text-gray-700 text-sm md:text-base mb-3">{{ . }}</p>
             {{ end }}
 
-            <a href="{{ .RelPermalink }}" class="text-[#18453B] hover:underline font-semibold">
+            <a href="{{ .RelPermalink }}" class="text-[#18453B] font-semibold text-sm md:text-base hover:underline">
               Read More →
             </a>
           </div>
@@ -76,4 +83,6 @@
 
   </div>
 </section>
+
 {{ end }}
+
