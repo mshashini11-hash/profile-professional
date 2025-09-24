@@ -1,35 +1,41 @@
 {{ define "main" }}
-<!-- Load Crimson Pro -->
-<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-  /* Apply Crimson Pro and set font sizes for headings and body */
+  /* Apply Inter for main content, serif only for quotes */
   section, main, main p, main li, main span, main a, main blockquote, main figcaption {
-    font-family: Georgia, Cambria, "Times New Roman", Times, serif;
-    font-size: 20px; /* body text */
-    line-height: 2;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px; /* body text */
+    line-height: 1.8;
   }
 
   main h1 {
-    font-size: 48px; /* main title */
+    font-size: 36px; /* main title */
+    font-weight: 700;
+    margin-bottom: 1.5rem;
   }
 
   main h2 {
-    font-size: 36px; /* subtopics or section headings */
+    font-size: 28px; /* subtopics */
+    font-weight: 600;
+    margin-bottom: 1rem;
   }
 
   main h3 {
-    font-size: 28px;
+    font-size: 24px; /* university names */
+    font-weight: 600;
+    margin-bottom: 0.75rem;
   }
 
   main h4, main h5, main h6 {
-    font-size: 22px;
+    font-size: 20px;
   }
 
   blockquote.intro-quote {
-    font-size: 28px;
+    font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+    font-size: 20px;
+    font-style: italic;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     color: #4a4a4a;
   }
 </style>
@@ -47,18 +53,18 @@
 
     <!-- Main Page Title -->
     {{ with .Title }}
-      <h1 class="text-4xl md:text-5xl font-extrabold mb-12 text-center text-white drop-shadow-lg relative z-10">{{ . }}</h1>
+      <h1 class="text-center text-white drop-shadow-lg relative z-10">{{ . }}</h1>
     {{ end }}
 
     <!-- Loop over subtopics -->
     {{ range .Params.subtopics }}
-      <h2 class="text-3xl md:text-4xl font-bold mb-6 text-[#18453B]">{{ .title }}</h2>
+      <h2 class="text-[#18453B]">{{ .title }}</h2>
 
       {{ range .universities }}
         <div class="mb-10">
 
           <!-- University Name -->
-          <h3 class="text-2xl md:text-3xl font-bold mb-4 text-[#18453B]">{{ .name }}</h3>
+          <h3 class="text-[#18453B]">{{ .name }}</h3>
 
           <!-- Flex: left = text, right = image -->
           <div class="flex flex-col md:flex-row md:items-start md:space-x-6">
@@ -67,7 +73,7 @@
             <div class="flex-1 space-y-4">
               {{ range .items }}
                 <div class="bg-white p-4 rounded-xl shadow-md border-l-4 border-[#18453B]">
-                  <span class="block text-xl md:text-2xl font-semibold text-[#18453B]">{{ .title }}</span>
+                  <span class="block text-lg md:text-xl font-semibold text-[#18453B]">{{ .title }}</span>
                   <span class="text-gray-700">{{ .date }}</span>
                   {{ if .description }}
                     <p class="text-gray-600 mt-2">{{ .description }}</p>
@@ -106,6 +112,7 @@
   </div>
 </section>
 {{ end }}
+
 
 
 
