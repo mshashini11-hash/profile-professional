@@ -71,13 +71,6 @@
             {{ .Content | safeHTML }}
           </div>
 
-          <!-- Project Info -->
-          <div class="p-4 md:p-6">
-            <h2 class="text-xl md:text-2xl font-semibold mb-2 text-[#18453B]">{{ .Title }}</h2>
-            {{ with .Params.summary }}
-              <p class="text-gray-700 text-sm md:text-base mb-3">{{ . }}</p>
-            {{ end }}
-
             <a href="{{ .RelPermalink }}" class="text-[#18453B] font-semibold text-sm md:text-base hover:underline">
               Read More →
             </a>
