@@ -13,7 +13,7 @@
   }
 
   main h2 {
-    font-size: 28px; /* section headings */
+    font-size: 28px; /* subtopics or section headings */
   }
 
   main h3 {
@@ -24,7 +24,7 @@
     font-size: 20px;
   }
 
-  blockquote.intro-quote {
+  blockquote.intro-quote, blockquote {
     font-family: Georgia, Cambria, "Times New Roman", Times, serif;
     font-size: 20px;
     font-style: italic;
@@ -38,49 +38,132 @@
   }
 </style>
 
-<section class="relative py-12 min-h-screen">
+<section class="py-12 relative">
 
   <!-- Background behind main title -->
-  <div class="absolute inset-x-0 top-0 h-36 md:h-35">
+  <div class="absolute inset-x-0 top-0 h-36 md:h-34">
     <img src="/uploads/stacked-peaks.svg" class="w-full h-full object-cover opacity-60" />
     <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent"></div>
   </div>
 
-  <!-- Content -->
   <div class="container mx-auto px-4 relative z-10">
 
-    <!-- Main Page Title -->
+    <!-- Main title -->
     {{ with .Title }}
-      <h1 class="text-3xl md:text-4xl font-extrabold mb-8 text-center text-white drop-shadow-lg relative z-10">
-        {{ . }}
-      </h1>
+      <h1 class="text-3xl md:text-4xl font-extrabold mb-8 text-center text-white drop-shadow-lg relative z-10">{{ . }}</h1>
     {{ end }}
 
-    <!-- Research Projects Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-      {{ range .Pages }}
-        <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition">
-          
-          <!-- Project Image -->
-          {{ with .Params.image }}
-            <img src="{{ . }}" alt="{{ $.Title }}" class="w-full h-40 object-cover">
+    <!-- Project Image -->
+    {{ with .Params.image }}
+      <img src="{{ . }}" alt="{{ .Title }}" class="w-full max-w-4xl mx-auto h-64 object-cover rounded-lg mb-6">
+    {{ end }}
+
+    <!-- Project Content -->
+    <div class="prose max-w-4xl mx-auto">
+      {{ .Content }}
+    </div>
+
+    <!-- Topology papers -->
+    <h2 class="text-2xl md:text-3xl font-bold mb-4 text-[#18453B] mt-12">Topology</h2>
+    <ol class="list-decimal list-inside space-y-1 mb-8">
+      {{ $top := where site.RegularPages "Section" "topology" }}
+      {{ range $top }}
+        <li class="text-gray-800 text-sm md:text-base">
+          {{ if .Params.citation }}
+            {{ .Params.citation | safeHTML }}
+          {{ else }}
+            <strong>{{ .Title }}</strong>
+            {{ with .Params.authors }} ({{ delimit . ", " }}){{ end }}.
+            {{ with .Params.year }} ({{ . }}).{{ end }}
+            {{ with .Params.journal }} <em>{{ . }}</em>,{{ end }}
+            {{ with .Params.volume }} Vol. {{ . }},{{ end }}
+            {{ with .Params.issue }} Issue {{ . }},{{ end }}
+            {{ with .Params.pages }} pp. {{ . }}.{{ end }}
+            {{ with .Params.doi }} DOI: <a href="{{ . }}" class="text-blue-600 font-bold hover:underline">{{ . }}</a>{{ end }}
           {{ end }}
+          {{ with .Params.links }}
+            <span class="space-x-2">
+              {{ range . }}
+                {{ if .name }}
+                  <a href="{{ .url }}" target="_blank" class="text-blue-600 font-bold hover:underline">{{ .name }}</a>
+                {{ end }}
+              {{ end }}
+            </span>
+          {{ end }}
+        </li>
+      {{ end }}
+    </ol>
 
-          <!-- Full Project Content -->
-          <div class="prose max-w-4xl mx-auto mt-6">
-            {{ .Content }}
-          </div>
+    <!-- Education papers -->
+    <h2 class="text-2xl md:text-3xl font-bold mb-4 text-[#18453B]">Education</h2>
+    <ol class="list-decimal list-inside space-y-1 mb-8">
+      {{ $edu := where site.RegularPages "Section" "education" }}
+      {{ range $edu }}
+        <li class="text-gray-800 text-sm md:text-base">
+          {{ if .Params.citation }}
+            {{ .Params.citation | safeHTML }}
+          {{ else }}
+            <strong>{{ .Title }}</strong>
+            {{ with .Params.authors }} ({{ delimit . ", " }}){{ end }}.
+            {{ with .Params.year }} ({{ . }}).{{ end }}
+            {{ with .Params.journal }} <em>{{ . }}</em>,{{ end }}
+            {{ with .Params.volume }} Vol. {{ . }},{{ end }}
+            {{ with .Params.issue }} Issue {{ . }},{{ end }}
+            {{ with .Params.pages }} pp. {{ . }}.{{ end }}
+            {{ with .Params.doi }} DOI: <a href="{{ . }}" class="text-blue-600 font-bold hover:underline">{{ . }}</a>{{ end }}
+          {{ end }}
+          {{ with .Params.links }}
+            <span class="space-x-2">
+              {{ range . }}
+                {{ if .name }}
+                  <a href="{{ .url }}" target="_blank" class="text-blue-600 font-bold hover:underline">{{ .name }}</a>
+                {{ end }}
+              {{ end }}
+            </span>
+          {{ end }}
+        </li>
+      {{ end }}
+    </ol>
 
-          <!-- Project Info -->
-          <div class="p-4 md:p-6">
-            <h2 class="text-xl md:text-2xl font-semibold mb-2 text-[#18453B]">{{ .Title }}</h2>
-            {{ with .Params.summary }}
-              <p class="text-gray-700 text-sm md:text-base mb-3">{{ . }}</p>
+    <!-- Guest Talks -->
+    <h2 class="text-2xl md:text-3xl font-bold mb-4 text-[#18453B]">Guest Talks</h2>
+    <div class="space-y-3">
+      {{ $talks := where site.RegularPages "Section" "guesttalks" }}
+      {{ range $talks }}
+        <div class="border-l-4 border-[#18453B] pl-4 pb-2" x-data="{ open: false }">
+          
+          <!-- Talk title -->
+          <button class="w-full text-left text-lg md:text-xl font-semibold text-[#18453B]" @click="open = !open">
+            {{ .Title }}
+            <span x-text="open ? '▼' : '▶'" class="ml-2"></span>
+          </button>
+
+          <!-- Collapsible content -->
+          <div x-show="open" x-transition class="mt-2 pl-4">
+            
+            {{ with .Params.date }}<div class="text-gray-700 text-sm md:text-base">Date: {{ . }}</div>{{ end }}
+            {{ with .Params.event }}<div class="text-gray-700 text-sm md:text-base">Event: {{ . }}</div>{{ end }}
+
+            {{ with .Params.links }}
+              <div class="mt-2 space-x-2">
+                {{ range . }}
+                  {{ if .name }}
+                    <a href="{{ .url }}" target="_blank" class="text-blue-600 font-bold hover:underline text-sm md:text-base">{{ .name }}</a>
+                  {{ end }}
+                {{ end }}
+              </div>
             {{ end }}
 
-            <a href="{{ .RelPermalink }}" class="text-[#18453B] font-semibold text-sm md:text-base hover:underline">
-              Read More →
-            </a>
+            {{ with .Params.image }}
+              <div class="mt-2">
+                <img src="{{ . }}" alt="{{ .Title }}" class="w-full max-w-md rounded-lg shadow-md">
+              </div>
+            {{ end }}
+
+            {{ with .Params.summary }}
+              <p class="mt-2 text-gray-800 text-sm md:text-base">{{ . }}</p>
+            {{ end }}
+
           </div>
         </div>
       {{ end }}
@@ -89,5 +172,7 @@
   </div>
 </section>
 
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 {{ end }}
+
 
