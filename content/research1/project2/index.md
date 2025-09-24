@@ -1,6 +1,6 @@
 ---
 title: "Teaching as Research"
-layout: "research1/single"
+layout: "research1/single-content"
 image: "/uploads/project2.png"
 summary: ""
 weight: 2
