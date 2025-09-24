@@ -31,20 +31,3 @@ The Turaev-Viro invariants, introduced in the early 1990s, provide a combinatori
 
 ---
 
-## Related Papers
-
-{{ range .Params.papers }}
-- **{{ .title }}**  
-  {{ .authors }}  
-  *{{ .journal }}*  
-  [Read Paper →]({{ .link }})
-{{ end }}
-
----
-
-## Project Videos
-
-{{ range .Params.videos }}
-### Video
-{{< youtube id="{{ . }}" >}}
-{{ end }}
