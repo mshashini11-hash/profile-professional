@@ -1,28 +1,16 @@
 {{ define "main" }}
 
 <style>
-  /* Apply Inter for main content; keep blockquotes serif */
   section, main, main p, main li, main span, main a, main figcaption {
     font-family: 'Inter', sans-serif;
-    font-size: 16px; /* body text */
+    font-size: 16px;
     line-height: 1.8;
   }
 
-  main h1 {
-    font-size: 36px; /* main title */
-  }
-
-  main h2 {
-    font-size: 28px; /* section headings */
-  }
-
-  main h3 {
-    font-size: 24px;
-  }
-
-  main h4, main h5, main h6 {
-    font-size: 20px;
-  }
+  main h1 { font-size: 36px; }
+  main h2 { font-size: 28px; }
+  main h3 { font-size: 24px; }
+  main h4, main h5, main h6 { font-size: 20px; }
 
   blockquote.intro-quote {
     font-family: Georgia, Cambria, "Times New Roman", Times, serif;
@@ -33,27 +21,22 @@
     color: #4a4a4a;
   }
 
-  a {
-    transition: all 0.2s ease-in-out;
-  }
+  a { transition: all 0.2s ease-in-out; }
 </style>
 
 <section class="relative py-12 min-h-screen">
 
-  <!-- Background behind main title -->
+  <!-- Background -->
   <div class="absolute inset-x-0 top-0 h-36 md:h-35">
     <img src="/uploads/stacked-peaks.svg" class="w-full h-full object-cover opacity-60" />
     <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent"></div>
   </div>
 
-  <!-- Content -->
   <div class="container mx-auto px-4 relative z-10">
 
     <!-- Project Title -->
     {{ with .Title }}
-      <h1 class="text-3xl md:text-4xl font-extrabold mb-8 text-center text-white drop-shadow-lg relative z-10">
-        {{ . }}
-      </h1>
+      <h1 class="text-3xl md:text-4xl font-extrabold mb-8 text-center text-white drop-shadow-lg relative z-10">{{ . }}</h1>
     {{ end }}
 
     <!-- Project Image -->
