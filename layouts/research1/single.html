@@ -7,21 +7,10 @@
     line-height: 1.8;
   }
 
-  main h1 {
-    font-size: 36px;
-  }
-
-  main h2 {
-    font-size: 28px;
-  }
-
-  main h3 {
-    font-size: 24px;
-  }
-
-  main h4, main h5, main h6 {
-    font-size: 20px;
-  }
+  main h1 { font-size: 36px; }
+  main h2 { font-size: 28px; }
+  main h3 { font-size: 24px; }
+  main h4, main h5, main h6 { font-size: 20px; }
 
   blockquote.intro-quote {
     font-family: Georgia, Cambria, "Times New Roman", Times, serif;
@@ -32,9 +21,7 @@
     color: #4a4a4a;
   }
 
-  a {
-    transition: all 0.2s ease-in-out;
-  }
+  a { transition: all 0.2s ease-in-out; }
 </style>
 
 <section class="relative py-12 min-h-screen">
@@ -56,41 +43,46 @@
     {{ end }}
 
     <!-- Project Content -->
-    <div class="prose max-w-4xl mx-auto">
+    <div class="prose max-w-4xl mx-auto mb-12 text-gray-800">
       {{ .Content | safeHTML }}
     </div>
 
-  </div>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async
-    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-  </script>
-
-  <!-- Papers -->
-  {{ with .Params.papers }}
-  <h2 class="text-2xl font-bold mb-4">Related Papers</h2>
-  <ol class="list-decimal list-inside mb-6">
-    {{ range . }}
-      <li class="mb-2">
-        <strong>{{ .title }}</strong><br>
-        {{ .authors }}<br>
-        <em>{{ .journal }}</em><br>
-        <a href="{{ .link }}" target="_blank" class="text-blue-600 hover:underline">Read Paper →</a>
-      </li>
+    <!-- Papers -->
+    {{ with .Params.papers }}
+    <div class="max-w-4xl mx-auto text-center mb-12">
+      <h2 class="text-2xl font-bold mb-4">Related Papers</h2>
+      <ol class="list-decimal list-inside inline-block text-left">
+        {{ range . }}
+          <li class="mb-3">
+            <strong>{{ .title }}</strong><br>
+            {{ .authors }}<br>
+            <em>{{ .journal }}</em><br>
+            <a href="{{ .link }}" target="_blank" class="text-blue-600 hover:underline">Read Paper →</a>
+          </li>
+        {{ end }}
+      </ol>
+    </div>
     {{ end }}
-  </ol>
-  {{ end }}
 
-  <!-- Videos -->
-  {{ with .Params.videos }}
-  <h2 class="text-2xl font-bold mb-4">Project Videos</h2>
-  {{ range . }}
-  <h3 class="text-xl font-semibold mb-2">{{ .title }}</h3>
-  <iframe width="560" height="315" src="{{ .embed }}" frameborder="0" allowfullscreen class="mb-6"></iframe>
-  {{ end }}
-  {{ end }}
-  
+    <!-- Videos -->
+    {{ with .Params.videos }}
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-2xl font-bold mb-4">Project Videos</h2>
+      {{ range . }}
+      <h3 class="text-xl font-semibold mb-2">{{ .title }}</h3>
+      <div class="flex justify-center mb-6">
+        <iframe width="560" height="315" src="{{ .embed }}" frameborder="0" allowfullscreen></iframe>
+      </div>
+      {{ end }}
+    </div>
+    {{ end }}
+
+  </div>
 </section>
 
 {{ end }}
