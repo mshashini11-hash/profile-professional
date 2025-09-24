@@ -1,95 +1,58 @@
 {{ define "main" }}
 
 <style>
-  /* Apply Inter for main content; keep blockquotes serif */
-  section, main, main p, main li, main span, main a, main figcaption {
+section, main, main p, main li, main span, main a, main figcaption {
     font-family: 'Inter', sans-serif;
-    font-size: 16px; /* body text */
+    font-size: 16px;
     line-height: 1.8;
-  }
-
-  main h1 {
-    font-size: 36px; /* main title */
-  }
-
-  main h2 {
-    font-size: 28px; /* section headings */
-  }
-
-  main h3 {
-    font-size: 24px;
-  }
-
-  main h4, main h5, main h6 {
-    font-size: 20px;
-  }
-
-  blockquote.intro-quote {
-    font-family: Georgia, Cambria, "Times New Roman", Times, serif;
-    font-size: 20px;
-    font-style: italic;
-    text-align: center;
-    margin-bottom: 1.5rem;
-    color: #4a4a4a;
-  }
-
-  a {
-    transition: all 0.2s ease-in-out;
-  }
+}
+main h1 { font-size: 36px; }
+main h2 { font-size: 28px; }
+main h3 { font-size: 24px; }
+main h4, main h5, main h6 { font-size: 20px; }
+blockquote.intro-quote, blockquote { font-family: Georgia, Cambria, "Times New Roman", Times, serif; font-size: 20px; font-style: italic; text-align: center; margin-bottom: 1.5rem; color: #4a4a4a; }
+a { transition: all 0.2s ease-in-out; }
 </style>
 
-<section class="relative py-12 min-h-screen">
+<section class="py-12 relative min-h-screen">
 
   <!-- Background behind main title -->
-  <div class="absolute inset-x-0 top-0 h-36 md:h-35">
+  <div class="absolute inset-x-0 top-0 h-36 md:h-34">
     <img src="/uploads/stacked-peaks.svg" class="w-full h-full object-cover opacity-60" />
     <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent"></div>
   </div>
 
-  <!-- Content -->
   <div class="container mx-auto px-4 relative z-10">
 
-    <!-- Main Page Title -->
+    <!-- Main title -->
     {{ with .Title }}
       <h1 class="text-3xl md:text-4xl font-extrabold mb-8 text-center text-white drop-shadow-lg relative z-10">
         {{ . }}
       </h1>
     {{ end }}
 
-    <!-- Research Projects Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-      {{ range .Pages }}
-        <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition">
-          
-          <!-- Project Image -->
-          {{ with .Params.image }}
-            <img src="{{ . }}" alt="{{ $.Title }}" class="w-full h-40 object-cover">
-          {{ end }}
+    <!-- Project Image -->
+    {{ with .Params.image }}
+      <div class="mb-6">
+        <img src="{{ . }}" alt="{{ .Title }}" class="w-full max-w-3xl mx-auto rounded-lg shadow-md">
+      </div>
+    {{ end }}
 
-          <!-- Full Project Content -->
-          <div class="prose max-w-4xl mx-auto mt-6">
-            {{ .Content | safeHTML }}
-          </div>
+    <!-- Optional summary -->
+    {{ with .Params.summary }}
+      <p class="text-gray-700 text-lg md:text-xl mb-6 max-w-4xl mx-auto">{{ . }}</p>
+    {{ end }}
 
-          <!-- Project Info -->
-          <div class="p-4 md:p-6">
-            <h2 class="text-xl md:text-2xl font-semibold mb-2 text-[#18453B]">{{ .Title }}</h2>
-            {{ with .Params.summary }}
-              <p class="text-gray-700 text-sm md:text-base mb-3">{{ . }}</p>
-            {{ end }}
-
-            <a href="{{ .RelPermalink }}" class="text-[#18453B] font-semibold text-sm md:text-base hover:underline">
-              Read More →
-            </a>
-          </div>
-        </div>
-      {{ end }}
+    <!-- Full Markdown content -->
+    <div class="prose max-w-4xl mx-auto mt-6">
+      {{ .Content | safeHTML }}
     </div>
 
   </div>
 </section>
 
 {{ end }}
+
 
 
 
