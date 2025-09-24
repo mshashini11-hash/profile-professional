@@ -1,4 +1,4 @@
 ---
 title: "Research"
-layout: research1/single
+layout: "research1/list"  # this controls the grid page
 ---
