@@ -74,6 +74,12 @@ papers:
     doi: "10.4171/QT/120"
     url: "https://doi.org/10.4171/QT/120"
 
+videos:
+  - title: "Project Overview"
+    embed: "https://www.youtube.com/embed/XXXX"
+  - title: "Demo Run"
+    embed: "https://www.youtube.com/embed/YYYY"
+
 ---
 > The whole theory has been, to a great extent, inspired by ideas that arose in theoretical physics. Among the relevant areas of physics are the theory of exactly solvable models of statistical mechanics, the quantum inverse scattering method,the quantum theory of angular momentum, 2-dimensional conformal field theory,etc. The development of this subject shows once more that physics and mathematics intercommunicate and influence each other ... - Vladimir G. Turaev
 
