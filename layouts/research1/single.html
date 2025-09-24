@@ -68,7 +68,7 @@
 
           <!-- Full Project Content -->
           <div class="prose max-w-4xl mx-auto mt-6">
-            {{ .Content }}
+            {{ .Content | safeHTML }}
           </div>
 
           <!-- Project Info -->
