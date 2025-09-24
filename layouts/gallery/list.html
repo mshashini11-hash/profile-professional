@@ -1,22 +1,19 @@
 {{ define "main" }}
 
 <style>
-  /* Apply Inter for main content; serif only for quotes */
-  section, main, main p, main li, main span, main a, main figcaption {
+  /* Apply Inter and set font sizes for headings and body */
+  section, main, main p, main li, main span, main a, main blockquote, main figcaption {
     font-family: 'Inter', sans-serif;
     font-size: 16px; /* body text */
     line-height: 1.8;
   }
 
   main h1 {
-    font-size: 36px; /* main title */
-    font-weight: 700;
-    margin-bottom: 1.5rem;
+    font-size: 40px; /* main title */
   }
 
   main h2 {
-    font-size: 28px; /* section headings */
-    font-weight: 600;
+    font-size: 28px; /* subtopics or section headings */
   }
 
   main h3 {
@@ -30,52 +27,15 @@
   blockquote.intro-quote {
     font-family: Georgia, Cambria, "Times New Roman", Times, serif;
     font-size: 20px;
-    font-style: italic;
     text-align: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     color: #4a4a4a;
-  }
-
-  /* Gallery Grid */
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 1rem;
-  }
-
-  @media(min-width: 640px) {
-    .gallery-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-    }
-  }
-
-  @media(min-width: 1024px) {
-    .gallery-grid {
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-    }
-  }
-
-  .gallery-item img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 0.5rem;
-    transition: transform 0.2s ease-in-out;
-  }
-
-  .gallery-item img:hover {
-    transform: scale(1.05);
   }
 </style>
 
-<main class="gallery-container px-4 md:px-8 lg:px-12 py-12">
-  <!-- Page Title -->
-  <h1 class="text-center text-[#18453B]">{{ .Title }}</h1>
-
-  <!-- Image Grid -->
-  <div class="gallery-grid mt-6">
+<main class="gallery-container">
+  <h1>{{ .Title }}</h1>
+  <div class="gallery-grid">
     {{ range .Resources.ByType "image" }}
       <div class="gallery-item">
         <img src="{{ .RelPermalink }}" alt="{{ .Name }}">
@@ -83,5 +43,5 @@
     {{ end }}
   </div>
 </main>
-
 {{ end }}
+
