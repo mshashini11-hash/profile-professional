@@ -89,3 +89,7 @@ To learn more, see the references below—and keep reading to explore both the p
 
 ---
 
+##Project 1: Seifert fibered 3-manifolds and Turaev-Viro invariants volume conjecture
+
+
+---
