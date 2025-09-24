@@ -5,6 +5,21 @@ image: "/uploads/project1.png"
 summary: "Short summary of Project 1"
 weight: 1
 
+papers:
+  - title: "Deep Learning for Geometry"
+    authors: "Doe, J. and Smith, A."
+    journal: "Journal of Math AI, 2023"
+    link: "https://arxiv.org/abs/1234.5678"
+  - title: "Another Paper"
+    authors: "Brown, K. and Green, L."
+    journal: "Conference on Cool Stuff, 2024"
+    link: "https://doi.org/10.1000/example"
+videos:
+  - title: "Project Overview"
+    embed: "https://www.youtube.com/embed/XXXX"
+  - title: "Demo Run"
+    embed: "https://www.youtube.com/embed/YYYY"
+
 ---
 Quantum invariants were first introduced around 1980, gradually developing into a fascinating group of theories through the work of mathematicians such as M. Atiyah, A. Joyal and R. Street, L. Kauffman, A. Kirillov and N. Reshetikhin, G. Moore and N. Seiberg, N. Reshetikhin and V. Turaev, G. Segal, V. Turaev, and O. Viro (see References).
 
