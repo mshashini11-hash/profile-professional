@@ -89,7 +89,25 @@ To learn more, see the references below—and keep reading to explore both the p
 
 ---
 
-##Project 1: Seifert fibered 3-manifolds and Turaev-Viro invariants volume conjecture
+## Project 1: Seifert fibered 3-manifolds and Turaev-Viro invariants volume conjecture
 
+Here you describe **what you actually did in this project**. Include **math formulas**, **figures**, **links**, and **videos** as needed. For example:
+
+- Explored Turaev-Viro invariants of specific 3-manifolds.
+- Computed examples for Seifert fibered spaces.
+- Verified relations with Jones polynomial invariants.
+
+You can include LaTeX math like:  
+$$
+Z_{TV}(M) = \sum_{\text{colorings}} \prod_{\text{tetrahedra}} \{6j\}
+$$
 
 ---
+
+## Future Directions: Topics of Interest
+
+Here you discuss **what you are interested in exploring next**. For example:
+
+- Applying quantum invariants to low-dimensional topology problems.
+- Connections between TQFT and quantum computing.
+- New combinatorial methods for computing invariants efficiently.
