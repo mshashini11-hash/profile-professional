@@ -1,7 +1,26 @@
 ---
-title: "Latex Resources"
-date: 2025-08-31
+title: "Technology Resources"
+layout: "research1/single-content"
 image: "/uploads/project3.png"
-summary: "Short summary of Project 1."
+summary: "LaTeX, python, Github etc"
+weight: 3
+
+
+
+videos:
+  - title: "Project Overview"
+    embed: "https://www.youtube.com/embed/XXXX"
+  - title: "Demo Run"
+    embed: "https://www.youtube.com/embed/YYYY"
 ---
-Here is a longer description for Project 1. You can add resources, links, or any relevant content here.
+
+
+
+---
+
+## Project 1: 
+
+
+---
+
+## Future Directions: Topics of Interest
