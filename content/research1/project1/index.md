@@ -7,7 +7,7 @@ weight: 1
 ---
 
 Quantum invariants were first introduced around 1980, gradually developing into a fascinating group of theories through the work of mathematicians such as M. Atiyah, A. Joyal and R. Street, L. Kauffman, A. Kirillov and N. Reshetikhin, G. Moore and N. Seiberg, N. Reshetikhin and V. Turaev, G. Segal, V. Turaev, and O. Viro (see References).
----
+
 
 ## Related Papers
 
