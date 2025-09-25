@@ -7,14 +7,10 @@
     line-height: 1.8;
   }
 
-  main h1 {
-    font-size: 40px;
-  }
-
   .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* bigger than before */
+    gap: 24px;
     margin-top: 2rem;
   }
 
@@ -22,26 +18,37 @@
     text-align: center;
   }
 
-  .gallery-item img {
-    max-width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  .gallery-item img,
+  .gallery-item video {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   }
 
   .gallery-item figcaption {
-    margin-top: 0.5rem;
-    font-size: 14px;
+    margin-top: 0.75rem;
+    font-size: 15px;
     color: #555;
-  }
-
-  .gallery-item video {
-    max-width: 100%;
-    border-radius: 8px;
   }
 </style>
 
 <main class="gallery-container">
-  <h1>{{ .Title }}</h1>
+
+  <!-- Title with background (stacked peaks style) -->
+  <section class="py-12 relative">
+    <div class="absolute inset-x-0 top-0 h-36 md:h-34">
+      <img src="/uploads/stacked-peaks.svg" class="w-full h-full object-cover opacity-60" />
+      <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent"></div>
+    </div>
+
+    <div class="container mx-auto px-4 relative z-10">
+      {{ with .Title }}
+        <h1 class="text-3xl md:text-4xl font-extrabold mb-8 text-center text-white drop-shadow-lg relative z-10">{{ . }}</h1>
+      {{ end }}
+    </div>
+  </section>
+
+  <!-- Gallery grid -->
   <div class="gallery-grid">
     {{ range .Params.items }}
       <figure class="gallery-item">
@@ -60,6 +67,8 @@
       </figure>
     {{ end }}
   </div>
+
 </main>
 {{ end }}
+
 
