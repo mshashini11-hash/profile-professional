@@ -15,12 +15,12 @@
 
     <!-- Main Page Title -->
     {{ with .Title }}
-      <h1 class="text-4xl md:text-5xl font-extrabold mb-8 text-center text-white drop-shadow-lg relative z-10">{{ . }}</h1>
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-6 text-center text-white drop-shadow-lg relative z-10">{{ . }}</h1>
     {{ end }}
 
     <!-- Loop over universities -->
     {{ range .Params.universities }}
-      <div class="mb-12 p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+      <div class="mb-12 p-4 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
 
         <!-- University Name -->
         <h2 class="text-2xl md:text-3xl font-bold mb-6 text-[#18453B]">{{ .name }}</h2>
