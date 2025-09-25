@@ -76,7 +76,7 @@
     <!-- Right: Description -->
     {{ with $block.description }}
     <div class="aboutme-story">
-      <p>{{ . }}</p>
+      {{ . | markdownify }}
     </div>
     {{ end }}
 
@@ -95,12 +95,8 @@
     </a>
   </section>
 
-<p>{{ .description | markdownify }}</p>
-
-  
 </main>
 {{ end }}
-
 
 
 
