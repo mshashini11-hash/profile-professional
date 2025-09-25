@@ -38,7 +38,7 @@
 <section class="relative py-12 min-h-screen">
 
   <!-- Background behind main title -->
-  <div class="absolute inset-x-0 top-0 h-36 md:h-32">
+  <div class="absolute inset-x-0 top-0 h-32 md:h-32">
     <img src="/uploads/stacked-peaks.svg" class="w-full h-full object-cover opacity-60" />
     <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent"></div>
   </div>
@@ -48,7 +48,7 @@
 
     <!-- Main Page Title -->
     {{ with .Title }}
-      <h1 class="text-4xl md:text-5xl font-extrabold mb-12 text-center text-white drop-shadow-lg relative z-10">{{ . }}</h1>
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-8 text-center text-white drop-shadow-lg relative z-10">{{ . }}</h1>
     {{ end }}
 
     <!-- Loop over subtopics -->
