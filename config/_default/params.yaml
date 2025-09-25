@@ -65,11 +65,12 @@ params:
 style:
   css: ["css/custom.scss"]
 
-# Appearance
 appearance:
   mode: system
   color: indigo
-  font: ["Crimson Pro", "serif"]
+  custom_css:
+    - "css/custom.css"
+
 
 
 
