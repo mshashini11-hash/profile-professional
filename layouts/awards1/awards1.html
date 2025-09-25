@@ -2,58 +2,10 @@
 <!-- Load Inter -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<style>
-  /* Apply Inter globally without changing layout or colors */
-  section, main, main p, main li, main span, main a, main blockquote, main figcaption {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;      /* body text */
-    line-height: 1.6;     /* readable spacing */
-    color: inherit;       /* keep theme colors */
-  }
-
-  /* Main title */
-  main h1 {
-    font-size: 28px;      /* prominent but not huge */
-    line-height: 1.2;
-    font-weight: 700;
-  }
-
-  /* Subtopics / Section headings */
-  main h2 {
-    font-size: 32px;
-    line-height: 1.3;
-    font-weight: 600;
-  }
-
-  /* University names */
-  main h3 {
-    font-size: 24px;
-    line-height: 1.3;
-    font-weight: 500;
-  }
-
-  /* Smaller headings */
-  main h4, main h5, main h6 {
-    font-size: 20px;
-    line-height: 1.4;
-    font-weight: 500;
-  }
-
-  /* Blockquote */
-  blockquote.intro-quote {
-    font-family: Georgia, Cambria, "Times New Roman", Times, serif;
-    font-size: 20px;
-    line-height: 1.5;
-    text-align: center;
-    margin-bottom: 2rem;
-    color: #4a4a4a;
-  }
-</style>
-
 <section class="relative py-12 min-h-screen">
 
   <!-- Background behind main title -->
-  <div class="absolute inset-x-0 top-0 h-32 md:h-32">
+  <div class="absolute inset-x-0 top-0 h-32 md:h-28">
     <img src="/uploads/stacked-peaks.svg" class="w-full h-full object-cover opacity-60" />
     <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent"></div>
   </div>
@@ -63,18 +15,18 @@
 
     <!-- Main Page Title -->
     {{ with .Title }}
-      <h1 class="text-4xl md:text-5xl font-extrabold mb-8 text-center text-white drop-shadow-lg relative z-10">{{ . }}</h1>
+      <h1 class="text-3xl md:text-4xl font-extrabold mb-8 text-center text-white drop-shadow-lg relative z-10">{{ . }}</h1>
     {{ end }}
 
     <!-- Loop over subtopics -->
     {{ range .Params.subtopics }}
-      <h2 class="text-3xl md:text-4xl font-bold mb-6 text-[#18453B]">{{ .title }}</h2>
+      <h2 class="text-2xl md:text-3xl font-bold mb-6 text-[#18453B]">{{ .title }}</h2>
 
       {{ range .universities }}
         <div class="mb-10">
 
           <!-- University Name -->
-          <h3 class="text-2xl md:text-3xl font-bold mb-4 text-[#18453B]">{{ .name }}</h3>
+          <h3 class="text-1xl md:text-2xl font-bold mb-4 text-[#18453B]">{{ .name }}</h3>
 
           <!-- Flex: left = text, right = image -->
           <div class="flex flex-col md:flex-row md:items-start md:space-x-6">
