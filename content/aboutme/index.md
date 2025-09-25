@@ -1,4 +1,7 @@
 ---
+title: "About Me"
+type: aboutme
+intro: "If you are passionate about oil portrait paintings, scroll down to see my paintings.  "
 blocks:
   - description: |
       I was born and raised in Kandy, Sri Lanka, a city surrounded by lush hills and beautiful nature. Growing up in such an inspiring environment sparked my curiosity and creativity from an early age. I am proud to be the first in my family to attend university and earn a bachelor’s degree, making me a first-generation student. I completed my Bachelor’s with Honors in Mathematics at the University of Peradeniya with Academic Excellency award. Currently, I am pursuing my Ph.D. in Mathematics at Michigan State University.
@@ -11,11 +14,11 @@ blocks:
     caption: "Kandy, Sri Lanka"
   - description: |
       My passion for numbers led me to pursue higher education abroad. During my Ph.D., I delved into quantum topology and knot theory.
-    image: "/uploads/woofy.png"
+    image: "/uploads/art1.jpeg"
     caption: "Exploring mathematics and patterns"
   - description: |
       When not immersed in equations, I explore the world through painting, photography, and hiking.
-    image: "/uploads/art1.jpeg"
+    image: "/uploads/woofy.png"
     caption: "Hiking adventures and nature photography"
 ---
 
