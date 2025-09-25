@@ -1,112 +1,71 @@
-{{ define "main" }}
 <!-- Load Inter -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-  /* Apply Inter and set font sizes for headings and body */
+  /* Base font for all sections */
   section, main, main p, main li, main span, main a, main blockquote, main figcaption {
     font-family: 'Inter', sans-serif;
-    font-size: 16px; /* body text */
-    line-height: 1;
+    font-size: 16px;       /* body text */
+    line-height: 1.6;      /* good readability */
+    color: #1F2937;        /* soft dark gray for easy reading */
   }
 
+  /* Main Page Title */
   main h1 {
-    font-size: 28px; /* main title */
+    font-size: 36px;       /* large but not overwhelming */
+    line-height: 1.2;
+    font-weight: 700;
   }
 
+  /* Subtopics / Section Headings */
   main h2 {
-    font-size: 26px; /* subtopics or section headings */
+    font-size: 28px;
+    line-height: 1.3;
+    font-weight: 600;
   }
 
+  /* University Names */
   main h3 {
-    font-size: 24px; /* university names */
+    font-size: 22px;
+    line-height: 1.3;
+    font-weight: 500;
   }
 
+  /* Smaller headings (h4, h5, h6) */
   main h4, main h5, main h6 {
-    font-size: 20px;
+    font-size: 18px;
+    line-height: 1.4;
+    font-weight: 500;
   }
 
+  /* Blockquote */
   blockquote.intro-quote {
     font-family: Georgia, Cambria, "Times New Roman", Times, serif;
     font-size: 20px;
+    line-height: 1.5;
     text-align: center;
     margin-bottom: 2rem;
-    color: #4a4a4a;
+    color: #4A5568;
+  }
+
+  /* Event/Items box titles */
+  .bg-white span.block.text-xl {
+    font-size: 18px;       /* smaller than h3 but clear */
+    line-height: 1.4;
+  }
+
+  /* Links inside events/items */
+  .bg-white a {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  /* Ensure spacing is comfortable */
+  .bg-white p {
+    font-size: 16px;
+    line-height: 1.5;
   }
 </style>
-
-<section class="relative py-12 min-h-screen">
-
-  <!-- Background behind main title -->
-  <div class="absolute inset-x-0 top-0 h-32 md:h-32">
-    <img src="/uploads/stacked-peaks.svg" class="w-full h-full object-cover opacity-60" />
-    <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent"></div>
-  </div>
-
-  <!-- Content -->
-  <div class="container mx-auto px-4 relative z-10">
-
-    <!-- Main Page Title -->
-    {{ with .Title }}
-      <h1 class="text-4xl md:text-5xl font-extrabold mb-8 text-center text-white drop-shadow-lg relative z-10">{{ . }}</h1>
-    {{ end }}
-
-    <!-- Loop over subtopics -->
-    {{ range .Params.subtopics }}
-      <h2 class="text-3xl md:text-4xl font-bold mb-6 text-[#18453B]">{{ .title }}</h2>
-
-      {{ range .universities }}
-        <div class="mb-10">
-
-          <!-- University Name -->
-          <h3 class="text-2xl md:text-3xl font-bold mb-4 text-[#18453B]">{{ .name }}</h3>
-
-          <!-- Flex: left = text, right = image -->
-          <div class="flex flex-col md:flex-row md:items-start md:space-x-6">
-
-            <!-- Left: Text info for all items -->
-            <div class="flex-1 space-y-4">
-              {{ range .items }}
-                <div class="bg-white p-4 rounded-xl shadow-md border-l-4 border-[#18453B]">
-                  <span class="block text-xl md:text-2xl font-semibold text-[#18453B]">{{ .title }}</span>
-                  <span class="text-gray-700">{{ .date }}</span>
-                  {{ if .description }}
-                    <p class="text-gray-600 mt-2">{{ .description }}</p>
-                  {{ end }}
-                  {{ if .url }}
-                    <a href="{{ .url }}" target="_blank" class="text-[#18453B] hover:underline mt-1 inline-block">[link]</a>
-                  {{ end }}
-                </div>
-              {{ end }}
-            </div>
-
-            <!-- Right: First available image -->
-            {{ $firstImage := "" }}
-            {{ range .items }}
-              {{ if .image }}
-                {{ $firstImage = .image }}
-                {{ break }}
-              {{ end }}
-            {{ end }}
-
-            {{ if $firstImage }}
-            <div class="mt-4 md:mt-0 flex-shrink-0 md:self-start self-center">
-              <img src="{{ $firstImage }}" alt="University Image"
-                   class="w-48 h-auto md:w-64 lg:w-72 object-contain rounded-lg shadow-lg">
-              <p class="text-center text-gray-600 text-sm mt-2">Photo taken on the day of the TA Award ceremony.</p>
-            </div>
-            {{ end }}
-
-          </div>
-
-        </div>
-      {{ end }}
-
-    {{ end }}
-
-  </div>
-</section>
-{{ end }}
 
 
 
