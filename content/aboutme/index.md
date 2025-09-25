@@ -11,11 +11,11 @@ blocks:
     caption: "Kandy, Sri Lanka"
   - description: |
       My passion for numbers led me to pursue higher education abroad. During my Ph.D., I delved into quantum topology and knot theory.
-    image: "/uploads/art1.jpeg"
+    image: "/uploads/woofy.png"
     caption: "Exploring mathematics and patterns"
   - description: |
       When not immersed in equations, I explore the world through painting, photography, and hiking.
-    image: "/uploads/hike1.jpeg"
+    image: "/uploads/art1.jpeg"
     caption: "Hiking adventures and nature photography"
 ---
 
