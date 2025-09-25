@@ -1,4 +1,5 @@
-/* Change font for the events section */
-.events {
+/* Entire events section */
+#events, 
+#events * {
     font-family: "Crimson Pro", serif !important;
 }
