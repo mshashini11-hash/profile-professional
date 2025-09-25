@@ -1,3 +1,4 @@
+---
 blocks:
   - description: |
       When I’m not unraveling the mysteries of knots and quantum topology, you can usually find me exploring art, nature, and creativity.
@@ -13,7 +14,7 @@ blocks:
       When not immersed in equations, I explore the world through painting, photography, and hiking.
     image: "/uploads/hike1.jpeg"
     caption: "Hiking adventures and nature photography"
-
+---
 
 
 
