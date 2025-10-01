@@ -1,7 +1,5 @@
 {{ define "main" }}
 
-
-
 <section class="relative py-12 min-h-screen">
 
   <!-- Background behind main title -->
@@ -15,7 +13,9 @@
 
     <!-- Main Page Title -->
     {{ with .Title }}
-      <h1 class="text-3xl md:text-4xl font-extrabold mb-8 text-center text-white drop-shadow-lg relative z-10">{{ . }}</h1>
+      <h1 class="text-3xl md:text-4xl font-extrabold mb-8 text-center text-white drop-shadow-lg relative z-10">
+        {{ . }}
+      </h1>
     {{ end }}
 
     <!-- Loop over universities -->
@@ -36,9 +36,20 @@
             {{ with .courses }}
               <ul class="list-disc list-inside text-[#1C1C1C] ml-2">
                 {{ range . }}
-                  <li class="mb-1">
-                    <a href="{{ .url }}" class="hover:underline text-[#18453B]">{{ .name }}</a>
+                  <li class="mb-2">
+                    <a href="{{ .url }}" class="hover:underline text-[#18453B] font-medium">{{ .name }}</a>
                     <span class="text-gray-700"> — {{ .semester }}</span>
+
+                    <!-- If the course has extra documents -->
+                    {{ with .documents }}
+                      <ul class="list-disc list-inside ml-6 text-sm text-gray-600">
+                        {{ range . }}
+                          <li>
+                            <a href="{{ .url }}" class="hover:underline text-blue-600">{{ .label }}</a>
+                          </li>
+                        {{ end }}
+                      </ul>
+                    {{ end }}
                   </li>
                 {{ end }}
               </ul>
@@ -67,6 +78,7 @@
 </section>
 
 {{ end }}
+
 
 
 
