@@ -2,6 +2,54 @@
 <!-- Load Inter -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+<!-- Dark Mode CSS Variables -->
+<style>
+  :root {
+    --text-color: #1C1C1C;
+    --heading-color: #18453B;
+    --link-color: #18453B;
+    --bg-color: #ffffff;
+    --meta-color: #4a4a4a;
+    --caption-color: #555555;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --text-color: #f0f0f0;
+      --heading-color: #a5f3fc;
+      --link-color: #38bdf8;
+      --bg-color: #121212;
+      --meta-color: #cbd5e1;
+      --caption-color: #d1d5db;
+    }
+  }
+
+  body {
+    color: var(--text-color);
+    background-color: var(--bg-color);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--heading-color);
+  }
+
+  p, span, li {
+    color: var(--text-color);
+  }
+
+  a {
+    color: var(--link-color);
+    transition: color 0.2s ease-in-out;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .text-gray-700 { color: var(--meta-color) !important; }
+  .text-gray-600 { color: var(--caption-color) !important; }
+</style>
+
 <section class="relative py-12 min-h-screen">
 
   <!-- Background behind main title -->
@@ -15,18 +63,18 @@
 
     <!-- Main Page Title -->
     {{ with .Title }}
-      <h1 class="text-3xl md:text-4xl font-extrabold mb-8 text-center text-white drop-shadow-lg relative z-10">{{ . }}</h1>
+      <h1 class="text-3xl md:text-4xl font-extrabold mb-8 text-center drop-shadow-lg relative z-10">{{ . }}</h1>
     {{ end }}
 
     <!-- Loop over subtopics -->
     {{ range .Params.subtopics }}
-      <h2 class="text-2xl md:text-3xl font-bold mb-6 text-[#18453B]">{{ .title }}</h2>
+      <h2 class="text-2xl md:text-3xl font-bold mb-6">{{ .title }}</h2>
 
       {{ range .universities }}
         <div class="mb-10">
 
           <!-- University Name -->
-          <h3 class="text-1xl md:text-2xl font-bold mb-4 text-[#18453B]">{{ .name }}</h3>
+          <h3 class="text-1xl md:text-2xl font-bold mb-4">{{ .name }}</h3>
 
           <!-- Flex: left = text, right = image -->
           <div class="flex flex-col md:flex-row md:items-start md:space-x-6">
@@ -34,14 +82,14 @@
             <!-- Left: Text info for all items -->
             <div class="flex-1 space-y-4">
               {{ range .items }}
-                <div class="bg-white p-4 rounded-xl shadow-md border-l-4 border-[#18453B]">
-                  <span class="block text-xl md:text-1xl font-semibold text-[#18453B]">{{ .title }}</span>
+                <div class="p-4 rounded-xl shadow-md border-l-4" style="border-left-color: var(--heading-color); background-color: var(--bg-color)">
+                  <span class="block text-xl md:text-1xl font-semibold">{{ .title }}</span>
                   <span class="text-gray-700">{{ .date }}</span>
                   {{ if .description }}
                     <p class="text-gray-600 mt-2">{{ .description }}</p>
                   {{ end }}
                   {{ if .url }}
-                    <a href="{{ .url }}" target="_blank" class="text-[#18453B] hover:underline mt-1 inline-block">[link]</a>
+                    <a href="{{ .url }}" target="_blank" class="hover:underline mt-1 inline-block">[link]</a>
                   {{ end }}
                 </div>
               {{ end }}
@@ -74,6 +122,7 @@
   </div>
 </section>
 {{ end }}
+
 
 
 
