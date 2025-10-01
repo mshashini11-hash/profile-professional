@@ -1,4 +1,3 @@
----
 title: "Teaching Portfolio"
 layout: teaching1
 universities:
@@ -10,9 +9,19 @@ universities:
           - name: "MTH 299 – Transition to Proofs"
             semester: "Summer 2025"
             url: ""
+            documents:
+              - label: "Syllabus"
+                url: "/assets/docs/mth299_syllabus.pdf"
+              - label: "Sample Assignment"
+                url: "/assets/docs/mth299_assignment1.pdf"
           - name: "MTH 101 – Quantitative Literacy 1"
             semester: "Summer 2023"
             url: "/teaching1/instructor/mth101/"
+            documents:
+              - label: "Syllabus"
+                url: "/assets/docs/mth101_syllabus.pdf"
+              - label: "Exam 1"
+                url: "/assets/docs/mth101_exam1.pdf"
           - name: "MTH 234 – Multivariable Calculus 3"
             semester: "Fall 2023, Spring 2024"
             url: "/teaching1/instructor/mth234/"
@@ -69,5 +78,4 @@ universities:
           - name: "Undergraduate Project Supervision"
             semester: "Various"
             url: "/"
----
 
