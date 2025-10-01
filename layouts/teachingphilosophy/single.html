@@ -1,4 +1,52 @@
 {{ define "main" }}
+
+<!-- Global Dark Mode Styles -->
+<style>
+  :root {
+    --text-color: #1C1C1C;
+    --heading-color: #18453B;
+    --quote-color: #4a4a4a;
+    --link-color: #18453B;
+    --bg-color: #ffffff;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --text-color: #f0f0f0;
+      --heading-color: #a5f3fc;
+      --quote-color: #cbd5e1;
+      --link-color: #38bdf8;
+      --bg-color: #121212;
+    }
+  }
+
+  body {
+    color: var(--text-color);
+    background-color: var(--bg-color);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--heading-color);
+  }
+
+  p, li, blockquote {
+    color: var(--text-color);
+  }
+
+  blockquote {
+    border-color: var(--heading-color);
+  }
+
+  a {
+    color: var(--link-color);
+    transition: color 0.2s ease-in-out;
+  }
+  a:hover {
+    color: var(--link-color);
+    text-decoration: underline;
+  }
+</style>
+
 <section class="relative py-12 min-h-screen font-inter">
 
   <!-- Background behind main title -->
@@ -11,40 +59,40 @@
 
     <!-- Page Title -->
     {{ with .Title }}
-      <h1 class="text-3xl md:text-4xl font-extrabold mb-8 text-center text-white drop-shadow-lg relative z-10">{{ . }}</h1>
+      <h1 class="text-3xl md:text-4xl font-extrabold mb-8 text-center drop-shadow-lg relative z-10">{{ . }}</h1>
     {{ end }}
 
     <!-- Intro Quote (keep font-serif) -->
     {{ with .Params.intro_quote }}
-      <blockquote class="font-serif italic text-gray-700 text-xl md:text-2xl mb-6 text-center max-w-3xl mx-auto">
+      <blockquote class="font-serif italic text-xl md:text-2xl mb-6 text-center max-w-3xl mx-auto">
         {{ . }}
       </blockquote>
     {{ end }}
 
     <!-- Intro Paragraph -->
     {{ with .Params.intro }}
-      <p class="text-base md:text-lg text-gray-800 mb-8 text-center">{{ . }}</p>
+      <p class="text-base md:text-lg mb-8 text-center">{{ . }}</p>
     {{ end }}
 
     <!-- Loop over core values -->
     {{ range .Params.core_values }}
-      <div class="mb-8 p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition">
+      <div class="mb-8 p-6 rounded-xl shadow-md hover:shadow-lg transition" style="background-color: var(--bg-color)">
 
         <!-- Core Value Title -->
-        <h2 class="text-2xl md:text-3xl font-bold mb-3 text-[#18453B]">{{ .title }}</h2>
+        <h2 class="text-2xl md:text-3xl font-bold mb-3">{{ .title }}</h2>
 
         <!-- Core Value Description -->
-        <p class="text-base md:text-lg text-gray-800 mb-3">{{ .description }}</p>
+        <p class="text-base md:text-lg mb-3">{{ .description }}</p>
 
         <!-- Quote (with border, keep font-serif) -->
         {{ with .quote }}
-          <blockquote class="font-serif italic text-gray-600 border-l-4 border-[#18453B] pl-4 mb-3">"{{ . }}"</blockquote>
+          <blockquote class="font-serif italic pl-4 mb-3" style="border-left: 4px solid var(--heading-color);">"{{ . }}"</blockquote>
         {{ end }}
 
         <!-- Student Reviews -->
         {{ with .student_reviews }}
-          <h4 class="font-semibold text-[#18453B] mb-2">Student Reviews:</h4>
-          <ul class="list-disc list-inside text-gray-800">
+          <h4 class="font-semibold mb-2">Student Reviews:</h4>
+          <ul class="list-disc list-inside">
             {{ range . }}
               <li class="mb-1">{{ . }}</li>
             {{ end }}
@@ -57,6 +105,7 @@
   </div>
 </section>
 {{ end }}
+
 
 
 
