@@ -21,6 +21,14 @@
       --bg-color: #121212;
       --meta-color: #cbd5e1;
     }
+
+    /* White background for main content sections in dark mode */
+    .white-section {
+      background-color: #ffffff !important;
+      color: #1C1C1C !important;
+      padding: 1rem;
+      border-radius: 0.5rem;
+    }
   }
 
   section, main, main p, main li, main span, main a, main figcaption {
@@ -72,13 +80,13 @@
     {{ end }}
 
     <!-- Project Content -->
-    <div class="prose max-w-4xl mx-auto mb-12" style="color: var(--text-color);">
+    <div class="prose max-w-4xl mx-auto mb-12 white-section">
       {{ .Content | safeHTML }}
     </div>
 
     <!-- Papers as single-line list -->
     {{ with .Params.papers }}
-    <div class="max-w-4xl mx-auto mb-12">
+    <div class="max-w-4xl mx-auto mb-12 white-section">
       <h2 class="text-2xl font-bold mb-4">Related Papers</h2>
       <ul class="list-disc list-inside space-y-1">
         {{ range . }}
@@ -95,7 +103,7 @@
 
     <!-- Videos -->
     {{ with .Params.videos }}
-    <div class="max-w-4xl mx-auto text-center mb-12">
+    <div class="max-w-4xl mx-auto text-center mb-12 white-section">
       <h2 class="text-2xl font-bold mb-4">Project Videos</h2>
       {{ range . }}
         <h3 class="text-xl font-semibold mb-2">{{ .title }}</h3>
