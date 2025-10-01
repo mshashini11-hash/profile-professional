@@ -1,5 +1,49 @@
 {{ define "main" }}
 
+<!-- Global Dark Mode Styles -->
+<style>
+  :root {
+    --text-color: #1C1C1C;
+    --heading-color: #18453B;
+    --link-color: #18453B;
+    --link-hover-color: #1a73e8;
+    --doc-link-color: #1d4ed8;
+    --bg-color: #ffffff;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --text-color: #f0f0f0;
+      --heading-color: #a5f3fc;
+      --link-color: #38bdf8;
+      --link-hover-color: #60a5fa;
+      --doc-link-color: #60a5fa;
+      --bg-color: #121212;
+    }
+  }
+
+  body {
+    color: var(--text-color);
+    background-color: var(--bg-color);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--heading-color);
+  }
+
+  a {
+    color: var(--link-color);
+    transition: color 0.2s ease-in-out;
+  }
+  a:hover {
+    color: var(--link-hover-color);
+  }
+
+  ul li a.document-link {
+    color: var(--doc-link-color);
+  }
+</style>
+
 <section class="relative py-12 min-h-screen">
 
   <!-- Background behind main title -->
@@ -13,39 +57,39 @@
 
     <!-- Main Page Title -->
     {{ with .Title }}
-      <h1 class="text-3xl md:text-4xl font-extrabold mb-8 text-center text-white drop-shadow-lg relative z-10">
+      <h1 class="text-3xl md:text-4xl font-extrabold mb-8 text-center drop-shadow-lg relative z-10">
         {{ . }}
       </h1>
     {{ end }}
 
     <!-- Loop over universities -->
     {{ range .Params.universities }}
-      <div class="mb-12 p-4 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+      <div class="mb-12 p-4 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300" style="background-color: var(--bg-color)">
 
         <!-- University Name -->
-        <h2 class="text-1xl md:text-2xl font-bold mb-6 text-[#18453B]">{{ .name }}</h2>
+        <h2 class="text-1xl md:text-2xl font-bold mb-6">{{ .name }}</h2>
 
         <!-- Loop over positions -->
         {{ range .positions }}
-          <div class="mb-4 pl-4 border-l-4 border-[#18453B]">
+          <div class="mb-4 pl-4 border-l-4" style="border-color: var(--heading-color)">
 
             <!-- Position Title -->
-            <h3 class="text-xl md:text-2xl font-semibold mb-2 text-[#18453B]">{{ .title }}</h3>
+            <h3 class="text-xl md:text-2xl font-semibold mb-2">{{ .title }}</h3>
 
             <!-- Courses -->
             {{ with .courses }}
-              <ul class="list-disc list-inside text-[#1C1C1C] ml-2">
+              <ul class="list-disc list-inside ml-2">
                 {{ range . }}
                   <li class="mb-2">
-                    <a href="{{ .url }}" class="hover:underline text-[#18453B] font-medium">{{ .name }}</a>
-                    <span class="text-gray-700"> — {{ .semester }}</span>
+                    <a href="{{ .url }}" class="hover:underline font-medium">{{ .name }}</a>
+                    <span> — {{ .semester }}</span>
 
                     <!-- If the course has extra documents -->
                     {{ with .documents }}
-                      <ul class="list-disc list-inside ml-6 text-sm text-gray-600">
+                      <ul class="list-disc list-inside ml-6 text-sm">
                         {{ range . }}
                           <li>
-                            <a href="{{ .url }}" class="hover:underline text-blue-600">{{ .label }}</a>
+                            <a href="{{ .url }}" class="hover:underline document-link">{{ .label }}</a>
                           </li>
                         {{ end }}
                       </ul>
@@ -57,12 +101,12 @@
 
             <!-- Guest Lectures -->
             {{ with .guest_lectures }}
-              <h4 class="mt-2 font-semibold text-[#18453B]">Guest Lectures:</h4>
-              <ul class="list-disc list-inside text-[#1C1C1C] ml-2">
+              <h4 class="mt-2 font-semibold">Guest Lectures:</h4>
+              <ul class="list-disc list-inside ml-2">
                 {{ range . }}
                   <li class="mb-1">
-                    <a href="{{ .url }}" class="hover:underline text-[#18453B]">{{ .name }}</a>
-                    <span class="text-gray-700"> — {{ .semester }}</span>
+                    <a href="{{ .url }}" class="hover:underline">{{ .name }}</a>
+                    <span> — {{ .semester }}</span>
                   </li>
                 {{ end }}
               </ul>
@@ -78,6 +122,7 @@
 </section>
 
 {{ end }}
+
 
 
 
