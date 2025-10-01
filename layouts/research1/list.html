@@ -1,66 +1,75 @@
 {{ define "main" }}
 
-<!-- Load Inter -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<!-- Dark Mode Variables -->
 <style>
+:root {
+  --text-color: #1C1C1C;
+  --heading-color: #18453B;
+  --link-color: #18453B;
+  --bg-color: #ffffff;
+  --meta-color: #4a4a4a;
+  --caption-color: #555555;
+  --title-color: #ffffff; /* main page title always white */
+}
+
+@media (prefers-color-scheme: dark) {
   :root {
-    --text-color: #1C1C1C;
-    --heading-color: #18453B;
-    --link-color: #18453B;
-    --bg-color: #ffffff;
-    --meta-color: #4a4a4a;
-    --caption-color: #555555;
+    --text-color: #f0f0f0;
+    --heading-color: #a5f3fc;
+    --link-color: #38bdf8;
+    --bg-color: #121212;
+    --meta-color: #cbd5e1;
+    --caption-color: #d1d5db;
   }
+}
 
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --text-color: #f0f0f0;
-      --heading-color: #a5f3fc;
-      --link-color: #38bdf8;
-      --bg-color: #121212;
-      --meta-color: #cbd5e1;
-      --caption-color: #d1d5db;
-    }
-  }
+body, section, main, p, li, span, a, figcaption, button {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  line-height: 1.8;
+}
 
-  body, section, main, p, li, span, a, figcaption {
-    font-family: 'Inter', sans-serif;
-    color: var(--text-color);
-    background-color: var(--bg-color);
-    line-height: 1.8;
-  }
+h1, h2, h3, h4, h5, h6 {
+  color: var(--heading-color);
+}
 
-  h1, h2, h3, h4, h5, h6 {
-    color: var(--heading-color);
-  }
+h1.main-title {
+  color: var(--title-color); /* always white */
+}
 
-  a {
-    color: var(--link-color);
-    transition: color 0.2s ease-in-out;
-  }
+a, button {
+  color: var(--link-color);
+}
 
-  a:hover {
-    text-decoration: underline;
-  }
+a:hover, button:hover {
+  text-decoration: underline;
+}
 
-  blockquote, blockquote.intro-quote {
-    font-family: Georgia, Cambria, "Times New Roman", Times, serif;
-    font-size: 20px;
-    font-style: italic;
-    text-align: center;
-    margin-bottom: 1.5rem;
-    color: var(--meta-color);
-  }
+blockquote, blockquote.intro-quote {
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+  font-size: 20px;
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--meta-color);
+}
 
-  .text-gray-700 { color: var(--meta-color) !important; }
-  .text-gray-600 { color: var(--caption-color) !important; }
+/* Cards and dropdowns */
+.card, .dropdown-btn {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.border-color {
+  border-left-color: var(--heading-color);
+}
 </style>
 
 <section class="py-12 relative">
 
-  <!-- Background behind main title -->
+  <!-- Background -->
   <div class="absolute inset-x-0 top-0 h-36 md:h-34">
     <img src="/uploads/stacked-peaks.svg" class="w-full h-full object-cover opacity-60" />
     <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent"></div>
@@ -70,58 +79,27 @@
 
     <!-- Main title -->
     {{ with .Title }}
-      <h1 class="text-3xl md:text-4xl font-extrabold mb-8 text-center drop-shadow-lg relative z-10">{{ . }}</h1>
+      <h1 class="main-title text-3xl md:text-4xl font-extrabold mb-8 text-center drop-shadow-lg relative z-10">{{ . }}</h1>
     {{ end }}
 
     <!-- Projects grid -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-     {{ range .Pages.ByWeight }}
-       <a href="{{ .RelPermalink }}" class="block rounded-xl shadow-md hover:shadow-lg transition p-4 bg-white" style="background-color: var(--bg-color)">
-         {{ with .Params.image }}
-           <img src="{{ . }}" alt="{{ $.Title }}" class="w-full h-48 object-cover rounded-lg mb-4">
-         {{ end }}
-         <h2 class="text-xl md:text-2xl font-semibold mb-2">{{ .Title }}</h2>
-         <p class="text-gray-700 text-sm md:text-base">{{ .Params.summary }}</p>
-       </a>
-     {{ end }}
-   </div>
+      {{ range .Pages.ByWeight }}
+        <a href="{{ .RelPermalink }}" class="card block rounded-xl shadow-md hover:shadow-lg transition p-4">
+          {{ with .Params.image }}
+            <img src="{{ . }}" alt="{{ $.Title }}" class="w-full h-48 object-cover rounded-lg mb-4">
+          {{ end }}
+          <h2 class="text-xl md:text-2xl font-semibold mb-2">{{ .Title }}</h2>
+          <p class="text-sm md:text-base">{{ .Params.summary }}</p>
+        </a>
+      {{ end }}
+    </div>
 
-    <!-- Topology papers -->
+    <!-- Papers -->
     <h2 class="text-2xl md:text-3xl font-bold mb-4">Topology</h2>
     <ol class="list-decimal list-inside space-y-1 mb-8">
       {{ $top := where site.RegularPages "Section" "topology" }}
       {{ range $top }}
-        <li class="text-sm md:text-base">
-          {{ if .Params.citation }}
-            {{ .Params.citation | safeHTML }}
-          {{ else }}
-            <strong>{{ .Title }}</strong>
-            {{ with .Params.authors }} ({{ delimit . ", " }}){{ end }}.
-            {{ with .Params.year }} ({{ . }}).{{ end }}
-            {{ with .Params.journal }} <em>{{ . }}</em>,{{ end }}
-            {{ with .Params.volume }} Vol. {{ . }},{{ end }}
-            {{ with .Params.issue }} Issue {{ . }},{{ end }}
-            {{ with .Params.pages }} pp. {{ . }}.{{ end }}
-            {{ with .Params.doi }} DOI: <a href="{{ . }}" class="hover:underline">{{ . }}</a>{{ end }}
-          {{ end }}
-          {{ with .Params.links }}
-            <span class="space-x-2">
-              {{ range . }}
-                {{ if .name }}
-                  <a href="{{ .url }}" target="_blank" class="hover:underline">{{ .name }}</a>
-                {{ end }}
-              {{ end }}
-            </span>
-          {{ end }}
-        </li>
-      {{ end }}
-    </ol>
-
-    <!-- Education papers -->
-    <h2 class="text-2xl md:text-3xl font-bold mb-4">Education</h2>
-    <ol class="list-decimal list-inside space-y-1 mb-8">
-      {{ $edu := where site.RegularPages "Section" "education" }}
-      {{ range $edu }}
         <li class="text-sm md:text-base">
           {{ if .Params.citation }}
             {{ .Params.citation | safeHTML }}
@@ -153,29 +131,21 @@
     <div class="space-y-3">
       {{ $talks := where site.RegularPages "Section" "guesttalks" }}
       {{ range $talks }}
-        <div class="border-l-4 pl-4 pb-2" style="border-left-color: var(--heading-color)" x-data="{ open: false }">
-          <button class="w-full text-left text-lg md:text-xl font-semibold mb-1" @click="open = !open">
+        <div class="border-l-4 border-color pl-4 pb-2 card" x-data="{ open: false }">
+          <button class="dropdown-btn w-full text-left text-lg md:text-xl font-semibold mb-1" @click="open = !open">
             {{ .Title }} <span x-text="open ? '▼' : '▶'" class="ml-2"></span>
           </button>
           <div x-show="open" x-transition class="mt-2 pl-4">
-            {{ with .Params.date }}<div class="text-gray-700 text-sm md:text-base">Date: {{ . }}</div>{{ end }}
-            {{ with .Params.event }}<div class="text-gray-700 text-sm md:text-base">Event: {{ . }}</div>{{ end }}
+            {{ with .Params.date }}<div>Date: {{ . }}</div>{{ end }}
+            {{ with .Params.event }}<div>Event: {{ . }}</div>{{ end }}
             {{ with .Params.links }}
               <div class="mt-2 space-x-2">
                 {{ range . }}
                   {{ if .name }}
-                    <a href="{{ .url }}" target="_blank" class="hover:underline text-sm md:text-base">{{ .name }}</a>
+                    <a href="{{ .url }}" target="_blank" class="hover:underline">{{ .name }}</a>
                   {{ end }}
                 {{ end }}
               </div>
-            {{ end }}
-            {{ with .Params.image }}
-              <div class="mt-2">
-                <img src="{{ . }}" alt="{{ .Title }}" class="w-full max-w-md rounded-lg shadow-md">
-              </div>
-            {{ end }}
-            {{ with .Params.summary }}
-              <p class="mt-2 text-sm md:text-base">{{ . }}</p>
             {{ end }}
           </div>
         </div>
@@ -187,56 +157,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 {{ end }}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
