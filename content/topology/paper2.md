@@ -1,19 +1,18 @@
 ---
-title: "SEIFERT COBORDISMS AND THE CHEN-YANG VOLUME
-CONJECTURE"
+title: "Seifert cobordisms and the Chen-Yang volume conjecture"
 authors:
-  - "R. DETCHERRY, E. KALFAGIANNI AND S. MARASINGHE"
+  - "R. Detcherry, E. Kalfagianni and S. Marasinghe"
 year: 2025
-journal: "Journal of Topology Studies"
-volume: "12"
-issue: "3"
-pages: "45-58"
-doi: "https://doi.org/xxxxx"
-arxiv: "https://arxiv.org/abs/2504.10682"
-pdf: "https://arxiv.org/pdf/2504.10682"
+journal: ""
+volume: ""
+issue: ""
+pages: ""
+doi: ""
+arxiv: "https://arxiv.org/abs/2505.01546"
+pdf: "https://arxiv.org/abs/2505.01546"
 links:
   - name: "arXiv"
-    url: "https://arxiv.org/abs/2504.10682"
+    url: "https://arxiv.org/abs/2505.01546"
   - name: "PDF"
-    url: "https://arxiv.org/pdf/2504.10682"
+    url: "https://arxiv.org/abs/2505.01546"
 ---
