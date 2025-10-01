@@ -1,14 +1,18 @@
 ---
-title: "Example Education Paper"
+title: "Pending FAST Project"
 authors:
-  - "Your Name"
-date: 2022-09-15
-summary: "This paper explores innovative methods in teaching undergraduate mathematics."
-tags:
-  - Education
+  - "Shashini Marasinghe"
+year: 2025
+journal: ""
+volume: ""
+issue: ""
+pages: ""
+doi: ""
+arxiv: "https://arxiv.org/abs/2504.10682"
+pdf: "https://arxiv.org/pdf/2504.10682"
 links:
-  - name: "Journal"
-    url: "https://doi.org/xxxxxx"
+  - name: "arXiv"
+    url: "https://arxiv.org/abs/2504.10682"
   - name: "PDF"
-    url: "http://example.com/edu_paper1.pdf"
+    url: "https://arxiv.org/pdf/2504.10682"
 ---
