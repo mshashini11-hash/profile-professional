@@ -8,7 +8,7 @@ image:
   alt: ""
 links:
   - name: "Slides"
-    url: "/guesttalks/slides/topology_workshop.pdf"
+    url: "/guesttalks/slides/temple.pdf"
   - name: ""
     url: ""
 ---
