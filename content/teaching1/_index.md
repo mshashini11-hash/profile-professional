@@ -58,12 +58,12 @@ universities:
             semester: "Summer 2022"
             url: "/teaching1/instructor/mth124/"
           
-  - name: "University of Colombo"
+  - name: "University of Peradeniya"
     positions:
       - title: "Guest Lecturer"
         ior: false
         guest_lectures:
-          - name: "Applied Math Short Course"
+          - name: "LaTeX Course"
             semester: "Summer 2024"
             url: ""
           - name: "Undergraduate Project Supervision"
