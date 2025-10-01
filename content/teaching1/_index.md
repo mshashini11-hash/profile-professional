@@ -12,7 +12,7 @@ universities:
             url: ""
             documents:
               - label: "Syllabus"
-                url: "/static/docs/mth299_syllabus.pdf"
+                url: "/docs/mth299_syllabus.pdf"
               - label: "Sample Assignment"
                 url: "/assets/docs/mth299_assignment1.pdf"
           - name: "MTH 101 – Quantitative Literacy 1"
