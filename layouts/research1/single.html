@@ -54,8 +54,10 @@
       <ul class="list-disc list-inside space-y-1">
         {{ range . }}
           <li>
-            <strong>{{ .title }}</strong>, {{ .authors }}, <em>{{ .journal }}</em>, 
-            <a href="{{ .link }}" target="_blank" class="text-blue-600 hover:underline">Read Paper →</a>
+            <strong>{{ .title }}</strong>, {{ .authors }}{{ with .journal }}, <em>{{ . }}</em>{{ end }} 
+            {{ with .url }}
+              <a href="{{ . }}" target="_blank" class="text-blue-600 hover:underline">Read Paper →</a>
+            {{ end }}
           </li>
         {{ end }}
       </ul>
@@ -78,13 +80,17 @@
   </div>
 
   <!-- MathJax for LaTeX -->
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']]
+    }
+  };
+  </script>
   <script id="MathJax-script" async
     src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer></script>
-
 
 </section>
 
