@@ -3,38 +3,61 @@
 <!-- Load Inter -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
+<!-- Dark Mode CSS Variables -->
 <style>
-  /* Apply Inter and set standard font sizes for headings and body */
-  section, main, main p, main li, main span, main a, main blockquote, main figcaption {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px; /* body text */
-    line-height: 1.8;
+  :root {
+    --text-color: #1C1C1C;
+    --heading-color: #18453B;
+    --blockquote-color: #4a4a4a;
+    --caption-color: #555555;
+    --link-color: #18453B;
+    --bg-color: #ffffff;
   }
 
-  main h1 {
-    font-size: 40px; /* main title */
-    font-weight: 700;
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --text-color: #f0f0f0;
+      --heading-color: #a5f3fc;
+      --blockquote-color: #cbd5e1;
+      --caption-color: #d1d5db;
+      --link-color: #38bdf8;
+      --bg-color: #121212;
+    }
   }
 
-  main h2 {
-    font-size: 28px; /* subtopics or section headings */
-    font-weight: 600;
+  body {
+    color: var(--text-color);
+    background-color: var(--bg-color);
   }
 
-  main h3 {
-    font-size: 24px;
+  main h1, main h2, main h3, main h4, main h5, main h6 {
+    color: var(--heading-color);
   }
 
-  main h4, main h5, main h6 {
-    font-size: 20px;
+  main p, main li, main span {
+    color: var(--text-color);
   }
 
   blockquote.intro-quote {
+    color: var(--blockquote-color);
     font-family: Georgia, Cambria, "Times New Roman", Times, serif;
     font-size: 20px;
     text-align: center;
     margin-bottom: 1.5rem;
-    color: #4a4a4a;
+  }
+
+  figure figcaption {
+    color: var(--caption-color);
+  }
+
+  a {
+    color: var(--link-color);
+    transition: color 0.2s ease-in-out;
+  }
+
+  a:hover {
+    color: var(--link-color);
+    text-decoration: underline;
   }
 </style>
 
@@ -97,6 +120,7 @@
 
 </main>
 {{ end }}
+
 
 
 
