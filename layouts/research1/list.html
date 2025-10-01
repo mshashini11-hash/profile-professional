@@ -11,6 +11,8 @@
   --meta-color: #4a4a4a;
   --caption-color: #555555;
   --title-color: #ffffff; /* main page title always white */
+  --dropdown-bg: #f9f9f9;
+  --dropdown-text: #1C1C1C;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -21,6 +23,8 @@
     --bg-color: #121212;
     --meta-color: #cbd5e1;
     --caption-color: #d1d5db;
+    --dropdown-bg: #1e1e1e;
+    --dropdown-text: #f0f0f0;
   }
 }
 
@@ -57,11 +61,33 @@ blockquote, blockquote.intro-quote {
 }
 
 /* Cards and dropdowns */
-.card, .dropdown-btn {
+.card {
   background-color: var(--bg-color);
   color: var(--text-color);
 }
 
+/* Dropdown button */
+.dropdown-btn {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  width: 100%;
+  text-align: left;
+  font-weight: 600;
+  padding: 0.5rem 0;
+  border: none;
+  cursor: pointer;
+}
+
+/* Dropdown content */
+.dropdown-content {
+  background-color: var(--dropdown-bg);
+  color: var(--dropdown-text);
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  margin-top: 0.25rem;
+}
+
+/* Border left color */
 .border-color {
   border-left-color: var(--heading-color);
 }
@@ -95,47 +121,16 @@ blockquote, blockquote.intro-quote {
       {{ end }}
     </div>
 
-    <!-- Papers -->
-    <h2 class="text-2xl md:text-3xl font-bold mb-4">Topology</h2>
-    <ol class="list-decimal list-inside space-y-1 mb-8">
-      {{ $top := where site.RegularPages "Section" "topology" }}
-      {{ range $top }}
-        <li class="text-sm md:text-base">
-          {{ if .Params.citation }}
-            {{ .Params.citation | safeHTML }}
-          {{ else }}
-            <strong>{{ .Title }}</strong>
-            {{ with .Params.authors }} ({{ delimit . ", " }}){{ end }}.
-            {{ with .Params.year }} ({{ . }}).{{ end }}
-            {{ with .Params.journal }} <em>{{ . }}</em>,{{ end }}
-            {{ with .Params.volume }} Vol. {{ . }},{{ end }}
-            {{ with .Params.issue }} Issue {{ . }},{{ end }}
-            {{ with .Params.pages }} pp. {{ . }}.{{ end }}
-            {{ with .Params.doi }} DOI: <a href="{{ . }}" class="hover:underline">{{ . }}</a>{{ end }}
-          {{ end }}
-          {{ with .Params.links }}
-            <span class="space-x-2">
-              {{ range . }}
-                {{ if .name }}
-                  <a href="{{ .url }}" target="_blank" class="hover:underline">{{ .name }}</a>
-                {{ end }}
-              {{ end }}
-            </span>
-          {{ end }}
-        </li>
-      {{ end }}
-    </ol>
-
     <!-- Guest Talks -->
     <h2 class="text-2xl md:text-3xl font-bold mb-4">Guest Talks</h2>
     <div class="space-y-3">
       {{ $talks := where site.RegularPages "Section" "guesttalks" }}
       {{ range $talks }}
-        <div class="border-l-4 border-color pl-4 pb-2 card" x-data="{ open: false }">
-          <button class="dropdown-btn w-full text-left text-lg md:text-xl font-semibold mb-1" @click="open = !open">
+        <div class="border-l-4 border-color pl-4 pb-2" x-data="{ open: false }">
+          <button class="dropdown-btn" @click="open = !open">
             {{ .Title }} <span x-text="open ? '▼' : '▶'" class="ml-2"></span>
           </button>
-          <div x-show="open" x-transition class="mt-2 pl-4">
+          <div x-show="open" x-transition class="dropdown-content">
             {{ with .Params.date }}<div>Date: {{ . }}</div>{{ end }}
             {{ with .Params.event }}<div>Event: {{ . }}</div>{{ end }}
             {{ with .Params.links }}
@@ -157,6 +152,7 @@ blockquote, blockquote.intro-quote {
 
 <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 {{ end }}
+
 
 
 
