@@ -1,101 +1,46 @@
 {{ define "main" }}
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
 <style>
-:root {
-  --text-color: #1C1C1C;
-  --heading-color: #18453B;
-  --link-color: #18453B;
-  --bg-color: #ffffff;
-  --meta-color: #4a4a4a;
-  --caption-color: #555555;
-  --title-color: #ffffff; /* main page title always white */
-  --dropdown-bg: #f9f9f9;
-  --dropdown-text: #1C1C1C;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text-color: #f0f0f0;
-    --heading-color: #a5f3fc;
-    --link-color: #38bdf8;
-    --bg-color: #121212;
-    --meta-color: #cbd5e1;
-    --caption-color: #d1d5db;
-    --dropdown-bg: #1e1e1e;
-    --dropdown-text: #f0f0f0;
+  /* Apply Inter for main content and keep blockquotes serif */
+  section, main, main p, main li, main span, main a, main figcaption {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px; /* body text */
+    line-height: 1.8;
   }
-}
 
-body, section, main, p, li, span, a, figcaption, button {
-  font-family: 'Inter', sans-serif;
-  color: var(--text-color);
-  background-color: var(--bg-color);
-  line-height: 1.8;
-}
+  main h1 {
+    font-size: 36px; /* main title */
+  }
 
-h1, h2, h3, h4, h5, h6 {
-  color: var(--heading-color);
-}
+  main h2 {
+    font-size: 28px; /* subtopics or section headings */
+  }
 
-h1.main-title {
-  color: var(--title-color); /* always white */
-}
+  main h3 {
+    font-size: 24px;
+  }
 
-a, button {
-  color: var(--link-color);
-}
+  main h4, main h5, main h6 {
+    font-size: 20px;
+  }
 
-a:hover, button:hover {
-  text-decoration: underline;
-}
+  blockquote.intro-quote, blockquote {
+    font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+    font-size: 20px;
+    font-style: italic;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #4a4a4a;
+  }
 
-blockquote, blockquote.intro-quote {
-  font-family: Georgia, Cambria, "Times New Roman", Times, serif;
-  font-size: 20px;
-  font-style: italic;
-  text-align: center;
-  margin-bottom: 1.5rem;
-  color: var(--meta-color);
-}
-
-/* Cards and dropdowns */
-.card {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-}
-
-/* Dropdown button */
-.dropdown-btn {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  width: 100%;
-  text-align: left;
-  font-weight: 600;
-  padding: 0.5rem 0;
-  border: none;
-  cursor: pointer;
-}
-
-/* Dropdown content */
-.dropdown-content {
-  background-color: var(--dropdown-bg);
-  color: var(--dropdown-text);
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
-  margin-top: 0.25rem;
-}
-
-/* Border left color */
-.border-color {
-  border-left-color: var(--heading-color);
-}
+  a {
+    transition: all 0.2s ease-in-out;
+  }
 </style>
 
 <section class="py-12 relative">
 
-  <!-- Background -->
+  <!-- Background behind main title -->
   <div class="absolute inset-x-0 top-0 h-36 md:h-34">
     <img src="/uploads/stacked-peaks.svg" class="w-full h-full object-cover opacity-60" />
     <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent"></div>
@@ -105,43 +50,125 @@ blockquote, blockquote.intro-quote {
 
     <!-- Main title -->
     {{ with .Title }}
-      <h1 class="main-title text-3xl md:text-4xl font-extrabold mb-8 text-center drop-shadow-lg relative z-10">{{ . }}</h1>
+      <h1 class="text-3xl md:text-4xl font-extrabold mb-8 text-center text-white drop-shadow-lg relative z-10">{{ . }}</h1>
     {{ end }}
 
+    
     <!-- Projects grid -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-      {{ range .Pages.ByWeight }}
-        <a href="{{ .RelPermalink }}" class="card block rounded-xl shadow-md hover:shadow-lg transition p-4">
-          {{ with .Params.image }}
-            <img src="{{ . }}" alt="{{ $.Title }}" class="w-full h-48 object-cover rounded-lg mb-4">
+     {{ range .Pages.ByWeight }}
+       <a href="{{ .RelPermalink }}" class="block bg-white rounded-xl shadow-md hover:shadow-lg transition p-4">
+         {{ with .Params.image }}
+           <img src="{{ . }}" alt="{{ $.Title }}" class="w-full h-48 object-cover rounded-lg mb-4">
+         {{ end }}
+         <h2 class="text-xl md:text-2xl font-semibold text-[#18453B] mb-2">{{ .Title }}</h2>
+         <p class="text-gray-700 text-sm md:text-base">{{ .Params.summary }}</p>
+       </a>
+     {{ end }}
+   </div>
+
+
+    <!-- Topology papers -->
+    <h2 class="text-2xl md:text-3xl font-bold mb-4 text-[#18453B]">Topology</h2>
+    <ol class="list-decimal list-inside space-y-1 mb-8">
+      {{ $top := where site.RegularPages "Section" "topology" }}
+      {{ range $top }}
+        <li class="text-gray-800 text-sm md:text-base">
+          {{ if .Params.citation }}
+            {{ .Params.citation | safeHTML }}
+          {{ else }}
+            <strong>{{ .Title }}</strong>
+            {{ with .Params.authors }} ({{ delimit . ", " }}){{ end }}.
+            {{ with .Params.year }} ({{ . }}).{{ end }}
+            {{ with .Params.journal }} <em>{{ . }}</em>,{{ end }}
+            {{ with .Params.volume }} Vol. {{ . }},{{ end }}
+            {{ with .Params.issue }} Issue {{ . }},{{ end }}
+            {{ with .Params.pages }} pp. {{ . }}.{{ end }}
+            {{ with .Params.doi }} DOI: <a href="{{ . }}" class="text-blue-600 font-bold hover:underline">{{ . }}</a>{{ end }}
           {{ end }}
-          <h2 class="text-xl md:text-2xl font-semibold mb-2">{{ .Title }}</h2>
-          <p class="text-sm md:text-base">{{ .Params.summary }}</p>
-        </a>
+          {{ with .Params.links }}
+            <span class="space-x-2">
+              {{ range . }}
+                {{ if .name }}
+                  <a href="{{ .url }}" target="_blank" class="text-blue-600 font-bold hover:underline">{{ .name }}</a>
+                {{ end }}
+              {{ end }}
+            </span>
+          {{ end }}
+        </li>
       {{ end }}
-    </div>
+    </ol>
+
+    <!-- Education papers -->
+    <h2 class="text-2xl md:text-3xl font-bold mb-4 text-[#18453B]">Education</h2>
+    <ol class="list-decimal list-inside space-y-1 mb-8">
+      {{ $edu := where site.RegularPages "Section" "education" }}
+      {{ range $edu }}
+        <li class="text-gray-800 text-sm md:text-base">
+          {{ if .Params.citation }}
+            {{ .Params.citation | safeHTML }}
+          {{ else }}
+            <strong>{{ .Title }}</strong>
+            {{ with .Params.authors }} ({{ delimit . ", " }}){{ end }}.
+            {{ with .Params.year }} ({{ . }}).{{ end }}
+            {{ with .Params.journal }} <em>{{ . }}</em>,{{ end }}
+            {{ with .Params.volume }} Vol. {{ . }},{{ end }}
+            {{ with .Params.issue }} Issue {{ . }},{{ end }}
+            {{ with .Params.pages }} pp. {{ . }}.{{ end }}
+            {{ with .Params.doi }} DOI: <a href="{{ . }}" class="text-blue-600 font-bold hover:underline">{{ . }}</a>{{ end }}
+          {{ end }}
+          {{ with .Params.links }}
+            <span class="space-x-2">
+              {{ range . }}
+                {{ if .name }}
+                  <a href="{{ .url }}" target="_blank" class="text-blue-600 font-bold hover:underline">{{ .name }}</a>
+                {{ end }}
+              {{ end }}
+            </span>
+          {{ end }}
+        </li>
+      {{ end }}
+    </ol>
 
     <!-- Guest Talks -->
-    <h2 class="text-2xl md:text-3xl font-bold mb-4">Guest Talks</h2>
+    <h2 class="text-2xl md:text-3xl font-bold mb-4 text-[#18453B]">Guest Talks</h2>
     <div class="space-y-3">
       {{ $talks := where site.RegularPages "Section" "guesttalks" }}
       {{ range $talks }}
-        <div class="border-l-4 border-color pl-4 pb-2" x-data="{ open: false }">
-          <button class="dropdown-btn" @click="open = !open">
-            {{ .Title }} <span x-text="open ? '▼' : '▶'" class="ml-2"></span>
+        <div class="border-l-4 border-[#18453B] pl-4 pb-2" x-data="{ open: false }">
+          
+          <!-- Talk title -->
+          <button class="w-full text-left text-lg md:text-xl font-semibold text-[#18453B]" @click="open = !open">
+            {{ .Title }}
+            <span x-text="open ? '▼' : '▶'" class="ml-2"></span>
           </button>
-          <div x-show="open" x-transition class="dropdown-content">
-            {{ with .Params.date }}<div>Date: {{ . }}</div>{{ end }}
-            {{ with .Params.event }}<div>Event: {{ . }}</div>{{ end }}
+
+          <!-- Collapsible content -->
+          <div x-show="open" x-transition class="mt-2 pl-4">
+            
+            {{ with .Params.date }}<div class="text-gray-700 text-sm md:text-base">Date: {{ . }}</div>{{ end }}
+            {{ with .Params.event }}<div class="text-gray-700 text-sm md:text-base">Event: {{ . }}</div>{{ end }}
+
             {{ with .Params.links }}
               <div class="mt-2 space-x-2">
                 {{ range . }}
                   {{ if .name }}
-                    <a href="{{ .url }}" target="_blank" class="hover:underline">{{ .name }}</a>
+                    <a href="{{ .url }}" target="_blank" class="text-blue-600 font-bold hover:underline text-sm md:text-base">{{ .name }}</a>
                   {{ end }}
                 {{ end }}
               </div>
             {{ end }}
+
+            {{ with .Params.image }}
+              <div class="mt-2">
+                <img src="{{ . }}" alt="{{ .Title }}" class="w-full max-w-md rounded-lg shadow-md">
+              </div>
+            {{ end }}
+
+            {{ with .Params.summary }}
+              <p class="mt-2 text-gray-800 text-sm md:text-base">{{ . }}</p>
+            {{ end }}
+
           </div>
         </div>
       {{ end }}
@@ -152,6 +179,57 @@ blockquote, blockquote.intro-quote {
 
 <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 {{ end }}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
