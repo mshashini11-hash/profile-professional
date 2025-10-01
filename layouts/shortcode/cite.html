@@ -1,0 +1,13 @@
+{{- $key := .Get 0 -}}
+{{- $found := false -}}
+{{- range .Page.Params.papers -}}
+  {{- if eq .key $key -}}
+    <a href="{{ .url }}" class="text-blue-600 hover:underline" target="_blank">
+      [{{ .authors | replaceRE ",.*" "" }} {{ .year }}]
+    </a>
+    {{- $found = true -}}
+  {{- end -}}
+{{- end -}}
+{{- if not $found -}}
+  ⚠️ Citation not found: {{ $key }}
+{{- end -}}
