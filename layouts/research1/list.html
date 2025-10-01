@@ -1,6 +1,86 @@
 {{ define "main" }}
 
 <style>
+  :root {
+    --text-color: #1C1C1C;
+    --heading-color: #18453B;
+    --link-color: #18453B;
+    --bg-color: #ffffff;
+    --meta-color: #4a4a4a;
+    --dropdown-bg: #f9f9f9;
+    --dropdown-text: #1C1C1C;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --text-color: #f0f0f0;
+      --heading-color: #a5f3fc;
+      --link-color: #38bdf8;
+      --bg-color: #121212;
+      --meta-color: #cbd5e1;
+      --dropdown-bg: #1e1e1e;
+      --dropdown-text: #f0f0f0;
+    }
+  }
+
+  body, section, main, main p, main li, main span, main a, main figcaption {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+  }
+
+  blockquote.intro-quote, blockquote {
+    font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+    font-size: 20px;
+    font-style: italic;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--meta-color);
+  }
+
+  a {
+    color: var(--link-color);
+    transition: all 0.2s ease-in-out;
+  }
+
+  h1.main-title {
+    color: white; /* always white */
+  }
+
+  h2, h3, h4, h5, h6 {
+    color: var(--heading-color);
+  }
+
+  /* Cards and links inside */
+  a.card, .card h2, .card p {
+    color: var(--text-color);
+    background-color: var(--bg-color);
+  }
+
+  /* Dropdown button and content */
+  .dropdown-btn {
+    color: var(--heading-color);
+    background-color: var(--bg-color);
+    font-weight: 600;
+  }
+
+  .dropdown-content {
+    background-color: var(--dropdown-bg);
+    color: var(--dropdown-text);
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    margin-top: 0.25rem;
+  }
+
+  .border-color {
+    border-left-color: var(--heading-color);
+  }
+</style>
+
+
+<style>
   /* Apply Inter for main content and keep blockquotes serif */
   section, main, main p, main li, main span, main a, main figcaption {
     font-family: 'Inter', sans-serif;
