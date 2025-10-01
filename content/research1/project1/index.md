@@ -91,23 +91,13 @@ To learn more, see the references below—and keep reading to explore both the p
 
 ## Project 1: Seifert fibered 3-manifolds and Turaev-Viro invariants volume conjecture
 
-Here you describe **what you actually did in this project**. Include **math formulas**, **figures**, **links**, and **videos** as needed. For example:
-
-- Explored Turaev-Viro invariants of specific 3-manifolds.
-- Computed examples for Seifert fibered spaces.
-- Verified relations with Jones polynomial invariants.
-
-You can include LaTeX math like:  
-$$
-Z_{TV}(M) = \sum_{\text{colorings}} \prod_{\text{tetrahedra}} \{6j\}
-$$
+We study the large $r$ asymptotic behaviour of the Turaev-Viro invariants of oriented Seifert fibered 3-manifolds at the root $q=e^\frac{2\pi i}{r}$. As an application, we prove the volume conjecture for large families of oriented Seifert fibered 3-manifolds with empty or non-empty boundary.
 
 ---
 
+## Project 2: Colaborated work on Seifert cobordisms and the Chen-Yang volume conjecture (Renaud Detcherry, Efstratia Kalfagianni, Shashini Marasinghe)
+
+We study the large $r$ asymptotic behavior of the Turaev-Viro invariants $TV_r(M;e^2πi?r)$ of 3-manifolds with toroidal boundary, under the operation of gluing a Seifert-fibered 3-manifold along a component of $∂M$. We show that the Turaev-Viro invariants volume conjecture is closed under this operation. As an application we prove the volume conjecture for all Seifert fibered 3-manifolds with boundary and for large classes of graph 3-manifolds. 
+
 ## Future Directions: Topics of Interest
 
-Here you discuss **what you are interested in exploring next**. For example:
-
-- Applying quantum invariants to low-dimensional topology problems.
-- Connections between TQFT and quantum computing.
-- New combinatorial methods for computing invariants efficiently.
