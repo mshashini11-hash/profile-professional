@@ -4,7 +4,7 @@ date: "2025-06-29"
 event: "Temple University"
 summary: "Discussed Turaev-Viro invariants and Seifert fibered 3-manifolds."
 image:
-  filename: "/uploads/project1.png"
+  filename: "/uploads/talk1.png"
   alt: ""
 links:
   - name: "Slides"
