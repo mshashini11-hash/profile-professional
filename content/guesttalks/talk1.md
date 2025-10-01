@@ -1,15 +1,15 @@
 ---
-title: "Advanced Topology Workshop"
-date: "2024-10-15"
-event: "Michigan State University"
+title: "Seifert fibered 3-manifolds and Turaev-Viro invariants volume conjecture- Temple University"
+date: "2025-06-29"
+event: "Temple University"
 summary: "Discussed Turaev-Viro invariants and Seifert fibered 3-manifolds."
 image:
   filename: "/uploads/project1.png"
-  alt: "Topology Workshop Image"
+  alt: ""
 links:
   - name: "Slides"
     url: "/guesttalks/slides/topology_workshop.pdf"
-  - name: "Recording"
-    url: "https://example.com/video"
+  - name: ""
+    url: ""
 ---
 
