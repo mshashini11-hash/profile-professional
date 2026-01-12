@@ -46,7 +46,7 @@ profiles:
 
 interests:
   - Quantum Low Dimentional Topology
-  - Teaching Education
+  - Mathematics Education
   - Quantum computing
 
 education:
