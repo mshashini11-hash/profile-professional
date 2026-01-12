@@ -44,14 +44,14 @@ profiles:
   - icon: academicons/google-scholar
     url: https://scholar.google.com/
 
-#interests:
- # - Quantum Low Dimentional Topology
-  #- Teaching Education
-  #- Quantum computing
+interests:
+  - Quantum Low Dimentional Topology
+  - Teaching Education
+  - Quantum computing
 
-#education:
-  #- area: PhD Mathematics
-   # institution: Michigan State University
+education:
+  - area: PhD Mathematics
+    institution: Michigan State University
     #date_start: 2021-01-01
     #date_end: 2026-12-31
     #summary: |
@@ -60,8 +60,8 @@ profiles:
      # text: 'Read Thesis-Pending'
       #url: 'https://example.com'
   
-  #- area: BSc Mathematics
-   # institution: University of Peradeniya
+  - area: BSc Mathematics
+    institution: University of Peradeniya
     #date_start: 2017-02-01
     #date_end: 2021-07-28
     #summary: |
@@ -95,38 +95,7 @@ I am a fifth-year Ph.D. candidate in Mathematics at Michigan State University, c
 
 ---
 
-<div style="display: flex; gap: 2rem; margin-top: 1.5rem;">
 
-  <!-- Interests -->
-  <div style="flex: 1; font-size: 0.85rem; color: #7a7a7a;">
-    <h3 style="font-size: 1rem; margin-bottom: 0.4rem;">Interests</h3>
-    <ul style="padding-left: 1.1rem; margin-top: 0;">
-      <li>Quantum Low-Dimensional Topology</li>
-      <li>Mathematics Education</li>
-      <li>Quantum Computing</li>
-    </ul>
-  </div>
-
-  <!-- Education -->
-  <div style="flex: 1; font-size: 0.85rem; color: #7a7a7a;">
-    <h3 style="font-size: 1rem; margin-bottom: 0.4rem;">Education</h3>
-
-    <p style="margin: 0;">
-      <strong>Ph.D. in Mathematics</strong><br>
-      Michigan State University (2021–2026)<br>
-      Advisor: <a href="https://users.math.msu.edu/users/kalfagia/" style="color:#7a7a7a; text-decoration: underline;">
-        Prof. Efstratia Kalfagianni
-      </a>
-    </p>
-
-    <p style="margin: 0.6rem 0 0;">
-      <strong>B.Sc. in Mathematics</strong><br>
-      University of Peradeniya (2017–2021)<br>
-      GPA: 3.9/4.0
-    </p>
-  </div>
-
-</div>
 
 
 
