@@ -106,13 +106,20 @@ languages:
 
 I am a fifth-year Ph.D. candidate in Mathematics at Michigan State University, currently on the academic job market. I am advised by [Prof. Efstratia Kalfagianni](https://users.math.msu.edu/users/kalfagia/). My research focuses on quantum topology and knot theory, with an interest in integrating computational approaches into mathematical exploration. Alongside my research, I am deeply engaged in teaching and the development of innovative teaching and learning techniques that connect abstract mathematical ideas with technology and coding. 
 
+{{< interests >}}
+{{< education >}}
 ---
 
+<h2 style="font-size: 1.2rem;">Technical Skills</h2>
+
+<div style="font-size: 0.85rem; color: #7a7a7a;">
+<ul>
+  <li><strong>Python:</strong> scientific computing and automation</li>
+  <li><strong>LaTeX:</strong> research writing and teaching materials</li>
+  <li><strong>SQL:</strong> structured data querying</li>
+  <li><strong>Git/GitHub:</strong> collaborative workflows</li>
+</ul>
+</div>
 
 
-## Technical Skills
-
-- **Python:** scientific computing, numerical experiments, automation  
-- **LaTeX:** research papers, slides, worksheets, and course materials  
-- **Git/GitHub:** version control and collaborative workflows
 
