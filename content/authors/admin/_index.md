@@ -49,23 +49,23 @@ interests:
   - Teaching Education
   - Quantum computing
 
-education:
-  - area: PhD Mathematics
-    institution: Michigan State University
-    date_start: 2021-01-01
-    date_end: 2026-12-31
-    summary: |
-      Thesis on _Qunatum Topology_. Supervised by [Prof Efstratia Kalfagianni](https://users.math.msu.edu/users/kalfagia/). #Presented papers at 5 IEEE conferences #with the contributions being published in 2 Springer journals.
-    button:
-      text: 'Read Thesis-Pending'
-      url: 'https://example.com'
+#education:
+  #- area: PhD Mathematics
+   # institution: Michigan State University
+    #date_start: 2021-01-01
+    #date_end: 2026-12-31
+    #summary: |
+     # Thesis on _Qunatum Topology_. Supervised by [Prof Efstratia Kalfagianni](https://users.math.msu.edu/users/kalfagia/). #Presented papers #at 5 IEEE conferences #with the contributions being published in 2 Springer journals.
+    #button:
+     # text: 'Read Thesis-Pending'
+      #url: 'https://example.com'
   
-  - area: BSc Mathematics
-    institution: University of Peradeniya
-    date_start: 2017-02-01
-    date_end: 2021-07-28
-    summary: |
-      GPA: 3.9/4.0
+  #- area: BSc Mathematics
+   # institution: University of Peradeniya
+    #date_start: 2017-02-01
+    #date_end: 2021-07-28
+    #summary: |
+     # GPA: 3.9/4.0
 
 #work:
  # - position: Director of Cloud Infrastructure
@@ -78,21 +78,7 @@ education:
      # Responsibilities include:
      # - lorem ipsum dolor sit amet, consectetur adipiscing eli
 
-skills:
-  - name: Technical Skills
-    items:
-      - name: Python
-        description: ''
-        percent: 90
-        icon: code-bracket
-      - name: LaTeX
-        description: ''
-        percent: 100
-        icon: file-text
-      - name: SQL
-        description: ''
-        percent: 40
-        icon: circle-stack
+
 
 languages:
   - name: English
@@ -106,20 +92,42 @@ languages:
 
 I am a fifth-year Ph.D. candidate in Mathematics at Michigan State University, currently on the academic job market. I am advised by [Prof. Efstratia Kalfagianni](https://users.math.msu.edu/users/kalfagia/). My research focuses on quantum topology and knot theory, with an interest in integrating computational approaches into mathematical exploration. Alongside my research, I am deeply engaged in teaching and the development of innovative teaching and learning techniques that connect abstract mathematical ideas with technology and coding. 
 
-{{< interests >}}
-{{< education >}}
+
 ---
 
-<h2 style="font-size: 1.2rem;">Technical Skills</h2>
+<div style="display: flex; gap: 2rem; margin-top: 1.5rem;">
 
-<div style="font-size: 0.85rem; color: #7a7a7a;">
-<ul>
-  <li><strong>Python:</strong> scientific computing and automation</li>
-  <li><strong>LaTeX:</strong> research writing and teaching materials</li>
-  <li><strong>SQL:</strong> structured data querying</li>
-  <li><strong>Git/GitHub:</strong> collaborative workflows</li>
-</ul>
+  <!-- Interests -->
+  <div style="flex: 1; font-size: 0.85rem; color: #7a7a7a;">
+    <h3 style="font-size: 1rem; margin-bottom: 0.4rem;">Interests</h3>
+    <ul style="padding-left: 1.1rem; margin-top: 0;">
+      <li>Quantum Low-Dimensional Topology</li>
+      <li>Mathematics Education</li>
+      <li>Quantum Computing</li>
+    </ul>
+  </div>
+
+  <!-- Education -->
+  <div style="flex: 1; font-size: 0.85rem; color: #7a7a7a;">
+    <h3 style="font-size: 1rem; margin-bottom: 0.4rem;">Education</h3>
+
+    <p style="margin: 0;">
+      <strong>Ph.D. in Mathematics</strong><br>
+      Michigan State University (2021–2026)<br>
+      Advisor: <a href="https://users.math.msu.edu/users/kalfagia/" style="color:#7a7a7a; text-decoration: underline;">
+        Prof. Efstratia Kalfagianni
+      </a>
+    </p>
+
+    <p style="margin: 0.6rem 0 0;">
+      <strong>B.Sc. in Mathematics</strong><br>
+      University of Peradeniya (2017–2021)<br>
+      GPA: 3.9/4.0
+    </p>
+  </div>
+
 </div>
+
 
 
 
