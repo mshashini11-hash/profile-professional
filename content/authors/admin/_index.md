@@ -44,10 +44,10 @@ profiles:
   - icon: academicons/google-scholar
     url: https://scholar.google.com/
 
-interests:
-  - Quantum Low Dimentional Topology
-  - Teaching Education
-  - Quantum computing
+#interests:
+ # - Quantum Low Dimentional Topology
+  #- Teaching Education
+  #- Quantum computing
 
 #education:
   #- area: PhD Mathematics
