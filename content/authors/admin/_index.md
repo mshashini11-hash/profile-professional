@@ -37,10 +37,6 @@ profiles:
     label: E-mail Me
   - icon: academicons/orcid
     url: https://orcid.org/0009-0009-4104-3932  
-  - icon: brands/x
-    url: https://twitter.com/GetResearchDev
-  - icon: brands/instagram
-    url: https://www.instagram.com/
   - icon: brands/github
     url: https://github.com/gcushen
   - icon: brands/linkedin
@@ -49,8 +45,8 @@ profiles:
     url: https://scholar.google.com/
 
 interests:
-  - Quantum low dimentionalbtopology
-  - Teaching
+  - Quantum Low Dimentional Topology
+  - Teaching Education
   - Quantum computing
 
 education:
