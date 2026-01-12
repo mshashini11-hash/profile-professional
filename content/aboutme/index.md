@@ -1,5 +1,5 @@
 ---
-title: "About Me"
+title: "Non-math life"
 type: aboutme
 intro: "If you are passionate about oil portrait paintings, scroll down to see my paintings.  "
 blocks:
