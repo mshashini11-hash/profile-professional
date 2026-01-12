@@ -13,13 +13,13 @@ main:
   - name: Research
     url: /research1/
     weight: 12
-  - name: "Teaching Philosophy"
+  - name: Teaching Philosophy
     url: /teachingphilosophy/
     weight: 13
-  - name: awards
+  - name: Awards and Services
     url: awards1/awards1/
     weight: 30
-  - name: Hobbies
+  - name: Non-math life
     url: /aboutme/
     weight: 40
   
