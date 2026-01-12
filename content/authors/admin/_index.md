@@ -60,10 +60,10 @@ education:
       text: 'Read Thesis-Pending'
       url: 'https://example.com'
   
-  - area: BSc Artificial Intelligence
-    institution: Massachusetts Institute of Technology
-    date_start: 2016-01-01
-    date_end: 2020-12-31
+  - area: BSc Mathematics
+    institution: University of Peradeniya
+    date_start: 2017-02-01
+    date_end: 2021-07-28
     summary: |
       GPA: 3.9/4.0
 
@@ -104,6 +104,5 @@ languages:
 
 ## About Me
 
-I am a fifth-year Ph.D. candidate in Mathematics at Michigan State University, currently on the academic job market. My research focuses on quantum topology and knot theory, with an interest in integrating computational approaches into mathematical exploration. Alongside my research, I am deeply engaged in teaching and the development of innovative teaching and learning techniques that connect abstract mathematical ideas with technology and coding. My technical skills include Python (90%), LaTeX (100%), and SQL (40%).
-
+I am a fifth-year Ph.D. candidate in Mathematics at Michigan State University, currently on the academic job market. My research focuses on quantum topology and knot theory, with an interest in integrating computational approaches into mathematical exploration. Alongside my research, I am deeply engaged in teaching and the development of innovative teaching and learning techniques that connect abstract mathematical ideas with technology and coding. 
 
