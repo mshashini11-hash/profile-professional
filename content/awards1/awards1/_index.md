@@ -38,22 +38,46 @@ subtopics:
             date: "2018"
             description: "Awarded by the Mathematical Society of the University of Peradeniya."  
           
-  - title: "Service"
-    universities:
-      - name: "Michigan State University"
-        items:
-          - title: "Math Learning Center – TA & Tutor"
-            date: "2021–2025"
-            description: "Provided academic support and tutoring to undergraduate students."
-          - title: "Graduate Student Representative"
-            date: "2022–2023"
-            description: "Represented graduate students in departmental meetings."
 
-      - name: "University of Colombo"
-        items:
-          - title: "Organizer – Applied Math Workshop"
-            date: "2019"
-            description: "Coordinated workshop logistics and speaker sessions."
+  - title: "Service"
+  universities:
+    - name: "Michigan State University"
+      items:
+        - title: "Organizer, MSU Graduate Geometry and Topology Seminar"
+          date: "2024–2025"
+          description: "Organized and coordinated graduate student seminar activities in geometry and topology."
+
+        - title: "Treasurer, American Mathematical Society (Graduate Student Chapter)"
+          date: "2022–2023"
+          description: "Managed finances and budgeting for the AMS Graduate Student Chapter at MSU."
+
+        - title: "Secretary, Association for Women in Mathematics (MSU Chapter)"
+          date: "2021–2022"
+          description: "Handled organizational communication and administrative duties for the MSU AWM chapter."
+
+        - title: "Lead Teaching Assistant"
+          date: "2022–2024"
+          description: "Led instructional support efforts and coordinated teaching activities for undergraduate mathematics courses."
+
+    - name: "University of Peradeniya"
+      items:
+        - title: "Editor, Mathéma Magazine"
+          date: "2019–2020"
+          description: "Edited and curated academic and outreach content for the mathematics magazine."
+
+        - title: "Editor"
+          date: "2018–2020"
+          description: "Contributed to editorial planning and content development for university publications."
+
+        - title: "Vice President, SIAM Student Chapter"
+          date: "2020–2021"
+          description: "Supported leadership initiatives and organized academic activities for the SIAM student chapter."
+
+        - title: "Tutor, Mathematical Bootcamp"
+          date: "2018"
+          description: "Provided intensive mathematics tutoring for undergraduate students."
+
+    
 ---
 
 
