@@ -40,9 +40,9 @@ subtopics:
           
 
   - title: "Service"
-  universities:
-    - name: "Michigan State University"
-      items:
+    universities:
+      - name: "Michigan State University"
+        items:
         - title: "Organizer, MSU Graduate Geometry and Topology Seminar"
           date: "2024–2025"
           description: "Organized and coordinated graduate student seminar activities in geometry and topology."
