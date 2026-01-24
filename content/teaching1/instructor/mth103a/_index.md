@@ -4,9 +4,7 @@ summary: "Quizzes, exams, notes, worksheets, and course handouts."
 weight: 10
 ---
 
-## Course documents
-- **Syllabus:** [PDF](/docs/mth103a/Spring%202026%20Math%20103A%20syllabus.pdf)
-- **Course schedule / policies:** [PDF](/docs/SS26%20103A%20TuTh%20schedule.pdf)
+
 
 ## Quizzes
 - Quiz A1: [PDF](/docs/mth103a/quizzes/Quiz1A1.pdf)
