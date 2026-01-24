@@ -12,9 +12,9 @@ universities:
             url: "/teaching1/instructor/mth103a/"
             documents:
               - label: "Course Materials (quizzes, exams, notes)"
-                url: "/teaching1/instructor/mth103a/"
+                url: "/docs/mth103a/quizzes/Quiz1A1"
               - label: "Syllabus"
-                url: "/assets/docs/mth103a_syllabus.pdf"
+                url: "/docs/mth103a_syllabus.pdf"
 
           - name: "MTH 299 – Transition to Proofs"
             semester: "Summer 2025"
