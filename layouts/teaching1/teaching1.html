@@ -42,6 +42,42 @@
   ul li a.document-link {
     color: var(--doc-link-color);
   }
+
+  /* Markdown content styling */
+  .page-content h2 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-top: 1.75rem;
+    margin-bottom: 0.75rem;
+    color: var(--heading-color);
+  }
+
+  .page-content h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-top: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--heading-color);
+  }
+
+  .page-content p {
+    margin: 0.75rem 0;
+  }
+
+  .page-content ul {
+    list-style: disc !important;
+    padding-left: 1.5rem;
+    margin: 0.5rem 0 1rem 0;
+  }
+
+  .page-content li {
+    margin: 0.4rem 0;
+  }
+
+  .page-content a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
 </style>
 
 <section class="relative py-12 min-h-screen">
@@ -63,8 +99,10 @@
       </h1>
     {{ end }}
 
-    <!-- THIS LINE FIXES EVERYTHING -->
-    {{ .Content }}
+    <!-- Markdown Page Body -->
+    <div class="page-content mt-8 p-6 rounded-xl shadow-sm" style="background-color: var(--bg-color)">
+      {{ .Content }}
+    </div>
 
     <!-- Loop over universities -->
     {{ range .Params.universities }}
@@ -88,7 +126,6 @@
                     <a href="{{ .url }}" class="hover:underline font-medium">{{ .name }}</a>
                     <span> — {{ .semester }}</span>
 
-                    <!-- If the course has extra documents -->
                     {{ with .documents }}
                       <ul class="list-disc list-inside ml-6 text-sm">
                         {{ range . }}
@@ -103,7 +140,6 @@
               </ul>
             {{ end }}
 
-            <!-- Guest Lectures -->
             {{ with .guest_lectures }}
               <h4 class="mt-2 font-semibold">Guest Lectures:</h4>
               <ul class="list-disc list-inside ml-2">
@@ -126,6 +162,7 @@
 </section>
 
 {{ end }}
+
 
 
 
