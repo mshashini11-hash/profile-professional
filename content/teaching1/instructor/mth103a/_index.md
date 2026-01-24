@@ -7,7 +7,7 @@ weight: 10
 
 
 ## Quizzes
-- Quiz A1: [PDF](/docs/mth103a/quizzes/Quiz1A1.pdf)
+- Quiz A1: [PDF](/static/docs/mth103a/quizzes/Quiz1A1.pdf)
 - Quiz A2: [PDF](/docs/mth103a/quizzes/quiz_a2.pdf)
 - Quiz A2 (Solutions): [PDF](/docs/mth103a/quizzes/quiz_a2_solutions.pdf)
 
