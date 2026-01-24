@@ -5,7 +5,7 @@ weight: 10
 ---
 
 ## Course documents
-- **Syllabus:** [PDF](/docs/Spring%202026%20Math%20103A%20syllabus.pdf)
+- **Syllabus:** [PDF](/docs/mth103a/Spring%202026%20Math%20103A%20syllabus.pdf)
 - **Course schedule / policies:** [PDF](/docs/SS26%20103A%20TuTh%20schedule.pdf)
 
 ## Quizzes
