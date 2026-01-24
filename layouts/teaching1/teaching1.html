@@ -1,42 +1,132 @@
+{{ define "main" }}
+
+<!-- Global Dark Mode Styles -->
 <style>
-  /* ... keep your existing CSS above ... */
+  :root {
+    --text-color: #1C1C1C;
+    --heading-color: #18453B;
+    --link-color: #18453B;
+    --link-hover-color: #1a73e8;
+    --doc-link-color: #1d4ed8;
+    --bg-color: #ffffff;
+  }
 
-  /* Make Markdown content look good */
-  .page-content h2 {
-    font-size: 1.5rem;
-    font-weight: 800;
-    margin-top: 1.75rem;
-    margin-bottom: 0.75rem;
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --text-color: #f0f0f0;
+      --heading-color: #a5f3fc;
+      --link-color: #38bdf8;
+      --link-hover-color: #60a5fa;
+      --doc-link-color: #60a5fa;
+      --bg-color: #121212;
+    }
+  }
+
+  body {
+    color: var(--text-color);
+    background-color: var(--bg-color);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
     color: var(--heading-color);
   }
 
-  .page-content h3 {
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-top: 1.25rem;
-    margin-bottom: 0.5rem;
-    color: var(--heading-color);
+  a {
+    color: var(--link-color);
+    transition: color 0.2s ease-in-out;
+  }
+  a:hover {
+    color: var(--link-hover-color);
   }
 
-  .page-content p {
-    margin: 0.75rem 0;
-  }
-
-  .page-content ul {
-    list-style: disc !important;
-    padding-left: 1.5rem;
-    margin: 0.5rem 0 1rem 0;
-  }
-
-  .page-content li {
-    margin: 0.4rem 0;
-  }
-
-  .page-content a {
-    text-decoration: underline;
-    text-underline-offset: 3px;
+  ul li a.document-link {
+    color: var(--doc-link-color);
   }
 </style>
+
+<section class="relative py-12 min-h-screen">
+
+  <!-- Background behind main title -->
+  <div class="absolute inset-x-0 top-0 h-28">
+    <img src="/uploads/stacked-peaks.svg" class="w-full h-full object-cover opacity-60" />
+    <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="container mx-auto px-4 relative z-10">
+
+    <!-- Main Page Title -->
+    {{ with .Title }}
+      <h1 class="text-3xl md:text-4xl font-extrabold mb-8 text-center drop-shadow-lg relative z-10"
+          style="color: white;">
+        {{ . }}
+      </h1>
+    {{ end }}
+
+    <!-- THIS LINE FIXES EVERYTHING -->
+    {{ .Content }}
+
+    <!-- Loop over universities -->
+    {{ range .Params.universities }}
+      <div class="mb-12 p-4 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300" style="background-color: var(--bg-color)">
+
+        <!-- University Name -->
+        <h2 class="text-1xl md:text-2xl font-bold mb-6">{{ .name }}</h2>
+
+        <!-- Loop over positions -->
+        {{ range .positions }}
+          <div class="mb-4 pl-4 border-l-4" style="border-color: var(--heading-color)">
+
+            <!-- Position Title -->
+            <h3 class="text-xl md:text-2xl font-semibold mb-2">{{ .title }}</h3>
+
+            <!-- Courses -->
+            {{ with .courses }}
+              <ul class="list-disc list-inside ml-2">
+                {{ range . }}
+                  <li class="mb-2">
+                    <a href="{{ .url }}" class="hover:underline font-medium">{{ .name }}</a>
+                    <span> — {{ .semester }}</span>
+
+                    <!-- If the course has extra documents -->
+                    {{ with .documents }}
+                      <ul class="list-disc list-inside ml-6 text-sm">
+                        {{ range . }}
+                          <li>
+                            <a href="{{ .url }}" class="hover:underline document-link">{{ .label }}</a>
+                          </li>
+                        {{ end }}
+                      </ul>
+                    {{ end }}
+                  </li>
+                {{ end }}
+              </ul>
+            {{ end }}
+
+            <!-- Guest Lectures -->
+            {{ with .guest_lectures }}
+              <h4 class="mt-2 font-semibold">Guest Lectures:</h4>
+              <ul class="list-disc list-inside ml-2">
+                {{ range . }}
+                  <li class="mb-1">
+                    <a href="{{ .url }}" class="hover:underline">{{ .name }}</a>
+                    <span> — {{ .semester }}</span>
+                  </li>
+                {{ end }}
+              </ul>
+            {{ end }}
+
+          </div>
+        {{ end }}
+
+      </div>
+    {{ end }}
+
+  </div>
+</section>
+
+{{ end }}
+
 
 
 
