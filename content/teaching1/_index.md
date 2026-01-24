@@ -7,6 +7,15 @@ universities:
       - title: "Instructor of Record"
         ior: true
         courses:
+          - name: "MTH 103A – College Algebra"
+            semester: "Spring 2026"
+            url: "/teaching1/instructor/mth103a/"
+            documents:
+              - label: "Course Materials (quizzes, exams, notes)"
+                url: "/teaching1/instructor/mth103a/"
+              - label: "Syllabus"
+                url: "/assets/docs/mth103a_syllabus.pdf"
+
           - name: "MTH 299 – Transition to Proofs"
             semester: "Summer 2025"
             url: ""
