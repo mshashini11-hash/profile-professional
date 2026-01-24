@@ -12,7 +12,7 @@ universities:
             url: "/teaching1/instructor/mth103a/"
             documents:
               - label: "Course Materials (quizzes, exams, notes)"
-                url: "/teaching1/instructor/mth103a/"
+                url: "/content/teaching1/instructor/mth103a/"
               - label: "Syllabus"
                 url: "/static/docs/mth103a/syllabus.pdf"
 
