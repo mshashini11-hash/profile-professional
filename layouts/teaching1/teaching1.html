@@ -63,6 +63,9 @@
       </h1>
     {{ end }}
 
+    <!-- THIS LINE FIXES EVERYTHING -->
+    {{ .Content }}
+
     <!-- Loop over universities -->
     {{ range .Params.universities }}
       <div class="mb-12 p-4 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300" style="background-color: var(--bg-color)">
@@ -123,8 +126,6 @@
 </section>
 
 {{ end }}
-
-
 
 
 
