@@ -14,7 +14,7 @@ universities:
               - label: "Course Materials (quizzes, exams, notes)"
                 url: "/teaching1/instructor/mth103a/"
               - label: "Syllabus"
-                url: "/docs/103a/Spring%202026%20Math%20103A%20syllabus.pdf"
+                url: "/docs/mth103a/syllabus.pdf"
 
           - name: "MTH 299 – Transition to Proofs"
             semester: "Summer 2025"
