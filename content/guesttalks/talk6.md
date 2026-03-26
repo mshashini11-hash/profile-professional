@@ -1,7 +1,7 @@
 ---
-title: "Seifert cobordism and Chen-Yang volume conjecture- Pittsburg University"
+title: "Seifert cobordism and Chen-Yang volume conjecture - University of Pittsburgh"
 date: "2026-03-20"
-event: "Pittsburg University"
+event: "University of Pittsburgh"
 summary: ""
 image:
   filename: ""
