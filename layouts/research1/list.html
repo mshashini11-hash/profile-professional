@@ -131,15 +131,15 @@
     </div>
 
     <!-- Guest Talks -->
-    <div class="guest-talks space-y-6">
+    <div class="guest-talks">
       <h2 class="text-2xl md:text-3xl font-bold mb-4 text-[#18453B]">Guest Talks</h2>
 
       {{ $talks := where site.RegularPages "Section" "guesttalks" }}
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {{ range $talks }}
+      <ol class="space-y-4">
+        {{ range $index, $talk := $talks.ByDate.Reverse }}
 
           {{ $youtubeURL := "" }}
-          {{ with .Params.links }}
+          {{ with $talk.Params.links }}
             {{ range . }}
               {{ if or (in (lower .name) "youtube") (in .url "youtube.com/watch?v=") (in .url "youtu.be/") }}
                 {{ $youtubeURL = .url }}
@@ -156,53 +156,78 @@
             {{ end }}
           {{ end }}
 
-          <article class="bg-white rounded-xl shadow-md hover:shadow-lg transition overflow-hidden">
-            {{ if $thumb }}
-              <img src="{{ $thumb }}" alt="{{ .Title }}" class="w-full h-52 object-cover">
-            {{ else }}
-              {{ with .Params.image }}
-                {{ with .filename }}
-                  <img src="{{ . }}" alt="{{ $.Title }}" class="w-full h-52 object-cover">
+          <li class="bg-white border border-gray-200 rounded-lg px-4 py-4 shadow-sm">
+            <div class="flex items-start justify-between gap-4">
+
+              <div class="flex-1 min-w-0">
+                <div class="flex items-start gap-3">
+                  <span class="text-gray-500 font-semibold text-sm md:text-base pt-0.5">
+                    {{ add $index 1 }}.
+                  </span>
+
+                  <div class="min-w-0">
+                    <div class="text-base md:text-lg font-semibold text-[#18453B] leading-snug">
+                      {{ $talk.Title }}
+                    </div>
+
+                    <div class="mt-1 text-sm text-gray-700">
+                      {{ with $talk.Params.event }}
+                        <span>{{ . }}</span>
+                      {{ end }}
+                      {{ if and $talk.Params.event $talk.Params.date }}
+                        <span> · </span>
+                      {{ end }}
+                      {{ with $talk.Params.date }}
+                        <span>{{ . }}</span>
+                      {{ end }}
+                    </div>
+
+                    {{ with $talk.Params.summary }}
+                      <p class="mt-2 text-sm md:text-base text-gray-800 leading-relaxed">
+                        {{ . }}
+                      </p>
+                    {{ end }}
+
+                    {{ with $talk.Params.links }}
+                      <div class="mt-2 flex flex-wrap gap-x-3 gap-y-1">
+                        {{ range . }}
+                          {{ if .name }}
+                            <a href="{{ .url }}" target="_blank" class="text-blue-600 font-bold hover:underline text-sm md:text-base">
+                              {{ .name }}
+                            </a>
+                          {{ end }}
+                        {{ end }}
+                      </div>
+                    {{ end }}
+                  </div>
+                </div>
+              </div>
+
+              <div class="shrink-0 pt-1">
+                {{ if $thumb }}
+                  <a href="{{ $youtubeURL }}" target="_blank">
+                    <img src="{{ $thumb }}" alt="{{ $talk.Title }}" class="w-24 h-16 md:w-28 md:h-18 object-cover rounded-md border border-gray-200">
+                  </a>
                 {{ else }}
-                  <img src="{{ . }}" alt="{{ $.Title }}" class="w-full h-52 object-cover">
-                {{ end }}
-              {{ end }}
-            {{ end }}
-
-            <div class="p-5">
-              <h3 class="text-lg md:text-xl font-semibold text-[#18453B] leading-snug mb-2">
-                {{ .Title }}
-              </h3>
-
-              {{ with .Params.date }}
-                <div class="text-gray-700 text-sm md:text-base">Date: {{ . }}</div>
-              {{ end }}
-
-              {{ with .Params.event }}
-                <div class="text-gray-700 text-sm md:text-base">Event: {{ . }}</div>
-              {{ end }}
-
-              {{ with .Params.summary }}
-                <p class="mt-3 text-gray-800 text-sm md:text-base">{{ . }}</p>
-              {{ end }}
-
-              {{ with .Params.links }}
-                <div class="mt-4 flex flex-wrap gap-3">
-                  {{ range . }}
-                    {{ if .name }}
-                      <a href="{{ .url }}" target="_blank" class="text-blue-600 font-bold hover:underline text-sm md:text-base">{{ .name }}</a>
+                  {{ with $talk.Params.image }}
+                    {{ with .filename }}
+                      <img src="{{ . }}" alt="{{ $talk.Title }}" class="w-24 h-16 md:w-28 md:h-18 object-cover rounded-md border border-gray-200">
+                    {{ else }}
+                      <img src="{{ . }}" alt="{{ $talk.Title }}" class="w-24 h-16 md:w-28 md:h-18 object-cover rounded-md border border-gray-200">
                     {{ end }}
                   {{ end }}
-                </div>
-              {{ end }}
+                {{ end }}
+              </div>
+
             </div>
-          </article>
+          </li>
 
         {{ end }}
-      </div>
+      </ol>
     </div>
 
   </div>
 </section>
 
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 {{ end }}
