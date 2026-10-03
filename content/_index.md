@@ -15,7 +15,7 @@ sections:
     design:
       css_class: dark
       avatar:
-        size: medium
+        size: large
         shape: square
       background:
         color: black
