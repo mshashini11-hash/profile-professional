@@ -58,24 +58,11 @@
   .tp-item-text p { margin: 0; }
 </style>
 
-<section class="relative py-12 min-h-screen tp">
-
-  <!-- Background behind main title -->
-  <div class="absolute inset-x-0 top-0 h-28">
-    <img src="/uploads/stacked-peaks.svg" class="w-full h-full object-cover opacity-60" alt="" />
-    <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent"></div>
-  </div>
+<section class="custom-page min-h-screen tp">
+  {{ partial "page-hero.html" (dict "title" .Title) }}
 
   <!-- Content -->
-  <div class="container mx-auto px-4 relative z-10" style="max-width: 1000px;">
-
-    <!-- Main Page Title -->
-    {{ with .Title }}
-      <h1 class="text-3xl md:text-4xl font-extrabold mb-10 text-center drop-shadow-lg relative z-10"
-          style="color: white;">
-        {{ . }}
-      </h1>
-    {{ end }}
+  <div class="container mx-auto px-4 relative z-10 custom-page-body" style="max-width: 1000px;">
 
     {{ .Content }}
 

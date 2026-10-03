@@ -61,20 +61,10 @@
 
 
 
-<section class="py-12 relative rs">
+<section class="custom-page rs">
+  {{ partial "page-hero.html" (dict "title" .Title) }}
 
-  <!-- Background behind main title -->
-  <div class="absolute inset-x-0 top-0 h-28">
-    <img src="/uploads/stacked-peaks.svg" class="w-full h-full object-cover opacity-60" alt="" />
-    <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent"></div>
-  </div>
-
-  <div class="container mx-auto px-4 relative z-10">
-
-    <!-- Main title -->
-    {{ with .Title }}
-      <h1 class="text-3xl md:text-4xl font-extrabold mb-10 text-center text-white drop-shadow-lg relative z-10">{{ . }}</h1>
-    {{ end }}
+  <div class="container mx-auto px-4 relative z-10 custom-page-body">
 
     <div class="rs-wrap">
 

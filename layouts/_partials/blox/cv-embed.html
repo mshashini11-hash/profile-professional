@@ -3,15 +3,33 @@
 {{ $title := $block.content.title | default "Curriculum Vitae" }}
 {{ $pdf := $block.content.pdf | default "uploads/resume.pdf" | relURL }}
 
-<div class="cv-embed" style="max-width: 900px; margin: 0 auto; padding: 0 1rem;">
-  <h2 style="font-size: 1.875rem; font-weight: 700; margin-bottom: 1rem; text-align: center;">{{ $title }}</h2>
-  <object data="{{ $pdf }}#view=FitH" type="application/pdf" style="width: 100%; height: 85vh; min-height: 600px; border: 1px solid #e5e7eb; border-radius: 0.5rem;">
-    <p style="text-align: center; padding: 2rem 0;">
-      Your browser can't display the PDF here.
-      <a href="{{ $pdf }}" target="_blank" rel="noopener" style="text-decoration: underline;">Open the CV</a>.
-    </p>
-  </object>
-  <p style="text-align: center; margin-top: 0.75rem; font-size: 0.9rem;">
-    <a href="{{ $pdf }}" target="_blank" rel="noopener" style="text-decoration: underline;">Open CV in a new tab</a>
-  </p>
+<style>
+  .cv-embed {
+    --cv-heading: #18453B; --cv-card: #ffffff; --cv-border: #e5e7eb; --cv-link: #1d4ed8; --cv-soft: #e8f0ed;
+    max-width: 960px; margin: 0 auto; padding: 0 1rem;
+  }
+  html.dark .cv-embed { --cv-heading: #a7e3cf; --cv-card: #1f2937; --cv-border: #374151; --cv-link: #60a5fa; --cv-soft: rgba(79,174,142,0.15); }
+  .cv-embed-card { background: var(--cv-card); border: 1px solid var(--cv-border); border-radius: 1rem; padding: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+  .cv-embed-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem; margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--cv-soft); }
+  .cv-embed h2 { color: var(--cv-heading); font-size: 1.75rem; font-weight: 800; margin: 0; }
+  .cv-embed-btn { font-size: 0.85rem; font-weight: 600; padding: 0.4rem 0.9rem; border: 1px solid var(--cv-border); border-radius: 0.5rem; color: var(--cv-link); text-decoration: none; }
+  .cv-embed-btn:hover { text-decoration: underline; }
+  .cv-embed object { display: block; width: 100%; height: 85vh; min-height: 600px; border: 1px solid var(--cv-border); border-radius: 0.5rem; }
+  .cv-embed-fallback { text-align: center; padding: 2rem 0; }
+  .cv-embed-fallback a { color: var(--cv-link); text-decoration: underline; }
+</style>
+
+<div class="cv-embed">
+  <div class="cv-embed-card">
+    <div class="cv-embed-head">
+      <h2>{{ $title }}</h2>
+      <a class="cv-embed-btn" href="{{ $pdf }}" target="_blank" rel="noopener">Open CV in a new tab &nearr;</a>
+    </div>
+    <object data="{{ $pdf }}#view=FitH" type="application/pdf" aria-label="{{ $title }}">
+      <p class="cv-embed-fallback">
+        Your browser can't display the PDF here.
+        <a href="{{ $pdf }}" target="_blank" rel="noopener">Open the CV</a>.
+      </p>
+    </object>
+  </div>
 </div>

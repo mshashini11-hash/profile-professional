@@ -1,0 +1,81 @@
+{{/* Site-wide layout polish: shared page header, nav state, spacing, footer, back-to-top. */}}
+<style>
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+  /* Custom pages own their top spacing; remove the theme's gap under the navbar */
+  .page-body:has(> .custom-page) { margin-top: 0; }
+
+  /* Shared page header */
+  .page-hero {
+    position: relative;
+    overflow: hidden;
+    background:
+      linear-gradient(135deg, rgba(11, 46, 38, 0.92) 0%, rgba(24, 69, 59, 0.88) 55%, rgba(31, 107, 87, 0.85) 100%),
+      url("{{ "uploads/stacked-peaks.svg" | relURL }}") center / cover no-repeat;
+    color: #fff;
+    padding: 3.25rem 1rem 3.5rem;
+    text-align: center;
+  }
+  .page-hero::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, rgba(167, 227, 207, 0.7), transparent);
+  }
+  .page-hero-inner { max-width: 1000px; margin: 0 auto; }
+  .page-hero-title {
+    color: #fff !important;
+    font-size: clamp(1.9rem, 4vw, 2.75rem);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    margin: 0;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+  }
+  .page-hero-sub { color: rgba(255,255,255,0.85); margin: 0.6rem 0 0; font-size: 1.05rem; }
+  .custom-page-body { padding-top: 2.5rem; padding-bottom: 3rem; }
+
+  /* Homepage: tighter section spacing */
+  .blox-resume-biography-3 { padding-top: 3.5rem; padding-bottom: 4rem; }
+  .blox-resume-biography-3 .avatar-wrapper.mt-10 { margin-top: 1rem; }
+  .blox-resume-biography-3 .avatar { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35); }
+  .blox-resume-biography-3 ul.list-disc { list-style-position: outside; padding-left: 1.25rem; }
+  .blox-cv-embed { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+  @media (max-width: 768px) {
+    .blox-resume-biography-3 { padding-top: 2rem; padding-bottom: 2.5rem; }
+    .blox-cv-embed { padding-top: 2rem; }
+  }
+
+  /* Navbar: show the current page */
+  .nav-link.active {
+    color: #18453B !important;
+    font-weight: 700;
+    box-shadow: inset 0 -2px 0 #18453B;
+  }
+  html.dark .nav-link.active { color: #a7e3cf !important; box-shadow: inset 0 -2px 0 #4fae8e; }
+
+  /* Keyboard focus */
+  .custom-page a:focus-visible, .page-hero a:focus-visible, #back-to-top:focus-visible {
+    outline: 2px solid #4fae8e;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Footer */
+  footer .powered-by { color: #6b7280; }
+  html.dark footer .powered-by { color: #9ca3af; }
+
+  /* Back to top */
+  #back-to-top {
+    position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 40;
+    width: 2.75rem; height: 2.75rem; border-radius: 999px; border: 0;
+    background: #18453B; color: #fff; box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+    display: flex; align-items: center; justify-content: center; cursor: pointer;
+    opacity: 0; pointer-events: none; transform: translateY(8px);
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  #back-to-top.show { opacity: 1; pointer-events: auto; transform: none; }
+  html.dark #back-to-top { background: #4fae8e; color: #0b1f1a; }
+</style>
