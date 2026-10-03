@@ -1,74 +1,65 @@
 {{ define "main" }}
 
 <style>
-  section, main, main p, main li, main span, main a, main blockquote, main figcaption {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    line-height: 1.8;
+  .gl {
+    --tp-text: #1f2937;
+    --tp-muted: #4b5563;
+    --tp-heading: #18453B;
+    --tp-accent-soft: #e8f0ed;
+    --tp-card: #ffffff;
+    --tp-border: #e5e7eb;
+    color: var(--tp-text);
   }
-
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* bigger than before */
-    gap: 24px;
-    margin-top: 2rem;
+  html.dark .gl {
+    --tp-text: #e5e7eb;
+    --tp-muted: #9ca3af;
+    --tp-heading: #a7e3cf;
+    --tp-accent-soft: rgba(79, 174, 142, 0.15);
+    --tp-card: #1f2937;
+    --tp-border: #374151;
   }
-
-  .gallery-item {
-    text-align: center;
-  }
-
-  .gallery-item img,
-  .gallery-item video {
-    width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  }
-
-  .gallery-item figcaption {
-    margin-top: 0.75rem;
-    font-size: 15px;
-    color: #555;
-  }
+  .gl-wrap { max-width: 1100px; margin: 0 auto; }
+  .gl-back { display: inline-block; margin-bottom: 1.5rem; font-weight: 600; color: var(--tp-heading); }
+  .gl-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+  .gl-item { margin: 0; background: var(--tp-card); border: 1px solid var(--tp-border); border-radius: 1rem; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+  .gl-item img, .gl-item video { display: block; width: 100%; max-height: 520px; object-fit: contain; background: var(--tp-accent-soft); }
+  .gl-item figcaption { padding: 0.85rem 1.1rem 1rem; }
+  .gl-cap { font-weight: 650; color: var(--tp-heading); }
+  .gl-desc { font-size: 0.9rem; color: var(--tp-muted); margin-top: 0.2rem; }
+  .gl-empty { text-align: center; padding: 3rem 1rem; color: var(--tp-muted); background: var(--tp-card); border: 1px dashed var(--tp-border); border-radius: 1rem; }
 </style>
 
-<main class="gallery-container">
+<section class="custom-page min-h-screen gl">
+  {{ partial "page-hero.html" (dict "title" .Title) }}
 
-  <!-- Title with background (stacked peaks style) -->
-  <section class="py-12 relative">
-    <div class="absolute inset-x-0 top-0 h-36 md:h-34">
-      <img src="/uploads/stacked-peaks.svg" class="w-full h-full object-cover opacity-60" />
-      <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent"></div>
-    </div>
+  <div class="container mx-auto px-4 custom-page-body">
+    <div class="gl-wrap">
+      <a class="gl-back" href="{{ "aboutme/" | relURL }}">&larr; Non-math life</a>
 
-    <div class="container mx-auto px-4 relative z-10">
-      {{ with .Title }}
-        <h1 class="text-3xl md:text-4xl font-extrabold mb-8 text-center text-white drop-shadow-lg relative z-10">{{ . }}</h1>
+      {{ with .Params.items }}
+        <div class="gl-grid">
+          {{ range . }}
+            <figure class="gl-item">
+              {{ with .image }}<img src="{{ . }}" alt="{{ $.Title }}" loading="lazy">{{ end }}
+              {{ with .video }}
+                <video controls preload="metadata">
+                  <source src="{{ . }}" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              {{ end }}
+              {{ if or .caption .description }}
+                <figcaption>
+                  {{ with .caption }}<div class="gl-cap">{{ . }}</div>{{ end }}
+                  {{ with .description }}<div class="gl-desc">{{ . }}</div>{{ end }}
+                </figcaption>
+              {{ end }}
+            </figure>
+          {{ end }}
+        </div>
+      {{ else }}
+        <p class="gl-empty">Photos coming soon.</p>
       {{ end }}
     </div>
-  </section>
-
-  <!-- Gallery grid -->
-  <div class="gallery-grid">
-    {{ range .Params.items }}
-      <figure class="gallery-item">
-        {{ with .image }}
-          <img src="{{ . }}" alt="">
-        {{ end }}
-        {{ with .video }}
-          <video controls>
-            <source src="{{ . }}" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        {{ end }}
-        {{ with .caption }}
-          <figcaption>{{ . }}</figcaption>
-        {{ end }}
-      </figure>
-    {{ end }}
   </div>
-
-</main>
+</section>
 {{ end }}
-
-

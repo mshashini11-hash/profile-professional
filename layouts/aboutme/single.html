@@ -1,158 +1,97 @@
 {{ define "main" }}
 
-<!-- Load Inter -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
-<!-- Dark Mode CSS Variables -->
 <style>
-  :root {
-    --text-color: #1C1C1C;
-    --heading-color: #18453B;
-    --blockquote-color: #4a4a4a;
-    --caption-color: #555555;
-    --link-color: #18453B;
-    --bg-color: #ffffff;
+  .nm {
+    --tp-text: #1f2937;
+    --tp-muted: #4b5563;
+    --tp-heading: #18453B;
+    --tp-accent: #18453B;
+    --tp-accent-soft: #e8f0ed;
+    --tp-card: #ffffff;
+    --tp-border: #e5e7eb;
+    color: var(--tp-text);
   }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --text-color: #f0f0f0;
-      --heading-color: #a5f3fc;
-      --blockquote-color: #cbd5e1;
-      --caption-color: #d1d5db;
-      --link-color: #38bdf8;
-      --bg-color: #121212;
-    }
+  html.dark .nm {
+    --tp-text: #e5e7eb;
+    --tp-muted: #9ca3af;
+    --tp-heading: #a7e3cf;
+    --tp-accent: #4fae8e;
+    --tp-accent-soft: rgba(79, 174, 142, 0.15);
+    --tp-card: #1f2937;
+    --tp-border: #374151;
   }
+  .nm a { color: var(--tp-heading); }
+  .nm-wrap { max-width: 1000px; margin: 0 auto; }
 
-  body {
-    color: var(--text-color);
-    background-color: var(--bg-color);
-  }
+  .nm-quote { font-family: Georgia, Cambria, "Times New Roman", serif; font-style: italic; font-size: 1.3rem; text-align: center; color: var(--tp-heading); margin: 0 auto 1.25rem; max-width: 680px; }
+  .nm-intro { display: flex; align-items: center; justify-content: center; gap: 0.6rem; flex-wrap: wrap; text-align: center; background: var(--tp-accent-soft); color: var(--tp-heading); border-radius: 999px; padding: 0.65rem 1.4rem; font-weight: 600; font-size: 0.98rem; margin: 0 auto 2.5rem; max-width: max-content; }
+  .nm-intro a { text-decoration: underline; white-space: nowrap; }
 
-  main h1, main h2, main h3, main h4, main h5, main h6 {
-    color: var(--heading-color);
-  }
+  .nm-block { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 2rem; align-items: center; background: var(--tp-card); border: 1px solid var(--tp-border); border-radius: 1rem; padding: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05); margin-bottom: 2rem; }
+  .nm-block.alt { grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); }
+  .nm-block.alt .nm-figure { order: 2; }
+  .nm-block.text-only { grid-template-columns: 1fr; }
+  .nm-figure { margin: 0; text-align: center; }
+  .nm-figure img { width: 100%; max-height: 460px; object-fit: contain; border-radius: 0.75rem; background: var(--tp-accent-soft); }
+  .nm-figure figcaption { margin-top: 0.6rem; font-size: 0.88rem; color: var(--tp-muted); font-style: italic; }
+  .nm-story { font-size: 1.02rem; line-height: 1.8; }
+  .nm-story p { margin: 0 0 1rem; }
+  .nm-story p:last-child { margin-bottom: 0; }
 
-  main p, main li, main span {
-    color: var(--text-color);
-  }
+  .nm-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; scroll-margin-top: 5rem; }
+  .nm-tile { position: relative; display: block; border-radius: 1rem; overflow: hidden; box-shadow: 0 4px 14px rgba(0,0,0,0.12); text-decoration: none; }
+  .nm-tile img { width: 100%; height: 280px; object-fit: cover; transition: transform 0.4s; }
+  .nm-tile:hover img { transform: scale(1.05); }
+  .nm-tile-cap { position: absolute; inset: auto 0 0 0; padding: 2.5rem 1.25rem 1rem; background: linear-gradient(to top, rgba(0,0,0,0.75), transparent); color: #fff; font-size: 1.15rem; font-weight: 700; display: flex; justify-content: space-between; align-items: center; }
 
-  blockquote.intro-quote {
-    color: var(--blockquote-color);
-    font-family: Georgia, Cambria, "Times New Roman", Times, serif;
-    font-size: 20px;
-    text-align: center;
-    margin-bottom: 1.5rem;
-  }
-
-  figure figcaption {
-    color: var(--caption-color);
-  }
-
-  a {
-    color: var(--link-color);
-    transition: color 0.2s ease-in-out;
-  }
-
-  a:hover {
-    color: var(--link-color);
-    text-decoration: underline;
+  @media (max-width: 768px) {
+    .nm-block, .nm-block.alt { grid-template-columns: 1fr; gap: 1.25rem; padding: 1.25rem; }
+    .nm-block.alt .nm-figure { order: 0; }
+    .nm-intro { border-radius: 1rem; }
   }
 </style>
 
-<!-- Optional: Existing CSS -->
-<link rel="stylesheet" href="{{ "css/aboutme.css" | relURL }}">
+<section class="custom-page min-h-screen nm">
+  {{ partial "page-hero.html" (dict "title" .Title) }}
 
-<main class="aboutme-container">
+  <div class="container mx-auto px-4 custom-page-body">
+    <div class="nm-wrap">
 
-   <!-- Background behind main title -->
-  <div class="absolute inset-x-0 top-0 h-52">
-    <img src="/uploads/stacked-peaks.svg" class="w-full h-full object-cover opacity-60" />
-    <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent"></div>
+      {{ with .Params.intro_quote }}
+        <blockquote class="nm-quote">{{ . }}</blockquote>
+      {{ end }}
+
+      {{ with .Params.intro }}
+        <p class="nm-intro">{{ trim . " " }} <a href="#galleries" aria-label="Jump to galleries">&darr;</a></p>
+      {{ end }}
+
+      {{ range $index, $block := .Params.blocks }}
+        <div class="nm-block {{ if modBool $index 2 }}{{ else }}alt{{ end }} {{ if not $block.image }}text-only{{ end }}">
+          {{ with $block.image }}
+            <figure class="nm-figure">
+              <img src="{{ . }}" alt="{{ $block.caption | default "" }}" loading="lazy">
+              {{ with $block.caption }}<figcaption>{{ . }}</figcaption>{{ end }}
+            </figure>
+          {{ end }}
+          {{ with $block.description }}
+            <div class="nm-story">{{ . | markdownify }}</div>
+          {{ end }}
+        </div>
+      {{ end }}
+
+      <!-- Two gallery tiles -->
+      <div class="nm-tiles" id="galleries">
+        <a href="{{ "travel/" | relURL }}" class="nm-tile">
+          <img src="/uploads/hike1.jpeg" alt="Travel Gallery" loading="lazy">
+          <div class="nm-tile-cap"><span>Travel Photos</span><span aria-hidden="true">&rarr;</span></div>
+        </a>
+        <a href="{{ "paintings/" | relURL }}" class="nm-tile">
+          <img src="/uploads/art1.jpeg" alt="Paintings Gallery" loading="lazy">
+          <div class="nm-tile-cap"><span>My Paintings</span><span aria-hidden="true">&rarr;</span></div>
+        </a>
+      </div>
+
+    </div>
   </div>
-
-  <!-- Content -->
-  <div class="container mx-auto px-4 relative z-10">
-
-    <!-- Main Page Title -->
-    {{ with .Title }}
-      <h1 class="text-3xl md:text-4xl font-extrabold mb-8 text-center drop-shadow-lg relative z-10"
-          style="color: white;">
-        {{ . }}
-      </h1>
-    {{ end }}
-    
-    <!-- Intro Quote (optional) -->
-    {{ with .Params.intro_quote }}
-      <blockquote class="intro-quote">{{ . }}</blockquote>
-    {{ end }}
-
-    {{ with .Params.intro }}
-      <p>{{ . }}</p>
-    {{ end }}
-  </header>
-
-  <!-- Each block as separate two-column section -->
-  {{ range $index, $block := .Params.blocks }}
-  <section class="aboutme-columns {{ if modBool $index 2 }}alt{{ end }}">
-    
-    <!-- Left: Image with caption -->
-    {{ with $block.image }}
-    <div class="aboutme-images">
-      <figure>
-        <img src="{{ . }}" alt="">
-        {{ with $block.caption }}
-          <figcaption>{{ . }}</figcaption>
-        {{ end }}
-      </figure>
-    </div>
-    {{ end }}
-
-    <!-- Right: Description -->
-    {{ with $block.description }}
-    <div class="aboutme-story">
-      {{ . | markdownify }}
-    </div>
-    {{ end }}
-
-  </section>
-  {{ end }}
-
-  <!-- Two gallery tiles -->
-  <section class="gallery-tiles">
-    <a href="/travel" class="gallery-tile">
-      <img src="/uploads/hike1.jpeg" alt="Travel Gallery">
-      <div class="tile-caption">Travel Photos</div>
-    </a>
-    <a href="/paintings" class="gallery-tile">
-      <img src="/uploads/art1.jpeg" alt="Paintings Gallery">
-      <div class="tile-caption">My Paintings</div>
-    </a>
-  </section>
-
-</main>
+</section>
 {{ end }}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
