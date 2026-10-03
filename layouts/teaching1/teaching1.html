@@ -1,103 +1,156 @@
 {{ define "main" }}
 
-<!-- Global Dark Mode Styles -->
 <style>
-  :root {
-    --text-color: #1C1C1C;
-    --heading-color: #18453B;
-    --link-color: #18453B;
-    --link-hover-color: #1a73e8;
-    --doc-link-color: #1d4ed8;
-    --bg-color: #ffffff;
+  .tp {
+    --tp-text: #1f2937;
+    --tp-muted: #4b5563;
+    --tp-heading: #18453B;
+    --tp-accent: #18453B;
+    --tp-accent-soft: #e8f0ed;
+    --tp-card: #ffffff;
+    --tp-item: #f9fafb;
+    --tp-border: #e5e7eb;
+    --tp-link: #1d4ed8;
+    color: var(--tp-text);
   }
+  html.dark .tp {
+    --tp-text: #e5e7eb;
+    --tp-muted: #9ca3af;
+    --tp-heading: #a7e3cf;
+    --tp-accent: #4fae8e;
+    --tp-accent-soft: rgba(79, 174, 142, 0.15);
+    --tp-card: #1f2937;
+    --tp-item: #111827;
+    --tp-border: #374151;
+    --tp-link: #60a5fa;
+  }
+  .tp h2, .tp h3 { color: var(--tp-heading); }
+  .tp a { color: var(--tp-link); }
+  .tp a:hover { text-decoration: underline; }
 
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --text-color: #f0f0f0;
-      --heading-color: #a5f3fc;
-      --link-color: #38bdf8;
-      --link-hover-color: #60a5fa;
-      --doc-link-color: #60a5fa;
-      --bg-color: #121212;
-    }
-  }
+  .tp-highlights { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 2.5rem; }
+  .tp-stat { background: var(--tp-card); border: 1px solid var(--tp-border); border-top: 4px solid var(--tp-accent); border-radius: 0.75rem; padding: 1rem 1.25rem; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  .tp-stat-value { font-size: 1.5rem; font-weight: 800; color: var(--tp-heading); line-height: 1.2; }
+  .tp-stat-label { font-size: 0.85rem; color: var(--tp-muted); margin-top: 0.25rem; }
 
-  body {
-    color: var(--text-color);
-    background-color: var(--bg-color);
-  }
+  .tp-uni { background: var(--tp-card); border: 1px solid var(--tp-border); border-radius: 1rem; padding: 1.5rem; margin-bottom: 2.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+  .tp-uni > h2 { font-size: 1.6rem; font-weight: 800; margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--tp-accent-soft); }
 
-  h1, h2, h3, h4, h5, h6 {
-    color: var(--heading-color);
-  }
+  .tp-position { border-left: 4px solid var(--tp-accent); padding-left: 1.25rem; margin-bottom: 2rem; }
+  .tp-position:last-child { margin-bottom: 0; }
+  .tp-position > h3 { font-size: 1.35rem; font-weight: 700; margin-bottom: 0.25rem; }
+  .tp-note { font-size: 0.9rem; color: var(--tp-muted); font-style: italic; margin-bottom: 0.75rem; }
 
-  a {
-    color: var(--link-color);
-    transition: color 0.2s ease-in-out;
-  }
-  a:hover {
-    color: var(--link-hover-color);
-  }
-
-  ul li a.document-link {
-    color: var(--doc-link-color);
-  }
+  .tp-list { list-style: none; padding: 0; margin: 0.75rem 0 0; display: grid; gap: 0.75rem; }
+  .tp-course { background: var(--tp-item); border: 1px solid var(--tp-border); border-radius: 0.75rem; padding: 0.9rem 1.1rem; transition: box-shadow 0.2s, border-color 0.2s; }
+  .tp-course:hover { border-color: var(--tp-accent); box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .tp-course-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.25rem 1rem; }
+  .tp-course-name { font-weight: 650; font-size: 1.05rem; color: var(--tp-text); }
+  .tp a.tp-course-name { color: var(--tp-heading); }
+  .tp-meta { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .tp-badge { font-size: 0.75rem; font-weight: 600; padding: 0.15rem 0.6rem; border-radius: 999px; white-space: nowrap; background: var(--tp-accent-soft); color: var(--tp-heading); }
+  .tp-badge.mode { background: transparent; border: 1px solid var(--tp-border); color: var(--tp-muted); }
+  .tp-desc { margin: 0.5rem 0 0; font-size: 0.93rem; line-height: 1.6; color: var(--tp-muted); }
+  .tp-docs { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.65rem; }
+  .tp-doc { font-size: 0.8rem; font-weight: 600; padding: 0.25rem 0.7rem; border: 1px solid var(--tp-border); border-radius: 0.4rem; background: var(--tp-card); }
+  .tp-item { display: flex; gap: 1rem; justify-content: space-between; align-items: baseline; }
+  .tp-item-text { font-size: 0.95rem; line-height: 1.6; }
+  .tp-item-text p { margin: 0; }
 </style>
 
-<section class="relative py-12 min-h-screen">
+<section class="relative py-12 min-h-screen tp">
 
   <!-- Background behind main title -->
   <div class="absolute inset-x-0 top-0 h-28">
-    <img src="/uploads/stacked-peaks.svg" class="w-full h-full object-cover opacity-60" />
+    <img src="/uploads/stacked-peaks.svg" class="w-full h-full object-cover opacity-60" alt="" />
     <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent"></div>
   </div>
 
   <!-- Content -->
-  <div class="container mx-auto px-4 relative z-10">
+  <div class="container mx-auto px-4 relative z-10" style="max-width: 1000px;">
 
     <!-- Main Page Title -->
     {{ with .Title }}
-      <h1 class="text-3xl md:text-4xl font-extrabold mb-8 text-center drop-shadow-lg relative z-10"
+      <h1 class="text-3xl md:text-4xl font-extrabold mb-10 text-center drop-shadow-lg relative z-10"
           style="color: white;">
         {{ . }}
       </h1>
     {{ end }}
 
-    <!-- THIS IS THE ONLY ADDED LINE -->
     {{ .Content }}
+
+    <!-- Quick facts -->
+    {{ with .Params.highlights }}
+      <div class="tp-highlights">
+        {{ range . }}
+          <div class="tp-stat">
+            <div class="tp-stat-value">{{ .value }}</div>
+            <div class="tp-stat-label">{{ .label }}</div>
+          </div>
+        {{ end }}
+      </div>
+    {{ end }}
 
     <!-- Loop over universities -->
     {{ range .Params.universities }}
-      <div class="mb-12 p-4 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300" style="background-color: var(--bg-color)">
+      <div class="tp-uni">
 
         <!-- University Name -->
-        <h2 class="text-1xl md:text-2xl font-bold mb-6">{{ .name }}</h2>
+        <h2>{{ .name }}</h2>
 
         <!-- Loop over positions -->
         {{ range .positions }}
-          <div class="mb-4 pl-4 border-l-4" style="border-color: var(--heading-color)">
+          <div class="tp-position">
 
             <!-- Position Title -->
-            <h3 class="text-xl md:text-2xl font-semibold mb-2">{{ .title }}</h3>
+            <h3>{{ .title }}</h3>
+            {{ with .note }}<p class="tp-note">{{ . }}</p>{{ end }}
 
             <!-- Courses -->
             {{ with .courses }}
-              <ul class="list-disc list-inside ml-2">
+              <ul class="tp-list">
                 {{ range . }}
-                  <li class="mb-2">
-                    <a href="{{ .url }}" class="hover:underline font-medium">{{ .name }}</a>
-                    <span> — {{ .semester }}</span>
+                  <li class="tp-course">
+                    <div class="tp-course-head">
+                      {{ if .url }}
+                        <a href="{{ .url | relURL }}" class="tp-course-name">{{ .name }}</a>
+                      {{ else }}
+                        <span class="tp-course-name">{{ .name }}</span>
+                      {{ end }}
+                      <span class="tp-meta">
+                        {{ with .mode }}<span class="tp-badge mode">{{ . }}</span>{{ end }}
+                        {{ with .semester }}<span class="tp-badge">{{ . }}</span>{{ end }}
+                      </span>
+                    </div>
 
-                    <!-- If the course has extra documents -->
-                    {{ with .documents }}
-                      <ul class="list-disc list-inside ml-6 text-sm">
-                        {{ range . }}
-                          <li>
-                            <a href="{{ .url }}" class="hover:underline document-link">{{ .label }}</a>
-                          </li>
-                        {{ end }}
-                      </ul>
+                    {{ with .description }}<p class="tp-desc">{{ . }}</p>{{ end }}
+
+                    <!-- Course documents: PDFs only show once the file is uploaded to static/ -->
+                    {{ $docs := slice }}
+                    {{ range .documents }}
+                      {{ if or (ne (path.Ext .url) ".pdf") (fileExists (printf "static%s" .url)) }}
+                        {{ $docs = $docs | append . }}
+                      {{ end }}
                     {{ end }}
+                    {{ with $docs }}
+                      <div class="tp-docs">
+                        {{ range . }}
+                          <a href="{{ .url | relURL }}" class="tp-doc" {{ if eq (path.Ext .url) ".pdf" }}target="_blank" rel="noopener"{{ end }}>{{ .label }}</a>
+                        {{ end }}
+                      </div>
+                    {{ end }}
+                  </li>
+                {{ end }}
+              </ul>
+            {{ end }}
+
+            <!-- Simple dated items (mentoring, development, talks) -->
+            {{ with .items }}
+              <ul class="tp-list">
+                {{ range . }}
+                  <li class="tp-course tp-item">
+                    <div class="tp-item-text">{{ .text | markdownify }}</div>
+                    {{ with .date }}<span class="tp-badge">{{ . }}</span>{{ end }}
                   </li>
                 {{ end }}
               </ul>
@@ -105,12 +158,18 @@
 
             <!-- Guest Lectures -->
             {{ with .guest_lectures }}
-              <h4 class="mt-2 font-semibold">Guest Lectures:</h4>
-              <ul class="list-disc list-inside ml-2">
+              <ul class="tp-list">
                 {{ range . }}
-                  <li class="mb-1">
-                    <a href="{{ .url }}" class="hover:underline">{{ .name }}</a>
-                    <span> — {{ .semester }}</span>
+                  <li class="tp-course">
+                    <div class="tp-course-head">
+                      {{ if .url }}
+                        <a href="{{ .url | relURL }}" class="tp-course-name">{{ .name }}</a>
+                      {{ else }}
+                        <span class="tp-course-name">{{ .name }}</span>
+                      {{ end }}
+                      {{ with .semester }}<span class="tp-badge">{{ . }}</span>{{ end }}
+                    </div>
+                    {{ with .description }}<p class="tp-desc">{{ . }}</p>{{ end }}
                   </li>
                 {{ end }}
               </ul>
@@ -126,13 +185,3 @@
 </section>
 
 {{ end }}
-
-
-
-
-
-
-
-
-
-
