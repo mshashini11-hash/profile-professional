@@ -10,5 +10,5 @@ links:
   - name: "Slides"
     url: "/guesttalks/slides/temple.pdf"
   - name: "YouTube"
-    url: "https://youtu.be/Y47MLMFq_Cg."
+    url: "https://youtu.be/Y47MLMFq_Cg"
 ---

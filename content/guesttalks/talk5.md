@@ -1,7 +1,7 @@
 ---
-title: "Turaev-Viro invaraints and Witten-Reshetikhin-Turaev invariants"
+title: "Turaev-Viro invariants and Witten-Reshetikhin-Turaev invariants"
 date: "2024-09-08"
-event: "Michigan State Universitu"
+event: "Michigan State University"
 summary: ""
 image:
   filename: ""

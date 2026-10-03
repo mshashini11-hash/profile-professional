@@ -8,7 +8,7 @@ image:
   alt: ""
 links:
   - name: "Slides"
-    url: "/guesttalks/slides/temple.pdf"
+    url: "/uploads/temple.pdf"
   - name: ""
     url: ""
 ---
