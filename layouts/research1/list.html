@@ -63,6 +63,7 @@
 
 <section class="custom-page rs">
   {{ partial "page-hero.html" (dict "title" .Title) }}
+  {{ partial "section-nav.html" . }}
 
   <div class="container mx-auto px-4 relative z-10 custom-page-body">
 
@@ -70,7 +71,7 @@
 
       <!-- Overview -->
       {{ with .Params.intro }}
-        <div class="rs-card">
+        <div class="rs-card" id="overview" data-toc="Overview">
           <h2 class="rs-h2">Overview</h2>
           <div class="rs-intro">{{ . | markdownify }}</div>
           {{ with $.Params.keywords }}
@@ -81,7 +82,7 @@
       {{ end }}
 
       <!-- Projects grid -->
-      <div class="rs-projects">
+      <div class="rs-projects" id="projects" data-toc="Projects">
         {{ range .Pages.ByWeight }}
           <a href="{{ .RelPermalink }}" class="rs-proj">
             {{ with .Params.image }}<img src="{{ . }}" alt="" loading="lazy">{{ end }}
@@ -95,7 +96,7 @@
       </div>
 
       <!-- Publications -->
-      <div class="rs-card papers-section">
+      <div class="rs-card papers-section" id="publications" data-toc="Publications">
         <h2 class="rs-h2">Publications &amp; Preprints</h2>
         <h3 class="rs-h3">Topology</h3>
         {{ partial "research/papers.html" (where site.RegularPages "Section" "topology") }}
@@ -107,7 +108,7 @@
 
       <!-- Talks -->
       {{ $talks := (where site.RegularPages "Section" "guesttalks").ByDate.Reverse }}
-      <div class="rs-card guest-talks">
+      <div class="rs-card guest-talks" id="talks" data-toc="Talks">
         <h2 class="rs-h2">Talks</h2>
         {{ with where $talks "Params.talk_type" "conference" }}
           <h3 class="rs-h3">Conference &amp; Invited Talks</h3>

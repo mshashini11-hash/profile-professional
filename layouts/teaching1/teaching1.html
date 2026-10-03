@@ -60,6 +60,7 @@
 
 <section class="custom-page min-h-screen tp">
   {{ partial "page-hero.html" (dict "title" .Title) }}
+  {{ partial "section-nav.html" . }}
 
   <!-- Content -->
   <div class="container mx-auto px-4 relative z-10 custom-page-body" style="max-width: 1000px;">
@@ -79,7 +80,7 @@
     {{ end }}
 
     <!-- Loop over universities -->
-    {{ range .Params.universities }}
+    {{ range $uni := .Params.universities }}
       <div class="tp-uni">
 
         <!-- University Name -->
@@ -87,7 +88,7 @@
 
         <!-- Loop over positions -->
         {{ range .positions }}
-          <div class="tp-position">
+          <div class="tp-position" id="{{ anchorize (printf "%s-%s" $uni.name .title) }}" data-toc="{{ .title }}">
 
             <!-- Position Title -->
             <h3>{{ .title }}</h3>

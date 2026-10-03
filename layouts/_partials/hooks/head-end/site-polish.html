@@ -50,6 +50,28 @@
     .blox-cv-embed { padding-top: 2rem; }
   }
 
+  /* "On this page" section bar */
+  .section-nav { display: none; position: sticky; top: var(--site-header-h, 64px); z-index: 20; background: rgba(255,255,255,0.92); backdrop-filter: saturate(1.4) blur(8px); -webkit-backdrop-filter: saturate(1.4) blur(8px); border-bottom: 1px solid #e5e7eb; box-shadow: 0 2px 10px rgba(0,0,0,0.04); }
+  .section-nav.ready { display: block; }
+  html.dark .section-nav { background: rgba(17,24,39,0.92); border-bottom-color: #374151; }
+  .section-nav-inner { max-width: 1000px; margin: 0 auto; padding: 0.55rem 1rem; display: flex; align-items: center; gap: 0.75rem; }
+  .section-nav-label { flex-shrink: 0; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #6b7280; }
+  html.dark .section-nav-label { color: #9ca3af; }
+  .section-nav-links { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .section-nav-links::-webkit-scrollbar { display: none; }
+  .section-nav-links a { flex-shrink: 0; max-width: 22rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 0.85rem; font-weight: 600; padding: 0.3rem 0.8rem; border-radius: 999px; color: #18453B !important; background: #e8f0ed; text-decoration: none !important; transition: background 0.15s, color 0.15s; }
+  .section-nav-links a:hover { background: #d3e4dd; }
+  .section-nav-links a.active { background: #18453B; color: #fff !important; }
+  html.dark .section-nav-links a { color: #a7e3cf !important; background: rgba(79,174,142,0.15); }
+  html.dark .section-nav-links a.active { background: #4fae8e; color: #0b1f1a !important; }
+  /* The theme already adds scroll-padding for its sticky header; only offset for this bar */
+  [data-toc], .rp-body h2, .rp-refs h2 { scroll-margin-top: calc(var(--section-nav-h, 48px) + 1rem) !important; }
+  @media (max-width: 640px) {
+    .section-nav-label { display: none; }
+    .section-nav-links { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; scroll-behavior: smooth; padding-right: 2rem;
+      -webkit-mask-image: linear-gradient(to right, #000 85%, transparent); mask-image: linear-gradient(to right, #000 85%, transparent); }
+  }
+
   /* Navbar: show the current page */
   .nav-link.active {
     color: #18453B !important;

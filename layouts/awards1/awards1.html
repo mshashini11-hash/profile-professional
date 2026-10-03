@@ -31,7 +31,7 @@
   .aw-wrap { max-width: 1000px; margin: 0 auto; }
   .aw-toc { display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 2rem; }
   .aw-toc a { font-size: 0.85rem; font-weight: 600; padding: 0.35rem 0.9rem; border-radius: 999px; background: var(--tp-accent-soft); color: var(--tp-heading); text-decoration: none; }
-  .aw-card { background: var(--tp-card); border: 1px solid var(--tp-border); border-radius: 1rem; padding: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05); margin-bottom: 2.5rem; scroll-margin-top: 5rem; }
+  .aw-card { background: var(--tp-card); border: 1px solid var(--tp-border); border-radius: 1rem; padding: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05); margin-bottom: 2.5rem; }
   .aw-card > h2 { color: var(--tp-heading); font-size: 1.7rem; font-weight: 800; margin-bottom: 1.25rem; padding-bottom: 0.6rem; border-bottom: 2px solid var(--tp-accent-soft); }
   .aw-uni { border-left: 4px solid var(--tp-accent); padding-left: 1.25rem; margin-bottom: 2rem; }
   .aw-uni:last-child { margin-bottom: 0; }
@@ -55,17 +55,14 @@
 
 <section class="custom-page min-h-screen aw">
   {{ partial "page-hero.html" (dict "title" .Title) }}
+  {{ partial "section-nav.html" . }}
 
   <div class="container mx-auto px-4 relative z-10 custom-page-body">
 
     <div class="aw-wrap">
 
-      <nav class="aw-toc">
-        {{ range .Params.subtopics }}<a href="#{{ .title | anchorize }}">{{ .title }}</a>{{ end }}
-      </nav>
-
       {{ range .Params.subtopics }}
-        <div class="aw-card" id="{{ .title | anchorize }}">
+        <div class="aw-card" id="{{ .title | anchorize }}" data-toc="{{ .title }}">
           <h2>{{ .title }}</h2>
 
           {{ range .universities }}

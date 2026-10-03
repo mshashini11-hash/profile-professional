@@ -1,0 +1,62 @@
+<script>
+  (function () {
+    var nav = document.querySelector(".section-nav");
+    if (!nav) return;
+    var list = nav.querySelector(".section-nav-links");
+
+    var targets = Array.prototype.slice.call(document.querySelectorAll("[data-toc]"));
+    if (!targets.length) {
+      targets = Array.prototype.slice.call(document.querySelectorAll(".rp-body h2, .rp-refs h2"));
+    }
+    targets = targets.filter(function (el) { return el.id || (el.id = slug(label(el))); });
+    if (targets.length < 2) return;
+
+    function label(el) {
+      var t = (el.getAttribute("data-toc") || el.textContent || "").trim().replace(/\s+/g, " ");
+      var m = t.match(/^(Project \d+):/);
+      return m ? m[1] : t;
+    }
+    function slug(t) { return t.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""); }
+
+    var links = targets.map(function (el) {
+      var a = document.createElement("a");
+      a.href = "#" + el.id;
+      a.textContent = label(el);
+      a.title = (el.getAttribute("data-toc") || el.textContent).trim();
+      list.appendChild(a);
+      return a;
+    });
+    nav.classList.add("ready");
+
+    // Keep the bar just under the sticky site header
+    var header = document.querySelector(".page-header");
+    function setOffset() {
+      var h = header ? header.getBoundingClientRect().height : 0;
+      document.documentElement.style.setProperty("--site-header-h", h + "px");
+      document.documentElement.style.setProperty("--section-nav-h", nav.getBoundingClientRect().height + "px");
+    }
+    setOffset();
+    window.addEventListener("resize", setOffset);
+
+    // Highlight the section currently being read
+    var current = -1;
+    function update() {
+      // A section is "current" once its top passes just below the pinned bars (jump target + tolerance)
+      var line = nav.getBoundingClientRect().bottom + 64;
+      var idx = 0;
+      for (var i = 0; i < targets.length; i++) {
+        if (targets[i].getBoundingClientRect().top - line <= 0) idx = i;
+      }
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) idx = targets.length - 1;
+      if (idx === current) return;
+      if (current >= 0) { links[current].classList.remove("active"); links[current].removeAttribute("aria-current"); }
+      links[idx].classList.add("active");
+      links[idx].setAttribute("aria-current", "true");
+      current = idx;
+      var a = links[idx];
+      list.scrollTo({ left: a.offsetLeft - list.clientWidth / 2 + a.clientWidth / 2 });
+    }
+    window.addEventListener("scroll", update, { passive: true });
+    update();
+  })();
+</script>

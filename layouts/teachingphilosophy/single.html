@@ -38,7 +38,7 @@
   .tph-toc a { text-decoration: none; font-size: 0.85rem; font-weight: 600; padding: 0.35rem 0.85rem; border-radius: 999px; background: var(--tp-accent-soft); }
   .tph-toc a:hover { text-decoration: underline; }
 
-  .tph-section { display: grid; grid-template-columns: 3rem 1fr; gap: 1rem; margin-bottom: 2rem; scroll-margin-top: 5rem; }
+  .tph-section { display: grid; grid-template-columns: 3rem 1fr; gap: 1rem; margin-bottom: 2rem; }
   .tph-num { width: 2.6rem; height: 2.6rem; border-radius: 999px; background: var(--tp-accent); color: #fff; font-weight: 800; display: flex; align-items: center; justify-content: center; font-size: 1.05rem; }
   .tph-card { background: var(--tp-card); border: 1px solid var(--tp-border); border-radius: 1rem; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
   .tph-card h2 { font-size: 1.45rem; font-weight: 750; margin: 0.1rem 0 0.9rem; }
@@ -60,6 +60,7 @@
 
 <section class="custom-page min-h-screen tph">
   {{ partial "page-hero.html" (dict "title" .Title) }}
+  {{ partial "section-nav.html" . }}
 
   <div class="container mx-auto px-4 relative z-10 custom-page-body">
 
@@ -79,19 +80,9 @@
         </div>
       {{ end }}
 
-      <!-- Section links -->
-      {{ with .Params.core_values }}
-        <nav class="tph-toc" aria-label="Sections">
-          {{ range $i, $v := . }}
-            <a href="#{{ $v.title | anchorize }}">{{ $v.title }}</a>
-          {{ end }}
-          {{ with $.Params.student_voices }}<a href="#student-voices">Student voices</a>{{ end }}
-        </nav>
-      {{ end }}
-
       <!-- Core values -->
       {{ range $i, $v := .Params.core_values }}
-        <div class="tph-section" id="{{ $v.title | anchorize }}">
+        <div class="tph-section" id="{{ $v.title | anchorize }}" data-toc="{{ $v.title }}">
           <div class="tph-num">{{ add $i 1 }}</div>
           <div class="tph-card tph-prose">
             <h2>{{ $v.title }}</h2>
@@ -113,7 +104,7 @@
 
       <!-- Student voices -->
       {{ with .Params.student_voices }}
-        <div class="tph-voices" id="student-voices">
+        <div class="tph-voices" id="student-voices" data-toc="Student voices">
           <h2>Student Voices</h2>
           {{ with .intro }}<p class="tph-voices-intro">{{ . }}</p>{{ end }}
           {{ range .courses }}
