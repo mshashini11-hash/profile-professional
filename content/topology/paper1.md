@@ -1,15 +1,10 @@
 ---
-title: "Seifert fibered 3-manifolds and Turaev-Viro invariants volume conjecture"
+title: "Seifert fibered 3-manifolds and Turaev–Viro invariants volume conjecture"
 authors:
-  - "Shashini Marasinghe"
+  - "S. Marasinghe"
 year: 2025
-journal: ""
-volume: ""
-issue: ""
-pages: ""
-doi: ""
-arxiv: "https://arxiv.org/abs/2504.10682"
-pdf: "https://arxiv.org/pdf/2504.10682"
+weight: 1
+status: "Submitted to the International Journal of Mathematics"
 links:
   - name: "arXiv"
     url: "https://arxiv.org/abs/2504.10682"

@@ -23,7 +23,7 @@ superuser: true
 highlight_name: true
 
 # Role/position/tagline
-role: Graduate Teaching Assistant
+role: Ph.D. Candidate in Mathematics
 
 # Organizations/Affiliations to display in Biography blox
 organizations:
@@ -38,16 +38,17 @@ profiles:
   - icon: academicons/orcid
     url: https://orcid.org/0009-0009-4104-3932  
   - icon: brands/github
-    url: https://github.com/gcushen
+    url: https://github.com/mshashini11-hash
   - icon: brands/linkedin
     url: https://www.linkedin.com/
   - icon: academicons/google-scholar
     url: https://scholar.google.com/
 
 interests:
-  - Quantum Low Dimentional Topology
+  - Quantum and Low-Dimensional Topology
+  - Knot Theory
+  - Quantum Computing
   - Mathematics Education
-  - Quantum computing
 
 education:
   - area: PhD Mathematics

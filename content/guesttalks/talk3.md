@@ -1,14 +1,7 @@
 ---
-title: "6j-symbol"
-date: "2023-07-08"
-event: "Michigan State University"
-summary: ""
-image:
-  filename: ""
-  alt: ""
-links:
-  - name: "Slides"
-    url: ""
-  - name: ""
-    url: ""
+title: "6j-symbols"
+date: "2024-01-01"
+date_display: "2024"
+talk_type: "seminar"
+event: "MSU Graduate Geometry and Topology Seminar"
 ---

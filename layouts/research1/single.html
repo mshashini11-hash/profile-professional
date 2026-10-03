@@ -1,114 +1,107 @@
 {{ define "main" }}
 
-<!-- Load Inter -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
 <style>
-  /* Dark mode variables */
-  :root {
-    --text-color: #1C1C1C;
-    --heading-color: #18453B;
-    --link-color: #18453B;
-    --bg-color: #ffffff;
-    --meta-color: #4a4a4a;
+  .rp {
+    --tp-text: #1f2937;
+    --tp-muted: #4b5563;
+    --tp-heading: #18453B;
+    --tp-accent: #18453B;
+    --tp-accent-soft: #e8f0ed;
+    --tp-card: #ffffff;
+    --tp-border: #e5e7eb;
+    --tp-link: #1d4ed8;
+    color: var(--tp-text);
   }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --text-color: #f0f0f0;
-      --heading-color: #a5f3fc;
-      --link-color: #38bdf8;
-      --bg-color: #121212;
-      --meta-color: #cbd5e1;
-    }
-
-    /* White background for main content sections in dark mode */
-    .white-section {
-      background-color: #ffffff !important;
-      color: #1C1C1C !important;
-      padding: 1rem;
-      border-radius: 0.5rem;
-    }
+  html.dark .rp {
+    --tp-text: #e5e7eb;
+    --tp-muted: #9ca3af;
+    --tp-heading: #a7e3cf;
+    --tp-accent: #4fae8e;
+    --tp-accent-soft: rgba(79, 174, 142, 0.15);
+    --tp-card: #1f2937;
+    --tp-border: #374151;
+    --tp-link: #60a5fa;
   }
-
-  section, main, main p, main li, main span, main a, main figcaption {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    line-height: 1.8;
-    color: var(--text-color);
-    background-color: var(--bg-color);
-  }
-
-  main h1 { font-size: 36px; color: var(--heading-color); }
-  main h2 { font-size: 28px; color: var(--heading-color); }
-  main h3 { font-size: 24px; color: var(--heading-color); }
-  main h4, main h5, main h6 { font-size: 20px; color: var(--heading-color); }
-
-  blockquote.intro-quote, blockquote {
-    font-family: Georgia, Cambria, "Times New Roman", Times, serif;
-    font-size: 20px;
-    font-style: italic;
-    text-align: center;
-    margin-bottom: 1.5rem;
-    color: var(--meta-color);
-  }
-
-  a {
-    color: var(--link-color);
-    transition: all 0.2s ease-in-out;
-  }
-
-  a:hover { text-decoration: underline; }
+  .rp-card { background: var(--tp-card); border: 1px solid var(--tp-border); border-radius: 1rem; padding: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05); max-width: 860px; margin: 0 auto 2rem; }
+  .rp-body { font-size: 1.02rem; line-height: 1.8; }
+  .rp-body h2 { color: var(--tp-heading); font-size: 1.5rem; font-weight: 750; margin: 2rem 0 0.75rem; }
+  .rp-body h2:first-child { margin-top: 0; }
+  .rp-body h3 { color: var(--tp-heading); font-size: 1.2rem; font-weight: 700; margin: 1.5rem 0 0.5rem; }
+  .rp-body p { margin: 0 0 1rem; }
+  .rp-body ul { list-style: disc; padding-left: 1.4rem; margin: 0 0 1rem; }
+  .rp-body li { margin-bottom: 0.35rem; }
+  .rp-body strong { color: var(--tp-heading); }
+  .rp-body a { color: var(--tp-link); text-decoration: underline; }
+  .rp-body hr { border: 0; border-top: 1px solid var(--tp-border); margin: 2rem 0; }
+  .rp-body blockquote { font-family: Georgia, Cambria, "Times New Roman", serif; font-style: italic; font-size: 1.1rem; color: var(--tp-muted); border-left: 4px solid var(--tp-accent); background: var(--tp-accent-soft); padding: 0.9rem 1.2rem; border-radius: 0 0.5rem 0.5rem 0; margin: 0 0 1.75rem; }
+  .rp-body blockquote p { margin: 0; }
+  .rp-body table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 0.5rem 0 0.5rem; display: block; overflow-x: auto; }
+  .rp-body th, .rp-body td { border: 1px solid var(--tp-border); padding: 0.4rem 0.6rem; text-align: center; white-space: nowrap; }
+  .rp-body th { background: var(--tp-accent-soft); color: var(--tp-heading); }
+  .rp-body mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+  .rp-refs h2 { color: var(--tp-heading); font-size: 1.35rem; font-weight: 750; margin-bottom: 1rem; }
+  .rp-refs ol { list-style: decimal; padding-left: 1.4rem; display: grid; gap: 0.5rem; font-size: 0.93rem; line-height: 1.6; }
+  .rp-refs a { color: var(--tp-link); font-weight: 600; white-space: nowrap; }
+  .rp-refs .meta { color: var(--tp-muted); }
 </style>
 
-<section class="relative py-12 min-h-screen">
+<section class="relative py-12 min-h-screen rp">
 
   <!-- Background -->
-  <div class="absolute inset-x-0 top-0 h-29 md:h-30">
-    <img src="/uploads/stacked-peaks.svg" class="w-full h-full object-cover opacity-60" />
+  <div class="absolute inset-x-0 top-0 h-28">
+    <img src="/uploads/stacked-peaks.svg" class="w-full h-full object-cover opacity-60" alt="" />
     <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent"></div>
   </div>
 
-  <!-- Content -->
   <div class="container mx-auto px-4 relative z-10">
 
     <!-- Project Title -->
     {{ with .Title }}
-      <h1 class="text-3xl md:text-4xl font-extrabold mb-8 text-center drop-shadow-lg relative z-10">
+      <h1 class="text-3xl md:text-4xl font-extrabold mb-10 text-center drop-shadow-lg relative z-10" style="color: white;">
         {{ . }}
       </h1>
     {{ end }}
 
+    <p class="text-center mb-6" style="max-width: 860px; margin-left: auto; margin-right: auto;">
+      <a href="{{ "research1/" | relURL }}" style="color: var(--tp-link); font-weight: 600;">&larr; All research</a>
+    </p>
+
     <!-- Project Content -->
-    <div class="prose max-w-4xl mx-auto mb-12 white-section">
-      {{ .Content | safeHTML }}
+    <div class="rp-card rp-body">
+      {{ .Content }}
     </div>
 
-    <!-- Papers as single-line list -->
+    <!-- References -->
     {{ with .Params.papers }}
-    <div class="max-w-4xl mx-auto mb-12 white-section">
-      <h2 class="text-2xl font-bold mb-4">Related Papers</h2>
-      <ul class="list-disc list-inside space-y-1">
+    <div class="rp-card rp-refs">
+      <h2>References</h2>
+      <ol>
         {{ range . }}
+          {{ if .title }}
           <li>
-            <strong>{{ .title }}</strong>, {{ .authors }}{{ with .journal }}, <em>{{ . }}</em>{{ end }} 
-            {{ with .url }}
-              <a href="{{ . }}" target="_blank">Read Paper →</a>
-            {{ end }}
+            {{ .authors }}, <em>{{ .title }}</em><span class="meta">{{ with .journal }}, {{ . }}{{ end }}{{ with .year }} ({{ . }}){{ end }}.</span>
+            {{ with .url }}<a href="{{ . }}" target="_blank" rel="noopener">Read&nbsp;paper&nbsp;&rarr;</a>{{ end }}
           </li>
+          {{ end }}
         {{ end }}
-      </ul>
+      </ol>
     </div>
     {{ end }}
 
-    <!-- Videos -->
-    {{ with .Params.videos }}
-    <div class="max-w-4xl mx-auto text-center mb-12 white-section">
-      <h2 class="text-2xl font-bold mb-4">Project Videos</h2>
+    <!-- Videos (only real embeds are shown) -->
+    {{ $videos := slice }}
+    {{ range .Params.videos }}
+      {{ if and .embed (not (in .embed "XXXX")) (not (in .embed "YYYY")) }}
+        {{ $videos = $videos | append . }}
+      {{ end }}
+    {{ end }}
+    {{ with $videos }}
+    <div class="rp-card rp-body" style="text-align: center;">
+      <h2>Videos</h2>
       {{ range . }}
-        <h3 class="text-xl font-semibold mb-2">{{ .title }}</h3>
-        <div class="aspect-w-16 aspect-h-9 mb-6">
-          <iframe class="w-full h-full" src="{{ .embed }}" frameborder="0" allowfullscreen></iframe>
+        <h3>{{ .title }}</h3>
+        <div style="position: relative; padding-top: 56.25%; margin-bottom: 1.5rem;">
+          <iframe src="{{ .embed }}" style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: 0.5rem;" allowfullscreen></iframe>
         </div>
       {{ end }}
     </div>
@@ -125,24 +118,8 @@
     }
   };
   </script>
-  <script id="MathJax-script" async
-    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </section>
 
 {{ end }}
-
-
-
-
-
-
-
-
-
-
-
-
-
-

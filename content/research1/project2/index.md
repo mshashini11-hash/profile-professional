@@ -2,46 +2,34 @@
 title: "Teaching as Research"
 layout: "research1/single-content"
 image: "/uploads/project2.png"
-summary: ""
+summary: "FAST Fellowship classroom research on how students use AI in mathematics."
 weight: 2
-
-papers:
-  - key: ""
-    authors: ""
-    title: ""
-    journal: ""
-    year: 
-    volume: 
-    number: 
-    pages: ""
-    doi: ""
-    url: ""
-
-videos:
-  - title: "Project Overview"
-    embed: "https://www.youtube.com/embed/XXXX"
-  - title: "Demo Run"
-    embed: "https://www.youtube.com/embed/YYYY"
 ---
 
-> The secret of life, though, is to fall seven times and to get up eight times!
-Paulo Coelho
+> The secret of life, though, is to fall seven times and to get up eight times. — Paulo Coelho
 
+## FAST Fellowship (2025–2026)
+
+I am a **FAST Fellow (Future Academic Scholars in Teaching)** at Michigan State University, a competitive teaching-as-research professional development program for STEM Ph.D. students; I was selected as one of nine fellows university-wide. Through the fellowship, I planned and conducted a mentored classroom research project aimed at improving undergraduate teaching and learning, with structured peer mentoring and one-on-one feedback along the way.
 
 ---
 
-## Project 1: 
+## Project: Patterns Emerge in Students' Use of AI in Mathematics
 
-My first proposed FAST project will focus on how to integrate technological tools such as LATEX, Python, and LEAN to improve learning experiences and Mathematical writing. For example, LaTeX Beamer is more efficient and user-friendly when creating math-focused presentations than Microsoft PowerPoint. Moreover, theoretical subjects like quantum topology, which is not easy to visualize, can be easily visualized using Python. My second proposed project is very much related to the core tenet of my teaching philosophy; creating a motivating learning environment for students of all backgrounds and skill levels. Many students grapple with the fear of giving incorrect answers, which hinders their participation. I aim to develop strategies that reduce mathematics anxiety and encourage students to view failure as a stepping stone to success. I hope these two proposed projects will be excellent additions to the FAST community coming from a fellow mathematics teacher.
-
-In theoretical advanced mathematics subjects, technological tools are often underutilized resources. Through FAST, I aim to interact with participants in other STEM disciplines and exchange knowledge to explore innovative approaches to improve mathematical learning. The FAST fellowship offers ample time to learn and implement these projects and provides opportunities for one-on-one feedback and effective peer mentoring in a structured environment. This supportive environment will help me refine my teaching methodologies, improve project outcomes, and strengthen my ability to effectively incorporate technology into mathematics education. 
+My FAST project studies how students use AI tools when learning mathematics, and what patterns emerge in that use. I presented the results at the **FAST Fellowship Symposium**, Michigan State University, in April 2026.
 
 ---
 
-## Future Directions: Topics of Interest
+## Related interests
 
-Here you discuss **what you are interested in exploring next**. For example:
+**Technology in mathematical learning.** Technological tools are often underused in theoretical mathematics. I integrate tools such as LaTeX, Python, and Lean into my courses to strengthen mathematical writing and communication. For example, in my online Introduction to Proofs course, students used LaTeX throughout the semester, and their proof-writing growth was assessed through a cumulative final portfolio.
 
-- Applying quantum invariants to low-dimensional topology problems.
-- Connections between TQFT and quantum computing.
-- New combinatorial methods for computing invariants efficiently.
+**Reducing math anxiety.** Many students fear giving incorrect answers, which keeps them from participating. I am interested in strategies that make failure feel safe, such as resubmission with reflection, deliberate public mistakes, and structured group work, and in measuring how these strategies affect participation and learning. See my [Teaching Philosophy](/teachingphilosophy/) for how these ideas shape my classroom.
+
+---
+
+## Future directions
+
+- Engaging in departmental course design for gateway courses.
+- Incorporating new collaborative learning tools in both in-person and online classrooms.
+- Continuing classroom research on technology and AI in mathematics learning.

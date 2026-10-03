@@ -1,156 +1,119 @@
 {{ define "main" }}
-<!-- Load Inter -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<!-- Dark Mode CSS Variables -->
 <style>
-  :root {
-    --text-color: #1C1C1C;
-    --heading-color: #18453B;
-    --link-color: #18453B;
-    --bg-color: #ffffff;
-    --meta-color: #4a4a4a;
-    --caption-color: #555555;
+  .aw {
+    --tp-text: #1f2937;
+    --tp-muted: #4b5563;
+    --tp-heading: #18453B;
+    --tp-accent: #18453B;
+    --tp-accent-soft: #e8f0ed;
+    --tp-gold: #a16207;
+    --tp-gold-soft: #fef3c7;
+    --tp-card: #ffffff;
+    --tp-item: #f9fafb;
+    --tp-border: #e5e7eb;
+    --tp-link: #1d4ed8;
+    color: var(--tp-text);
   }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --text-color: #f0f0f0;
-      --heading-color: #a5f3fc;
-      --link-color: #38bdf8;
-      --bg-color: #121212;
-      --meta-color: #cbd5e1;
-      --caption-color: #d1d5db;
-    }
+  html.dark .aw {
+    --tp-text: #e5e7eb;
+    --tp-muted: #9ca3af;
+    --tp-heading: #a7e3cf;
+    --tp-accent: #4fae8e;
+    --tp-accent-soft: rgba(79, 174, 142, 0.15);
+    --tp-gold: #fcd34d;
+    --tp-gold-soft: rgba(252, 211, 77, 0.12);
+    --tp-card: #1f2937;
+    --tp-item: #111827;
+    --tp-border: #374151;
+    --tp-link: #60a5fa;
   }
-
-  body {
-    color: var(--text-color);
-    background-color: var(--bg-color);
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    color: var(--heading-color);
-  }
-
-  /* ONLY CHANGE: make main page title white */
-  .page-title {
-    color: #ffffff !important;
-  }
-
-  p, span, li {
-    color: var(--text-color);
-  }
-
-  a {
-    color: var(--link-color);
-    transition: color 0.2s ease-in-out;
-  }
-
-  a:hover {
-    text-decoration: underline;
-  }
-
-  .text-gray-700 { color: var(--meta-color) !important; }
-  .text-gray-600 { color: var(--caption-color) !important; }
+  .aw-wrap { max-width: 1000px; margin: 0 auto; }
+  .aw-toc { display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 2rem; }
+  .aw-toc a { font-size: 0.85rem; font-weight: 600; padding: 0.35rem 0.9rem; border-radius: 999px; background: var(--tp-accent-soft); color: var(--tp-heading); text-decoration: none; }
+  .aw-card { background: var(--tp-card); border: 1px solid var(--tp-border); border-radius: 1rem; padding: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05); margin-bottom: 2.5rem; scroll-margin-top: 5rem; }
+  .aw-card > h2 { color: var(--tp-heading); font-size: 1.7rem; font-weight: 800; margin-bottom: 1.25rem; padding-bottom: 0.6rem; border-bottom: 2px solid var(--tp-accent-soft); }
+  .aw-uni { border-left: 4px solid var(--tp-accent); padding-left: 1.25rem; margin-bottom: 2rem; }
+  .aw-uni:last-child { margin-bottom: 0; }
+  .aw-uni > h3 { color: var(--tp-heading); font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; }
+  .aw-layout { display: flex; gap: 1.5rem; align-items: flex-start; }
+  .aw-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.75rem; flex: 1; min-width: 0; }
+  .aw-item { background: var(--tp-item); border: 1px solid var(--tp-border); border-radius: 0.75rem; padding: 0.9rem 1.1rem; transition: border-color 0.2s; }
+  .aw-item:hover { border-color: var(--tp-accent); }
+  .aw-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0.25rem 1rem; }
+  .aw-title { font-weight: 650; font-size: 1.02rem; color: var(--tp-text); }
+  .aw-badges { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+  .aw-badge { font-size: 0.75rem; font-weight: 600; padding: 0.15rem 0.6rem; border-radius: 999px; background: var(--tp-accent-soft); color: var(--tp-heading); white-space: nowrap; }
+  .aw-badge.amount { background: var(--tp-gold-soft); color: var(--tp-gold); }
+  .aw-desc { margin: 0.45rem 0 0; font-size: 0.92rem; line-height: 1.6; color: var(--tp-muted); }
+  .aw-link { display: inline-block; margin-top: 0.4rem; font-size: 0.82rem; font-weight: 600; color: var(--tp-link); }
+  .aw-photo { width: 15rem; flex-shrink: 0; position: sticky; top: 6rem; }
+  .aw-photo img { width: 100%; border-radius: 0.75rem; box-shadow: 0 6px 16px rgba(0,0,0,0.15); }
+  .aw-photo p { text-align: center; font-size: 0.82rem; color: var(--tp-muted); margin-top: 0.5rem; }
+  @media (max-width: 768px) { .aw-layout { flex-direction: column; } .aw-photo { position: static; width: 100%; max-width: 18rem; margin: 0 auto; } }
 </style>
 
-<section class="relative py-12 min-h-screen">
+<section class="relative py-12 min-h-screen aw">
 
   <!-- Background behind main title -->
-  <div class="absolute inset-x-0 top-0 h-32 md:h-28">
-    <img src="/uploads/stacked-peaks.svg" class="w-full h-full object-cover opacity-60" />
+  <div class="absolute inset-x-0 top-0 h-28">
+    <img src="/uploads/stacked-peaks.svg" class="w-full h-full object-cover opacity-60" alt="" />
     <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent"></div>
   </div>
 
-  <!-- Content -->
   <div class="container mx-auto px-4 relative z-10">
 
-    <!-- Main Page Title -->
     {{ with .Title }}
-      <h1 class="page-title text-3xl md:text-4xl font-extrabold mb-8 text-center drop-shadow-lg relative z-10">
-        {{ . }}
-      </h1>
+      <h1 class="text-3xl md:text-4xl font-extrabold mb-10 text-center drop-shadow-lg relative z-10" style="color: white;">{{ . }}</h1>
     {{ end }}
 
-    <!-- Loop over subtopics -->
-    {{ range .Params.subtopics }}
-      <h2 class="text-2xl md:text-3xl font-bold mb-6">{{ .title }}</h2>
+    <div class="aw-wrap">
 
-      {{ range .universities }}
-        <div class="mb-10">
+      <nav class="aw-toc">
+        {{ range .Params.subtopics }}<a href="#{{ .title | anchorize }}">{{ .title }}</a>{{ end }}
+      </nav>
 
-          <!-- University Name -->
-          <h3 class="text-1xl md:text-2xl font-bold mb-4">{{ .name }}</h3>
+      {{ range .Params.subtopics }}
+        <div class="aw-card" id="{{ .title | anchorize }}">
+          <h2>{{ .title }}</h2>
 
-          <!-- Flex: left = text, right = image -->
-          <div class="flex flex-col md:flex-row md:items-start md:space-x-6">
+          {{ range .universities }}
+            <div class="aw-uni">
+              <h3>{{ .name }}</h3>
 
-            <!-- Left: Text info for all items -->
-            <div class="flex-1 space-y-4">
-              {{ range .items }}
-                <div class="p-4 rounded-xl shadow-md border-l-4" style="border-left-color: var(--heading-color); background-color: var(--bg-color)">
-                  <span class="block text-xl md:text-1xl font-semibold">{{ .title }}</span>
-                  <span class="text-gray-700">{{ .date }}</span>
-                  {{ if .description }}
-                    <p class="text-gray-600 mt-2">{{ .description }}</p>
+              {{ $photo := "" }}
+              {{ range .items }}{{ if and .image (not $photo) }}{{ $photo = . }}{{ end }}{{ end }}
+
+              <div class="aw-layout">
+                <ul class="aw-list">
+                  {{ range .items }}
+                    <li class="aw-item">
+                      <div class="aw-head">
+                        <span class="aw-title">{{ .title }}</span>
+                        <span class="aw-badges">
+                          {{ with .amount }}<span class="aw-badge amount">{{ . }}</span>{{ end }}
+                          {{ with .date }}<span class="aw-badge">{{ . }}</span>{{ end }}
+                        </span>
+                      </div>
+                      {{ with .description }}<p class="aw-desc">{{ . }}</p>{{ end }}
+                      {{ with .url }}<a href="{{ . }}" target="_blank" rel="noopener" class="aw-link">Learn more &rarr;</a>{{ end }}
+                    </li>
                   {{ end }}
-                  {{ if .url }}
-                    <a href="{{ .url }}" target="_blank" class="hover:underline mt-1 inline-block">[link]</a>
-                  {{ end }}
-                </div>
-              {{ end }}
+                </ul>
+
+                {{ with $photo }}
+                  <figure class="aw-photo">
+                    <img src="{{ .image }}" alt="{{ .title }}" loading="lazy">
+                    {{ with .caption }}<p>{{ . }}</p>{{ end }}
+                  </figure>
+                {{ end }}
+              </div>
             </div>
-
-            <!-- Right: First available image -->
-            {{ $firstImage := "" }}
-            {{ range .items }}
-              {{ if .image }}
-                {{ $firstImage = .image }}
-                {{ break }}
-              {{ end }}
-            {{ end }}
-
-            {{ if $firstImage }}
-            <div class="mt-4 md:mt-0 flex-shrink-0 md:self-start self-center">
-              <img src="{{ $firstImage }}" alt="University Image"
-                   class="w-48 h-auto md:w-64 lg:w-72 object-contain rounded-lg shadow-lg">
-              <p class="text-center text-gray-600 text-sm mt-2">Photo taken on the day of the TA Award ceremony.</p>
-            </div>
-            {{ end }}
-
-          </div>
-
+          {{ end }}
         </div>
       {{ end }}
 
-    {{ end }}
-
+    </div>
   </div>
 </section>
 {{ end }}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

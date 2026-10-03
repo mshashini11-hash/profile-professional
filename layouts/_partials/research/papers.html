@@ -1,0 +1,19 @@
+<ul class="rs-list">
+    {{ range .ByWeight }}
+      <li class="rs-item">
+        <div class="rs-item-main">
+          <div class="rs-item-title">{{ .Title }}</div>
+          <div class="rs-item-meta">
+            {{ with .Params.authors }}{{ delimit . ", " }}{{ end }}{{ with .Params.year }} ({{ . }}){{ end }}{{ with .Params.journal }}. <em>{{ . }}</em>{{ end }}
+          </div>
+          {{ with .Params.status }}<span class="rs-status">{{ . }}</span>{{ end }}
+          {{ $links := where (.Params.links | default slice) "url" "!=" "" }}
+          {{ with $links }}
+            <div class="rs-links">
+              {{ range . }}{{ if .name }}<a class="rs-link" href="{{ .url }}" target="_blank" rel="noopener">{{ .name }}</a>{{ end }}{{ end }}
+            </div>
+          {{ end }}
+        </div>
+      </li>
+    {{ end }}
+  </ul>

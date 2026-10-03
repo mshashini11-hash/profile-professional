@@ -1,46 +1,71 @@
 {{ define "main" }}
 
 <style>
-  /* Apply Inter for main content and keep blockquotes serif */
-  section, main, main p, main li, main span, main a, main figcaption {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    line-height: 1.8;
+  .rs {
+    --tp-text: #1f2937;
+    --tp-muted: #4b5563;
+    --tp-heading: #18453B;
+    --tp-accent: #18453B;
+    --tp-accent-soft: #e8f0ed;
+    --tp-card: #ffffff;
+    --tp-item: #f9fafb;
+    --tp-border: #e5e7eb;
+    --tp-link: #1d4ed8;
+    color: var(--tp-text);
   }
-
-  main h1 { font-size: 36px; }
-  main h2 { font-size: 28px; }
-  main h3 { font-size: 24px; }
-  main h4, main h5, main h6 { font-size: 20px; }
-
-  blockquote.intro-quote, blockquote {
-    font-family: Georgia, Cambria, "Times New Roman", Times, serif;
-    font-size: 20px;
-    font-style: italic;
-    text-align: center;
-    margin-bottom: 1.5rem;
-    color: #4a4a4a;
+  html.dark .rs {
+    --tp-text: #e5e7eb;
+    --tp-muted: #9ca3af;
+    --tp-heading: #a7e3cf;
+    --tp-accent: #4fae8e;
+    --tp-accent-soft: rgba(79, 174, 142, 0.15);
+    --tp-card: #1f2937;
+    --tp-item: #111827;
+    --tp-border: #374151;
+    --tp-link: #60a5fa;
   }
+  .rs a { color: var(--tp-link); }
+  .rs-wrap { max-width: 1000px; margin: 0 auto; }
+  .rs-card { background: var(--tp-card); border: 1px solid var(--tp-border); border-radius: 1rem; padding: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05); margin-bottom: 2.5rem; }
+  .rs-h2 { color: var(--tp-heading); font-size: 1.6rem; font-weight: 800; margin-bottom: 1.25rem; padding-bottom: 0.6rem; border-bottom: 2px solid var(--tp-accent-soft); }
+  .rs-h3 { color: var(--tp-heading); font-size: 1.15rem; font-weight: 700; margin: 1.25rem 0 0.75rem; }
+  .rs-intro { font-size: 1.05rem; line-height: 1.8; }
+  .rs-intro strong { color: var(--tp-heading); }
+  .rs-intro p { margin: 0; }
+  .rs-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 1rem; }
+  .rs-tag { font-size: 0.78rem; font-weight: 600; padding: 0.2rem 0.7rem; border-radius: 999px; background: var(--tp-accent-soft); color: var(--tp-heading); }
+  .rs-note { margin-top: 1rem; padding: 0.75rem 1rem; border-left: 4px solid var(--tp-accent); background: var(--tp-accent-soft); border-radius: 0 0.5rem 0.5rem 0; font-size: 0.92rem; }
 
-  a { transition: all 0.2s ease-in-out; }
+  .rs-projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin-bottom: 2.5rem; }
+  .rs-proj { display: flex; flex-direction: column; background: var(--tp-card); border: 1px solid var(--tp-border); border-radius: 1rem; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); transition: transform 0.2s, box-shadow 0.2s; text-decoration: none; }
+  .rs-proj:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+  .rs-proj img { width: 100%; height: 11rem; object-fit: cover; }
+  .rs-proj-body { padding: 1rem 1.25rem 1.25rem; display: flex; flex-direction: column; flex: 1; }
+  .rs-proj-title { color: var(--tp-heading); font-size: 1.15rem; font-weight: 700; margin-bottom: 0.35rem; }
+  .rs-proj-sum { color: var(--tp-muted); font-size: 0.9rem; line-height: 1.5; flex: 1; }
+  .rs-proj-more { margin-top: 0.75rem; font-size: 0.85rem; font-weight: 600; color: var(--tp-link); }
 
-  /* Dark mode adjustments */
-  @media (prefers-color-scheme: dark) {
-    /* White background for papers and Guest Talks */
-    .guest-talks, .papers-section {
-      background-color: #ffffff !important;
-      color: inherit !important;
-      padding: 1rem;
-      border-radius: 0.5rem;
-    }
-  }
+  .rs-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.75rem; }
+  .rs-item { background: var(--tp-item); border: 1px solid var(--tp-border); border-radius: 0.75rem; padding: 0.9rem 1.1rem; display: flex; gap: 1rem; justify-content: space-between; align-items: flex-start; }
+  .rs-item-main { flex: 1; min-width: 0; }
+  .rs-item-title { font-weight: 650; color: var(--tp-text); line-height: 1.45; }
+  .rs-item-meta { font-size: 0.88rem; color: var(--tp-muted); margin-top: 0.2rem; line-height: 1.5; }
+  .rs-status { display: inline-block; font-size: 0.75rem; font-weight: 600; padding: 0.1rem 0.55rem; border-radius: 999px; background: var(--tp-accent-soft); color: var(--tp-heading); margin-top: 0.4rem; }
+  .rs-links { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.55rem; }
+  .rs-link { font-size: 0.78rem; font-weight: 600; padding: 0.2rem 0.65rem; border: 1px solid var(--tp-border); border-radius: 0.4rem; background: var(--tp-card); text-decoration: none; }
+  .rs-link:hover { text-decoration: underline; }
+  .rs-date { font-size: 0.75rem; font-weight: 600; padding: 0.15rem 0.6rem; border-radius: 999px; background: var(--tp-accent-soft); color: var(--tp-heading); white-space: nowrap; }
+  .rs-thumb { width: 7rem; height: 4.2rem; object-fit: cover; border-radius: 0.4rem; border: 1px solid var(--tp-border); flex-shrink: 0; }
+  @media (max-width: 640px) { .rs-thumb { display: none; } .rs-item { flex-direction: column; gap: 0.4rem; } }
 </style>
 
-<section class="py-12 relative">
+
+
+<section class="py-12 relative rs">
 
   <!-- Background behind main title -->
-  <div class="absolute inset-x-0 top-0 h-36 md:h-28">
-    <img src="/uploads/stacked-peaks.svg" class="w-full h-full object-cover opacity-60" />
+  <div class="absolute inset-x-0 top-0 h-28">
+    <img src="/uploads/stacked-peaks.svg" class="w-full h-full object-cover opacity-60" alt="" />
     <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent"></div>
   </div>
 
@@ -48,186 +73,63 @@
 
     <!-- Main title -->
     {{ with .Title }}
-      <h1 class="text-3xl md:text-4xl font-extrabold mb-8 text-center text-white drop-shadow-lg relative z-10">{{ . }}</h1>
+      <h1 class="text-3xl md:text-4xl font-extrabold mb-10 text-center text-white drop-shadow-lg relative z-10">{{ . }}</h1>
     {{ end }}
 
-    <!-- Projects grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-      {{ range .Pages.ByWeight }}
-        <a href="{{ .RelPermalink }}" class="block bg-white rounded-xl shadow-md hover:shadow-lg transition p-4">
-          {{ with .Params.image }}
-            <img src="{{ . }}" alt="{{ $.Title }}" class="w-full h-48 object-cover rounded-lg mb-4">
+    <div class="rs-wrap">
+
+      <!-- Overview -->
+      {{ with .Params.intro }}
+        <div class="rs-card">
+          <h2 class="rs-h2">Overview</h2>
+          <div class="rs-intro">{{ . | markdownify }}</div>
+          {{ with $.Params.keywords }}
+            <div class="rs-tags">{{ range . }}<span class="rs-tag">{{ . }}</span>{{ end }}</div>
           {{ end }}
-          <h2 class="text-xl md:text-2xl font-semibold text-[#18453B] mb-2">{{ .Title }}</h2>
-          <p class="text-gray-700 text-sm md:text-base">{{ .Params.summary }}</p>
-        </a>
+          {{ with $.Params.highlight }}<div class="rs-note">{{ . }}</div>{{ end }}
+        </div>
       {{ end }}
-    </div>
 
-    <!-- Topology papers -->
-    <div class="papers-section">
-      <h2 class="text-2xl md:text-3xl font-bold mb-4 text-[#18453B]">Topology</h2>
-      <ol class="list-decimal list-inside space-y-1 mb-8">
-        {{ $top := where site.RegularPages "Section" "topology" }}
-        {{ range $top }}
-          <li class="text-gray-800 text-sm md:text-base">
-            {{ if .Params.citation }}
-              {{ .Params.citation | safeHTML }}
-            {{ else }}
-              <strong>{{ .Title }}</strong>
-              {{ with .Params.authors }} ({{ delimit . ", " }}){{ end }}.
-              {{ with .Params.year }} ({{ . }}).{{ end }}
-              {{ with .Params.journal }} <em>{{ . }}</em>,{{ end }}
-              {{ with .Params.volume }} Vol. {{ . }},{{ end }}
-              {{ with .Params.issue }} Issue {{ . }},{{ end }}
-              {{ with .Params.pages }} pp. {{ . }}.{{ end }}
-              {{ with .Params.doi }} DOI: <a href="{{ . }}" class="text-blue-600 font-bold hover:underline">{{ . }}</a>{{ end }}
-            {{ end }}
-            {{ with .Params.links }}
-              <span class="space-x-2">
-                {{ range . }}
-                  {{ if .name }}
-                    <a href="{{ .url }}" target="_blank" class="text-blue-600 font-bold hover:underline">{{ .name }}</a>
-                  {{ end }}
-                {{ end }}
-              </span>
-            {{ end }}
-          </li>
-        {{ end }}
-      </ol>
-    </div>
-
-    <!-- Education papers -->
-    <div class="papers-section">
-      <h2 class="text-2xl md:text-3xl font-bold mb-4 text-[#18453B]">Education</h2>
-      <ol class="list-decimal list-inside space-y-1 mb-8">
-        {{ $edu := where site.RegularPages "Section" "education" }}
-        {{ range $edu }}
-          <li class="text-gray-800 text-sm md:text-base">
-            {{ if .Params.citation }}
-              {{ .Params.citation | safeHTML }}
-            {{ else }}
-              <strong>{{ .Title }}</strong>
-              {{ with .Params.authors }} ({{ delimit . ", " }}){{ end }}.
-              {{ with .Params.year }} ({{ . }}).{{ end }}
-              {{ with .Params.journal }} <em>{{ . }}</em>,{{ end }}
-              {{ with .Params.volume }} Vol. {{ . }},{{ end }}
-              {{ with .Params.issue }} Issue {{ . }},{{ end }}
-              {{ with .Params.pages }} pp. {{ . }}.{{ end }}
-              {{ with .Params.doi }} DOI: <a href="{{ . }}" class="text-blue-600 font-bold hover:underline">{{ . }}</a>{{ end }}
-            {{ end }}
-            {{ with .Params.links }}
-              <span class="space-x-2">
-                {{ range . }}
-                  {{ if .name }}
-                    <a href="{{ .url }}" target="_blank" class="text-blue-600 font-bold hover:underline">{{ .name }}</a>
-                  {{ end }}
-                {{ end }}
-              </span>
-            {{ end }}
-          </li>
-        {{ end }}
-      </ol>
-    </div>
-
-    <!-- Guest Talks -->
-    <div class="guest-talks">
-      <h2 class="text-2xl md:text-3xl font-bold mb-4 text-[#18453B]">Guest Talks</h2>
-
-      {{ $talks := where site.RegularPages "Section" "guesttalks" }}
-      <ol class="space-y-4">
-        {{ range $index, $talk := $talks.ByDate.Reverse }}
-
-          {{ $youtubeURL := "" }}
-          {{ with $talk.Params.links }}
-            {{ range . }}
-              {{ if or (in (lower .name) "youtube") (in .url "youtube.com/watch?v=") (in .url "youtu.be/") }}
-                {{ $youtubeURL = .url }}
-              {{ end }}
-            {{ end }}
-          {{ end }}
-
-          {{ $thumb := "" }}
-          {{ if $youtubeURL }}
-            {{ if in $youtubeURL "youtube.com/watch?v=" }}
-              {{ $thumb = replaceRE `.*v=([^&]+).*` `https://img.youtube.com/vi/$1/hqdefault.jpg` $youtubeURL }}
-            {{ else if in $youtubeURL "youtu.be/" }}
-              {{ $thumb = replaceRE `.*youtu\.be/([^?&]+).*` `https://img.youtube.com/vi/$1/hqdefault.jpg` $youtubeURL }}
-            {{ end }}
-          {{ end }}
-
-          <li class="bg-white border border-gray-200 rounded-lg px-4 py-4 shadow-sm">
-            <div class="flex items-start justify-between gap-4">
-
-              <div class="flex-1 min-w-0">
-                <div class="flex items-start gap-3">
-                  <span class="text-gray-500 font-semibold text-sm md:text-base pt-0.5">
-                    {{ add $index 1 }}.
-                  </span>
-
-                  <div class="min-w-0">
-                    <div class="text-base md:text-lg font-semibold text-[#18453B] leading-snug">
-                      {{ $talk.Title }}
-                    </div>
-
-                    <div class="mt-1 text-sm text-gray-700">
-                      {{ with $talk.Params.event }}
-                        <span>{{ . }}</span>
-                      {{ end }}
-                      {{ if and $talk.Params.event $talk.Params.date }}
-                        <span> · </span>
-                      {{ end }}
-                      {{ with $talk.Params.date }}
-                        <span>{{ . }}</span>
-                      {{ end }}
-                    </div>
-
-                    {{ with $talk.Params.summary }}
-                      <p class="mt-2 text-sm md:text-base text-gray-800 leading-relaxed">
-                        {{ . }}
-                      </p>
-                    {{ end }}
-
-                    {{ with $talk.Params.links }}
-                      <div class="mt-2 flex flex-wrap gap-x-3 gap-y-1">
-                        {{ range . }}
-                          {{ if .name }}
-                            <a href="{{ .url }}" target="_blank" class="text-blue-600 font-bold hover:underline text-sm md:text-base">
-                              {{ .name }}
-                            </a>
-                          {{ end }}
-                        {{ end }}
-                      </div>
-                    {{ end }}
-                  </div>
-                </div>
-              </div>
-
-              <div class="shrink-0 pt-1">
-                {{ if $thumb }}
-                  <a href="{{ $youtubeURL }}" target="_blank">
-                    <img src="{{ $thumb }}" alt="{{ $talk.Title }}" class="w-24 h-16 md:w-28 md:h-18 object-cover rounded-md border border-gray-200">
-                  </a>
-                {{ else }}
-                  {{ with $talk.Params.image }}
-                    {{ with .filename }}
-                      <img src="{{ . }}" alt="{{ $talk.Title }}" class="w-24 h-16 md:w-28 md:h-18 object-cover rounded-md border border-gray-200">
-                    {{ else }}
-                      <img src="{{ . }}" alt="{{ $talk.Title }}" class="w-24 h-16 md:w-28 md:h-18 object-cover rounded-md border border-gray-200">
-                    {{ end }}
-                  {{ end }}
-                {{ end }}
-              </div>
-
+      <!-- Projects grid -->
+      <div class="rs-projects">
+        {{ range .Pages.ByWeight }}
+          <a href="{{ .RelPermalink }}" class="rs-proj">
+            {{ with .Params.image }}<img src="{{ . }}" alt="" loading="lazy">{{ end }}
+            <div class="rs-proj-body">
+              <div class="rs-proj-title">{{ .Title }}</div>
+              <div class="rs-proj-sum">{{ .Params.summary }}</div>
+              <div class="rs-proj-more">Read more &rarr;</div>
             </div>
-          </li>
-
+          </a>
         {{ end }}
-      </ol>
-    </div>
+      </div>
 
+      <!-- Publications -->
+      <div class="rs-card papers-section">
+        <h2 class="rs-h2">Publications &amp; Preprints</h2>
+        <h3 class="rs-h3">Topology</h3>
+        {{ partial "research/papers.html" (where site.RegularPages "Section" "topology") }}
+        {{ with where site.RegularPages "Section" "education" }}
+          <h3 class="rs-h3">Mathematics Education</h3>
+          {{ partial "research/papers.html" . }}
+        {{ end }}
+      </div>
+
+      <!-- Talks -->
+      {{ $talks := (where site.RegularPages "Section" "guesttalks").ByDate.Reverse }}
+      <div class="rs-card guest-talks">
+        <h2 class="rs-h2">Talks</h2>
+        {{ with where $talks "Params.talk_type" "conference" }}
+          <h3 class="rs-h3">Conference &amp; Invited Talks</h3>
+          {{ partial "research/talks.html" . }}
+        {{ end }}
+        {{ with where $talks "Params.talk_type" "!=" "conference" }}
+          <h3 class="rs-h3">Seminar Talks</h3>
+          {{ partial "research/talks.html" . }}
+        {{ end }}
+      </div>
+
+    </div>
   </div>
 </section>
-
-<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 {{ end }}

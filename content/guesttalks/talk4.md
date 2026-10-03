@@ -1,14 +1,7 @@
 ---
-title: "Ribbon Category"
+title: "Ribbon categories"
 date: "2024-07-08"
-event: "Michigan State Universitu"
-summary: ""
-image:
-  filename: ""
-  alt: ""
-links:
-  - name: ""
-    url: ""
-  - name: ""
-    url: ""
+date_display: "2024"
+talk_type: "seminar"
+event: "Michigan State University"
 ---

@@ -1,57 +1,68 @@
 {{ define "main" }}
 
-<!-- Global Dark Mode Styles -->
 <style>
-  :root {
-    --text-color: #1C1C1C;
-    --heading-color: #18453B;
-    --quote-color: #4a4a4a;
-    --link-color: #18453B;
-    --bg-color: #ffffff;
+  .tph {
+    --tp-text: #1f2937;
+    --tp-muted: #4b5563;
+    --tp-heading: #18453B;
+    --tp-accent: #18453B;
+    --tp-accent-soft: #e8f0ed;
+    --tp-card: #ffffff;
+    --tp-border: #e5e7eb;
+    --tp-quote-bg: #f6faf8;
+    color: var(--tp-text);
   }
-
- /* Dark mode dropdown override */
-@media (prefers-color-scheme: dark) {
-  .dropdown-content {
-    background-color: #000000 !important; /* black background */
-    color: #ffffff !important;            /* white text */
+  html.dark .tph {
+    --tp-text: #e5e7eb;
+    --tp-muted: #9ca3af;
+    --tp-heading: #a7e3cf;
+    --tp-accent: #4fae8e;
+    --tp-accent-soft: rgba(79, 174, 142, 0.15);
+    --tp-card: #1f2937;
+    --tp-border: #374151;
+    --tp-quote-bg: #111827;
   }
-}
+  .tph h2, .tph h3 { color: var(--tp-heading); }
+  .tph a { color: var(--tp-heading); text-decoration: underline; }
 
+  .tph-wrap { max-width: 860px; margin: 0 auto; }
+  .tph-quote { font-family: Georgia, Cambria, "Times New Roman", serif; font-style: italic; font-size: 1.35rem; line-height: 1.5; text-align: center; color: var(--tp-heading); margin: 0 auto 0.4rem; max-width: 680px; }
+  .tph-quote-author { text-align: center; font-size: 0.9rem; color: var(--tp-muted); margin-bottom: 2rem; }
+  .tph-intro { background: var(--tp-card); border: 1px solid var(--tp-border); border-radius: 1rem; padding: 1.75rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05); margin-bottom: 2.5rem; }
+  .tph-tagline { font-size: 1.3rem; font-weight: 700; color: var(--tp-heading); margin-bottom: 0.75rem; }
+  .tph-prose p { font-size: 1.02rem; line-height: 1.8; margin: 0 0 1rem; }
+  .tph-prose p:last-child { margin-bottom: 0; }
+  .tph-prose strong { color: var(--tp-heading); }
 
+  .tph-toc { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin-bottom: 2.5rem; }
+  .tph-toc a { text-decoration: none; font-size: 0.85rem; font-weight: 600; padding: 0.35rem 0.85rem; border-radius: 999px; background: var(--tp-accent-soft); }
+  .tph-toc a:hover { text-decoration: underline; }
 
-  body {
-    color: var(--text-color);
-    background-color: var(--bg-color);
-  }
+  .tph-section { display: grid; grid-template-columns: 3rem 1fr; gap: 1rem; margin-bottom: 2rem; scroll-margin-top: 5rem; }
+  .tph-num { width: 2.6rem; height: 2.6rem; border-radius: 999px; background: var(--tp-accent); color: #fff; font-weight: 800; display: flex; align-items: center; justify-content: center; font-size: 1.05rem; }
+  .tph-card { background: var(--tp-card); border: 1px solid var(--tp-border); border-radius: 1rem; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+  .tph-card h2 { font-size: 1.45rem; font-weight: 750; margin: 0.1rem 0 0.9rem; }
 
-  h1, h2, h3, h4, h5, h6 {
-    color: var(--heading-color);
-  }
+  .tph-voices { margin-top: 3rem; }
+  .tph-voices > h2 { font-size: 1.8rem; font-weight: 800; text-align: center; margin-bottom: 0.25rem; }
+  .tph-voices-intro { text-align: center; color: var(--tp-muted); font-size: 0.9rem; margin-bottom: 1.75rem; }
+  .tph-course { margin-bottom: 1.75rem; }
+  .tph-course h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem; }
+  .tph-quotes { display: grid; align-items: start; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0.9rem; }
+  .tph-q { position: relative; background: var(--tp-quote-bg); border: 1px solid var(--tp-border); border-left: 4px solid var(--tp-accent); border-radius: 0.75rem; padding: 1rem 1.1rem 1rem 1.1rem; font-size: 0.95rem; line-height: 1.6; margin: 0; }
+  .tph-q::before { content: "\201C"; font-family: Georgia, serif; font-size: 2.2rem; line-height: 1; color: var(--tp-accent); opacity: 0.5; display: block; height: 1.1rem; }
 
-  p, li, blockquote {
-    color: var(--text-color);
-  }
-
-  blockquote {
-    border-color: var(--heading-color);
-  }
-
-  a {
-    color: var(--link-color);
-    transition: color 0.2s ease-in-out;
-  }
-  a:hover {
-    color: var(--link-color);
-    text-decoration: underline;
+  @media (max-width: 640px) {
+    .tph-section { grid-template-columns: 1fr; }
+    .tph-num { width: 2.2rem; height: 2.2rem; font-size: 0.95rem; }
   }
 </style>
 
-<section class="relative py-12 min-h-screen font-inter">
+<section class="relative py-12 min-h-screen tph">
 
   <!-- Background behind main title -->
-  <div class="absolute inset-x-0 top-0 h-30 md:h-30">
-    <img src="/uploads/stacked-peaks.svg" class="w-full h-full object-cover opacity-60" />
+  <div class="absolute inset-x-0 top-0 h-28">
+    <img src="/uploads/stacked-peaks.svg" class="w-full h-full object-cover opacity-60" alt="" />
     <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent"></div>
   </div>
 
@@ -59,58 +70,76 @@
 
     <!-- Page Title -->
     {{ with .Title }}
-      <h1 class="text-3xl md:text-4xl font-extrabold mb-8 text-center drop-shadow-lg relative z-10"
-          style="color: white;">
+      <h1 class="text-3xl md:text-4xl font-extrabold mb-10 text-center drop-shadow-lg relative z-10" style="color: white;">
         {{ . }}
       </h1>
     {{ end }}
 
-    <!-- Intro Quote (keep font-serif) -->
-    {{ with .Params.intro_quote }}
-      <blockquote class="font-serif italic text-xl md:text-2xl mb-6 text-center max-w-3xl mx-auto">
-        {{ . }}
-      </blockquote>
-    {{ end }}
+    <div class="tph-wrap">
 
-    <!-- Intro Paragraph -->
-    {{ with .Params.intro }}
-      <p class="text-base md:text-lg mb-8 text-center">{{ . }}</p>
-    {{ end }}
+      <!-- Intro Quote -->
+      {{ with .Params.intro_quote }}
+        <blockquote class="tph-quote">&ldquo;{{ . }}&rdquo;</blockquote>
+        {{ with $.Params.intro_quote_author }}<div class="tph-quote-author">— {{ . }}</div>{{ end }}
+      {{ end }}
 
-    <!-- Loop over core values -->
-    {{ range .Params.core_values }}
-      <div class="mb-8 p-6 rounded-xl shadow-md hover:shadow-lg transition" style="background-color: var(--bg-color)">
+      <!-- Intro -->
+      {{ with .Params.intro }}
+        <div class="tph-intro tph-prose">
+          {{ with $.Params.tagline }}<div class="tph-tagline">{{ . }}</div>{{ end }}
+          {{ . | markdownify }}
+        </div>
+      {{ end }}
 
-        <!-- Core Value Title -->
-        <h2 class="text-2xl md:text-3xl font-bold mb-3">{{ .title }}</h2>
+      <!-- Section links -->
+      {{ with .Params.core_values }}
+        <nav class="tph-toc" aria-label="Sections">
+          {{ range $i, $v := . }}
+            <a href="#{{ $v.title | anchorize }}">{{ $v.title }}</a>
+          {{ end }}
+          {{ with $.Params.student_voices }}<a href="#student-voices">Student voices</a>{{ end }}
+        </nav>
+      {{ end }}
 
-        <!-- Core Value Description -->
-        <p class="text-base md:text-lg mb-3">{{ .description }}</p>
+      <!-- Core values -->
+      {{ range $i, $v := .Params.core_values }}
+        <div class="tph-section" id="{{ $v.title | anchorize }}">
+          <div class="tph-num">{{ add $i 1 }}</div>
+          <div class="tph-card tph-prose">
+            <h2>{{ $v.title }}</h2>
+            {{ $v.description | markdownify }}
 
-        <!-- Quote (with border, keep font-serif) -->
-        {{ with .quote }}
-          <blockquote class="font-serif italic pl-4 mb-3" style="border-left: 4px solid var(--heading-color);">"{{ . }}"</blockquote>
-        {{ end }}
-
-        <!-- Student Reviews -->
-        {{ with .student_reviews }}
-          <h4 class="font-semibold mb-2">Student Reviews:</h4>
-          <ul class="list-disc list-inside">
-            {{ range . }}
-              <li class="mb-1">{{ . }}</li>
+            {{ with $v.quote }}
+              <blockquote class="tph-q">{{ . }}</blockquote>
             {{ end }}
-          </ul>
-        {{ end }}
 
-      </div>
-    {{ end }}
+            {{ with $v.student_reviews }}
+              <h3 class="font-semibold mt-4 mb-2">Student Reviews</h3>
+              <div class="tph-quotes">
+                {{ range . }}<blockquote class="tph-q">{{ . }}</blockquote>{{ end }}
+              </div>
+            {{ end }}
+          </div>
+        </div>
+      {{ end }}
 
+      <!-- Student voices -->
+      {{ with .Params.student_voices }}
+        <div class="tph-voices" id="student-voices">
+          <h2>Student Voices</h2>
+          {{ with .intro }}<p class="tph-voices-intro">{{ . }}</p>{{ end }}
+          {{ range .courses }}
+            <div class="tph-course">
+              <h3>{{ .course }}</h3>
+              <div class="tph-quotes">
+                {{ range .quotes }}<blockquote class="tph-q">{{ . }}</blockquote>{{ end }}
+              </div>
+            </div>
+          {{ end }}
+        </div>
+      {{ end }}
+
+    </div>
   </div>
 </section>
 {{ end }}
-
-
-
-
-
-

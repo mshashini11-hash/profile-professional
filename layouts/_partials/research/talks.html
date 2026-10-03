@@ -1,0 +1,39 @@
+<ul class="rs-list">
+    {{ range . }}
+      {{ $talk := . }}
+      {{ $youtubeURL := "" }}
+      {{ range $talk.Params.links }}
+        {{ if and .url (or (in (lower .name) "youtube") (in .url "youtube.com/watch?v=") (in .url "youtu.be/")) }}
+          {{ $youtubeURL = .url }}
+        {{ end }}
+      {{ end }}
+      {{ $thumb := "" }}
+      {{ if in $youtubeURL "youtube.com/watch?v=" }}
+        {{ $thumb = replaceRE `.*v=([^&]+).*` `https://img.youtube.com/vi/$1/hqdefault.jpg` $youtubeURL }}
+      {{ else if in $youtubeURL "youtu.be/" }}
+        {{ $thumb = replaceRE `.*youtu\.be/([^?&]+).*` `https://img.youtube.com/vi/$1/hqdefault.jpg` $youtubeURL }}
+      {{ end }}
+      {{ $img := "" }}
+      {{ with $talk.Params.image }}{{ with .filename }}{{ $img = . }}{{ end }}{{ end }}
+
+      <li class="rs-item">
+        <div class="rs-item-main">
+          <div class="rs-item-title">{{ $talk.Title }}</div>
+          {{ with $talk.Params.event }}<div class="rs-item-meta">{{ . }}</div>{{ end }}
+          {{ with $talk.Params.summary }}<div class="rs-item-meta">{{ . }}</div>{{ end }}
+          {{ $links := where ($talk.Params.links | default slice) "url" "!=" "" }}
+          {{ with $links }}
+            <div class="rs-links">
+              {{ range . }}{{ if .name }}<a class="rs-link" href="{{ .url }}" target="_blank" rel="noopener">{{ .name }}</a>{{ end }}{{ end }}
+            </div>
+          {{ end }}
+        </div>
+        <span class="rs-date">{{ $talk.Params.date_display | default ($talk.Date.Format "January 2006") }}</span>
+        {{ if $thumb }}
+          <a href="{{ $youtubeURL }}" target="_blank" rel="noopener"><img class="rs-thumb" src="{{ $thumb }}" alt="Video: {{ $talk.Title }}" loading="lazy"></a>
+        {{ else if $img }}
+          <img class="rs-thumb" src="{{ $img }}" alt="{{ $talk.Title }}" loading="lazy">
+        {{ end }}
+      </li>
+    {{ end }}
+  </ul>

@@ -1,18 +1,8 @@
 ---
-title: "Pending FAST Project"
+title: "Patterns Emerge in Students’ Use of AI in Mathematics"
 authors:
-  - "Shashini Marasinghe"
-year: 2025
-journal: ""
-volume: ""
-issue: ""
-pages: ""
-doi: ""
-arxiv: "https://arxiv.org/abs/2504.10682"
-pdf: "https://arxiv.org/pdf/2504.10682"
-links:
-  - name: "arXiv"
-    url: "https://arxiv.org/abs/2504.10682"
-  - name: "PDF"
-    url: "https://arxiv.org/pdf/2504.10682"
+  - "S. Marasinghe"
+year: 2026
+weight: 1
+status: "FAST Fellowship classroom research project; presented at the FAST Fellowship Symposium, Michigan State University (April 2026)"
 ---
