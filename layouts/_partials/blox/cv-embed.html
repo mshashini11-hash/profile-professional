@@ -1,0 +1,17 @@
+{{/* Custom block: embedded CV PDF viewer */}}
+{{ $block := .wcBlock }}
+{{ $title := $block.content.title | default "Curriculum Vitae" }}
+{{ $pdf := $block.content.pdf | default "uploads/resume.pdf" | relURL }}
+
+<div class="cv-embed" style="max-width: 900px; margin: 0 auto; padding: 0 1rem;">
+  <h2 style="font-size: 1.875rem; font-weight: 700; margin-bottom: 1rem; text-align: center;">{{ $title }}</h2>
+  <object data="{{ $pdf }}#view=FitH" type="application/pdf" style="width: 100%; height: 85vh; min-height: 600px; border: 1px solid #e5e7eb; border-radius: 0.5rem;">
+    <p style="text-align: center; padding: 2rem 0;">
+      Your browser can't display the PDF here.
+      <a href="{{ $pdf }}" target="_blank" rel="noopener" style="text-decoration: underline;">Open the CV</a>.
+    </p>
+  </object>
+  <p style="text-align: center; margin-top: 0.75rem; font-size: 0.9rem;">
+    <a href="{{ $pdf }}" target="_blank" rel="noopener" style="text-decoration: underline;">Open CV in a new tab</a>
+  </p>
+</div>

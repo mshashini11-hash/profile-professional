@@ -27,6 +27,13 @@ sections:
           position: center
           parallax: false
 
+  # Embedded CV below the bio
+  - block: cv-embed
+    id: cv
+    content:
+      title: Curriculum Vitae
+      pdf: uploads/resume.pdf
+
 
 ---
 
