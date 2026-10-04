@@ -51,6 +51,9 @@
   .tp-badge { font-size: 0.75rem; font-weight: 600; padding: 0.15rem 0.6rem; border-radius: 999px; white-space: nowrap; background: var(--tp-accent-soft); color: var(--tp-heading); }
   .tp-badge.mode { background: transparent; border: 1px solid var(--tp-border); color: var(--tp-muted); }
   .tp-desc { margin: 0.5rem 0 0; font-size: 0.93rem; line-height: 1.6; color: var(--tp-muted); }
+  .tp-bullets { list-style: none; margin: 0.6rem 0 0; padding: 0; display: grid; gap: 0.3rem; }
+  .tp-bullets li { position: relative; padding-left: 1.1rem; font-size: 0.93rem; line-height: 1.55; color: var(--tp-muted); }
+  .tp-bullets li::before { content: ""; position: absolute; left: 0.15rem; top: 0.6em; width: 0.4rem; height: 0.4rem; border-radius: 999px; background: var(--tp-accent); opacity: 0.75; }
   .tp-docs { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.65rem; }
   .tp-doc { font-size: 0.8rem; font-weight: 600; padding: 0.25rem 0.7rem; border: 1px solid var(--tp-border); border-radius: 0.4rem; background: var(--tp-card); }
   .tp-item { display: flex; gap: 1rem; justify-content: space-between; align-items: baseline; }
@@ -111,7 +114,13 @@
                       </span>
                     </div>
 
-                    {{ with .description }}<p class="tp-desc">{{ . }}</p>{{ end }}
+                    {{ with .description }}
+                      {{ if reflect.IsSlice . }}
+                        <ul class="tp-bullets">{{ range . }}<li>{{ . }}</li>{{ end }}</ul>
+                      {{ else }}
+                        <p class="tp-desc">{{ . }}</p>
+                      {{ end }}
+                    {{ end }}
 
                     <!-- Course documents: PDFs only show once the file is uploaded to static/ -->
                     {{ $docs := slice }}
@@ -157,7 +166,13 @@
                       {{ end }}
                       {{ with .semester }}<span class="tp-badge">{{ . }}</span>{{ end }}
                     </div>
-                    {{ with .description }}<p class="tp-desc">{{ . }}</p>{{ end }}
+                    {{ with .description }}
+                      {{ if reflect.IsSlice . }}
+                        <ul class="tp-bullets">{{ range . }}<li>{{ . }}</li>{{ end }}</ul>
+                      {{ else }}
+                        <p class="tp-desc">{{ . }}</p>
+                      {{ end }}
+                    {{ end }}
                   </li>
                 {{ end }}
               </ul>

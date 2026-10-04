@@ -1,4 +1,7 @@
 {{/* Site-wide layout polish: shared page header, nav state, spacing, footer, back-to-top. */}}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
 <style>
   html { scroll-behavior: smooth; }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
@@ -70,6 +73,54 @@
     .section-nav-label { display: none; }
     .section-nav-links { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; scroll-behavior: smooth; padding-right: 2rem;
       -webkit-mask-image: linear-gradient(to right, #000 85%, transparent); mask-image: linear-gradient(to right, #000 85%, transparent); }
+  }
+
+  /* Typography: serif display headings, sans-serif body */
+  .page-hero-title, .rs-h2, .tp-uni > h2, .aw-card > h2, .tph-card h2, .tph-voices > h2, .tph-tagline,
+  .rp-body h2, .rp-refs h2, .cv-embed h2, .ex-title, .tp-stat-value,
+  .blox-resume-biography-3 .portrait-title > div:first-child, .blox-resume-biography-3 .bio-text h1,
+  .blox-resume-biography-3 .bio-text h2, .blox-resume-biography-3 .bio-text h3 {
+    font-family: "Source Serif 4", Georgia, Cambria, "Times New Roman", serif;
+    letter-spacing: -0.005em;
+  }
+  .page-hero-title { font-weight: 700; }
+
+  /* Homepage: make Download CV a primary button */
+  .blox-resume-biography-3 a.inline-flex[target="_blank"] {
+    background: #a7e3cf !important; color: #0b2e26 !important; border-color: #a7e3cf !important;
+    font-weight: 700; padding: 0.6rem 1.1rem; border-radius: 0.6rem; box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+  }
+  .blox-resume-biography-3 a.inline-flex[target="_blank"]:hover { background: #c3efe0 !important; transform: translateY(-1px); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+  .blox-explore { padding-top: 3.5rem; padding-bottom: 0.5rem; }
+
+  /* Footer */
+  .sf { border-top: 1px solid #e5e7eb; margin-bottom: 1.25rem; }
+  html.dark .sf { border-top-color: #374151; }
+  .sf-inner { max-width: 1100px; margin: 0 auto; padding: 1.75rem 1rem 0.5rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1.25rem 2rem; align-items: flex-start; }
+  .sf-name { font-family: "Source Serif 4", Georgia, serif; font-weight: 700; font-size: 1.15rem; color: #18453B; }
+  html.dark .sf-name { color: #a7e3cf; }
+  .sf-role { font-size: 0.88rem; color: #6b7280; margin-top: 0.15rem; }
+  .sf-icons { display: flex; gap: 0.85rem; margin-top: 0.6rem; }
+  .sf-icons a { color: #18453B; opacity: 0.85; }
+  .sf-icons a:hover { opacity: 1; }
+  html.dark .sf-icons a { color: #a7e3cf; }
+  .sf-links { display: flex; flex-wrap: wrap; gap: 0.35rem 1.1rem; max-width: 34rem; justify-content: flex-end; }
+  .sf-links a { font-size: 0.88rem; font-weight: 600; color: #374151; text-decoration: none; }
+  .sf-links a:hover { color: #18453B; text-decoration: underline; }
+  html.dark .sf-links a { color: #d1d5db; }
+  footer.mt-24 { margin-top: 3rem; }
+  @media (max-width: 640px) { .sf-links { justify-content: flex-start; } }
+
+  /* Print: clean, ink-friendly pages (e.g., Teaching CV) */
+  @media print {
+    .page-header, .section-nav, #back-to-top, .sf, footer, .rs-proj img, .ex, .cv-embed object { display: none !important; }
+    .page-hero { background: none !important; color: #000 !important; padding: 0 0 1rem; }
+    .page-hero-title { color: #000 !important; text-shadow: none; }
+    .page-hero::after { display: none; }
+    body, .custom-page { background: #fff !important; color: #000 !important; }
+    .tp-uni, .rs-card, .aw-card, .tph-card, .rp-card, .tp-course, .rs-item, .aw-item, .tp-stat { box-shadow: none !important; break-inside: avoid; }
+    a { color: #000 !important; }
   }
 
   /* Navbar: show the current page */

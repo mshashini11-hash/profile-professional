@@ -1,0 +1,23 @@
+{{/* Footer: name, affiliation, contact, and page links (all from existing site data) */}}
+{{ $me := site.GetPage "/authors/admin" }}
+<div class="sf">
+  <div class="sf-inner">
+    <div class="sf-id">
+      <div class="sf-name">{{ with $me }}{{ .Title }}{{ else }}{{ site.Title }}{{ end }}</div>
+      {{ with $me }}
+        <div class="sf-role">{{ .Params.role }}{{ range first 1 .Params.organizations }} · {{ .name }}{{ end }}</div>
+        <div class="sf-icons">
+          {{ range .Params.profiles }}
+            {{ $link := .url | default .link }}
+            <a href="{{ $link }}" {{ if hasPrefix $link "http" }}target="_blank" rel="noopener"{{ end }} aria-label="{{ .label | default .icon }}">
+              {{ partial "functions/get_icon" (dict "name" .icon "attributes" "style=\"height: 1.15rem; width: 1.15rem;\"") }}
+            </a>
+          {{ end }}
+        </div>
+      {{ end }}
+    </div>
+    <nav class="sf-links" aria-label="Footer">
+      {{ range site.Menus.main }}<a href="{{ .URL | relLangURL }}">{{ .Name }}</a>{{ end }}
+    </nav>
+  </div>
+</div>

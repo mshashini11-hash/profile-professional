@@ -27,6 +27,12 @@ sections:
           position: center
           parallax: false
 
+  # Quick links to each main section
+  - block: explore
+    id: explore
+    content:
+      title: Explore
+
   # Embedded CV below the bio
   - block: cv-embed
     id: cv

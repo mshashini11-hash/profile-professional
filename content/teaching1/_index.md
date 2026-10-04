@@ -23,13 +23,19 @@ universities:
           - name: "MTH 103B – College Algebra B"
             mode: "Online"
             semester: "Summer 2026"
-            description: "Adapted materials and assessments for synchronous online delivery with remote proctoring. Facilitated daily collaborative group work via breakout rooms and a shared Microsoft Whiteboard for active learning. Used standards-based, four-point mastery grading with reassessment to support student success."
+            description:
+              - "Adapted materials and assessments for synchronous online delivery with remote proctoring."
+              - "Facilitated daily collaborative group work via breakout rooms and a shared Microsoft Whiteboard for active learning."
+              - "Used standards-based, four-point mastery grading with reassessment to support student success."
 
           - name: "MTH 103A – College Algebra A"
             mode: "In-person"
             semester: "Spring 2026"
             url: "/teaching1/instructor/mth103a/"
-            description: "Used daily collaborative group work to promote active learning in a 40-student section, with standards-based, four-point mastery grading. Mentored an undergraduate learning assistant supporting in-class activities."
+            description:
+              - "Used daily collaborative group work to promote active learning in a 40-student section."
+              - "Used standards-based, four-point mastery grading."
+              - "Mentored an undergraduate learning assistant supporting in-class activities."
             documents:
               - label: "Course Materials"
                 url: "/teaching1/instructor/mth103a/"
@@ -39,7 +45,10 @@ universities:
           - name: "MTH 299 – Introduction to Proofs"
             mode: "Online"
             semester: "Summer 2025"
-            description: "Facilitated collaborative group work via breakout rooms and a shared Microsoft Whiteboard to promote active learning in a synchronous online section. Integrated LaTeX to develop mathematical communication and assessed proof-writing growth through a cumulative final portfolio."
+            description:
+              - "Facilitated collaborative group work via breakout rooms and a shared Microsoft Whiteboard to promote active learning in a synchronous online section."
+              - "Integrated LaTeX to develop mathematical communication."
+              - "Assessed proof-writing growth through a cumulative final portfolio."
             documents:
               - label: "Syllabus"
                 url: "/docs/mth299_syllabus.pdf"
@@ -49,12 +58,18 @@ universities:
           - name: "MTH 234 – Multivariable Calculus 3"
             mode: "In-person"
             semester: "Fall 2023, Spring 2024"
-            description: "Implemented a modified flipped classroom in a 32-student section, using pre-class videos with graded readiness quizzes to prepare students, and blending instruction with collaborative group work for active learning."
+            description:
+              - "Implemented a modified flipped classroom in a 32-student section."
+              - "Used pre-class videos with graded readiness quizzes to prepare students."
+              - "Blended instruction with collaborative group work for active learning."
 
           - name: "MTH 101 – Quantitative Literacy 1"
             mode: "Online"
             semester: "Summer 2023"
-            description: "Taught three fully asynchronous online sections of 100+ students, structuring self-paced modules to sustain engagement, with individualized feedback and extended virtual office hours at scale."
+            description:
+              - "Taught three fully asynchronous online sections of 100+ students."
+              - "Structured self-paced modules to sustain engagement."
+              - "Provided individualized feedback and extended virtual office hours at scale."
             documents:
               - label: "Syllabus"
                 url: "/docs/mth101_syllabus.pdf"
@@ -64,7 +79,9 @@ universities:
           - name: "MTH 124 – Survey of Calculus 1"
             mode: "In-person"
             semester: "Summer 2022"
-            description: "Used collaborative group activities in a 20-student section for active learning, and adapted assignments to emphasize real-world relevance and applications."
+            description:
+              - "Used collaborative group activities in a 20-student section for active learning."
+              - "Adapted assignments to emphasize real-world relevance and applications."
 
       - title: "Teaching Team"
         ior: false
@@ -72,22 +89,31 @@ universities:
           - name: "MTH 299 – Introduction to Proofs"
             mode: "In-person"
             semester: "Fall 2025"
-            description: "Led two recitation sections of 60 students, using collaborative group work for problem-solving and providing detailed feedback on proof-writing."
+            description:
+              - "Led two recitation sections of 60 students."
+              - "Used collaborative group work for problem-solving."
+              - "Provided detailed feedback on proof-writing."
 
           - name: "MTH 101 – Quantitative Literacy 1"
             mode: "Online"
             semester: "Fall 2022"
-            description: "Supported three online sections of 100+ students on the course support team: facilitated discussions, held virtual office hours, graded, and resolved WeBWorK and D2L technical issues."
+            description:
+              - "Supported three online sections of 100+ students on the course support team."
+              - "Facilitated discussions, held virtual office hours, and graded."
+              - "Resolved WeBWorK and D2L technical issues."
 
           - name: "MTH 124 – Survey of Calculus 1"
             mode: "In-person"
             semester: "Spring 2022"
-            description: "Held office hours and graded assessments, providing individualized feedback to support student learning."
+            description:
+              - "Held office hours and graded assessments."
+              - "Provided individualized feedback to support student learning."
 
           - name: "MTH 133 – Calculus 2"
             mode: "In-person"
             semester: "Fall 2021"
-            description: "Held problem-solving office hours and provided detailed feedback on student work."
+            description:
+              - "Held problem-solving office hours and provided detailed feedback on student work."
 
       - title: "Curriculum Development"
         ior: false
@@ -95,27 +121,36 @@ universities:
           - name: "MTH 103A – College Algebra A"
             mode: "In-person"
             semester: "Spring 2026"
-            description: "Designed worksheets and assessments to support cooperative group learning in a high-enrollment gateway course, aimed at increasing student engagement and making the course more approachable."
+            description:
+              - "Designed worksheets and assessments to support cooperative group learning in a high-enrollment gateway course."
+              - "Aimed to increase student engagement and make the course more approachable."
 
           - name: "MTH 299 – Introduction to Proofs"
             mode: "Online"
             semester: "Summer 2025"
-            description: "Designed proof-writing supports, collaborative group activities, and a LaTeX component for a modified flipped online classroom, with a cumulative final portfolio assessing proof-writing growth."
+            description:
+              - "Designed proof-writing supports, collaborative group activities, and a LaTeX component for a modified flipped online classroom."
+              - "Included a cumulative final portfolio assessing proof-writing growth."
 
           - name: "MTH 101 – Quantitative Literacy 1"
             mode: "Online"
             semester: "Spring 2023, Spring 2025"
-            description: "Redesigned WeBWorK homework and developed real-world project assignments for a gateway course serving 1,000+ students, strengthening quantitative reasoning and engagement."
+            description:
+              - "Redesigned WeBWorK homework for a gateway course serving 1,000+ students."
+              - "Developed real-world project assignments to strengthen quantitative reasoning and engagement."
 
           - name: "MTH 234 – Multivariable Calculus 3"
             mode: "In-person"
             semester: "Fall 2023, Spring 2024"
-            description: "Developed original worksheets and assessment materials to encourage cooperative learning."
+            description:
+              - "Developed original worksheets and assessment materials to encourage cooperative learning."
 
           - name: "MTH 124 – Survey of Calculus 1"
             mode: "In-person"
             semester: "Summer 2022"
-            description: "Redesigned practice materials and guided examples for a small-class setting, supporting interactive, discussion-based instruction."
+            description:
+              - "Redesigned practice materials and guided examples for a small-class setting."
+              - "Supported interactive, discussion-based instruction."
 
       - title: "Teaching Mentoring"
         ior: false
