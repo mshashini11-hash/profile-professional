@@ -9,47 +9,47 @@
   /* Custom pages own their top spacing; remove the theme's gap under the navbar */
   .page-body:has(> .custom-page) { margin-top: 0; }
 
-  /* Shared page header */
+  /* Shared page header: light and minimal */
   .page-hero {
     position: relative;
-    overflow: hidden;
     background:
-      linear-gradient(135deg, rgba(11, 46, 38, 0.92) 0%, rgba(24, 69, 59, 0.88) 55%, rgba(31, 107, 87, 0.85) 100%),
-      url("{{ "uploads/stacked-peaks.svg" | relURL }}") center / cover no-repeat;
-    color: #fff;
-    padding: 3.25rem 1rem 3.5rem;
-    text-align: center;
+      radial-gradient(900px 260px at 0% 0%, #eef5f2 0%, transparent 70%),
+      linear-gradient(180deg, #fbfcfb 0%, #ffffff 100%);
+    border-bottom: 1px solid #edf0ee;
+    padding: 3.75rem 1.25rem 2.5rem;
   }
-  .page-hero::after {
-    content: "";
-    position: absolute;
-    left: 0; right: 0; bottom: 0;
-    height: 4px;
-    background: linear-gradient(90deg, transparent, rgba(167, 227, 207, 0.7), transparent);
+  html.dark .page-hero {
+    background: radial-gradient(900px 260px at 0% 0%, rgba(79,174,142,0.14) 0%, transparent 70%), #0f172a;
+    border-bottom-color: #1f2937;
   }
   .page-hero-inner { max-width: 1000px; margin: 0 auto; }
   .page-hero-title {
-    color: #fff !important;
-    font-size: clamp(1.9rem, 4vw, 2.75rem);
-    font-weight: 800;
-    letter-spacing: -0.01em;
-    line-height: 1.15;
+    color: #0f2f28 !important;
+    font-size: clamp(2.2rem, 5vw, 3.25rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.08;
     margin: 0;
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
   }
-  .page-hero-sub { color: rgba(255,255,255,0.85); margin: 0.6rem 0 0; font-size: 1.05rem; }
+  .page-hero-title::before {
+    content: ""; display: block; width: 2.5rem; height: 3px; border-radius: 3px;
+    background: #2f7d66; margin-bottom: 1rem;
+  }
+  html.dark .page-hero-title { color: #f3f4f6 !important; }
+  html.dark .page-hero-title::before { background: #6fd0ae; }
+  .page-hero-sub { color: #4b5563; margin: 0.6rem 0 0; font-size: 1.05rem; }
   .custom-page-body { padding-top: 2.5rem; padding-bottom: 3rem; }
 
-  /* Homepage: tighter section spacing */
-  .blox-resume-biography-3 { padding-top: 3.5rem; padding-bottom: 4rem; }
-  .blox-resume-biography-3 .avatar-wrapper.mt-10 { margin-top: 1rem; }
-  /* Profile photo: a bit larger than the theme's medium (200px), sharp from the large source */
-  .blox-resume-biography-3 .avatar-wrapper, .blox-resume-biography-3 .avatar { width: 260px !important; height: 260px !important; }
-  .blox-resume-biography-3 .avatar { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35); }
-  .blox-resume-biography-3 ul.list-disc { list-style-position: outside; padding-left: 1.25rem; }
+  /* Homepage */
+  .blox-resume-biography-3 {
+    padding-top: 4.5rem; padding-bottom: 1.5rem;
+    background: radial-gradient(900px 420px at 90% 0%, #eef5f2 0%, transparent 65%);
+  }
+  html.dark .blox-resume-biography-3 { background: radial-gradient(900px 420px at 90% 0%, rgba(79,174,142,0.12) 0%, transparent 65%); }
+  .blox-explore { padding-top: 3.5rem; padding-bottom: 0.5rem; }
   .blox-cv-embed { padding-top: 3.5rem; padding-bottom: 3.5rem; }
   @media (max-width: 768px) {
-    .blox-resume-biography-3 { padding-top: 2rem; padding-bottom: 2.5rem; }
+    .blox-resume-biography-3 { padding-top: 2.25rem; }
     .blox-cv-embed { padding-top: 2rem; }
   }
 
@@ -77,22 +77,10 @@
 
   /* Typography: serif display headings, sans-serif body */
   .page-hero-title, .rs-h2, .tp-uni > h2, .aw-card > h2, .tph-card h2, .tph-voices > h2, .tph-tagline,
-  .rp-body h2, .rp-refs h2, .cv-embed h2, .ex-title, .tp-stat-value,
-  .blox-resume-biography-3 .portrait-title > div:first-child, .blox-resume-biography-3 .bio-text h1,
-  .blox-resume-biography-3 .bio-text h2, .blox-resume-biography-3 .bio-text h3 {
+  .rp-body h2, .rp-refs h2, .cv-embed h2, .ex-title, .tp-stat-value, .nm-quote, .tph-quote {
     font-family: "Source Serif 4", Georgia, Cambria, "Times New Roman", serif;
     letter-spacing: -0.005em;
   }
-  .page-hero-title { font-weight: 700; }
-
-  /* Homepage: make Download CV a primary button */
-  .blox-resume-biography-3 a.inline-flex[target="_blank"] {
-    background: #a7e3cf !important; color: #0b2e26 !important; border-color: #a7e3cf !important;
-    font-weight: 700; padding: 0.6rem 1.1rem; border-radius: 0.6rem; box-shadow: 0 4px 14px rgba(0,0,0,0.25);
-    transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
-  }
-  .blox-resume-biography-3 a.inline-flex[target="_blank"]:hover { background: #c3efe0 !important; transform: translateY(-1px); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
-  .blox-explore { padding-top: 3.5rem; padding-bottom: 0.5rem; }
 
   /* Footer */
   .sf { border-top: 1px solid #e5e7eb; margin-bottom: 1.25rem; }
@@ -123,13 +111,42 @@
     a { color: #000 !important; }
   }
 
+  /* Navbar: translucent, hairline border, monogram before the name */
+  .page-header { background: rgba(255,255,255,0.82) !important; backdrop-filter: saturate(1.6) blur(14px); -webkit-backdrop-filter: saturate(1.6) blur(14px); border-bottom: 1px solid rgba(15,47,40,0.07); box-shadow: none !important; }
+  .page-header #site-header, .page-header .navbar { background: transparent !important; box-shadow: none !important; }
+  html.dark .page-header { background: rgba(15,23,42,0.82) !important; border-bottom-color: rgba(255,255,255,0.06); }
+  .navbar-brand { display: inline-flex; align-items: center; gap: 0.6rem; font-family: "Source Serif 4", Georgia, serif; font-weight: 700; letter-spacing: -0.01em; }
+  .navbar-brand::before {
+    content: "SM"; display: inline-flex; align-items: center; justify-content: center;
+    width: 2rem; height: 2rem; border-radius: 0.6rem; font-size: 0.82rem; font-weight: 700; letter-spacing: 0;
+    color: #fff; background: linear-gradient(135deg, #0b2e26, #1f6b57);
+  }
+  .nav-link { border-radius: 999px; transition: background 0.15s, color 0.15s; }
+
+  /* Softer, flatter cards everywhere */
+  .tp-uni, .tp-stat, .rs-card, .rs-proj, .aw-card, .tph-card, .tph-intro, .rp-card, .cv-embed-card, .nm-block, .gl-item, .ex-card {
+    box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04) !important;
+    border-color: #eceeec !important;
+    border-radius: 1.1rem !important;
+  }
+  .tp-stat { border-top-color: #2f7d66 !important; }
+  html.dark .tp-stat { border-top-color: #4fae8e !important; }
+  .rs-proj:hover, .ex-card:hover { box-shadow: 0 12px 28px rgba(16, 24, 40, 0.08) !important; border-color: #9fd3c1 !important; }
+  html.dark .tp-uni, html.dark .tp-stat, html.dark .rs-card, html.dark .rs-proj, html.dark .aw-card, html.dark .tph-card, html.dark .tph-intro,
+  html.dark .rp-card, html.dark .cv-embed-card, html.dark .nm-block, html.dark .gl-item, html.dark .ex-card { border-color: #263244 !important; }
+  .tp-course, .rs-item, .aw-item { border-color: #eef0ef !important; }
+  html.dark .tp-course, html.dark .rs-item, html.dark .aw-item { border-color: #263244 !important; }
+
   /* Navbar: show the current page */
   .nav-link.active {
     color: #18453B !important;
     font-weight: 700;
-    box-shadow: inset 0 -2px 0 #18453B;
+    background: #eef5f2;
+    box-shadow: none !important;
   }
-  html.dark .nav-link.active { color: #a7e3cf !important; box-shadow: inset 0 -2px 0 #4fae8e; }
+  .nav-link:not(.active):hover { background: rgba(15,47,40,0.05); }
+  html.dark .nav-link.active { color: #a7e3cf !important; background: rgba(79,174,142,0.14); }
+  html.dark .nav-link:not(.active):hover { background: rgba(255,255,255,0.06); }
 
   /* Keyboard focus */
   .custom-page a:focus-visible, .page-hero a:focus-visible, #back-to-top:focus-visible {

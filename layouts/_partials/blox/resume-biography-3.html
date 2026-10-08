@@ -1,203 +1,162 @@
-{{/* Hugo Blox: Biography 3 */}}
-{{/* Documentation: https://hugoblox.com/blocks/ */}}
-{{/* License: https://github.com/HugoBlox/hugo-blox-builder/blob/main/LICENSE.md */}}
-
-{{/* Initialise */}}
+{{/* Custom override of Hugo Blox "Biography 3": clean, minimal homepage hero.
+     Shows the same data as the theme block (author page, bio, button, interests, education). */}}
 {{ $page := .wcPage }}
 {{ $block := .wcBlock }}
 
 {{ $author := $block.content.username | default "admin" }}
-
-{{ $person_page_path := (printf "/authors/%s" $author) }}
-{{ $person_page := site.GetPage $person_page_path }}
+{{ $person_page := site.GetPage (printf "/authors/%s" $author) }}
 {{ if not $person_page }}
-  {{ errorf "Could not find an author page at `%s`. Please check the value of `author` in your About widget and create an associated author page if one does not already exist. See https://docs.hugoblox.com/page-builder/#about " $person_page_path }}
-{{end}}
+  {{ errorf "Could not find an author page at /authors/%s" $author }}
+{{ end }}
 {{ $person := $person_page.Params }}
 {{ $avatar := ($person_page.Resources.ByType "image").GetMatch "*avatar*" }}
 
-{{/* Avatar customization parameters */}}
-{{ $avatar_size := $block.design.avatar.size | default "medium" }}
-{{ $avatar_shape := $block.design.avatar.shape | default "circle" }}
+<style>
+  .hm {
+    --hm-text: #1f2937; --hm-muted: #4b5563; --hm-faint: #6b7280; --hm-heading: #0f2f28;
+    --hm-accent: #18453B; --hm-accent-2: #2f7d66; --hm-soft: #eef5f2; --hm-card: #ffffff; --hm-border: #e5e7eb;
+    color: var(--hm-text);
+  }
+  html.dark .hm {
+    --hm-text: #e5e7eb; --hm-muted: #c3c8cf; --hm-faint: #9ca3af; --hm-heading: #f3f4f6;
+    --hm-accent: #a7e3cf; --hm-accent-2: #6fd0ae; --hm-soft: rgba(79,174,142,0.12); --hm-card: #1f2937; --hm-border: #374151;
+  }
+  .hm-wrap { max-width: 1100px; margin: 0 auto; padding: 0 1.25rem; }
+  .hm-hero { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 3.5rem; align-items: center; }
+  .hm-eyebrow { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem 0.5rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--hm-accent-2); margin-bottom: 1rem; }
+  .hm-eyebrow::before { content: ""; width: 1.75rem; height: 2px; background: currentColor; border-radius: 2px; }
+  .hm-eyebrow a { color: inherit; text-decoration: none; }
+  .hm-eyebrow a:hover { text-decoration: underline; }
+  .hm-name { font-family: "Source Serif 4", Georgia, serif; font-weight: 700; font-size: clamp(2.6rem, 6vw, 4.25rem); line-height: 1.02; letter-spacing: -0.02em; color: var(--hm-heading); margin: 0; }
+  .hm-pron { font-size: 1rem; color: var(--hm-faint); margin: 0.6rem 0 0; }
+  .hm-bio { border: 0 !important; margin-top: 1.5rem; font-size: 1.06rem; line-height: 1.8; color: var(--hm-muted); max-width: 40rem; }
+  .hm-bio h2 { font-family: "Source Serif 4", Georgia, serif; font-size: 1.15rem; font-weight: 700; color: var(--hm-heading); margin: 0 0 0.5rem; }
+  .hm-bio p { margin: 0; }
+  .hm-bio hr { display: none; }
+  .hm-bio a { color: var(--hm-accent); text-decoration: underline; text-underline-offset: 3px; }
+  .hm-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; margin-top: 2rem; }
+  .hm-btn { display: inline-flex; align-items: center; gap: 0.55rem; padding: 0.75rem 1.3rem; border-radius: 999px; background: var(--hm-accent); color: #fff !important; font-weight: 700; font-size: 0.95rem; text-decoration: none !important; box-shadow: 0 6px 18px rgba(24,69,59,0.22); transition: transform 0.15s, box-shadow 0.15s; }
+  html.dark .hm-btn { color: #0b1f1a !important; }
+  .hm-btn:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(24,69,59,0.3); }
+  .hm-social { display: flex; gap: 0.5rem; list-style: none; margin: 0; padding: 0; }
+  .hm-social a { width: 2.4rem; height: 2.4rem; border-radius: 999px; display: flex; align-items: center; justify-content: center; color: var(--hm-accent); border: 1px solid var(--hm-border); background: var(--hm-card); transition: border-color 0.15s, transform 0.15s; }
+  .hm-social a:hover { border-color: var(--hm-accent-2); transform: translateY(-1px); }
 
-{{/* Size mappings optimized for 2025 standards: display_size -> [display_px, generation_px] */}}
-{{ $size_map := dict "small" (slice "150" "300") "medium" (slice "200" "400") "large" (slice "320" "640") "xl" (slice "400" "800") "xxl" (slice "500" "1000") }}
-{{ $size_config := index $size_map $avatar_size | default (index $size_map "medium") }}
-{{ $display_size := index $size_config 0 }}
-{{ $generation_size := index $size_config 1 }}
+  .hm-photo { position: relative; justify-self: end; width: 100%; max-width: 400px; }
+  .hm-photo-frame { position: relative; }
+  .hm-photo-frame::before { content: ""; position: absolute; inset: 1.25rem -1.25rem -1.25rem 1.25rem; border-radius: 1.75rem; background: linear-gradient(135deg, var(--hm-soft), transparent 70%); border: 1px solid var(--hm-border); }
+  .hm-photo img { position: relative; display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 1.5rem; box-shadow: 0 20px 50px rgba(15,47,40,0.18); }
+  .hm-updated { position: relative; margin-top: 1.75rem; text-align: center; font-size: 0.8rem; color: var(--hm-faint); }
+  .hm-updated span { display: inline-block; padding: 0.3rem 0.8rem; border-radius: 999px; background: var(--hm-card); border: 1px solid var(--hm-border); }
 
-{{/* Shape class mappings */}}
-{{ $shape_classes := dict "circle" "rounded-full" "square" "rounded-none" "rounded" "rounded-lg" }}
-{{ $shape_class := index $shape_classes $avatar_shape | default "rounded-full" }}
+  .hm-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-top: 3.5rem; }
+  .hm-fact { background: var(--hm-card); border: 1px solid var(--hm-border); border-radius: 1.1rem; padding: 1.4rem 1.5rem; }
+  .hm-fact h3 { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--hm-faint); margin: 0 0 0.9rem; }
+  .hm-fact ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.55rem; }
+  .hm-chip-list { display: flex !important; flex-wrap: wrap; gap: 0.5rem !important; }
+  .hm-chip { font-size: 0.9rem; font-weight: 600; padding: 0.35rem 0.85rem; border-radius: 999px; background: var(--hm-soft); color: var(--hm-accent); }
+  .hm-edu { display: flex; gap: 0.75rem; align-items: flex-start; }
+  .hm-edu-icon { flex-shrink: 0; width: 2rem; height: 2rem; border-radius: 0.6rem; background: var(--hm-soft); color: var(--hm-accent); display: flex; align-items: center; justify-content: center; }
+  .hm-edu-area { font-weight: 650; color: var(--hm-heading); line-height: 1.3; }
+  .hm-edu-inst { font-size: 0.88rem; color: var(--hm-faint); }
 
+  @media (max-width: 860px) {
+    .hm-hero { grid-template-columns: 1fr; gap: 2.25rem; }
+    .hm-photo { order: -1; justify-self: start; max-width: 260px; }
+    .hm-photo-frame { position: relative; }
+  .hm-photo-frame::before { inset: 0.75rem -0.75rem -0.75rem 0.75rem; }
+    .hm-updated { text-align: left; }
+  }
+</style>
 
-<div class="resume-biography px-3 flex flex-col md:flex-row justify-center gap-12">
-  <div class="flex-none m-w-[130px] mx-auto md:mx-0">
-
-  {{ $img := "" }}
-{{with $block.design.banner.filename}}
-{{- $img = resources.Get (path.Join "media" .) -}}
-{{ if $img }}
-  {{ if ne $img.MediaType.SubType "gif" }}
-    {{ $responsive := partial "functions/process_responsive_image.html" (dict 
-        "image" $img 
-        "mode" "fill"
-        "aspect_ratio" "16:9"
-        "sizes" (slice 768 1024 1366 1920 2560)
-    ) }}
-    <div class="w-full bg-gray-200 dark:bg-gray-900 flex flex-wrap items-center justify-center">
-      <div class="w-full bg-white rounded dark:bg-gray-800">
-        <div class="h-2/4 sm:h-64 overflow-hidden w-full">
-          <img class="w-full object-cover"
-               srcset="{{ $responsive.srcset }}"
-               sizes="100vw"
-               src="{{ $responsive.fallback.RelPermalink }}"
-               width="{{ $responsive.fallback.Width }}" 
-               height="{{ $responsive.fallback.Height }}"
-               alt="" />
+<div class="hm">
+  <div class="hm-wrap">
+    <div class="hm-hero">
+      <div>
+        <div class="hm-eyebrow">
+          {{ with $person.role }}<span>{{ . | markdownify | emojify }}</span>{{ end }}
+          {{ range first 1 $person.organizations }}
+            <span aria-hidden="true">·</span>
+            {{ with .url }}<a href="{{ . }}" target="_blank" rel="noopener">{{ end }}<span>{{ .name }}</span>{{ if .url }}</a>{{ end }}
+          {{ end }}
         </div>
-      </div>
-    </div>
-  {{ else }}
-    {{/* Handle GIF without processing */}}
-    {{- $img = $img.Process "webp" -}}
-    <div class="w-full bg-gray-200 dark:bg-gray-900 flex flex-wrap items-center justify-center">
-      <div class="w-full bg-white rounded dark:bg-gray-800">
-        <div class="h-2/4 sm:h-64 overflow-hidden w-full">
-          <img class="w-full object-cover"
-               src="{{$img.RelPermalink}}"
-               width="{{$img.Width}}" height="{{$img.Height}}"
-               alt="" />
-        </div>
-      </div>
-    </div>
-  {{ end }}
-{{ end }}
-{{ end }}
 
-  <div id="profile" class="flex justify-center items-center flex-col">
-    {{ if $avatar }}
+        <h1 class="hm-name">
+          {{- if $person.name_pronunciation -}}
+            <ruby><rb>{{ $person_page.Title }}</rb><rt>{{ $person.name_pronunciation }}</rt></ruby>
+          {{- else -}}
+            {{- $person_page.Title -}}
+          {{- end -}}
+        </h1>
+        {{ with $person.pronouns }}<p class="hm-pron">({{ . }})</p>{{ end }}
 
-    <div class="avatar-wrapper {{ if $img }}-mt-[105px]{{else}}mt-10{{end}}" style="width: {{$display_size}}px; height: {{$display_size}}px;">
-      {{ $avatar_image := $avatar.Fill (printf "%sx%s Center" $generation_size $generation_size) }}
-      <img class="avatar {{$shape_class}} bg-white dark:bg-gray-800 p-1" src="{{ $avatar_image.RelPermalink }}" alt="{{$person_page.Title}}"
-           width="{{$display_size}}" height="{{$display_size}}"
-           style="width: {{$display_size}}px; height: {{$display_size}}px; object-fit: cover;">
-      {{with $person.status.icon}}<span class="avatar-emoji">{{.|emojify}}</span>{{end}}
-    </div>
-    {{ end }}
-
-    {{/* Custom: site last-updated box, stamped at build time */}}
-    <div class="last-updated" style="margin-top: 0.75rem; padding: 0.25rem 0.75rem; font-size: 0.8rem; border: 1px solid rgba(255,255,255,0.35); border-radius: 0.375rem; background: rgba(255,255,255,0.08); color: #e5e7eb;">
-      Last updated: <time datetime="{{ now.Format "2006-01-02" }}">{{ now.Format "January 2, 2006" }}</time>
-    </div>
-
-    <div class="portrait-title dark:text-white">
-
-      <div class="text-3xl font-bold mb-2 mt-6">
-        {{- if $person.name_pronunciation -}}
-          <ruby>
-            <rb>{{ $person_page.Title }}</rb>
-            <rt>{{ $person.name_pronunciation }}</rt>
-          </ruby>
-        {{- else -}}
-          {{- $person_page.Title -}}
-        {{- end -}}
-      </div>
-      {{- with $person.pronouns -}}
-        <div class="text-lg font-normal text-gray-600 dark:text-gray-400 -mt-1 mb-2">({{ . }})</div>
-      {{- end -}}
-
-      {{ with $person.role }}<h3 class="font-semibold mb-1">{{ . | markdownify | emojify }}</h3>{{ end }}
-
-      {{ range $person.organizations }}
-      <div class="mb-2">
-        {{ with .url }}<a href="{{ . }}" target="_blank" rel="noopener">{{ end }}
-        <div>{{ .name }}</div>
-        {{ if .url }}</a>{{ end }}
-      </div>
-      {{ end }}
-    </div>
-
-    <ul class="network-icon dark:text-zinc-100">
-      {{ range $person.profiles }}
-      {{ $pack := or .icon_pack "fas" }}
-      {{ $pack_prefix := $pack }}
-      {{ if in (slice "fab" "fas" "far" "fal") $pack }}
-        {{ $pack_prefix = "fa" }}
-      {{ end }}
-      {{ $link := .url | default .link }}
-      {{ $scheme := (urls.Parse $link).Scheme }}
-      {{ $target := "" }}
-      {{ if not $scheme }}
-        {{ $link = (.url | default .link) | relLangURL }}
-        {{ if eq (path.Ext $link) ".pdf" }}{{ $target = "target=\"_blank\" rel=\"noopener\"" }}{{ end }}
-      {{ else if in (slice "http" "https") $scheme }}
-        {{ $target = "target=\"_blank\" rel=\"noopener\"" }}
-      {{ end }}
-      <li>
-        <a href="{{ $link | safeURL }}" {{ $target | safeHTMLAttr }} aria-label="{{ .icon }}"
-           {{ with .label }} data-toggle="tooltip" data-placement="top" title="{{.}}"{{ end }}>
-          {{ partial "functions/get_icon" (dict "name" .icon "attributes" "style=\"height: 1.5rem;\"")  }}
-        </a>
-      </li>
-      {{ end }}
-    </ul>
-  </div>
-  </div>
-
-  <div class="flex-auto max-w-prose md:mt-12">
-    {{ with ($block.content.text | emojify | $page.RenderString) | default $person_page.Content }}
-    <div class="pt-2 justify-content-center prose prose-slate dark:prose-invert">
-      <div class="bio-text" {{ with $block.design.biography.style }}{{ (printf "style=\"%s\"" .) | safe.HTMLAttr }}{{end}}>
-        {{ . }}
-      </div>
-    </div>
-    {{ end }}
-
-    {{ with $block.content.button }}
-    <a href="{{.url}}" target="_blank" class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-primary-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700"><svg class="w-3.5 h-3.5 me-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-      <path d="M14.707 7.793a1 1 0 0 0-1.414 0L11 10.086V1.5a1 1 0 0 0-2 0v8.586L6.707 7.793a1 1 0 1 0-1.414 1.414l4 4a1 1 0 0 0 1.416 0l4-4a1 1 0 0 0-.002-1.414Z"/>
-      <path d="M18 12h-2.55l-2.975 2.975a3.5 3.5 0 0 1-4.95 0L4.55 12H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2Zm-3 5a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/>
-    </svg> {{.text}}</a>
-    {{ end }}
-
-
-
-
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 justify-between mt-6 dark:text-gray-300">
-
-    {{ with $person.interests }}
-    <div class="">
-      <div class="section-subheading mb-3">{{ i18n "interests" | markdownify }}</div>
-      <ul class="list-disc list-inside space-y-1 pl-5">
-        {{ range . }}
-        <li>
-          {{ . | markdownify | emojify }}
-        </li>
+        {{ with ($block.content.text | emojify | $page.RenderString) | default $person_page.Content }}
+          <div class="hm-bio">{{ . }}</div>
         {{ end }}
-      </ul>
-    </div>
-    {{ end }}
 
-    {{ with $person.education }}
-    <div class="">
-      <div class="section-subheading mb-3">{{ i18n "education" | markdownify }}</div>
-      <ul class="">
-        {{ range . }}
-        <li class="flex items-start gap-3">
-          {{ partial "functions/get_icon" (dict "name" "academic-cap" "attributes" "style=\"\" class='flex-shrink-0 w-5 h-5 me-2 mt-1'") }}
-          <div class="description">
-            <p class="course">{{ .area }}{{ with .year }}, {{ . }}{{ end }}</p>
-            <p class="text-sm">{{ .institution }}</p>
+        <div class="hm-actions">
+          {{ with $block.content.button }}
+            <a class="hm-btn" href="{{ .url | relURL }}" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M14.707 7.793a1 1 0 0 0-1.414 0L11 10.086V1.5a1 1 0 0 0-2 0v8.586L6.707 7.793a1 1 0 1 0-1.414 1.414l4 4a1 1 0 0 0 1.416 0l4-4a1 1 0 0 0-.002-1.414Z"/><path d="M18 12h-2.55l-2.975 2.975a3.5 3.5 0 0 1-4.95 0L4.55 12H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2Zm-3 5a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>
+              {{ .text }}
+            </a>
+          {{ end }}
+          <ul class="hm-social">
+            {{ range $person.profiles }}
+              {{ $link := .url | default .link }}
+              {{ $scheme := (urls.Parse $link).Scheme }}
+              {{ $target := "" }}
+              {{ if not $scheme }}
+                {{ $link = $link | relLangURL }}
+              {{ else if in (slice "http" "https") $scheme }}
+                {{ $target = "target=\"_blank\" rel=\"noopener\"" }}
+              {{ end }}
+              <li>
+                <a href="{{ $link | safeURL }}" {{ $target | safeHTMLAttr }} aria-label="{{ .label | default .icon }}" {{ with .label }}title="{{ . }}"{{ end }}>
+                  {{ partial "functions/get_icon" (dict "name" .icon "attributes" "style=\"height: 1.15rem; width: 1.15rem;\"") }}
+                </a>
+              </li>
+            {{ end }}
+          </ul>
+        </div>
+      </div>
+
+      {{ if $avatar }}
+        {{ $img := $avatar.Fill "800x800 Center" }}
+        <div class="hm-photo">
+          <div class="hm-photo-frame"><img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ $person_page.Title }}"></div>
+          <div class="hm-updated"><span>Last updated: <time datetime="{{ now.Format "2006-01-02" }}">{{ now.Format "January 2, 2006" }}</time></span></div>
+        </div>
+      {{ end }}
+    </div>
+
+    {{ if or $person.interests $person.education }}
+      <div class="hm-facts">
+        {{ with $person.interests }}
+          <div class="hm-fact">
+            <h3>{{ i18n "interests" | markdownify }}</h3>
+            <ul class="hm-chip-list">
+              {{ range . }}<li class="hm-chip">{{ . | markdownify | emojify }}</li>{{ end }}
+            </ul>
           </div>
-        </li>
         {{ end }}
-      </ul>
-    </div>
+        {{ with $person.education }}
+          <div class="hm-fact">
+            <h3>{{ i18n "education" | markdownify }}</h3>
+            <ul>
+              {{ range . }}
+                <li class="hm-edu">
+                  <span class="hm-edu-icon">{{ partial "functions/get_icon" (dict "name" "academic-cap" "attributes" "style=\"height: 1.1rem; width: 1.1rem;\"") }}</span>
+                  <div>
+                    <div class="hm-edu-area">{{ .area }}{{ with .year }}, {{ . }}{{ end }}</div>
+                    <div class="hm-edu-inst">{{ .institution }}</div>
+                  </div>
+                </li>
+              {{ end }}
+            </ul>
+          </div>
+        {{ end }}
+      </div>
     {{ end }}
-
   </div>
-
-</div>
 </div>
