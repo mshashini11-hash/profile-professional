@@ -4,7 +4,7 @@ type: gallery
 items:
   - image: "/uploads/paintings/painting2.jpg"
     thumb: "/uploads/paintings/thumbs/painting2.jpg"
-    caption: "Untitled"
+    caption: "Peace"
     description: "Oil on canvas."
 
   - image: "/uploads/paintings/painting3.jpg"
@@ -30,7 +30,7 @@ items:
 
   - image: "/uploads/paintings/painting6.jpg"
     thumb: "/uploads/paintings/thumbs/painting6.jpg"
-    caption: "Peace"
+    caption: "Untitled"
     description: "Oil on canvas."
 
   - image: "/uploads/art1.jpeg"
