@@ -20,13 +20,18 @@ items:
   - video: "/uploads/paintings/flowers-process.mp4"
     caption: "Painting process"
 
-  - image: "/uploads/paintings/painting5.jpg"
-    thumb: "/uploads/paintings/thumbs/painting5.jpg"
+  - image: "/uploads/paintings/drowning-closeup.jpg"
+    thumb: "/uploads/paintings/drowning-closeup.jpg"
     caption: "Drowning"
     description: "Oil on canvas."
 
   - video: "/uploads/paintings/underwater-process.mp4"
     caption: "Drowning: painting process"
+
+  - image: "/uploads/paintings/painting5.jpg"
+    thumb: "/uploads/paintings/thumbs/painting5.jpg"
+    caption: "Drowning, on the easel"
+    on_home: false
 
   - image: "/uploads/paintings/painting6.jpg"
     thumb: "/uploads/paintings/thumbs/painting6.jpg"
