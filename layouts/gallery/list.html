@@ -26,6 +26,9 @@
   .gl-item figcaption { padding: 0.85rem 1.1rem 1rem; }
   .gl-cap { font-weight: 650; color: var(--tp-heading); }
   .gl-desc { font-size: 0.9rem; color: var(--tp-muted); margin-top: 0.2rem; }
+  .gl-item { position: relative; }
+  .gl-expand { position: absolute; top: 0.6rem; right: 0.6rem; font-size: 0.78rem; font-weight: 600; padding: 0.3rem 0.65rem; border-radius: 999px; border: 0; background: rgba(0,0,0,0.55); color: #fff; cursor: pointer; }
+  .gl-expand:hover { background: rgba(0,0,0,0.75); }
   .gl-empty { text-align: center; padding: 3rem 1rem; color: var(--tp-muted); background: var(--tp-card); border: 1px dashed var(--tp-border); border-radius: 1rem; }
 </style>
 
@@ -40,12 +43,14 @@
         <div class="gl-grid">
           {{ range . }}
             <figure class="gl-item">
-              {{ with .image }}<img src="{{ . }}" alt="{{ $.Title }}" loading="lazy">{{ end }}
+              {{ $cap := .caption | default $.Title }}
+              {{ with .image }}<img src="{{ . }}" alt="{{ $cap }}" loading="lazy" tabindex="0" data-lb-group="gallery" data-lb-src="{{ . }}" data-lb-type="image" data-lb-caption="{{ $cap }}">{{ end }}
               {{ with .video }}
                 <video controls preload="metadata">
                   <source src="{{ . }}" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
+                <button type="button" class="gl-expand" data-lb-group="gallery" data-lb-src="{{ . }}" data-lb-type="video" data-lb-caption="{{ $cap }}">&#x2922; View larger</button>
               {{ end }}
               {{ if or .caption .description }}
                 <figcaption>
@@ -62,4 +67,5 @@
     </div>
   </div>
 </section>
+{{ partial "lightbox.html" . }}
 {{ end }}

@@ -1,0 +1,34 @@
+{{/* Custom block: short dated news lines. content.items: [{date, text (markdown), url, link_text}] */}}
+{{ $block := .wcBlock }}
+{{ $title := $block.content.title | default "News" }}
+
+<style>
+  .nw { --nw-heading: #18453B; --nw-text: #374151; --nw-muted: #6b7280; --nw-card: #ffffff; --nw-border: #e5e7eb; --nw-link: #1d4ed8; --nw-soft: #e8f0ed;
+        max-width: 960px; margin: 0 auto; padding: 0 1rem; }
+  html.dark .nw { --nw-heading: #a7e3cf; --nw-text: #e5e7eb; --nw-muted: #9ca3af; --nw-card: #1f2937; --nw-border: #374151; --nw-link: #60a5fa; --nw-soft: rgba(79,174,142,0.15); }
+  .nw-card { background: var(--nw-card); border: 1px solid var(--nw-border); border-left: 4px solid #4fae8e; border-radius: 0.75rem; padding: 1rem 1.25rem; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+  .nw-title { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--nw-heading); margin: 0 0 0.5rem; }
+  .nw-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+  .nw-item { display: flex; gap: 0.9rem; align-items: baseline; flex-wrap: wrap; color: var(--nw-text); font-size: 0.98rem; line-height: 1.5; }
+  .nw-date { flex: 0 0 auto; font-size: 0.8rem; font-weight: 600; color: var(--nw-heading); background: var(--nw-soft); padding: 0.1rem 0.55rem; border-radius: 999px; }
+  .nw-body { flex: 1 1 18rem; }
+  .nw-body p { display: inline; margin: 0; }
+  .nw-link { color: var(--nw-link); font-weight: 600; white-space: nowrap; text-decoration: none; }
+  .nw-link:hover { text-decoration: underline; }
+</style>
+
+<div class="nw">
+  <div class="nw-card">
+    <h2 class="nw-title">{{ $title }}</h2>
+    <ul class="nw-list">
+      {{ range $item := $block.content.items }}
+        <li class="nw-item">
+          {{ with $item.date }}<span class="nw-date">{{ . }}</span>{{ end }}
+          <span class="nw-body">{{ $item.text | markdownify }}
+            {{ with $item.url }} <a class="nw-link" href="{{ . }}" target="_blank" rel="noopener">{{ $item.link_text | default "Read more" }} &rarr;</a>{{ end }}
+          </span>
+        </li>
+      {{ end }}
+    </ul>
+  </div>
+</div>

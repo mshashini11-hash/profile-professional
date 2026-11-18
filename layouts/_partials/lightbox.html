@@ -1,0 +1,76 @@
+{{/* Shared full-screen viewer. Any element with data-lb-group opens it.
+     Attributes: data-lb-group (name), data-lb-src, data-lb-type ("image"|"video"), data-lb-caption. */}}
+<style>
+  .lb { position: fixed; inset: 0; z-index: 9999; background: rgba(10,12,14,0.94); display: none; align-items: center; justify-content: center; }
+  .lb.open { display: flex; }
+  .lb-stage { max-width: 92vw; max-height: 84vh; display: flex; flex-direction: column; align-items: center; gap: 0.75rem; }
+  .lb-stage img, .lb-stage video { max-width: 92vw; max-height: 78vh; object-fit: contain; border-radius: 0.35rem; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
+  .lb-cap { color: #e5e7eb; font-size: 0.95rem; text-align: center; }
+  .lb-count { color: #9ca3af; font-size: 0.8rem; margin-left: 0.5rem; }
+  .lb button { position: absolute; background: rgba(255,255,255,0.08); color: #fff; border: 0; border-radius: 999px; width: 2.75rem; height: 2.75rem; font-size: 1.5rem; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+  .lb button:hover { background: rgba(255,255,255,0.2); }
+  .lb-close { top: 1rem; right: 1rem; }
+  .lb-prev { left: 1rem; top: 50%; transform: translateY(-50%); }
+  .lb-next { right: 1rem; top: 50%; transform: translateY(-50%); }
+  @media (max-width: 640px) { .lb-prev, .lb-next { top: auto; bottom: 1rem; transform: none; } }
+  [data-lb-group] { cursor: zoom-in; }
+</style>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Painting viewer">
+  <button class="lb-close" type="button" aria-label="Close">&times;</button>
+  <button class="lb-prev" type="button" aria-label="Previous">&lsaquo;</button>
+  <div class="lb-stage" id="lb-stage"></div>
+  <button class="lb-next" type="button" aria-label="Next">&rsaquo;</button>
+</div>
+<script>
+(function () {
+  if (window.__lbInit) return; window.__lbInit = true;
+  var lb = document.getElementById('lb'), stage = document.getElementById('lb-stage');
+  var items = [], idx = 0, lastFocus = null;
+  function show(i) {
+    idx = (i + items.length) % items.length;
+    var el = items[idx], src = el.getAttribute('data-lb-src'), type = el.getAttribute('data-lb-type') || 'image';
+    var cap = el.getAttribute('data-lb-caption') || '';
+    stage.innerHTML = '';
+    var m;
+    if (type === 'video') { m = document.createElement('video'); m.controls = true; m.autoplay = true; m.playsInline = true; m.src = src; }
+    else { m = document.createElement('img'); m.src = src; m.alt = cap; }
+    stage.appendChild(m);
+    var c = document.createElement('div'); c.className = 'lb-cap'; c.textContent = cap;
+    var n = document.createElement('span'); n.className = 'lb-count'; n.textContent = (idx + 1) + ' / ' + items.length;
+    c.appendChild(n); stage.appendChild(c);
+    var multi = items.length > 1;
+    lb.querySelector('.lb-prev').style.display = multi ? '' : 'none';
+    lb.querySelector('.lb-next').style.display = multi ? '' : 'none';
+  }
+  function open(el) {
+    var g = el.getAttribute('data-lb-group');
+    items = Array.prototype.slice.call(document.querySelectorAll('[data-lb-group="' + g + '"]'));
+    lastFocus = document.activeElement;
+    lb.classList.add('open'); document.body.style.overflow = 'hidden';
+    show(items.indexOf(el)); lb.querySelector('.lb-close').focus();
+  }
+  function close() { lb.classList.remove('open'); stage.innerHTML = ''; document.body.style.overflow = ''; if (lastFocus) lastFocus.focus(); }
+  document.addEventListener('click', function (e) {
+    var el = e.target.closest('[data-lb-group]');
+    if (el) { e.preventDefault(); open(el); }
+  });
+  document.addEventListener('keydown', function (e) {
+    var el = e.target.closest && e.target.closest('[data-lb-group]');
+    if (el && !lb.classList.contains('open') && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); open(el); return; }
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowRight') show(idx + 1);
+    else if (e.key === 'ArrowLeft') show(idx - 1);
+  });
+  lb.querySelector('.lb-close').onclick = close;
+  lb.querySelector('.lb-prev').onclick = function () { show(idx - 1); };
+  lb.querySelector('.lb-next').onclick = function () { show(idx + 1); };
+  lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+  var x0 = null;
+  lb.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', function (e) {
+    if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; x0 = null;
+    if (Math.abs(dx) > 50) show(idx + (dx < 0 ? 1 : -1));
+  });
+})();
+</script>

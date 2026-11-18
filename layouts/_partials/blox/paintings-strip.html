@@ -1,0 +1,47 @@
+{{/* Custom block: a row of painting thumbnails from the /paintings page; click opens the full-screen viewer. */}}
+{{ $block := .wcBlock }}
+{{ $title := $block.content.title | default "Paintings" }}
+{{ $count := $block.content.count | default 4 }}
+{{ $page := site.GetPage "/paintings" }}
+
+{{ with $page }}
+{{ $imgs := slice }}
+{{ range .Params.items }}{{ if and .image (ne .on_home false) }}{{ $imgs = $imgs | append . }}{{ end }}{{ end }}
+<style>
+  .ps { --ps-heading: #18453B; --ps-text: #4b5563; --ps-link: #1d4ed8; --ps-border: #e5e7eb; --ps-soft: #e8f0ed;
+        max-width: 1100px; margin: 0 auto; padding: 0 1rem; }
+  html.dark .ps { --ps-heading: #a7e3cf; --ps-text: #9ca3af; --ps-link: #60a5fa; --ps-border: #374151; --ps-soft: rgba(79,174,142,0.15); }
+  .ps-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem; }
+  .ps-title { font-size: 1.75rem; font-weight: 800; color: var(--ps-heading); margin: 0; }
+  .ps-sub { color: var(--ps-text); font-size: 0.92rem; margin: 0.15rem 0 0; }
+  .ps-all { color: var(--ps-link); font-weight: 600; text-decoration: none; white-space: nowrap; }
+  .ps-all:hover { text-decoration: underline; }
+  .ps-row { display: grid; grid-template-columns: repeat({{ $count }}, minmax(0, 1fr)); gap: 0.85rem; }
+  @media (max-width: 700px) { .ps-row { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .ps-tile { position: relative; display: block; aspect-ratio: 1 / 1; overflow: hidden; border-radius: 0.75rem; border: 1px solid var(--ps-border); background: var(--ps-soft); }
+  .ps-tile img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.35s ease; }
+  .ps-tile:hover img, .ps-tile:focus-visible img { transform: scale(1.05); }
+  .ps-tile span { position: absolute; left: 0; right: 0; bottom: 0; padding: 1.5rem 0.7rem 0.55rem; color: #fff; font-size: 0.82rem; font-weight: 600;
+                  background: linear-gradient(transparent, rgba(0,0,0,0.65)); opacity: 0; transition: opacity 0.25s; }
+  .ps-tile:hover span, .ps-tile:focus-visible span { opacity: 1; }
+</style>
+
+<div class="ps">
+  <div class="ps-head">
+    <div>
+      <h2 class="ps-title">{{ $title }}</h2>
+      {{ with $block.content.subtitle }}<p class="ps-sub">{{ . }}</p>{{ end }}
+    </div>
+    <a class="ps-all" href="{{ $page.RelPermalink }}">See all paintings &amp; videos &rarr;</a>
+  </div>
+  <div class="ps-row">
+    {{ range first $count $imgs }}
+      <a class="ps-tile" href="{{ .image }}" data-lb-group="home-paintings" data-lb-src="{{ .image }}" data-lb-type="image" data-lb-caption="{{ .caption }}" aria-label="View {{ .caption }}">
+        <img src="{{ .thumb | default .image }}" alt="{{ .caption }}" loading="lazy">
+        <span>{{ .caption }}</span>
+      </a>
+    {{ end }}
+  </div>
+</div>
+{{ partial "lightbox.html" . }}
+{{ end }}
