@@ -4,7 +4,7 @@ type: gallery
 items:
   - image: "/uploads/paintings/painting2.jpg"
     thumb: "/uploads/paintings/thumbs/painting2.jpg"
-    caption: "Portrait in Red and White"
+    caption: "Untitled"
     description: "Oil on canvas."
 
   - image: "/uploads/paintings/painting3.jpg"
@@ -14,23 +14,23 @@ items:
 
   - image: "/uploads/paintings/painting4.jpg"
     thumb: "/uploads/paintings/thumbs/painting4.jpg"
-    caption: "Girl with Flowers"
+    caption: "Untitled"
     description: "Oil on canvas."
 
   - video: "/uploads/paintings/flowers-process.mp4"
-    caption: "Girl with Flowers: painting process"
+    caption: "Painting process"
 
   - image: "/uploads/paintings/painting5.jpg"
     thumb: "/uploads/paintings/thumbs/painting5.jpg"
-    caption: "Underwater Portrait"
+    caption: "Drowning"
     description: "Oil on canvas."
 
   - video: "/uploads/paintings/underwater-process.mp4"
-    caption: "Underwater Portrait: painting process"
+    caption: "Drowning: painting process"
 
   - image: "/uploads/paintings/painting6.jpg"
     thumb: "/uploads/paintings/thumbs/painting6.jpg"
-    caption: "Portrait with Red Roses"
+    caption: "Peace"
     description: "Oil on canvas."
 
   - image: "/uploads/art1.jpeg"
