@@ -169,6 +169,8 @@ universities:
       - title: "Teaching Professional Development"
         ior: false
         items:
+          - text: "**Educator of the Month**, MSU Graduate School. [Read the feature article](https://grad.msu.edu/news-and-events/news/2026/11/november-eotm)."
+            date: "November 2026"
           - text: "**FAST Fellowship (Future Academic Scholars in Teaching):** a competitive teaching-as-research professional development program for STEM Ph.D. students at MSU; selected as 1 of 9 university-wide. Planned and conducted a mentored classroom research project to improve undergraduate teaching and learning."
             date: "2025–2026"
           - text: "**Certification in College Teaching** (in progress), MSU Graduate School: completed all coursework, workshop, and mentored teaching requirements, including the two-day Certification in College Teaching Institute (CCTI); final teaching e-portfolio in progress."

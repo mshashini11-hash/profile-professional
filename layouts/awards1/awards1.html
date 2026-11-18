@@ -84,7 +84,7 @@
                         </span>
                       </div>
                       {{ with .description }}<p class="aw-desc">{{ . }}</p>{{ end }}
-                      {{ with .url }}<a href="{{ . }}" target="_blank" rel="noopener" class="aw-link">Learn more &rarr;</a>{{ end }}
+                      {{ with .url }}<a href="{{ . }}" target="_blank" rel="noopener" class="aw-link">{{ .link_text | default "Learn more" }} &rarr;</a>{{ end }}
                     </li>
                   {{ end }}
                 </ul>

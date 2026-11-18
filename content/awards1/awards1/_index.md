@@ -7,6 +7,12 @@ subtopics:
     universities:
       - name: "Michigan State University"
         items:
+          - title: "Educator of the Month, The Graduate School"
+            date: "November 2026"
+            url: "https://grad.msu.edu/news-and-events/news/2026/11/november-eotm"
+            link_text: "Read the feature article"
+            description: "Selected as the MSU Graduate School's Educator of the Month for November 2026. In the feature, I talk about teaching as a two-way process, planning lessons from my students' perspective, measuring each student's growth individually, and how the GREAT Office and the FAST Fellowship shaped my teaching."
+
           - title: "Graduate Fellowship"
             date: "2026–2027"
             amount: "$15,000"
@@ -63,6 +69,10 @@ subtopics:
           - title: "Spokesperson, Volume Conjecture and Beyond Working Group"
             date: "Fall 2026"
             description: "Serve as the spokesperson for the volume conjecture working group at the IPAM Long Program (Quantum Topology, Character Varieties, and Low-Dimensional Geometry), UCLA."
+
+          - title: "Co-organizer, Core Participant Seminar"
+            date: "Fall 2026"
+            description: "Co-organize the core participant seminar at the IPAM Long Program (Quantum Topology, Character Varieties, and Low-Dimensional Geometry), UCLA."
 
           - title: "Organizer, MSU Graduate Geometry and Topology Seminar"
             date: "2024–2025"

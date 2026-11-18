@@ -6,7 +6,7 @@ authors:
   - "S. Marasinghe"
 year: 2025
 weight: 2
-status: "Submitted to the Journal of the London Mathematical Society"
+status: "To appear in the Journal of the London Mathematical Society"
 links:
   - name: "arXiv"
     url: "https://arxiv.org/abs/2505.01546"
