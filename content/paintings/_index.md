@@ -20,8 +20,8 @@ items:
   - video: "/uploads/paintings/flowers-process.mp4"
     caption: "Painting process"
 
-  - image: "/uploads/paintings/drowning-closeup.jpg"
-    thumb: "/uploads/paintings/drowning-closeup.jpg"
+  - image: "/uploads/art1.jpeg"
+    thumb: "/uploads/paintings/thumbs/art1.jpg"
     caption: "Drowning"
     description: "Oil on canvas."
 
@@ -38,8 +38,4 @@ items:
     caption: "Untitled"
     description: "Oil on canvas."
 
-  - image: "/uploads/art1.jpeg"
-    thumb: "/uploads/paintings/thumbs/art1.jpg"
-    caption: "Portrait Study 1"
-    description: "Exploring emotion through color and light."
 ---

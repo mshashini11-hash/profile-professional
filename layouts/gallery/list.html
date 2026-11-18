@@ -44,7 +44,8 @@
           {{ range . }}
             <figure class="gl-item">
               {{ $cap := .caption | default $.Title }}
-              {{ with .image }}<img src="{{ . }}" alt="{{ $cap }}" loading="lazy" tabindex="0" data-lb-group="gallery" data-lb-src="{{ . }}" data-lb-type="image" data-lb-caption="{{ $cap }}">{{ end }}
+              {{ $thumb := .thumb | default .image }}
+              {{ with .image }}<img src="{{ $thumb }}" alt="{{ $cap }}" loading="lazy" tabindex="0" data-lb-group="gallery" data-lb-src="{{ . }}" data-lb-type="image" data-lb-caption="{{ $cap }}">{{ end }}
               {{ with .video }}
                 <video controls preload="metadata">
                   <source src="{{ . }}" type="video/mp4">
