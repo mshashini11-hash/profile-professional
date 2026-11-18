@@ -12,21 +12,16 @@ sections:
       button:
         text: Download CV
         url: uploads/resume.pdf
-    design:
-      avatar:
-        size: large
-        shape: square
-
-  # News line under the bio
-  - block: news
-    id: news
-    content:
-      title: News
-      items:
+      # News card (shown next to Interests and Education)
+      news:
         - date: "Nov 2026"
           text: "Named the MSU Graduate School's **Educator of the Month**."
           url: "https://grad.msu.edu/news-and-events/news/2026/11/november-eotm"
           link_text: "Read the feature"
+    design:
+      avatar:
+        size: large
+        shape: square
 
   # Quick links to each main section
   - block: explore

@@ -49,7 +49,17 @@
   .hm-updated { position: relative; margin-top: 1.75rem; text-align: center; font-size: 0.8rem; color: var(--hm-faint); }
   .hm-updated span { display: inline-block; padding: 0.3rem 0.8rem; border-radius: 999px; background: var(--hm-card); border: 1px solid var(--hm-border); }
 
-  .hm-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-top: 3.5rem; }
+  .hm-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-top: 2.5rem; }
+  .hm-news { border-left: 4px solid #4fae8e; }
+  .hm-news-item { display: flex; flex-direction: column; gap: 0.35rem; }
+  .hm-news-date { align-self: flex-start; font-size: 0.78rem; font-weight: 700; padding: 0.15rem 0.6rem; border-radius: 999px; background: var(--hm-soft); color: var(--hm-accent); }
+  .hm-news-text { font-size: 0.92rem; line-height: 1.5; color: var(--hm-heading); }
+  .hm-news-text p { display: inline; margin: 0; }
+  .hm-news-text a { font-weight: 600; color: #1d4ed8; white-space: nowrap; }
+  html.dark .hm-news-text a { color: #60a5fa; }
+  /* tighter spacing between homepage sections */
+  .hbb-section.blox-resume-biography-3 { padding-bottom: 1rem !important; }
+  .hbb-section.blox-explore, .hbb-section.blox-paintings-strip, .hbb-section.blox-cv-embed { padding-top: 2rem !important; padding-bottom: 2rem !important; }
   .hm-fact { background: var(--hm-card); border: 1px solid var(--hm-border); border-radius: 1.1rem; padding: 1.4rem 1.5rem; }
   .hm-fact h3 { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--hm-faint); margin: 0 0 0.9rem; }
   .hm-fact ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.55rem; }
@@ -130,7 +140,7 @@
       {{ end }}
     </div>
 
-    {{ if or $person.interests $person.education }}
+    {{ if or $person.interests $person.education $block.content.news }}
       <div class="hm-facts">
         {{ with $person.interests }}
           <div class="hm-fact">
@@ -151,6 +161,19 @@
                     <div class="hm-edu-area">{{ .area }}{{ with .year }}, {{ . }}{{ end }}</div>
                     <div class="hm-edu-inst">{{ .institution }}</div>
                   </div>
+                </li>
+              {{ end }}
+            </ul>
+          </div>
+        {{ end }}
+        {{ with $block.content.news }}
+          <div class="hm-fact hm-news">
+            <h3>News</h3>
+            <ul>
+              {{ range $n := . }}
+                <li class="hm-news-item">
+                  {{ with $n.date }}<span class="hm-news-date">{{ . }}</span>{{ end }}
+                  <div class="hm-news-text">{{ $n.text | markdownify }}{{ with $n.url }} <a href="{{ . }}" target="_blank" rel="noopener">{{ $n.link_text | default "Read more" }}&nbsp;&rarr;</a>{{ end }}</div>
                 </li>
               {{ end }}
             </ul>
